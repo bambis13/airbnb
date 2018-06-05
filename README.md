@@ -14,18 +14,18 @@ has_one :language, :currency
 |Colum|Type|Options|
 -|-|-
 name|string|null: false, index: true
-birth_day|integer|null: false
-sex|string|null: false
+birth_day|date|null: false
+sex|enum|null: false
 phone_number|integer|null: false, unique: true
 address|string|null: false
 self_introduction|text|null: false
-currency_id|references|null: false, index: true, foreign_key: true
-language_id|references|null: false, index: true, foreign_key: true
+currency|references|null: false, index: true, foreign_key: true
+language|references|null: false, index: true, foreign_key: true
 ___
 ### Listing
 #### association
 ```
-has_many :available_sapaces, :prices, :favarite, :listing_reservations, :listing_reviews
+has_many :available_spaces, :prices, :favorite, :listing_reservations, :listing_reviews
 ```
 ```
 belongs_to :listing_smallCategory :room_type
@@ -44,27 +44,27 @@ number_of_bedrooms|integer|null: false
 number_of_bathrooms|integer|null: false
 bathroom_for_guest|boolean|null: false
 postal_code|string|null: false
-country|reference|null: false
+country|references|null: false, foreign_key: true
 prefecture|string|null: false
 town|string|null: false
 street|string|null: false
 building|string|null: false
 map_location|integer|null: false
-amenity|reference|null: false
-available-space|reference|null: false
+amenity|references|null: false, foreign_key: true
+available-space|references|null: false, foreign_key: true
 overview|text|null: false
-additional_overviews_id|null: false, foreign_key: true
+additional_overviews|references|null: false, foreign_key: true
 name|string|null: false
-categorysmall_id|reference|null: false
-roomtype_id|reference|null: false
-bed_nums_id|reference|null: false
+categorysmall|references|null: false
+roomtype|references|null: false
+bed_nums|references|null: false
 having_hosted_before|boolean|null: false
-frequency_id|string|null: false
+frequency|references|null: false, foreign_key: true
 reservation_deadline|integer|null: false
-availability_setting_id|null: false, foreign_key: true
+availability_setting|references|null: false, foreign_key: true
 calendar|string|null: false
-house_rule_id|reference|null: false, foreign_key: true
-price_id|reference|null: false, foreign_key: true
+house_rule|references|null: false, foreign_key: true
+price|references|null: false, foreign_key: true
 ___
 ### Listing_reservation
 #### association
@@ -74,7 +74,7 @@ belongs_to :user, :listing_review, :listing
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
 checking_date|datetime| |
 checkout_date|datetime| |
 guests_nunber|integer| |
@@ -91,9 +91,9 @@ belongs_to :listing, :user
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
-listing_id|references|null: false, foreign_key: true
-listing_reservation_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
+listing|references|null: false, foreign_key: true
+listing_reservation|references|null: false, foreign_key: true
 review|integer| |
 accuracy_rate|integer| |
 location_rate|integer| |
@@ -113,7 +113,7 @@ has_and_belongs_to_meny :listings, :experiences
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
 image|text| |
 ___
 ### Room_type
@@ -316,7 +316,7 @@ meeting_place|string|null: false
 maximum_participants|text| |
 conditions_of_participation|text| |
 cancel_policy|text|null: false
-category_id|references|null: false, index: true, foreign_key: true
+category|references|null: false, index: true, foreign_key: true
 ___
 ### Experience_categry
 #### association
@@ -326,7 +326,7 @@ has_many :experiences
 #### table
 |Colum|Type|Options|
 -|-|-
-experience_id|references|null: false, foreign_key: true
+experience|references|null: false, foreign_key: true
 name|string| |
 ___
 ### Experience_reservation
@@ -340,8 +340,8 @@ belongs_to :experience, :user
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
-experience_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
+experience|references|null: false, foreign_key: true
 experience_date|datetime| |
 created_at|timestamps| |
 
@@ -354,9 +354,9 @@ belongs_to :experience, :experience_reservation, :user
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
-experience_id|references|null: false, foreign_key: true
-experience_reservation_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
+experience|references|null: false, foreign_key: true
+experience_reservation|references|null: false, foreign_key: true
 review|text| |
 rate|integer| |
 ___
@@ -368,9 +368,9 @@ belongs_to :favolist, :listing, :experience
 #### table
 |Colum|Type|Options|
 -|-|-
-listing_id|references|null: false, foreign_key: true
-experience_id|references|null: false, foreign_key: true
-favolist_id|references|null: false, foreign_key: true
+listing|references|null: false, foreign_key: true
+experience|references|null: false, foreign_key: true
+favolist|references|null: false, foreign_key: true
 ___
 ### Favolist
 #### association
@@ -383,7 +383,7 @@ belongs_to :user
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
 name|string| |
 ___
 ### Messege
@@ -394,9 +394,9 @@ belongs_to :user
 #### table
 |Colum|Type|Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
-sender_id|references|null: false, foreign_key: true
-receiver_id|references|null: false, foreign_key: true
+user|references|null: false, foreign_key: true
+sender|references|null: false, foreign_key: true
+receiver|references|null: false, foreign_key: true
 text|text| |
 created_at|timestamps| |
 
@@ -409,7 +409,7 @@ belongs_to :listing
 #### table
 |Colum|Type|Options|
 -|-|-
-listing_id|references|null: false, foreign_key: true
+listing|references|null: false, foreign_key: true
 about_listing|text| |
 areas_available|text| |
 frequency|text| |
@@ -441,15 +441,15 @@ ___
 #### table
 |Colum|Type|Options|
 -|-|-
-listing_id|references|null: false, foreign_key: true
-listing_photo_id|references|null: false, foreign_key: true
+listing|references|null: false, foreign_key: true
+listing_photo|references|null: false, foreign_key: true
 ___
 ### Listing_photo_experience
 #### table
 |Colum|Type|Options|
 -|-|-
-experience_id|references|null: false, foreign_key: true
-listing_photo_id|references|null: false, foreign_key: true
+experience|references|null: false, foreign_key: true
+listing_photo|references|null: false, foreign_key: true
 ___
 ### Listing_big_small_categry
 #### table
