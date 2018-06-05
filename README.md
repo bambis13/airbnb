@@ -2,188 +2,206 @@ Airbnb Database_Design
 > Ruby on Rails - _5.1.6_
 > mysql2 - _0.3.18_
 ___
+
 ### User
 #### association
 ```
-has_many :messeges, :favolists, :experience_reservations, :experience_reviews, :listing_photos, :listing_reservations, :linting_reviews
+has_many :messages, :favorite_lists,:listing_photos, :home_reservations, :home_reviews
 ```
 ```
-has_one :language, :currency
+belongs_to :country, :language, :currency
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 name|string|null: false, index: true
 birth_day|date|null: false
 sex|enum|null: false
 phone_number|integer|null: false, unique: true
-address|string|null: false
-self_introduction|text|null: false
-currency|references|null: false, index: true, foreign_key: true
-language|references|null: false, index: true, foreign_key: true
-___
-### Listing
-#### association
-```
-has_many :available_spaces, :prices, :favorite, :listing_reservations, :listing_reviews
-```
-```
-belongs_to :listing_smallCategory :room_type
-```
-```
-has_one :country_name, :amenity, :bed_type, :available_space, :additional_overview, :available_setting, :price, :house_rule
-```
-```
-has_and_belongs_to_meny :listing_photos
-```
-#### table
-|Colum|Type|Options|
--|-|-
-capacity|integer|null: false
-number_of_bedrooms|integer|null: false
-number_of_bathrooms|integer|null: false
-bathroom_for_guest|boolean|null: false
-postal_code|string|null: false
+postal_code|integer|null: false
 country|references|null: false, foreign_key: true
 prefecture|string|null: false
 town|string|null: false
 street|string|null: false
 building|string|null: false
-map_location|integer|null: false
+self_introduction|text|null: false
+currency|references|null: false,foreign_key: true
+language|references|null: false, foreign_key: true
+___
+
+### Home
+#### association
+```
+has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules
+```
+```
+belongs_to :home_category_sub, :room_type, :country, :currency
+```
+```
+has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule
+```
+```
+has_and_belongs_to_meny :listing_photos
+```
+#### table
+|Column|Type|Options|
+-|-|-
+capacity|integer|null: false
+number_of_bedrooms|integer|null: false
+number_of_bathrooms|integer|null: false
+bathroom_for_guest|boolean|null: false
+postal_code|integer|null: false
+country|references|null: false, foreign_key: true, index: true
+prefecture|string|null: false
+town|string|null: false, index: true
+street|string|null: false
+building|string|null: false
+location_x|integer|null: false
+location_y|integer|null: false
 amenity|references|null: false, foreign_key: true
-available-space|references|null: false, foreign_key: true
-overview|text|null: false
-additional_overviews|references|null: false, foreign_key: true
-name|string|null: false
-categorysmall|references|null: false
-roomtype|references|null: false
-bed_nums|references|null: false
-having_hosted_before|boolean|null: false
-frequency|references|null: false, foreign_key: true
-reservation_deadline|integer|null: false
+available_space|references|null: false, foreign_key: true
+overview|references|null: false, foreign_key: true
+name|string|null: false, index: true
+home_category_sub|references|null: false
+room_type|references|null: false
+bed_type|references|null: false
+invite_frequency|enum|null: false
 availability_setting|references|null: false, foreign_key: true
-calendar|string|null: false
-house_rule|references|null: false, foreign_key: true
+home_rule|references|null: false, foreign_key: true
+additional_home_rule|references|null: false, foreign_key: true
+home_notification|references|null: false, foreign_key: true
 price|references|null: false, foreign_key: true
 ___
-### Listing_reservation
+
+### Home_reservation
 #### association
 ```
-belongs_to :user, :listing_review, :listing
+has_one :home_review
+```
+```
+belongs_to :user, :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 user|references|null: false, foreign_key: true
-checking_date|datetime| |
-checkout_date|datetime| |
-guests_nunber|integer| |
+checkin_date|datetime|null: false |
+checkout_date|datetime|null: false |
+number_of_guests|integer|null: false |
 created_at|timestamps| |
 ___
-### Listing_revirw
+
+### Home_review
 #### association
 ```
-has_many :listing_reservations
-```
-```
-belongs_to :listing, :user
+belongs_to :home, :user, :home_reservation
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-user|references|null: false, foreign_key: true
-listing|references|null: false, foreign_key: true
-listing_reservation|references|null: false, foreign_key: true
-review|integer| |
-accuracy_rate|integer| |
-location_rate|integer| |
-communication_rate|integer| |
-cleanliness_rate|integer| |
-check_in_rate|integer| |
-cost_paformance_rate|integer| |
-___
+user|references|null: false
+home|references|null: false, foreign_key: true
+home_reservation|references|null: false
+review|text|null: false|
+accuracy_rate|integer|null: false|
+location_rate|integer|null: false|
+communication_rate|integer|null: false|
+cleanliness_rate|integer|null: false|
+checkin_rate|integer|null: false|
+cost_performance_rate|integer|null: false|
+home_reservation|references|null: false, foreign_key: true|
+
+
 ### Listing_photo
 #### association
 ```
 belongs_to :user
 ```
 ```
-has_and_belongs_to_meny :listings, :experiences
+has_and_belongs_to_many :homes
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 user|references|null: false, foreign_key: true
-image|text| |
+image|text|null: false|
+
 ___
+
 ### Room_type
 #### association
 ```
-has_many :listing
+has_many :homes
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false|
 ___
+
 ### Bed_type
 #### association
 ```
-belongs_to :listing
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-single_bed|integer| |
-double_bed|integer| |
-queen_bed|integer| |
-sofa_bed|integer| |
+single_bed|integer||
+double_bed|integer||
+queen_bed|integer||
+sofa_bed|integer||
+home|references|null: false, foreign_key: true|
 ___
-### Country_name
+
+### Country
 #### association
 ```
-belongs_to :listing
+has_many :homes, :users
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false|
 ___
+
 ### Amenity
 #### association
 ```
-belongs_to :listing
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-nocessities|boolean| |
+necessities|boolean| |
 wifi|boolean| |
 shampoo|boolean| |
 closet|boolean| |
 tv_set|boolean| |
 heating|boolean| |
-air_condition|boolean| |
+air_conditioner|boolean| |
 breakfast|boolean| |
 desk|boolean| |
 fireplace|boolean| |
 iron|boolean| |
-hairdryer|boolean| |
+hair_dryer|boolean| |
 allowed_pet|boolean| |
 smoke_detector|boolean| |
 carbon_monoxide_detecter|boolean| |
 aid_set|boolean| |
-digestive_organ|boolean| |
+fire_extinguisher|boolean| |
 disaster_card|boolean| |
 keyed_door|boolean| |
+home|references|null:false, foreign_key: true|
 ___
-### Amenity_space
+
+### Available_space
 #### association
 ```
-belongs_to :listing
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 dedicated_living|boolean| |
 pool|boolean| |
@@ -194,267 +212,218 @@ parking|boolean| |
 elevator|boolean| |
 jacuzzi|boolean| |
 gym|boolean| |
+home|references|null:false, foreign_key: true|
 ___
+
 ### Availability_setting
 #### association
 ```
-belongs_to :listing
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-booking_due|integer| |
-booking_due_time|integer| |
-checkin_time_due_from|integer| |
-checkin_time_due_to|integer| |
-available_booking_date|integer| |
+reservation_deadline|integer| |
+checkin_time_deadline_from|time| |
+checkin_time_deadline_to|time| |
+acceptable_month_ahead|integer| |
 muximum_accomodation_range|integer| |
 minimum_accomodation_range|integer| |
-
+home|references|null:false, foreign_key: true|
 ___
+
+
 ### Price
 #### association
 ```
-belongs_to :listing, :experience
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-price|integer| |
+pricing_method|enum|null: false|
+default_price|integer|null: false|
 muximum_price|integer| |
 minimum_price|integer| |
-fixied_pricing|integer| |
-smart_pricing|integer| |
-weekly_discount|integer| |
-discount|integer| |
+first_arrival_discount|boolean||
+weekly_discount_rate|float|null: false|
+monthly_discount_rate|float|null: false|
+home|references|null:false, foreign_key: true|
 ___
-### House_rule
-#### association
-```
-belongs_to :listing
-```
-#### table
-|Colum|Type|Options|
--|-|-
-kids|boolean| |
-kids_reason|text| |
-babies|boolean| |
-babies_reason|text| |
-pet|boolean| |
-somoking|boolean| |
-event_party|boolean| |
-additional_rule|boolean| |
-rule_add|text| |
-not_barrierfree|boolean| |
-barrierfree_reason|text| |
-noisy|boolean| |
-noisy_reason|text| |
-pet_stayed|boolean| |
-pet_reason|text| |
-parking|boolean| |
-parking_reason|text| |
-shared_space|boolean| |
-space_reason|text| |
-limited_amenity|boolean| |
-amenity_reason|text| |
-surveillance_camera|boolean| |
-camera_reason|text| |
-firearm|boolean| |
-firearm_reason|text| |
-dangerous_animals|boolean| |
-animals_reason|text| |
-___
-### Listing_big_category
-#### association
-```
-has_and_belongs_to_meny :listing_smallCategries
-```
-#### table
-|Colum|Type|Options|
--|-|-
-name|stirng| |
-___
-### Listing_smallCategory
-#### association
-```
-has_meny :listing
-```
-```
-has_and_belongs_to_meny :listing_bigCategries
-```
-#### table
-|Colum|Type|Options|
--|-|-
-name|string| |
-___
-### Experience
-#### association
-```
-has_many :experience_reservation, :experience_review, favolist
-```
-```
-belongs_to :experience_categry
-```
-```
-has_and_belongs_to_meny :listing_photos
-```
-#### table
-|Colum|Type|Options|
--|-|-
-title|string|null: false, index: true
-location|integer|null: false, index: true
-total_time|string|null: false
-facility|string|null: false
-guidance_language|string|null: false
-world_surf_certification|text|null: false
-about_host|text| |
-what_to_experience|text| |
-prepared_stuff|text| |
-entrance_range|text| |
-route|text| |
-meeting_place|string|null: false
-maximum_participants|text| |
-conditions_of_participation|text| |
-cancel_policy|text|null: false
-category|references|null: false, index: true, foreign_key: true
-___
-### Experience_categry
-#### association
-```
-has_many :experiences
-```
-#### table
-|Colum|Type|Options|
--|-|-
-experience|references|null: false, foreign_key: true
-name|string| |
-___
-### Experience_reservation
-#### association
-```
-has_many :experience_reviews
-```
-```
-belongs_to :experience, :user
-```
-#### table
-|Colum|Type|Options|
--|-|-
-user|references|null: false, foreign_key: true
-experience|references|null: false, foreign_key: true
-experience_date|datetime| |
-created_at|timestamps| |
 
-___
-### Experience_review
+### Home_rule
 #### association
 ```
-belongs_to :experience, :experience_reservation, :user
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-user|references|null: false, foreign_key: true
-experience|references|null: false, foreign_key: true
-experience_reservation|references|null: false, foreign_key: true
-review|text| |
-rate|integer| |
+accept_kids|boolean| |
+kids_reason|text| |
+accept_babies|boolean| |
+babies_reason|text| |
+accept_pet|boolean| |
+accept_smoking|boolean| |
+accept_event_party|boolean| |
+home|references|null: false, foreign_key: true|
 ___
-### Favorite
+
+### Additional_home_rule
 #### association
 ```
-belongs_to :favolist, :listing, :experience
+belongs_to :home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-listing|references|null: false, foreign_key: true
-experience|references|null: false, foreign_key: true
-favolist|references|null: false, foreign_key: true
+content|text|null: false|
+home|references|null: false, foreign_key: true|
 ___
-### Favolist
+
+### home_notification
 #### association
 ```
-has_many :favorite
+belongs_to :home
+```
+#### table
+|Column|Type|Options|
+-|-|-
+only_stairs|boolean| |
+stairs_detail|text| |
+noisy|boolean| |
+noisy_detail|text| |
+pet_stayed|boolean| |
+pet_detail|text| |
+no_parking|boolean| |
+parking_guide|text| |
+shared_space|boolean| |
+shared_space_detail|text| |
+limited_amenity|boolean| |
+limited_amenity_detail|text| |
+surveillance_camera|boolean| |
+camera_detail|text| |
+firearm|boolean| |
+firearm_detail|text| |
+dangerous_animals|boolean| |
+animals_detail|text| |
+home|references|null: false, foreign_key: true|
+___
+
+
+### Home_category_main
+#### association
+```
+has_and_belongs_to_many :home_category_subs
+```
+#### table
+|Column|Type|Options|
+-|-|-
+name|string| |
+___
+
+### Home_category_sub
+#### association
+```
+has_many :home
+```
+```
+has_and_belongs_to_many :home_category_mains
+```
+#### table
+|Column|Type|Options|
+-|-|-
+name|string| |
+___
+
+### Favorite_list
+#### association
+```
+has_many :favorites
 ```
 ```
 belongs_to :user
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 user|references|null: false, foreign_key: true
 name|string| |
 ___
+
 ### Messege
 #### association
 ```
 belongs_to :user
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|　Options|
 -|-|-
 user|references|null: false, foreign_key: true
 sender|references|null: false, foreign_key: true
-receiver|references|null: false, foreign_key: true
+recipient|references|null: false, foreign_key: true
 text|text| |
 created_at|timestamps| |
 
 ___
-### Additional_overview
+
+### Overview
 #### association
 ```
-belongs_to :listing
+belongs_to ::home
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-listing|references|null: false, foreign_key: true
+home|references|null: false, foreign_key: true
+overview|text|null: false
 about_listing|text| |
 areas_available|text| |
-frequency|text| |
+communication_frequency|text| |
 other_notices|text| |
 area_information|text|  |
 transportation|text|  |
+
 ___
+
 ### Language
 #### association
 ```
-belongs_to :user
+has_many :users
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 name|string| |
 ___
+
 ### Currency
 #### association
 ```
-belongs_to :user
+has_many :users, :homes
 ```
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
 name|string| |
 ___
-### Listing_photo_listing
+
+### Listing_photo_home
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-listing|references|null: false, foreign_key: true
+home|references|null: false, foreign_key: true
 listing_photo|references|null: false, foreign_key: true
+
 ___
-### Listing_photo_experience
+
+### Home_category_main_ sub
+
 #### table
-|Colum|Type|Options|
+|Column|Type|Options|
 -|-|-
-experience|references|null: false, foreign_key: true
-listing_photo|references|null: false, foreign_key: true
+home_category_main|null: false, foreign_key: true| |
+home_category_sub|null: false, foreign_key: true| |
 ___
-### Listing_big_small_categry
-#### table
-|Colum|Type|Options|
--|-|-
-listing_big_category_id|null: false, foreign_key: true| |
-listing_small_category_id|null: false, foreign_key: true| |
-___
+
+
