@@ -11,22 +11,22 @@ has_many :messages, :favorite_lists,:listing_photos, :home_reservations, :home_r
 ```
 belongs_to :country, :language, :currency
 ```
-#### table
+#### Users_table
 |Column|Type|Options|
 -|-|-
 name|string|null: false, index: true
 birth_day|date|null: false
 sex|enum|null: false
-phone_number|integer|null: false, unique: true
-postal_code|integer|null: false
-country|references|null: false, foreign_key: true
+phone_number|string|null: false, unique: true
+postal_code|string|null: false
+country_id|references|null: false, foreign_key: true
 prefecture|string|null: false
 town|string|null: false
 street|string|null: false
 building|string|null: false
 self_introduction|text|null: false
-currency|references|null: false,foreign_key: true
-language|references|null: false, foreign_key: true
+currency_id|references|null: false,foreign_key: true
+language_id|references|null: false, foreign_key: true
 ___
 
 ### Home
@@ -38,39 +38,39 @@ has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules
 belongs_to :home_category_sub, :room_type, :country, :currency
 ```
 ```
-has_one :amenity, :bed_type, :available_space, :overview, :available_setting, :price, :home_rule
+has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule
 ```
 ```
-has_and_belongs_to_meny :listing_photos
+has_and_belongs_to_many :listing_photos
 ```
-#### table
+#### Homes_table
 |Column|Type|Options|
 -|-|-
 capacity|integer|null: false
 number_of_bedrooms|integer|null: false
 number_of_bathrooms|integer|null: false
 bathroom_for_guest|boolean|null: false
-postal_code|integer|null: false
-country|references|null: false, foreign_key: true, index: true
+postal_code|string|null: false
+country_id|references|null: false, foreign_key: true, index: true
 prefecture|string|null: false
 town|string|null: false, index: true
 street|string|null: false
 building|string|null: false
 location_x|integer|null: false
 location_y|integer|null: false
-amenity|references|null: false, foreign_key: true
-available_space|references|null: false, foreign_key: true
-overview|references|null: false, foreign_key: true
+amenity_id|references|null: false, foreign_key: true
+available_space_id|references|null: false, foreign_key: true
+overview_id|references|null: false, foreign_key: true
 name|string|null: false, index: true
-home_category_sub|references|null: false
-room_type|references|null: false
-bed_type|references|null: false
+home_category_sub_id|references|null: false
+room_type_id|references|null: false
+bed_type_id|references|null: false
 invite_frequency|enum|null: false
-availability_setting|references|null: false, foreign_key: true
-home_rule|references|null: false, foreign_key: true
-additional_home_rule|references|null: false, foreign_key: true
-home_notification|references|null: false, foreign_key: true
-price|references|null: false, foreign_key: true
+availability_setting_id|references|null: false, foreign_key: true
+home_rule_id|references|null: false, foreign_key: true
+additional_home_rule_id|references|null: false, foreign_key: true
+home_notification_id|references|null: false, foreign_key: true
+price_id|references|null: false, foreign_key: true
 ___
 
 ### Home_reservation
@@ -81,10 +81,10 @@ has_one :home_review
 ```
 belongs_to :user, :home
 ```
-#### table
+#### Home_reservations_table
 |Column|Type|Options|
 -|-|-
-user|references|null: false, foreign_key: true
+user_id|references|null: false, foreign_key: true
 checkin_date|datetime|null: false |
 checkout_date|datetime|null: false |
 number_of_guests|integer|null: false |
@@ -96,12 +96,12 @@ ___
 ```
 belongs_to :home, :user, :home_reservation
 ```
-#### table
+#### Home_reviews_table
 |Column|Type|Options|
 -|-|-
-user|references|null: false
-home|references|null: false, foreign_key: true
-home_reservation|references|null: false
+user_id|references|null: false
+home_id|references|null: false, foreign_key: true
+home_reservation_id|references|null: false
 review|text|null: false|
 accuracy_rate|integer|null: false|
 location_rate|integer|null: false|
@@ -109,7 +109,7 @@ communication_rate|integer|null: false|
 cleanliness_rate|integer|null: false|
 checkin_rate|integer|null: false|
 cost_performance_rate|integer|null: false|
-home_reservation|references|null: false, foreign_key: true|
+home_reservation_id|references|null: false, foreign_key: true|
 
 
 ### Listing_photo
@@ -120,12 +120,11 @@ belongs_to :user
 ```
 has_and_belongs_to_many :homes
 ```
-#### table
+#### Listing_photos_table
 |Column|Type|Options|
 -|-|-
-user|references|null: false, foreign_key: true
+user_id|references|null: false, foreign_key: true
 image|text|null: false|
-
 ___
 
 ### Room_type
@@ -133,7 +132,7 @@ ___
 ```
 has_many :homes
 ```
-#### table
+#### Room_types_table
 |Column|Type|Options|
 -|-|-
 name|string|null: false|
@@ -144,14 +143,14 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Bed_types_table
 |Column|Type|Options|
 -|-|-
 single_bed|integer||
 double_bed|integer||
 queen_bed|integer||
 sofa_bed|integer||
-home|references|null: false, foreign_key: true|
+home_id|references|null: false, foreign_key: true|
 ___
 
 ### Country
@@ -159,7 +158,7 @@ ___
 ```
 has_many :homes, :users
 ```
-#### table
+#### Countries_table
 |Column|Type|Options|
 -|-|-
 name|string|null: false|
@@ -170,7 +169,7 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Amenities_table
 |Column|Type|Options|
 -|-|-
 necessities|boolean| |
@@ -192,7 +191,7 @@ aid_set|boolean| |
 fire_extinguisher|boolean| |
 disaster_card|boolean| |
 keyed_door|boolean| |
-home|references|null:false, foreign_key: true|
+home_id|references|null:false, foreign_key: true|
 ___
 
 ### Available_space
@@ -200,7 +199,7 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Available_spaces_table
 |Column|Type|Options|
 -|-|-
 dedicated_living|boolean| |
@@ -212,7 +211,7 @@ parking|boolean| |
 elevator|boolean| |
 jacuzzi|boolean| |
 gym|boolean| |
-home|references|null:false, foreign_key: true|
+home_id|references|null:false, foreign_key: true|
 ___
 
 ### Availability_setting
@@ -220,7 +219,7 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Availability_settings_table
 |Column|Type|Options|
 -|-|-
 reservation_deadline|integer| |
@@ -229,7 +228,7 @@ checkin_time_deadline_to|time| |
 acceptable_month_ahead|integer| |
 muximum_accomodation_range|integer| |
 minimum_accomodation_range|integer| |
-home|references|null:false, foreign_key: true|
+home_id|references|null:false, foreign_key: true|
 ___
 
 
@@ -238,7 +237,7 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Prices_table
 |Column|Type|Options|
 -|-|-
 pricing_method|enum|null: false|
@@ -248,7 +247,7 @@ minimum_price|integer| |
 first_arrival_discount|boolean||
 weekly_discount_rate|float|null: false|
 monthly_discount_rate|float|null: false|
-home|references|null:false, foreign_key: true|
+home_id|references|null:false, foreign_key: true|
 ___
 
 ### Home_rule
@@ -256,17 +255,17 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Home_rules_table
 |Column|Type|Options|
 -|-|-
 accept_kids|boolean| |
 kids_reason|text| |
 accept_babies|boolean| |
 babies_reason|text| |
-accept_pets|boolean| |
+accept_pet|boolean| |
 accept_smoking|boolean| |
 accept_event_party|boolean| |
-home|references|null: false, foreign_key: true|
+home_id|references|null: false, foreign_key: true|
 ___
 
 ### Additional_home_rule
@@ -274,19 +273,19 @@ ___
 ```
 belongs_to :home
 ```
-#### table
+#### Additional_home_rules_table
 |Column|Type|Options|
 -|-|-
 content|text|null: false|
-home|references|null: false, foreign_key: true|
+home_id|references|null: false, foreign_key: true|
 ___
 
-### home_notification
+### Home_notification
 #### association
 ```
 belongs_to :home
 ```
-#### table
+#### Home_notifications_table
 |Column|Type|Options|
 -|-|-
 only_stairs|boolean| |
@@ -307,7 +306,7 @@ firearm|boolean| |
 firearm_detail|text| |
 dangerous_animals|boolean| |
 animals_detail|text| |
-home|references|null: false, foreign_key: true|
+home_id|references|null: false, foreign_key: true|
 ___
 
 
@@ -316,7 +315,7 @@ ___
 ```
 has_and_belongs_to_many :home_category_subs
 ```
-#### table
+#### Home_category_mains_table
 |Column|Type|Options|
 -|-|-
 name|string| |
@@ -330,7 +329,7 @@ has_many :home
 ```
 has_and_belongs_to_many :home_category_mains
 ```
-#### table
+#### Home_category_subs_table
 |Column|Type|Options|
 -|-|-
 name|string| |
@@ -344,10 +343,10 @@ has_many :favorites
 ```
 belongs_to :user
 ```
-#### table
+#### Favorite_lists_table
 |Column|Type|Options|
 -|-|-
-user|references|null: false, foreign_key: true
+user_id|references|null: false, foreign_key: true
 name|string| |
 ___
 
@@ -356,26 +355,25 @@ ___
 ```
 belongs_to :user
 ```
-#### table
+#### Messages_table
 |Column|Type|　Options|
 -|-|-
-user|references|null: false, foreign_key: true
-sender|references|null: false, foreign_key: true
-recipient|references|null: false, foreign_key: true
+user_id|references|null: false, foreign_key: true
+sender_id|references|null: false, foreign_key: true
+recipient_id|references|null: false, foreign_key: true
 text|text| |
 created_at|timestamps| |
-
 ___
 
 ### Overview
 #### association
 ```
-belongs_to ::home
+belongs_to :home
 ```
-#### table
+#### Overviews_table
 |Column|Type|Options|
 -|-|-
-home|references|null: false, foreign_key: true
+home_id|references|null: false, foreign_key: true
 overview|text|null: false
 about_listing|text| |
 areas_available|text| |
@@ -383,7 +381,6 @@ communication_frequency|text| |
 other_notices|text| |
 area_information|text|  |
 transportation|text|  |
-
 ___
 
 ### Language
@@ -391,7 +388,7 @@ ___
 ```
 has_many :users
 ```
-#### table
+#### Languages_table
 |Column|Type|Options|
 -|-|-
 name|string| |
@@ -402,28 +399,29 @@ ___
 ```
 has_many :users, :homes
 ```
-#### table
+#### Currencies_table
 |Column|Type|Options|
 -|-|-
 name|string| |
 ___
 
 ### Listing_photo_home
-#### table
+#### association
+```
+none
+```
+#### Listing_photo_homes_table
 |Column|Type|Options|
 -|-|-
-home|references|null: false, foreign_key: true
-listing_photo|references|null: false, foreign_key: true
-
+home_id|references|null: false, foreign_key: true
+listing_photo_id|references|null: false, foreign_key: true
 ___
 
-### Home_category_main_ sub
+### Home_category_main_sub
 
-#### table
+#### Home_category_main_subs_table
 |Column|Type|Options|
 -|-|-
 home_category_main|null: false, foreign_key: true| |
 home_category_sub|null: false, foreign_key: true| |
 ___
-
-
