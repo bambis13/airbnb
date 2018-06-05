@@ -38,7 +38,7 @@ has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules
 belongs_to :home_category_sub, :room_type, :country, :currency
 ```
 ```
-has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule
+has_one :amenity, :bed_type, :available_space, :overview, :available_setting, :price, :home_rule
 ```
 ```
 has_and_belongs_to_meny :listing_photos
@@ -263,7 +263,7 @@ accept_kids|boolean| |
 kids_reason|text| |
 accept_babies|boolean| |
 babies_reason|text| |
-accept_pet|boolean| |
+accept_pets|boolean| |
 accept_smoking|boolean| |
 accept_event_party|boolean| |
 home|references|null: false, foreign_key: true|
