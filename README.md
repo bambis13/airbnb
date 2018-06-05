@@ -38,7 +38,7 @@ has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules
 belongs_to :home_category_sub, :room_type, :country, :currency
 ```
 ```
-has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule
+has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification
 ```
 ```
 has_and_belongs_to_many :listing_photos
@@ -58,19 +58,10 @@ street|string|null: false
 building|string|null: false
 location_x|integer|null: false
 location_y|integer|null: false
-amenity_id|references|null: false, foreign_key: true
-available_space_id|references|null: false, foreign_key: true
-overview_id|references|null: false, foreign_key: true
 name|string|null: false, index: true
 home_category_sub_id|references|null: false
 room_type_id|references|null: false
-bed_type_id|references|null: false
 invite_frequency|enum|null: false
-availability_setting_id|references|null: false, foreign_key: true
-home_rule_id|references|null: false, foreign_key: true
-additional_home_rule_id|references|null: false, foreign_key: true
-home_notification_id|references|null: false, foreign_key: true
-price_id|references|null: false, foreign_key: true
 ___
 
 ### Home_reservation
@@ -85,6 +76,7 @@ belongs_to :user, :home
 |Column|Type|Options|
 -|-|-
 user_id|references|null: false, foreign_key: true
+home_id|references|null: false, foreign_key: true
 checkin_date|datetime|null: false |
 checkout_date|datetime|null: false |
 number_of_guests|integer|null: false |
@@ -109,7 +101,7 @@ communication_rate|integer|null: false|
 cleanliness_rate|integer|null: false|
 checkin_rate|integer|null: false|
 cost_performance_rate|integer|null: false|
-home_reservation_id|references|null: false, foreign_key: true|
+___
 
 
 ### Listing_photo
@@ -358,9 +350,8 @@ belongs_to :user
 #### Messages_table
 |Column|Type|　Options|
 -|-|-
-user_id|references|null: false, foreign_key: true
-sender_id|references|null: false, foreign_key: true
-recipient_id|references|null: false, foreign_key: true
+sender_user_id|references|null: false, foreign_key: true
+recipient_user_id|references|null: false, foreign_key: true
 text|text| |
 created_at|timestamps| |
 ___
@@ -425,6 +416,6 @@ none
 #### Home_category_main_subs_table
 |Column|Type|Options|
 -|-|-
-home_category_main|null: false, foreign_key: true| |
-home_category_sub|null: false, foreign_key: true| |
+home_category_main_id|references|null: false, foreign_key: true
+home_category_sub_id|references|null: false, foreign_key: true
 ___
