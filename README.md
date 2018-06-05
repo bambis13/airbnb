@@ -418,7 +418,10 @@ listing_photo_id|references|null: false, foreign_key: true
 ___
 
 ### Home_category_main_sub
-
+#### association
+```
+none
+```
 #### Home_category_main_subs_table
 |Column|Type|Options|
 -|-|-
