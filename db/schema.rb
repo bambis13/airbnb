@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606043110) do
+ActiveRecord::Schema.define(version: 20180606031132) do
+
+  create_table "home_category_mains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_home_category_mains_on_name"
+  end
+
+  create_table "home_category_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_home_category_subs_on_name"
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "necessities", default: false
@@ -143,7 +156,7 @@ ActiveRecord::Schema.define(version: 20180606043110) do
     t.index ["name"], name: "index_homes_on_name"
     t.index ["town"], name: "index_homes_on_town"
   end
-
+  
   create_table "hose_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "accept_kids", default: false
     t.text "kids_reason"
