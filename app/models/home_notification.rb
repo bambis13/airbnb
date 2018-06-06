@@ -1,0 +1,2 @@
+class HomeNotification < ApplicationRecord
+end
