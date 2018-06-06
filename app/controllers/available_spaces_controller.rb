@@ -1,2 +1,0 @@
-class AvailableSpacesController < ApplicationController
-end
