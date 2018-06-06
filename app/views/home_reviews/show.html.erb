@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @home_review.review %>
+</p>
+
+<p>
+  <strong>Accuracy rate:</strong>
+  <%= @home_review.accuracy_rate %>
+</p>
+
+<p>
+  <strong>Location rate:</strong>
+  <%= @home_review.location_rate %>
+</p>
+
+<p>
+  <strong>Communication rate:</strong>
+  <%= @home_review.communication_rate %>
+</p>
+
+<p>
+  <strong>Cleanliness rate:</strong>
+  <%= @home_review.cleanliness_rate %>
+</p>
+
+<p>
+  <strong>Checkin rate:</strong>
+  <%= @home_review.checkin_rate %>
+</p>
+
+<p>
+  <strong>Cost performance rate:</strong>
+  <%= @home_review.cost_performance_rate %>
+</p>
+
+<%= link_to 'Edit', edit_home_review_path(@home_review) %> |
+<%= link_to 'Back', home_reviews_path %>
