@@ -25,6 +25,7 @@ town|string|null: false
 street|string|null: false
 building|string|null: false
 self_introduction|text|null: false
+status|enum|null: false
 currency_id|references|null: false,foreign_key: true
 language_id|references|null: false, foreign_key: true
 ___
