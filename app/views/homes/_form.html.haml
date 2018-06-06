@@ -1,0 +1,11 @@
+= form_with(model: home, local: true) do |form|
+  - if home.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(home.errors.count, "error")
+        prohibited this home from being saved:
+      %ul
+        - home.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = form.submit

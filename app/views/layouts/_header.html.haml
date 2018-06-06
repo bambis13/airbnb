@@ -1,0 +1,15 @@
+.header
+  %img
+  = form_tag('/products/search', method: :get) do
+    %input.search__query{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}/
+    %button.btn-search{title: "検索", type: "submit", value: "検索"}
+  %ul.navibar
+    %li お部屋を掲載
+    %li ホスト
+    %li お気に入り
+    %li 旅行
+    %li メッセージ
+    %li クーポン
+    %li ペルプ
+    %img
+
