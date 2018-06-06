@@ -1,0 +1,2 @@
+class OverviewsController < ApplicationController
+end
