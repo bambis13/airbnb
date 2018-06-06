@@ -82,6 +82,10 @@ checkin_date|datetime|null: false |
 checkout_date|datetime|null: false |
 number_of_guests|integer|null: false |
 created_at|timestamps| |
+accomodation_fee|integer|null: false |
+cleaning_fee|integer|null: false |
+service_fee|integer|null: false |
+total_price|integer|null: false |
 ___
 
 ### Home_review
