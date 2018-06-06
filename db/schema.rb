@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606025708) do
+ActiveRecord::Schema.define(version: 20180606030444) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(version: 20180606025708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_additional_home_rules_on_home_id"
+  end
+
+  create_table "availability_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "reservation_deadline"
+    t.time "checkin_time_deadline_from"
+    t.time "checkin_time_deadline_to"
+    t.integer "acceptable_month_ahead"
+    t.integer "muximum_accomodation_range"
+    t.integer "minimum_accomodation_range"
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_availability_settings_on_home_id"
   end
 
   create_table "bed_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,5 +71,6 @@ ActiveRecord::Schema.define(version: 20180606025708) do
   end
 
   add_foreign_key "additional_home_rules", "homes"
+  add_foreign_key "availability_settings", "homes"
   add_foreign_key "bed_types", "homes"
 end
