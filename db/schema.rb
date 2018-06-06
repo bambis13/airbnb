@@ -66,6 +66,37 @@ ActiveRecord::Schema.define(version: 20180606033320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_home_rules_on_home_id"
+    
+  create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content", null: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_additional_home_rules_on_home_id"
+  end
+
+  create_table "availability_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "reservation_deadline"
+    t.time "checkin_time_deadline_from"
+    t.time "checkin_time_deadline_to"
+    t.integer "acceptable_month_ahead"
+    t.integer "muximum_accomodation_range"
+    t.integer "minimum_accomodation_range"
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_availability_settings_on_home_id"
+  end
+
+  create_table "bed_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "single_bed"
+    t.integer "double_bed"
+    t.integer "queen_bed"
+    t.integer "sofa_bed"
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_bed_types_on_home_id"
   end
 
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -136,4 +167,14 @@ ActiveRecord::Schema.define(version: 20180606033320) do
   add_foreign_key "hose_rules", "homes"
   add_foreign_key "overviews", "homes"
   add_foreign_key "prices", "homes"
+
+  create_table "room_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "additional_home_rules", "homes"
+  add_foreign_key "availability_settings", "homes"
+  add_foreign_key "bed_types", "homes"
 end

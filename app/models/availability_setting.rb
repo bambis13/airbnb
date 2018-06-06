@@ -1,0 +1,2 @@
+class AvailabilitySetting < ApplicationRecord
+end
