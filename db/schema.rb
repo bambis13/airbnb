@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606032435) do
+ActiveRecord::Schema.define(version: 20180606033320) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "necessities", default: false
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 20180606032435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_available_spaces_on_home_id"
+  end
+
+  create_table "home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "accept_kids", default: false
+    t.text "kids_reason"
+    t.boolean "accept_babies", default: false
+    t.text "babies_reason"
+    t.boolean "accept_pet", default: false
+    t.boolean "accept_smoking", default: false
+    t.boolean "accept_event_party", default: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_home_rules_on_home_id"
   end
 
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -118,6 +132,7 @@ ActiveRecord::Schema.define(version: 20180606032435) do
 
   add_foreign_key "amenities", "homes"
   add_foreign_key "available_spaces", "homes"
+  add_foreign_key "home_rules", "homes"
   add_foreign_key "hose_rules", "homes"
   add_foreign_key "overviews", "homes"
   add_foreign_key "prices", "homes"

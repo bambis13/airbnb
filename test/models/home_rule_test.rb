@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HoseRuleTest < ActiveSupport::TestCase
+class HomeRuleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
