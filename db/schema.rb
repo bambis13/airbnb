@@ -10,20 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606031132) do
+ActiveRecord::Schema.define(version: 20180606043110) do
 
-  create_table "home_category_mains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", null: false
+  create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content", null: false
+    t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_home_category_mains_on_name"
+    t.index ["home_id"], name: "index_additional_home_rules_on_home_id"
   end
-
-  create_table "home_category_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_home_category_subs_on_name"
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "necessities", default: false
@@ -51,6 +46,19 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.index ["home_id"], name: "index_amenities_on_home_id"
   end
 
+  create_table "availability_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "reservation_deadline"
+    t.time "checkin_time_deadline_from"
+    t.time "checkin_time_deadline_to"
+    t.integer "acceptable_month_ahead"
+    t.integer "muximum_accomodation_range"
+    t.integer "minimum_accomodation_range"
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_availability_settings_on_home_id"
+  end
+
   create_table "available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "dedicated_living", default: false
     t.boolean "pool", default: false
@@ -67,40 +75,6 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.index ["home_id"], name: "index_available_spaces_on_home_id"
   end
 
-  create_table "home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "accept_kids", default: false
-    t.text "kids_reason"
-    t.boolean "accept_babies", default: false
-    t.text "babies_reason"
-    t.boolean "accept_pet", default: false
-    t.boolean "accept_smoking", default: false
-    t.boolean "accept_event_party", default: false
-    t.bigint "home_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_home_rules_on_home_id"
-    
-  create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "content", null: false
-    t.bigint "home_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_additional_home_rules_on_home_id"
-  end
-
-  create_table "availability_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "reservation_deadline"
-    t.time "checkin_time_deadline_from"
-    t.time "checkin_time_deadline_to"
-    t.integer "acceptable_month_ahead"
-    t.integer "muximum_accomodation_range"
-    t.integer "minimum_accomodation_range"
-    t.bigint "home_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_availability_settings_on_home_id"
-  end
-
   create_table "bed_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "single_bed"
     t.integer "double_bed"
@@ -110,6 +84,29 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_bed_types_on_home_id"
+  end
+
+  create_table "home_category_main_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "home_category_sub_id"
+    t.bigint "home_category_main_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_category_main_id"], name: "index_home_category_main_subs_on_home_category_main_id"
+    t.index ["home_category_sub_id"], name: "index_home_category_main_subs_on_home_category_sub_id"
+  end
+
+  create_table "home_category_mains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_home_category_mains_on_name"
+  end
+
+  create_table "home_category_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
   create_table "home_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,6 +134,20 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.index ["home_id"], name: "index_home_notifications_on_home_id"
   end
 
+  create_table "home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "accept_kids", default: false
+    t.text "kids_reason"
+    t.boolean "accept_babies", default: false
+    t.text "babies_reason"
+    t.boolean "accept_pet", default: false
+    t.boolean "accept_smoking", default: false
+    t.boolean "accept_event_party", default: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_home_rules_on_home_id"
+  end
+
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
@@ -156,7 +167,7 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.index ["name"], name: "index_homes_on_name"
     t.index ["town"], name: "index_homes_on_town"
   end
-  
+
   create_table "hose_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "accept_kids", default: false
     t.text "kids_reason"
@@ -199,13 +210,6 @@ ActiveRecord::Schema.define(version: 20180606031132) do
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 
-  add_foreign_key "amenities", "homes"
-  add_foreign_key "available_spaces", "homes"
-  add_foreign_key "home_rules", "homes"
-  add_foreign_key "hose_rules", "homes"
-  add_foreign_key "overviews", "homes"
-  add_foreign_key "prices", "homes"
-
   create_table "room_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -213,7 +217,13 @@ ActiveRecord::Schema.define(version: 20180606031132) do
   end
 
   add_foreign_key "additional_home_rules", "homes"
+  add_foreign_key "amenities", "homes"
   add_foreign_key "availability_settings", "homes"
+  add_foreign_key "available_spaces", "homes"
   add_foreign_key "bed_types", "homes"
   add_foreign_key "home_notifications", "homes"
+  add_foreign_key "home_rules", "homes"
+  add_foreign_key "hose_rules", "homes"
+  add_foreign_key "overviews", "homes"
+  add_foreign_key "prices", "homes"
 end
