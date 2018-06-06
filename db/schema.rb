@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180606033642) do
+ActiveRecord::Schema.define(version: 20180606103229) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -21,28 +20,32 @@ ActiveRecord::Schema.define(version: 20180606033642) do
 
   create_table "currencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-
-ActiveRecord::Schema.define(version: 20180606033137) do
-
-  create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "checkin_date", null: false
     t.datetime "checkout_date", null: false
     t.integer "number_of_guests", null: false
-
-  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "accomodation_fee", null: false
+    t.integer "clieaning_fee", null: false
+    t.integer "sevice_fee", null: false
+    t.integer "total_price", null: false
   end
-
 
   create_table "home_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "review", null: false
@@ -52,43 +55,31 @@ ActiveRecord::Schema.define(version: 20180606033137) do
     t.integer "cleanliness_rate", null: false
     t.integer "checkin_rate", null: false
     t.integer "cost_performance_rate", null: false
-
-  create_table "listing_photo_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-
-  create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "image", null: false
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "listing_photo_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", null: false
-    t.date "birth_day", null: false
-    t.integer "sex", null: false
-    t.string "phone_number", null: false
-    t.string "postal_code", null: false
-    t.string "prefeture", null: false
-    t.string "town", null: false
-    t.string "street", null: false
-    t.string "building", null: false
-    t.text "self_introduction", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_users_on_name"
   end
 
 end

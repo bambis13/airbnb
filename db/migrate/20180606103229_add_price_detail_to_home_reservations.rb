@@ -1,8 +1,8 @@
 class AddPriceDetailToHomeReservations < ActiveRecord::Migration[5.1]
   def change
-    add_column :home_reservations, :integer, :accomodation_fee, null: false
-    add_column :home_reservations, :integer, :clieaning_fee,    null: false
-    add_column :home_reservations, :integer, :sevice_fee,       null: false
-    add_column :home_reservations, :integer, :accomodation_fee, null: false
+    add_column :home_reservations, :accomodation_fee, :integer, null: false
+    add_column :home_reservations, :clieaning_fee,    :integer, null: false
+    add_column :home_reservations, :sevice_fee,       :integer, null: false
+    add_column :home_reservations, :total_price,      :integer, null: false
   end
 end
