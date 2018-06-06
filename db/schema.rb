@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606030444) do
+ActiveRecord::Schema.define(version: 20180606043110) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -44,6 +44,31 @@ ActiveRecord::Schema.define(version: 20180606030444) do
     t.index ["home_id"], name: "index_bed_types_on_home_id"
   end
 
+  create_table "home_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "only_stairs", default: false
+    t.text "stairs_detail"
+    t.boolean "noisy", default: false
+    t.text "noisy_detail"
+    t.boolean "pet_stayed", default: false
+    t.text "pet_detail"
+    t.boolean "no_parking", default: false
+    t.text "parking_guide"
+    t.boolean "shared_space", default: false
+    t.text "shared_space_detail"
+    t.boolean "limited_amenity", default: false
+    t.text "limited_amenity_detail"
+    t.boolean "surveillance_camera", default: false
+    t.text "camera_detail"
+    t.boolean "firearm", default: false
+    t.text "firearm_detail"
+    t.boolean "dangerous_animal", default: false
+    t.text "animal_detail"
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_home_notifications_on_home_id"
+  end
+
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
@@ -73,4 +98,5 @@ ActiveRecord::Schema.define(version: 20180606030444) do
   add_foreign_key "additional_home_rules", "homes"
   add_foreign_key "availability_settings", "homes"
   add_foreign_key "bed_types", "homes"
+  add_foreign_key "home_notifications", "homes"
 end
