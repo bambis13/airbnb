@@ -15,3 +15,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     end
   end
 end
+
+# 進捗次第で追加するもの
+# country_id|references|null: false, foreign_key: true
+# currency_id|references|null: false,foreign_key: true
+# language_id|references|null: false, foreign_key: true
