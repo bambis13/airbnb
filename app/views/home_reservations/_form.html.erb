@@ -1,0 +1,32 @@
+<%= form_with(model: home_reservation, local: true) do |form| %>
+  <% if home_reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(home_reservation.errors.count, "error") %> prohibited this home_reservation from being saved:</h2>
+
+      <ul>
+      <% home_reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :checkin_date %>
+    <%= form.datetime_select :checkin_date, id: :home_reservation_checkin_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkout_date %>
+    <%= form.datetime_select :checkout_date, id: :home_reservation_checkout_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_guests %>
+    <%= form.number_field :number_of_guests, id: :home_reservation_number_of_guests %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
