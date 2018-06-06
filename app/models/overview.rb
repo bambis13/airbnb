@@ -1,0 +1,2 @@
+class Overview < ApplicationRecord
+end

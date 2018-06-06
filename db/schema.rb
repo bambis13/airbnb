@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606021328) do
+ActiveRecord::Schema.define(version: 20180606025558) do
+
+  create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "necessities", default: false
+    t.boolean "wifi", default: false
+    t.boolean "shampoo", default: false
+    t.boolean "closet", default: false
+    t.boolean "tv_set", default: false
+    t.boolean "heating", default: false
+    t.boolean "air_conditioner", default: false
+    t.boolean "breakfast", default: false
+    t.boolean "desk", default: false
+    t.boolean "fireplace", default: false
+    t.boolean "iron", default: false
+    t.boolean "hair_dryer", default: false
+    t.boolean "allowed_pet", default: false
+    t.boolean "smoke_detector", default: false
+    t.boolean "carbon_monoxide_detecter", default: false
+    t.boolean "aid_set", default: false
+    t.boolean "fire_extinguisher", default: false
+    t.boolean "disaster_card", default: false
+    t.boolean "keyed_door", default: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_amenities_on_home_id"
+  end
+
+  create_table "available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "dedicated_living", default: false
+    t.boolean "pool", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "washer_machine", default: false
+    t.boolean "washer_dryer_machine", default: false
+    t.boolean "parking", default: false
+    t.boolean "elevator", default: false
+    t.boolean "jacuzzi", default: false
+    t.boolean "gym", default: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_available_spaces_on_home_id"
+  end
 
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "capacity", null: false
@@ -32,4 +74,21 @@ ActiveRecord::Schema.define(version: 20180606021328) do
     t.index ["town"], name: "index_homes_on_town"
   end
 
+  create_table "overviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "home_id", null: false
+    t.text "overview", null: false
+    t.text "about_listing"
+    t.text "areas_available"
+    t.text "communication_frequency"
+    t.text "other_notices"
+    t.text "area_information"
+    t.text "transportation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_overviews_on_home_id"
+  end
+
+  add_foreign_key "amenities", "homes"
+  add_foreign_key "available_spaces", "homes"
+  add_foreign_key "overviews", "homes"
 end
