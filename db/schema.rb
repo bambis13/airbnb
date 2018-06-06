@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606024040) do
+ActiveRecord::Schema.define(version: 20180606024809) do
+
+  create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content", null: false
+    t.bigint "home_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_additional_home_rules_on_home_id"
+  end
 
   create_table "homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "capacity", null: false
@@ -38,4 +46,5 @@ ActiveRecord::Schema.define(version: 20180606024040) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "additional_home_rules", "homes"
 end
