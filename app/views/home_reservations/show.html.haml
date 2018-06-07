@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Checkin date:
+  = @home_reservation.checkin_date
+%p
+  %strong Checkout date:
+  = @home_reservation.checkout_date
+%p
+  %strong Number of guests:
+  = @home_reservation.number_of_guests
+= link_to 'Edit', edit_home_reservation_path(@home_reservation)
+|
+= link_to 'Back', home_reservations_path

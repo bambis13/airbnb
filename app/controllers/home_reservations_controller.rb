@@ -70,6 +70,6 @@ class HomeReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_reservation_params
-      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_guests).merge(accomodation_fee: params[:id],cleaning_fee:, service_fee:,total_price:)
+      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_guests, :accomodation_fee, :cleaning_fee, :service_fee,:total_price)
     end
 end

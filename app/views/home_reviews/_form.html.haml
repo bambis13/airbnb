@@ -1,0 +1,32 @@
+= form_with(model: home_review, local: true) do |form|
+  - if home_review.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(home_review.errors.count, "error")
+        prohibited this home_review from being saved:
+      %ul
+        - home_review.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :review
+    = form.text_area :review, id: :home_review_review
+  .field
+    = form.label :accuracy_rate
+    = form.number_field :accuracy_rate, id: :home_review_accuracy_rate
+  .field
+    = form.label :location_rate
+    = form.number_field :location_rate, id: :home_review_location_rate
+  .field
+    = form.label :communication_rate
+    = form.number_field :communication_rate, id: :home_review_communication_rate
+  .field
+    = form.label :cleanliness_rate
+    = form.number_field :cleanliness_rate, id: :home_review_cleanliness_rate
+  .field
+    = form.label :checkin_rate
+    = form.number_field :checkin_rate, id: :home_review_checkin_rate
+  .field
+    = form.label :cost_performance_rate
+    = form.number_field :cost_performance_rate, id: :home_review_cost_performance_rate
+  .actions
+    = form.submit
