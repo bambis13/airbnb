@@ -25,6 +25,7 @@ class HomeReservationsController < ApplicationController
   # POST /home_reservations.json
   def create
     @home_reservation = HomeReservation.new(home_reservation_params)
+    @home_reservation
 
     respond_to do |format|
       if @home_reservation.save
@@ -69,6 +70,6 @@ class HomeReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_reservation_params
-      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_guests)
+      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_guests, :accomodation_fee, :cleaning_fee, :service_fee,:total_price)
     end
 end
