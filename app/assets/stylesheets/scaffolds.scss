@@ -20,16 +20,6 @@ pre {
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 th {
@@ -67,11 +57,21 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 20px;
     margin: -7px -7px 0;
     background-color: #c00;
     color: #fff;
   }
+
+  h6 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 14px;
+    margin: -7px -7px 0;
+    color: black;
+  }
+
 
   ul li {
     font-size: 12px;
