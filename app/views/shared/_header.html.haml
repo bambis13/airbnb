@@ -1,15 +1,25 @@
 .header
-  %img
-  = form_tag('/products/search', method: :get) do
-    %input.search__query{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}/
-    %button.btn-search{title: "検索", type: "submit", value: "検索"}
-  %ul.navibar
-    %li お部屋を掲載
-    %li ホスト
-    %li お気に入り
-    %li 旅行
-    %li メッセージ
-    %li クーポン
-    %li ペルプ
-    %img
-
+  .navibar
+    .navibar__icon
+      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), root_path
+    .navibar__search
+      = form_tag(root_path, method: :get) do
+        %input.search__query{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
+          = image_tag('search_icon.png', alt: 'search_icon')
+    %ul.navibar__list
+      %li
+        = link_to 'お部屋を掲載', root_path
+      %li
+        = link_to 'ホスト', root_path
+      %li
+        = link_to 'お気に入り', root_path
+      %li
+        = link_to '旅行', root_path
+      %li
+        = link_to 'メッセージ', root_path
+      %li
+        = link_to 'クーポン', root_path
+      %li
+        = link_to 'ヘルプ', root_path
+      %li
+        = link_to image_tag("no_img.png", alt: "no_img_icon", id: "navibar__list__user__img"), root_path

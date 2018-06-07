@@ -168,20 +168,6 @@ ActiveRecord::Schema.define(version: 20180606043110) do
     t.index ["town"], name: "index_homes_on_town"
   end
 
-  create_table "hose_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "accept_kids", default: false
-    t.text "kids_reason"
-    t.boolean "accept_babies", default: false
-    t.text "babies_reason"
-    t.boolean "accept_pet", default: false
-    t.boolean "accept_smoking", default: false
-    t.boolean "accept_event_party", default: false
-    t.bigint "home_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_hose_rules_on_home_id"
-  end
-
   create_table "overviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "home_id", null: false
     t.text "overview", null: false
@@ -223,7 +209,6 @@ ActiveRecord::Schema.define(version: 20180606043110) do
   add_foreign_key "bed_types", "homes"
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
-  add_foreign_key "hose_rules", "homes"
   add_foreign_key "overviews", "homes"
   add_foreign_key "prices", "homes"
 end
