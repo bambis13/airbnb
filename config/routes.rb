@@ -12,9 +12,8 @@ Rails.application.routes.draw do
 
   get 'messages/destroy'
   resources :home_reviews
-  resources :home do
-    resources :home_reservations, only: [:new, :create, :edit, :update]
-  end
+  # resources :home do
+  resources :home_reservations, only: [:new, :create, :edit, :update]
 
 
 
