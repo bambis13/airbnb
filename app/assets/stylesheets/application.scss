@@ -24,6 +24,16 @@
 .contents{
   height: 100vh;
   width: calc(100vw - 160px);
+  min-width: 500px;
   overflow-y:scroll;
-  padding: 0 80px;
+  padding: 40px 80px;
+}
+
+a{
+  text-decoration: none;
+  color: $fontBlack;
+}
+
+body{
+  min-width: 800px;
 }
