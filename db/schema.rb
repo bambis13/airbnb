@@ -192,6 +192,9 @@ ActiveRecord::Schema.define(version: 20180607102014) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cleaning_fee", null: false
+    t.integer "deposit", null: false
+    t.integer "additional_fee_per_person", null: false
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 
