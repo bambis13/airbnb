@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180607105321) do
+ActiveRecord::Schema.define(version: 20180608070623) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -29,11 +28,15 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_favorite_lists_on_user_id"
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "favorite_list_id", null: false
+    t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
   end
 
   create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,11 +46,7 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "accomodation_fee", null: false
-    t.integer "clieaning_fee", null: false
-    t.integer "sevice_fee", null: false
     t.integer "total_price", null: false
-    t.integer "cleaning_fee", null: false
-    t.integer "service_fee", null: false
   end
 
   create_table "home_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,18 +70,24 @@ ActiveRecord::Schema.define(version: 20180607105321) do
   create_table "listing_photo_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "listing_photo_id", null: false
+    t.index ["listing_photo_id"], name: "index_listing_photo_homes_on_listing_photo_id"
   end
 
   create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_listing_photos_on_user_id"
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -122,6 +127,10 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorite_lists", "users"
+  add_foreign_key "favorites", "favorite_lists"
+  add_foreign_key "listing_photo_homes", "listing_photos"
+  add_foreign_key "listing_photos", "users"
   add_foreign_key "users", "countries"
   add_foreign_key "users", "currencies"
   add_foreign_key "users", "languages"

@@ -1,4 +1,3 @@
 class Language < ApplicationRecord
-  has_many: :users
-  # このコメント見たら消してください
+  has_many :users
 end
