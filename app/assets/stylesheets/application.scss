@@ -21,6 +21,8 @@
 }
 
 .contents{
+  height: 100vh;
+  width: calc(100vw - 160px);
   overflow-y:scroll;
   padding: 0 80px;
 }
