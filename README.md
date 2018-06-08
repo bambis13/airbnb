@@ -62,7 +62,6 @@ location_y|integer|null: false
 name|string|null: false, index: true
 home_category_sub_id|references|null: false
 room_type_id|references|null: false
-invite_frequency|enum|null: false
 ___
 
 ### Home_reservation
@@ -240,6 +239,9 @@ minimum_price|integer| |
 first_arrival_discount|boolean||
 weekly_discount_rate|float|null: false|
 monthly_discount_rate|float|null: false|
+cleaning_fee|integer|null: false
+deposit|integer|null: false
+additional_fee_per_person|integer|null: false
 home_id|references|null:false, foreign_key: true|
 ___
 

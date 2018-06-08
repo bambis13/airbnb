@@ -1,3 +1,8 @@
+._1ibtygfe{
+  min-width: 1520px;
+  margin-top: 80px;
+  padding-top: 20px;
+}
 .square_btn{
     font-size:0;
     display: inline-block;
@@ -28,39 +33,39 @@
 
 .inline_left{
   display: inline-block;
-  float: left;
 }
 
 h1{
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 25px;
-    color: $fontBlack;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 25px;
+  color: $fontBlack;
 }
 
 h2{
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-align: center;
-    line-height: 72px;
-    padding-left: 20px;
-    font-size: 16px;
-    color: $fontBlack;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: center;
+  line-height: 72px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: $fontBlack;
 }
 
 h3{
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-align: center;
-    line-height: 28px;
-    width: 300px;
-    padding: 12px 24px;
-    font-size: 14px;
-    color: $fontBlack;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: center;
+  line-height: 28px;
+  width: 300px;
+  padding: 12px 24px;
+  font-size: 15px;
+  color: $fontBlack;
 }
 
 ._aov0j6{
   margin: 40px 0;
-
+  width: calc(100vw - 160px);
   .airbnb-link{
   height: 342px;
+  min-width: 500px;
   background-image: url("airbnbplus.png");
   background-size:cover;
   border-radius: 10px;
@@ -76,5 +81,41 @@ h3{
     }
 }
 
+.listings{
 
-
+  .showall{
+    color: $viridian;
+    font-size: 16px;
+    padding: 4px;
+  }
+  .listing-s{
+    // width: calc((100vw - 160px)*0.2);
+    // min-width: 200px;
+    display: inline-block;
+    margin: 0 auto;
+    width: 280px;
+    height: 288px;
+    color: $fontBlack;
+    padding: 8px 8px 12px 8px;
+    img{
+      border-radius: 5px;
+      width: 100%;
+      object-fit: cover;
+    }
+    span{
+      font-size: 12px;
+    }
+    &__text{
+      font-size: 16px;
+    }
+    .listing-category{
+      font-size: 14px;
+    }
+    .listing-star{
+      color: $viridian;
+    }
+    .listing-price{
+      font-size: 14px;
+    }
+  }
+}
