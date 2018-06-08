@@ -2,3 +2,20 @@
 @import './variable';
 @import './header';
 @import './homes';
+
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.left{
+  float: left;
+}

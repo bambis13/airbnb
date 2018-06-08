@@ -1,16 +1,22 @@
 .square_btn{
-    height: 72px;
-    width: 290px;
+    font-size:0;
     display: inline-block;
     float: left;
     margin: 10px;
     text-decoration: none;
     background: $white;/*ボタン色*/
-    color: black;
+    color: $fontBlack;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border-radius: 3px;
     border: solid 1px #DFDFDF;
+
+    .btn-text{
+      height: 72px;
+      width: calc( 290px - 96px);
+      vertical-align: center;
+    }
 }
+
 .square_btn:active {/*ボタンを押したとき*/
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
@@ -24,24 +30,44 @@
   float: left;
 }
 
-h3{
-    font-weight: bold;
+h1{
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 25px;
-    color: black;
+    color: $fontBlack;
 }
 
-h6{
+h2{
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     text-align: center;
-    font-weight: bold;
     line-height: 72px;
     padding-left: 20px;
     font-size: 16px;
-    color: black;
+    color: $fontBlack;
 }
 
-.btn-text{
-  height: 72px;
-  vertical-align: center;
+h3{
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+    line-height: 28px;
+    width: 300px;
+    padding: 12px 24px;
+    font-size: 14px;
+    color: $fontBlack;
 }
+
+._aov0j6{
+  margin: 40px 0;
+
+  .airbnb-link{
+  height: 342px;
+  background-image: url("airbnbplus.png");
+  background-size:cover;
+    .airbnbplus-btn{
+    height: 113px;
+    padding: 40px 40px 0 40px;
+    }
+  }
+}
+
+
+
