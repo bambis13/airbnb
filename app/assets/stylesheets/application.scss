@@ -2,7 +2,7 @@
 @import './variable';
 @import './header';
 @import './homes';
-
+@import './footer';
 
 .clearfix:after {
   content: "";
@@ -13,7 +13,8 @@
 }
 
 .bold{
-  font-weight: bold;
+  font-weight:600;
+  letter-spacing: 0.025em;
 }
 
 .left{
@@ -23,6 +24,17 @@
 .contents{
   height: 100vh;
   width: calc(100vw - 160px);
+
+  min-width: 500px;
   overflow-y:scroll;
-  padding: 0 80px;
+  padding: 40px 80px;
+}
+
+a{
+  text-decoration: none;
+  color: $fontBlack;
+}
+
+body{
+  min-width: 800px;
 }

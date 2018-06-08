@@ -1,0 +1,65 @@
+.footer
+  .footer__lists
+    .footer__list
+      %h4.footer__list__name.bold Airbnb
+      %ul.footer__list__item
+        %li
+          = link_to '採用情報', root_path
+        %li
+          = link_to 'プレス', root_path
+        %li
+          = link_to 'ポリシー', root_path
+        %li
+          = link_to 'ヘルプ', root_path
+        %li
+          = link_to 'ダイバーシティ＆ビロンギング', root_path
+    .footer__list
+      %h4.footer__list__name.bold スタッフのおすすめ
+      %ul.footer__list__item
+        %li
+          = link_to '信頼＆安全', root_path
+        %li
+          = link_to 'お友達紹介クーポン', root_path
+        %li
+          = link_to 'Airbnb Citizen', root_path
+        %li
+          = link_to '出張', root_path
+        %li
+          = link_to 'ガイドブック', root_path
+        %li
+          = link_to 'Airbnbmag', root_path
+        %li
+          = link_to 'イベント', root_path
+    .footer__list
+      %h4.footer__list__name.bold ホスティング
+      %ul.footer__list__item
+        %li
+          = link_to 'ホストになる理由', root_path
+        %li
+          = link_to 'ホストに招待', root_path
+        %li
+          = link_to 'おもてなしの心', root_path
+        %li
+          = link_to 'ホストの責任', root_path
+        %li
+          = link_to 'コミュニティセンター', root_path
+    .footer__list
+      %h4.footer__list__name
+        = link_to root_path do
+          = image_tag('facebook_icon.png', alt: 'facebook', class: 'api_icon_img')
+        = link_to root_path do
+          = image_tag('twitter_icon.png', alt: 'twitter', class: 'api_icon_img')
+        = link_to root_path do
+          = image_tag('instagram_icon.png', alt: 'instagram', class: 'api_icon_img clearfix')
+      %ul.footer__list__item
+        %li
+          = link_to '利用規約', root_path
+        %li
+          = link_to 'プライバシー', root_path
+        %li
+          = link_to 'サイトマップ', root_path
+  .footer__copyrights
+    .footer__copyrights__img
+      = image_tag("no_color_icon.png", alt: "no_color_icon", id: "footer__copyrights__img")
+    .footer__copyrights__company
+      © Airbnb, Inc.
