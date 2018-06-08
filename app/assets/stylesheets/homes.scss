@@ -1,48 +1,75 @@
-._1ibtygfe{
-    padding-top: 80px;
-    .square_btn{
-        height: 72px;
-        width: 290px;
-        display: inline-block;
-        float: left;
-        margin: 10px;
-        text-decoration: none;
-        background: $white;/*ボタン色*/
-        color: black;
-        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-        border-radius: 3px;
-        border: solid 1px #DFDFDF;
-    }
-    .square_btn:active {/*ボタンを押したとき*/
-        -ms-transform: translateY(4px);
-        -webkit-transform: translateY(4px);
-        transform: translateY(4px);/*下に動く*/
-        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
-        border-bottom: none;
-    }
+.square_btn{
+    font-size:0;
+    display: inline-block;
+    float: left;
+    margin: 10px;
+    text-decoration: none;
+    background: $white;/*ボタン色*/
+    color: $fontBlack;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
+    border: solid 1px #DFDFDF;
 
-    .inline_left{
-      display: inline-block;
-      float: left;
+    .btn-text{
+      height: 72px;
+      width: calc( 290px - 96px);
+      vertical-align: center;
     }
+}
 
-    h3{
-        font-weight: bold;
-        font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 25px;
-        color: black;
+.square_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
+
+.inline_left{
+  display: inline-block;
+  float: left;
+}
+
+h1{
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 25px;
+    color: $fontBlack;
+}
+
+h2{
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+    line-height: 72px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: $fontBlack;
+}
+
+h3{
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+    line-height: 28px;
+    width: 300px;
+    padding: 12px 24px;
+    font-size: 14px;
+    color: $fontBlack;
+}
+
+._aov0j6{
+  margin: 40px 0;
+
+  .airbnb-link{
+  height: 342px;
+  background-image: url("airbnbplus.png");
+  background-size:cover;
+  border-radius: 10px;
+  margin-top: 10px;
+    .airbnbplus-btn{
+    height: 113px;
+    padding: 110px 0 0 38px;
     }
-
-    h6{
-        font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        text-align: center;
-        font-weight: bold;
-        line-height: 72px;
-        padding-left: 20px;
-        font-size: 16px;
-        color: black;
-    }
-
+  }
     .btn-text{
       height: 72px;
       vertical-align: center;
@@ -74,3 +101,4 @@
     padding-bottom: 0px !important;
     color: rgb(72, 72, 72) !important;
 }
+
