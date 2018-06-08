@@ -1,0 +1,15 @@
+.login_contents
+  .top_content
+    = button_to '×'
+  .body_content
+    .title_content
+      %h1.bold ログイン
+    .facebook_login_ber
+      = button_to 'Facebook'
+    .border_line
+    .split_button
+      .left_login_button
+        = button_to 'mail', "new_user_session_path", method: :get
+      .right_login_button
+        = button_to 'google'
+    .bottom_text_elia

@@ -1,0 +1,39 @@
+.login_contents{
+  height: 350px;
+  width: 530px;
+  padding: 32px;
+  margin: 0 auto;
+  background-color: gray;
+  .top_content{
+    height: 15px;
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: lightgray;
+  }
+  .body_content{
+    height: 280px;
+    width: 100%;
+    background-color: green;
+    .title_content{
+      height: 34px;
+      width: 100%;
+      // font-size: 25px;
+      line-height: 30px;
+      letter-spacing: normal;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      color: #1C1C1C;
+      margin: 0;
+      .bold{
+        float: left;
+      }
+    .facebook_login_ber{
+    }
+    }
+  }
+  .bottom_text_elia{
+    height: 23px;
+    width: 100%;
+    background-color: red;
+  }
+}
