@@ -1,0 +1,2 @@
+class DeviseUsersController < ApplicationController
+end

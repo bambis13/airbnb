@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607083817) do
+
+ActiveRecord::Schema.define(version: 20180607105321) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -82,6 +83,46 @@ ActiveRecord::Schema.define(version: 20180607083817) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "name", null: false
+    t.date "birth_day", null: false
+    t.integer "sex", null: false
+    t.string "phone_number", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "town", null: false
+    t.string "street", null: false
+    t.string "building", null: false
+    t.text "self_introduction", null: false
+    t.bigint "country_id", null: false
+    t.bigint "currency_id", null: false
+    t.bigint "language_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["country_id"], name: "index_users_on_country_id"
+    t.index ["currency_id"], name: "index_users_on_currency_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["language_id"], name: "index_users_on_language_id"
+    t.index ["name"], name: "index_users_on_name"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "countries"
+  add_foreign_key "users", "currencies"
+  add_foreign_key "users", "languages"
 end
