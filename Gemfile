@@ -55,7 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
-
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml-rails'
@@ -65,3 +64,4 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'kaminari'
 gem 'mechanize'
+gem 'devise'
