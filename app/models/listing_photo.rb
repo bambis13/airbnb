@@ -1,2 +1,8 @@
 class ListingPhoto < ApplicationRecord
+
 end
+
+
+
+
+

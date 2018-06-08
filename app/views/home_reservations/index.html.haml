@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Home Reservations
+%table
+  %thead
+    %tr
+      %th Checkin date
+      %th Checkout date
+      %th Number of guests
+      %th{:colspan => "3"}
+  %tbody
+    - @home_reservations.each do |home_reservation|
+      %tr
+        %td= home_reservation.checkin_date
+        %td= home_reservation.checkout_date
+        %td= home_reservation.number_of_guests
+        %td= link_to 'Show', home_reservation
+        %td= link_to 'Edit', edit_home_reservation_path(home_reservation)
+        %td= link_to 'Destroy', home_reservation, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Home Reservation', new_home_reservation_path
