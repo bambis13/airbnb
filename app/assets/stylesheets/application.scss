@@ -2,3 +2,27 @@
 @import './variable';
 @import './header';
 @import './homes';
+
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.left{
+  float: left;
+}
+
+.contents{
+  height: 100vh;
+  width: calc(100vw - 160px);
+  overflow-y:scroll;
+  padding: 0 80px;
+}
