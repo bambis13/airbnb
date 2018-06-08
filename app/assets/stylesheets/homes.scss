@@ -1,28 +1,30 @@
-.square_btn{
-    font-size:0;
-    display: inline-block;
-    float: left;
-    margin: 10px;
-    text-decoration: none;
-    background: $white;/*ボタン色*/
-    color: $fontBlack;
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-    border-radius: 3px;
-    border: solid 1px #DFDFDF;
+._1ibtygfe{
+    .square_btn{
+        font-size:0;
+        display: inline-block;
+        float: left;
+        margin: 10px;
+        text-decoration: none;
+        background: $white;/*ボタン色*/
+        color: $fontBlack;
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        border-radius: 3px;
+        border: solid 1px #DFDFDF;
 
-    .btn-text{
-      height: 72px;
-      width: calc( 290px - 96px);
-      vertical-align: center;
+        .btn-text{
+          height: 72px;
+          width: calc( 290px - 96px);
+          vertical-align: center;
+        }
     }
-}
 
-.square_btn:active {/*ボタンを押したとき*/
-    -ms-transform: translateY(4px);
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);/*下に動く*/
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
-    border-bottom: none;
+    .square_btn:active {/*ボタンを押したとき*/
+        -ms-transform: translateY(4px);
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);/*下に動く*/
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+        border-bottom: none;
+    }
 }
 
 .inline_left{
@@ -67,6 +69,10 @@ h3{
     padding: 40px 40px 0 40px;
     }
   }
+    .btn-text{
+      height: 72px;
+      vertical-align: center;
+    }
 }
 
 
