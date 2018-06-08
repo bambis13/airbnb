@@ -1,6 +1,5 @@
 class Home < ApplicationRecord
    enum status: { visitor: 0, host: 1 }
-
   has_many                :additional_home_rules
   belongs_to              :home_category_sub
   belongs_to              :room_type
@@ -20,4 +19,5 @@ class Home < ApplicationRecord
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
   end
+
 end
