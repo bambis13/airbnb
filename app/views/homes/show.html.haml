@@ -1,67 +1,194 @@
 .container
-  .heading-img.clearfix
-    -# =image_tag("home2.png")
-    %img{:src =>"home2.png"}
-  .home-overview
-    .home-overview__heading
-      %span ログハウスの個室
-      %h3 Aroma(n)tica TreehouseinMonferrato
-      %p San Salvatore Monferrato
-      %ul.clearfix
-        %li ゲスト2人
-        %li 1寝室
-        %li ベッド1台
-        %li 1専用バスルーム
+  .heading-img
+    =image_tag("home2.png", class: "header-img")
+  .container-main
+    .container-left
+      .home-overview
+        .home-overview__heading
+          %span ログハウスの個室
+          %h3 Aroma(n)tica TreehouseinMonferrato
+          %p San Salvatore Monferrato
+          %ul.clearfix
+            %li ゲスト2人
+            %li 1寝室
+            %li ベッド1台
+            %li 1専用バスルーム
 
-    .home-overview__highlight
-      .home-overview__highlight__top-item
-        %p.item-title 今注目の家です。
-        %p ここ一週間で500レビュー突破。
-      .home-overview__highlight__detail
-        %h4 宿泊先ハイライト
-        .detail-item
-          %span.item-title 入室がスムーズと大好評
-          %p 最近泊まった人の95%がチェックイン手順に5つ星を付けています。
-          %p 役に立った　役に立たなかった
-        .detail-item
-          %span.item-title 清潔感抜群
-          %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
-          %p 役に立った　役に立たなかった
-        .detail-item
-          %span 清潔感抜群
-          %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
-          %p 役に立った　役に立たなかった
-    .japanese-translation
-      %h4 日本語で読む
+        .home-overview__highlight
+          .home-overview__highlight__top-item
+            %p.subtitle 今注目の家です。
+            %p ここ一週間で500レビュー突破。
+          .home-overview__highlight__detail
+            %h4 宿泊先ハイライト
+            .detail-item
+              %span.subtitle 入室がスムーズと大好評:
+              %p 最近泊まった人の95%がチェックイン手順に5つ星を付けています。
+              %p 役に立った　役に立たなかった
+            .detail-item
+              %span.subtitle 清潔感抜群:
+              %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
+              %p 役に立った　役に立たなかった
+            .detail-item
+              %span 清潔感抜群:
+              %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
+              %p 役に立った　役に立たなかった
+        .japanese-translation
+          %h4 日本語で読む
 
-    .home-overview__detail
-      .home-overview__detail__space
-        %h4.item-title スペース
-      .home-overview__detail__amenities
-        %h4.item-title アメニティ・設備
-      .home-overview__detail__houserules
-        %h4.item-title ハウスルール
-      .home-overview__detail__cancel-policy
-        %h4.item-title キャンセル
-      .home-overview__detail__availability
-        %h4.item-title 予約可能状況
+        .home-overview__detail
+          .home-overview__detail__space
+            %h4.subtitle スペース
+            %p A wonderful suspended nest, an amazing panoramic view on the hills, among the fragrances of the linden trees and other aromatic herbs. A garden with solarium and a swimming pool (seasonal opening) surrounded by blooming peaceful nature.
+            The garden measures 18,000 square meters with awe-inspiring trees such as majestic cedars of Lebanon and magnolias, pagodas, hollies and tamarisks. You can find Nature walks, cycle routes, wine tours and cultural paths.
+            The Monferrato is, with its deep-rooted enological traditions, an area in which you can find the top quality wines such as Barbera, Freisa, Grignolino and Cortese; it is possible to visit the wine cellars of high-qualified productors.
+            In the mansion, you can have access as well to the wine cellar carved in tuff of the late XIXth century, with the typical "infernot", barrels and an ancient press to produce wine.
 
+            (URL HIDDEN) Free wifi around the swimming pool(URL HIDDEN) Shabby chic decor.(URL HIDDEN) Private bathroom with sink, toilet and shower(URL HIDDEN) Private parking.(URL HIDDEN) Very close to Casale Monferrato, Alessandria (5 minutes by car)(URL HIDDEN) Not far from Alba, Barolo and Asti.(URL HIDDEN) 1 hour driving to Turin, Milan and Genoa(URL HIDDEN)Nearby, it is possible to find taverns and cottages where you can taste the typical specialties of the territory.
+          .home-overview__detail__amenities
+            %h4.subtitle アメニティ・設備
+            .home-overview__detail__amenities__left
+              .amenity_item
+                %img{:src => "https://png.icons8.com/android/50/000000/wifi.png"}/
 
-  -# .home-reviews
-  -#   .home-reviews__summary
+              .item-icon.amenity-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/garage.png"}/
+                %h5 Wi-Fi
+              .item-icon.amenity-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/hair-dryer.png"}/
+                %h5 ヘアドライヤー
+            .home-overview__detail__amenities__right
+              .aitem-icon.amenity-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/shampoo-dispenser.png"}/
+                %h5 シャンプー
+              .item-icon.amenity-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
+                %h5 シャワー
+              .item-icon.amenity-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/toaster.png"}/
+                %h5 タオル
 
-  -#   .home-reviews__index
+          .home-overview__detail__bed-types
+            %h4.subtitle ベッドのタイプ
+            .home-overview__detail__amenities__left
+              .item-icon
+                %img{:src => "https://png.icons8.com/android/50/000000/wifi.png"}/
+              .item-icon.bed-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
+                %span.subtitle 寝室1
+                %p キングベッド 1
+            .home-overview__detail__amenities__right
+              .item-icon.bed-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
+                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
+                %span.subtitle 寝室2
+                %p シングルベッド2
+              .item-icon.bed-icon
+                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
+                %span.subtitle 寝室3
+                %p シングルベッド
+          .home-overview__detail__houserules
+            %h4.subtitle ハウスルール
+            %p 禁煙
+            %p ペットお断り
+            %p パーティー&イベントお断り
+            %p お子様に安全とは言えない/不向き (0-12歳)
+            %p チェックイン時間: 15:00～20:00
+            %p 11:00までにチェックアウト
+          .home-overview__detail__cancel-policy
+            %h4.subtitle キャンセル
+            %p 厳格
+            %p 宿泊30日前までに解約すれば、全額返金されます。それを過ぎてからの解約では、宿泊料金の50%とサービス料全額が返金されます。
+          .home-overview__detail__availability
+            %h4.subtitle 予約可能状況
+            %p 最低
+            %span 1泊
+            %span 2018年7月01日 - 2018年8月31日
+            %span は最低
+            %span 2泊
+            %span 1日前に更新
+          .home-reviews
+            .home-reviews__summary
+              .home-reviews__summary__head
+                %h3.title.home-reviews__summary__number
+                  レビュー223件
+                  %span.listing-star ★★★★★
+                  .review__search
+                    %input.search__query{name: "keyword", placeholder: "レビューを検索", type: "text", value: ""}
+                      = image_tag('search_icon.png', alt: 'search_icon', height:"20px;")
+              .home-reviews__summary__body
+                .review-metric
+                  %p 正確さ
+                  %span.listing-star ★★★★★
+                .review-metric
+                  %p コミュニケーション
+                  %span.listing-star ★★★★★
+                .review-metric
+                  %p 清潔さ
+                  %span.listing-star ★★★★★
+                .review-metric
+                  %p ロケーションさ
+                  %span.listing-star ★★★★★
+                .review-metric
+                  %p チェックイン
+                  %span.listing-star ★★★★★
+                .review-metric
+                  %p コスパ
+                  %span.listing-star ★★★★★
+                .japanese-translation
+          .japanese-translation
+            %h4 日本語にレビューを翻訳する
 
-  -# .host-introduction
-  -#   .host-introduction__heading
-  -#   .host-introduction__title
-  -#   .host-introduction__text
-  -#   .host-introduction__sub-info
+          .home-reviews__index
+            - 8.times do
+              .home-reviews__box
+                .home-reviews__box__top
+                  .home-reviews__box__top__left
+                    = image_tag("user1.png", class: "user-pic")
+                    %span.name 吉岡里帆
+                    %p 2018年 5月
+                  .home-reviews__box__top__right
+                    %p 旗のアイコン
+                .home-reviews__box__content
+                  %p Beautifully located tree house in the Monferrato countryside. Even though probably every day a different guest comes by, Mauro's approach to the guests is remarkably personal and genuine, showing great passion for the tree house both in words and fact, keeping it in a great condi
 
-  -# .area-info
-  -#   .area-info__heading
-  -#   .area-info__map
-
-  -# .similar-home
-  -#   %h4 類似のリスティング
-  -#   .similar-home
+          .host-introduction
+            .host-introduction__heading
+              .host-introduction__heading__left-item
+                %h3.title ホストは小島よしおさん
+                %p San Salvatore Monferrato, イタリア · 2013年1月からメンバー
+              .host-introduction__heading__host-pic
+              .host-introduction__heading__subinfo
+                .number-of-reivews
+                  %span
+                  %p レビュー500件
+                .certification
+                  %span
+                  %p 認証済み
+            .host-introduction__title
+              %strong Mauroさんはスーパーホストです
+              %p スーパーホストとは素敵な滞在で高い評価を得ている経験豊富なホストに与えられる称号です。
+            .host-introduction__text
+              %p Here we are, Pina and Mauro. Our adventure began thirty years ago with the house on the hill, the refuge of the family: two daughters, a grandmother with a passion for the vegetable garden and lots of animals! We offer a discreet hospitality, genuine lifestyle and enjoyment of…
+            .host-introduction__sub-info
+              %p 言語：
+              %strong
+                English、Français
+              %p 返答率：
+              %strong
+                100%
+              %p 返答時間：
+              %strong
+                数時間以内
+            .host-introduction__instruction
+            %strong 連絡は常にAirbnbを通して行いましょう.
+            %p · お支払をお守りするためにも、Airbnbのサイトやアプリ以外の場所では決して送金や連絡を行わないようご注意ください。
+          .area-info
+            .area-info__heading
+              %h3.title エリア
+              %p よしおさん宅の所在地はSan Salvatore Monferrato, Alessandria, イタリアです。
+            .area-info__map
+              = image_tag ("map.png")
+            %p 地図は正確な所在地を示しています。
+          .similar-home
+            %h3.title 類似のリスティング
+            .similar-home__different-type

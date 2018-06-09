@@ -3,84 +3,168 @@
 
   .heading-img {
     width: 100%;
-    height:550px;
+
+    .header-img {
+      width: 100%;
+      background-size:  100% 0 ;
+      height: 550px;
+    }
   }
 
-  .home-overview {
-    height: 1000px;
-    &__heading {
-      span {
-        color:#9b3143;
-        font-size: 14px;
-        font-weight: bold;
-      }
+  .container-main {
+    margin-left: 58px;
+  }
+    .container-left {
+      width: 56.3%;
+      max-width: 690px;
 
-      h3 {
-        text-align: left;
-        line-height: 28px;
-        padding-left: 0px;
-        font-size: 24px;
-        font-weight: bold;
-      }
-      p {
-        font-size: 20px;
-        // font-weight: bold;
-        // color: $fontBlack;
-      }
-
-      li {
-        float: left;
-      }
-    }
-
-    &__highlight {
-          color: $fontBlack;
-        &__top-item {
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          padding:24px;
-          margin: 24px 0px;
-          p {
-            font-size: 16px;
-          }
-        }
-
-        &__detail {
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          padding:24px;
-          margin: 24px 0px;
+      .home-overview {
+        height: 1000px;
+        &__heading {
           span {
+            color:#9b3143;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          h3 {
             text-align: left;
             line-height: 28px;
             padding-left: 0px;
-            font-size: 14px;
+            font-size: 24px;
             font-weight: bold;
-            color: $fontBlack;
+          }
+          p {
+            font-size: 20px;
+            // font-weight: bold;
+            // color: $fontBlack;
+          }
+
+          li {
+            float: left;
           }
         }
+
+        &__highlight {
+              color: $fontBlack;
+
+            &__top-item {
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              padding:24px;
+              margin: 24px 0px;
+              p {
+                font-size: 16px;
+              }
+            }
+
+            &__detail {
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              padding:24px;
+              margin: 24px 0px;
+              span {
+                text-align: left;
+                line-height: 28px;
+                padding-left: 0px;
+                font-size: 14px;
+                font-weight: bold;
+                color: $fontBlack;
+              }
+            }
+          }
+
+        &__detail {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
       }
-    &__detail {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-  }
 
-  }
+      .home-reviews {
 
 
-  .item-title {
-    text-align: left;
-    line-height: 28px;
-    padding-left: 0px;
-    font-size: 14px;
-    font-weight: bold;
-    color: $fontBlack;
-  }
 
-  .japanese-translation {
-    border: 1px solid #383838;
-    padding: 5px;
-    text-align: center;
-    border-radius: 5px;
-    color: $fontBlack;
-    font-weight: bold;
+
+      }
+
+
   }
+}
+
+
+
+      .item-title {
+        text-align: left;
+        padding-left: 0px;
+        color: $fontBlack;
+        word-wrap: break-word !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        letter-spacing: normal !important;
+        font-weight: 800 !important;
+      }
+
+
+
+      .japanese-translation {
+        border: 1px solid #383838;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+        color: $fontBlack;
+        font-weight: bold;
+
+        h4 {
+          font-weight:bold;
+        }
+      }
+
+      .user-pic {
+        height: 40px;
+        border-radius: 20px;
+      }
+
+
+.font-text {
+  cursor: pointer ;
+  display: inline;
+  font-size: 14px;
+  font-stretch: 100%;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 18px;
+  text-align: left;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  color: $fontTxt;
+}
+
+.subtitle, .name {
+  font-size: 16px;
+  font-weight: 600;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top:0px ;
+  text-size-adjust: 100%;
+  width: 216px;
+  word-wrap:break-word ;
+  color: $fontBold;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 800;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 30px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-wrap: break-word;
+}
+
+
 
