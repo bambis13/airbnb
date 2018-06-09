@@ -1,8 +1,28 @@
+img{
+  border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
+}
+
+h3{
+    text-align: center;
+    line-height: 28px;
+    width: 300px;
+    padding: 12px 24px;
+    font-size: 15px;
+}
+
 ._1ibtygfe{
   min-width: 1520px;
   margin-top: 80px;
   padding-top: 20px;
+  h2{
+  text-align: center;
+  line-height: 72px;
+  padding-left: 20px;
+  }
 }
+
 .square_btn{
     font-size:0;
     display: inline-block;
@@ -19,6 +39,11 @@
       height: 72px;
       width: calc( 290px - 96px);
       vertical-align: center;
+      h2{
+        text-align: center;
+        line-height: 72px;
+        padding-left: 20px;
+      }
     }
 }
 
@@ -28,26 +53,6 @@
     transform: translateY(4px);/*下に動く*/
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
     border-bottom: none;
-}
-
-.inline_left{
-  display: inline-block;
-  float: left;
-}
-
-h2{
-    text-align: center;
-    line-height: 72px;
-    padding-left: 20px;
-    font-size: 16px;
-}
-
-h3{
-    text-align: center;
-    line-height: 28px;
-    width: 300px;
-    padding: 12px 24px;
-    font-size: 15px;
 }
 
 ._aov0j6{
@@ -141,6 +146,8 @@ h3{
 }
 
 .listings{
+  margin-bottom: 20px;
+  min-width: 500px;
   .showall{
     color: $viridian;
     font-size: 16px;
@@ -155,11 +162,6 @@ h3{
     height: 288px;
     color: $fontBlack;
     padding: 8px 8px 12px 8px;
-    img{
-      border-radius: 5px;
-      width: 100%;
-      object-fit: cover;
-    }
     span{
       font-size: 12px;
     }
@@ -174,6 +176,16 @@ h3{
     }
     .listing-price{
       font-size: 14px;
+    }
+  }
+  .listing-xl{
+    display: inline-block;
+    margin: 0 auto;
+    width: calc(50vw - 100px);
+    padding: 8px 8px 12px 8px;
+    min-width: 250px;
+    &__text{
+
     }
   }
 }

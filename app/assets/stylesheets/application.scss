@@ -30,6 +30,11 @@
   padding: 40px 80px;
 }
 
+.inline_left{
+  display: inline-block;
+  float: left;
+}
+
 a{
   text-decoration: none;
   color: $fontBlack;
