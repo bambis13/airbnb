@@ -1,47 +1,50 @@
 .container
-  .heading-img
-    =image_tag("home2.png")
-  .hoom-overview
-    .hoom-overview__heading
-      %p ログハウスの個室
+  .heading-img.clearfix
+    -# =image_tag("home2.png")
+    %img{:src =>"home2.png"}
+  .home-overview
+    .home-overview__heading
+      %span ログハウスの個室
       %h3 Aroma(n)tica TreehouseinMonferrato
       %p San Salvatore Monferrato
-      %ul
+      %ul.clearfix
         %li ゲスト2人
         %li 1寝室
         %li ベッド1台
         %li 1専用バスルーム
 
-    .hoom-overview__highlight
-      .hoom-overview__highlight__top-item
-        %p 今注目の家です。
+    .home-overview__highlight
+      .home-overview__highlight__top-item
+        %p.item-title 今注目の家です。
         %p ここ一週間で500レビュー突破。
-      .hoom-overview__highlight__detail
+      .home-overview__highlight__detail
         %h4 宿泊先ハイライト
         .detail-item
-          %span 入室がスムーズと大好評
+          %span.item-title 入室がスムーズと大好評
           %p 最近泊まった人の95%がチェックイン手順に5つ星を付けています。
           %p 役に立った　役に立たなかった
         .detail-item
-          %span 清潔感抜群
+          %span.item-title 清潔感抜群
           %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
           %p 役に立った　役に立たなかった
         .detail-item
           %span 清潔感抜群
           %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
           %p 役に立った　役に立たなかった
+    .japanese-translation
+      %h4 日本語で読む
 
-    .hoom-overview__detail
-      .hoom-overview__detail__space
-        %h4 スペース
-      .hoom-overview__detail__amenities
-        %h4 アメニティ・設備
-      .hoom-overview__detail__houserules
-        %h4 ハウスルール
-      .hoom-overview__detail__cancel-policy
-        %h4 キャンセル
-      .hoom-overview__detail__availability
-        %h4 予約可能状況
+    .home-overview__detail
+      .home-overview__detail__space
+        %h4.item-title スペース
+      .home-overview__detail__amenities
+        %h4.item-title アメニティ・設備
+      .home-overview__detail__houserules
+        %h4.item-title ハウスルール
+      .home-overview__detail__cancel-policy
+        %h4.item-title キャンセル
+      .home-overview__detail__availability
+        %h4.item-title 予約可能状況
 
 
   -# .home-reviews
