@@ -243,11 +243,11 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
-    warden (1.2.7)
-      rack (>= 1.0)
     unicorn (5.4.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
