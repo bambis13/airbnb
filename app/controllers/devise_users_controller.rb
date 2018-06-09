@@ -5,4 +5,6 @@ class DeviseUsersController < ApplicationController
   end
   def craete
   end
+  def show
+  end
 end
