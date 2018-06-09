@@ -146,12 +146,12 @@ h3{
 }
 
 .listings{
-  margin-bottom: 20px;
+  padding: 20px 0;
   min-width: 500px;
   .showall{
     color: $viridian;
     font-size: 16px;
-    padding: 4px;
+    padding: 20px 0;
   }
   .listing-s{
     // width: calc((100vw - 160px)*0.2);
@@ -159,7 +159,6 @@ h3{
     display: inline-block;
     margin: 0 auto;
     width: 280px;
-    height: 288px;
     color: $fontBlack;
     padding: 8px 8px 12px 8px;
     span{
@@ -178,14 +177,28 @@ h3{
       font-size: 14px;
     }
   }
+  .listing-x{
+    display: inline-block;
+    margin: 0 auto;
+    width: calc(33vw - 100px);
+    padding: 8px 8px 12px 8px;
+    min-width: 200px;
+    &__text{
+      padding-top: 5px;
+    }
+    img{
+      height: 255px;
+      // object-fit: cover;
+    }
+    .listing-category{
+      font-size: 10px;
+    }
+  }
   .listing-xl{
     display: inline-block;
     margin: 0 auto;
     width: calc(50vw - 100px);
     padding: 8px 8px 12px 8px;
     min-width: 250px;
-    &__text{
-
-    }
   }
 }
