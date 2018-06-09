@@ -1,3 +1,3 @@
 class HomeRule < ApplicationRecord
-  belogs_to :home
+  belongs_to :home
 end
