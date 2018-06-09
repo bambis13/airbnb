@@ -1,10 +1,17 @@
 .listings
   %h1.bold 世界中のリスティング
+  .slider
   - 5.times do
     %a{:href => "/"}
       .listing-s
         .listing-s__image
           = image_tag("home1.png")
+        / .listing-s__image
+        /   = image_tag("home1.png")
+        / .listing-s__image
+        /   = image_tag("home1.png")
+        / .listing-s__image
+        /   = image_tag("home1.png")
         .listing-s__text
           %p.listing-category.bold 小屋
           %p.listing-title.bold Villa San Gennariello B&B
