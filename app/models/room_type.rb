@@ -1,3 +1,3 @@
 class RoomType < ApplicationRecord
-  belongs_to :home
+  has_many :homes
 end
