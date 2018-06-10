@@ -1,4 +1,9 @@
+/*-- Color ---------------------------------- */
 $white: #FFFFFF;
 $fontBlack: #383838;
 $viridian: #107275;
 $fontDarkRed: #6B1F0D;
+
+/*-- Size ---------------------------------- */
+$s-width: calc((100vw - 300px)/5);
+$s-height: calc((100vw - 300px)/5*0.7);

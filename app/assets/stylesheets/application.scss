@@ -3,7 +3,10 @@
 @import './header';
 @import './homes';
 @import './footer';
+@import './slick-theme';
+@import './slick';
 
+/*-- Settings ---------------------------------- */
 .clearfix:after {
   content: "";
   display: block;
@@ -19,6 +22,9 @@
 
 .left{
   float: left;
+}
+.inline{
+  display: inline-block;
 }
 
 .contents{

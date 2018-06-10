@@ -1,7 +1,8 @@
+/*--------- Contents ------------------------*/
 img{
-  border-radius: 5px;
+  border-radius: 10px;
   width: 100%;
-  object-fit: cover;
+  object-fit: conain;
 }
 
 h3{
@@ -24,26 +25,25 @@ h3{
 }
 
 .square_btn{
-    font-size:0;
-    display: inline-block;
-    float: left;
-    margin: 10px;
-    text-decoration: none;
-    background: $white;/*ボタン色*/
-    color: $fontBlack;
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-    border-radius: 3px;
-    border: solid 1px #DFDFDF;
-
-    .btn-text{
-      height: 72px;
-      width: calc( 290px - 96px);
-      vertical-align: center;
-      h2{
-        text-align: center;
-        line-height: 72px;
-        padding-left: 20px;
-      }
+  font-size:0;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  text-decoration: none;
+  background: $white;/*ボタン色*/
+  color: $fontBlack;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  border: solid 1px #DFDFDF;
+  .btn-text{
+    height: 72px;
+    width: calc( 290px - 96px);
+    vertical-align: center;
+    h2{
+      text-align: center;
+      line-height: 72px;
+      padding-left: 20px;
+    }
     }
 }
 
@@ -76,93 +76,75 @@ h3{
     }
 }
 
-._share_check {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    min-width: 500px;
-}
-._check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 85%;
-    margin: 0px auto;
-}
-
 ._74l3jy {
-    font-size: 28px;
-    font-weight: bold;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 ._16syclo {
-    letter-spacing: 0.2px;
-    font-size: 17px;
+  letter-spacing: 0.2px;
+  font-size: 17px;
 }
 
 ._1vab2qmv {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    transition-property: background, border-color, color;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out;
-    width: auto;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    min-width: 51.7771px;
-    color: rgb(255, 255, 255) !important;
-    text-decoration: none;
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    background: rgb(0, 132, 137);
-    border-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  transition-property: background, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  width: auto;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-width: 51.7771px;
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  background: rgb(0, 132, 137);
+  border-color: transparent;
 }
 
 ._square_box {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
-    margin-top: 24px !important;
-    margin-bottom: 24px !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
 }
 
 ._share_check {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
-    margin-top: 24px !important;
-    margin-bottom: 24px !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .listings{
   padding: 20px 0;
   min-width: 500px;
-  .showall{
-    color: $viridian;
-    font-size: 16px;
-    padding: 20px 0;
-  }
   .listing-s{
-    // width: calc((100vw - 160px)*0.2);
     // min-width: 200px;
     display: inline-block;
     margin: 0 auto;
-    width: 280px;
+    width: $s-width;
+    min-width: 200px;
     color: $fontBlack;
     padding: 8px 8px 12px 8px;
     span{
       font-size: 12px;
+    }
+    &__image{
+      height: $s-height;
+      overflow: hidden;
     }
     &__text{
       font-size: 16px;
@@ -206,4 +188,26 @@ h3{
     height: 30px;
     }
   }
+}
+.showall{
+  color: $viridian;
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+._share_check {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    min-width: 500px;
+}
+._check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    margin: 0px auto;
 }
