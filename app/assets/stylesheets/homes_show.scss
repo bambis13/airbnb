@@ -70,16 +70,20 @@
 
         &__highlight {
           color: $fontBlack;
+          border-radius: 1px;
 
           &__top-item {
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding:24px;
             margin: 24px 0px;
+            border-radius: 1px;
           }
 
           &__content {
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding:24px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 1px rgba(0, 0, 0, 0.19);
+            border-radius: 4px;
           }
         }
 
@@ -169,7 +173,7 @@
           color: $viridian;
           text-align: right;
           padding-right: 50px;
-          width: 30%;
+          // width: 30%;
         }
       }
     }
@@ -203,25 +207,100 @@
     }
 }
 
+.pagination {
+  height: 70px;
+  margin: 20px 0px;
 
-      .japanese-translation {
-        border: 1px solid #383838;
-        padding: 5px;
-        border-radius: 5px;
-        color: $fontBlack;
-        font-weight: bold;
-        margin-top: 24px;
-        cursor: pointer;
-        text-align: center;
+}
 
-        h4 {
-          font-weight:bold;
-          text-align: center;
-        }
-      }
+.host-introduction__heading {
+  border-bottom: 1px #aaa solid;
+  padding: 20px;
+  padding-left : 0px;
+  
+  &__left-item {
+    float: left;
+    width: 70%;
+  }
+
+  &__host-pic {
+    float :right;
+
+    .host-pic {
+        height: 60px;
+        border-radius: 30px;
+    }
+  }
+  .number-of-reivews,.certification {
+    margin-right: 10px;
+  
+    img {
+    height:20px;
+    width: 20px;
+    margin-right: 7px;
+    }
+  }
+}
+.host-introduction__title, .host-introduction__instruction, .host-introduction__text {
+   border-bottom: 1px #aaa solid;
+   padding: 20px 0;
+}
+
+.area-info {
+  border-bottom: 1px #aaa solid;
+  padding: 20px 0;
+}
+
+.similar-category {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  
+  h3 {
+    margin-bottom: 24px;
+  }
+  .similar-category__carsel {
+    width: auto;
+  }
+  &__item {
+    width: auto ;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-bottom: 0px !important;
+    
+  }
+  .similar-home {
+    height: 210px;
+    border-radius: 5px;
+  }
+  .listing-star {
+    color: $viridian;
+  }
+}
+
+.japanese-translation {
+  border: 1px solid #383838;
+  padding: 5px;
+  border-radius: 5px;
+  color: $fontBlack;
+  font-weight: bold;
+  margin-top: 24px;
+  cursor: pointer;
+  text-align: center;
+
+  h4 {
+    font-weight:bold;
+    text-align: center;
+  }
+}
 
       .user-pic {
         height: 40px;
+        border-radius: 20px;
+      }
+
+      .host-pic {
+        height: 60px;
+        width: 60px;
         border-radius: 20px;
       }
 
@@ -244,12 +323,11 @@
 
 .subtitle, .name, span {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 600 !important;
   height: 22px;
   letter-spacing: normal;
   line-height: 22px;
   text-size-adjust: 100%;
-  width: 216px;
   word-wrap:break-word ;
   color: $fontBold;
 }
@@ -305,9 +383,8 @@ h4 ,p {
 }
 
 h3 {
-  padding: 0 0px;
+  padding: 0 0 7px;
+  text-align: left;
 }
-
-
 
 
