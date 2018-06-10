@@ -1,0 +1,132 @@
+@import './variable';
+
+.position{
+  // 編集の際のpositionの調節
+  height: 100px;
+}
+
+.login_contents{
+  height: 350px;
+  width: 530px;
+  padding: 32px;
+  margin: 0 auto;
+  background-color: $white;
+  // わかりやすくするために追加
+  border: 1px solid #848484;
+  .top_content{
+    height: 15px;
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: $white;
+  }
+  .correction_position_top{
+    height: 15px;
+  }
+  .body_content{
+    height: 280px;
+    width: 100%;
+    background-color: $white;
+    .title_content{
+      height: 34px;
+      width: 100%;
+      line-height: 30px;
+      letter-spacing: normal;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      color: #1C1C1C;
+      margin: 0;
+      .bold{
+        float: left;
+      }
+    }
+    .correction_position_center_top{
+      height: 20px;
+    }
+    .facebook_login_ber{
+      height: 50px;
+      width: 100%;
+      margin: 0 auto;
+      background-color: #1152A8;
+      .facebook_login_btn{
+        height: 100%;
+        width: 100%;
+        float: right;
+        .redirect_btn{
+          height: 100%;
+          width: 100%;
+          h3{
+            margin: 0 auto;
+            color: #F1F3F6;
+          }
+        }
+      }
+    }
+    .correction_position_center_bottom{
+      height: 10px;
+    }
+    .border_line{
+      background: none;
+      height: 40px;
+      position: relative;
+      text-align: center;
+      &__content{
+        background-color: $white;
+        padding: 8px;
+        display: inline-block;
+      }
+      hr{
+        margin: -16px auto 10px;
+        width: 100%;
+        border-top: 1px solid #E6E6E6;
+      }
+    }
+    .split_button{
+      height: 110px;
+      width: 100%;
+      .left_login_btn{
+        height: 50px;
+        width: 250px;
+        float: left;
+        border: 1px solid #848484;
+        .redirect_btn{
+          height: 100%;
+          width: 50%;
+          h3{
+            height: 30px;
+            width: 200px;
+          }
+        }
+      }
+      .right_login_btn{
+        height: 50px;
+        width: 250px;
+        float: right;
+        border: 1px solid #848484;
+        .redirect_btn{
+          height: 100%;
+          width: 50%;
+          h3{
+            height: 30px;
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  .bottom_content{
+    height: 23px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    &__text_elia{
+      padding-left: 120px;
+      float: left;
+      color: #848484;
+    }
+    .redirect_btn{
+      padding-left: 10px;
+      color: rgb(0, 132, 137);
+    }
+  }
+}
+

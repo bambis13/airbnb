@@ -1,15 +1,29 @@
+.position
+/ 編集の際のpositionの調節
+
 .login_contents
   .top_content
     = button_to '×'
+  .correction_position_top
   .body_content
     .title_content
       %h1.bold ログイン
+    .correction_position_center_top
     .facebook_login_ber
-      = button_to 'Facebook'
+      .facebook_login_btn
+        %a.redirect_btn{href: root_path}
+          %h3.bold Facebookでログイン
+    .correction_position_center_bottom
     .border_line
+      .border_line__content または
+      %hr
     .split_button
-      .left_login_button
-        = button_to 'mail', "new_user_session_path", method: :get
-      .right_login_button
-        = button_to 'google'
-    .bottom_text_elia
+      .left_login_btn
+        %a.redirect_btn{href: new_user_session_path}
+          %h3.bold メールアドレス
+      .right_login_btn
+        %a.redirect_btn{href: root_path}
+          %h3.bold Google
+    .bottom_content
+      .bottom_content__text_elia アカウントはお持ちでないですか？
+      %a.bold.redirect_btn{href: root_path} 登録
