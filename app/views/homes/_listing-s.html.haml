@@ -1,23 +1,24 @@
 .listings
   %h1.bold 世界中のリスティング
-  .listing-s
-    .listing-slick
-      /[TODO]listing-s用に画像をリサイズ
-      /[TODO]listing-slickはhoverされたら表示にする
-      .listing-s__image.slick-sub
-        = image_tag("home1.png")
-      .listing-s__image.slick-sub
-        = image_tag("home2.png")
-      .listing-s__image.slick-sub
-        = image_tag("home3.png")
-      .listing-s__image.slick-sub
-        = image_tag("home2.png")
-    .listing-s__text
-      %p.listing-category.bold 小屋
-      %p.listing-title.bold Villa San Gennariello B&B
-      %p.listing-price ¥8,761 /泊・キャンセル無料
-      %span.listing-star ★★★★★
-      %span.listing-reviewsum.bold 122・
-      %span.superhost.bold スーパーホスト
+  - 5.times do
+    .listing-s
+      .listing-slick
+        /[TODO]listing-s用に画像をリサイズ
+        /[TODO]listing-slickはhoverされたら表示にする
+        .listing-s__image.slick-sub
+          = image_tag("home1.png")
+        .listing-s__image.slick-sub
+          = image_tag("home2.png")
+        .listing-s__image.slick-sub
+          = image_tag("home3.png")
+        .listing-s__image.slick-sub
+          = image_tag("home2.png")
+      .listing-s__text
+        %p.listing-category.bold 小屋
+        %p.listing-title.bold Villa San Gennariello B&B
+        %p.listing-price ¥8,761 /泊・キャンセル無料
+        %span.listing-star ★★★★★
+        %span.listing-reviewsum.bold 122・
+        %span.superhost.bold スーパーホスト
 %a.showall.bold{:href => "/"} すべて見る(2000+) >
 

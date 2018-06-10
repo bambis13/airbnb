@@ -162,7 +162,7 @@ h3{
   .listing-x{
     display: inline-block;
     margin: 0 auto;
-    width: calc(33vw - 100px);
+    width: $x-width;
     padding: 8px 8px 12px 8px;
     min-width: 200px;
     &__text{
@@ -183,18 +183,33 @@ h3{
     padding: 8px 8px 12px 8px;
     min-width: 250px;
   }
-  .trip-with-icon{
+  .trip-with-airbnb{
+    padding-top: 20px;
+    width: $x-width;
     img{
-    height: 30px;
+      width: 50px;
+      object-fit: contain;
+      float: left;
+      padding: 0 0 10px 5px; 
+    }
+    &__text{
+      clear: both;
+      p{
+        font-size: 19px;
+        padding-bottom: 5px;
+      }
+      h2{
+        height: 100px;
+      }
     }
   }
 }
+
 .showall{
   color: $viridian;
   font-size: 16px;
   padding: 20px 0;
 }
-
 ._share_check {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -211,3 +226,4 @@ h3{
     width: 85%;
     margin: 0px auto;
 }
+
