@@ -2,8 +2,10 @@
   %h1.bold 世界中のリスティング
   - 5.times do
     .listing-s
+      = link_to root_path,data: {id: ''},class: 'favorite-btn', id: "like-button" do
+        %i.fa.fa-heart.fa-lg.icon-favorite-pink
+        %i.fa.fa-heart-o.fa-lg.icon-favorite-white
       .listing-slick
-        /[TODO]listing-s用に画像をリサイズ
         /[TODO]listing-slickはhoverされたら表示にする
         .listing-s__image.slick-sub
           = image_tag("home1.png")

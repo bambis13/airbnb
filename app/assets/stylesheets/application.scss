@@ -1,3 +1,6 @@
+/*
+ *= require font-awesome
+*/
 @import './reset';
 @import './variable';
 @import './header';
@@ -36,6 +39,14 @@
   padding: 40px 80px;
 }
 
+.centering-wrap{
+  text-align: center;
+}
+
+.align-left{
+  text-align: left;
+}
+
 a{
   text-decoration: none;
   color: $fontBlack;
@@ -57,7 +68,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
 }
 

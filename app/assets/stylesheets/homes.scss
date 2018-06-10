@@ -1,11 +1,4 @@
 /*--------- Contents ------------------------*/
-img{
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-  object-fit: conain;
-}
-
 h3{
   text-align: center;
   line-height: 28px;
@@ -132,8 +125,15 @@ h3{
 .listings{
   padding: 20px 0;
   min-width: 500px;
+  img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: conain;
+  }
   .listing-s{
     // min-width: 200px;
+    position: relative;
     display: inline-block;
     margin: 0 auto;
     width: $s-width;
@@ -158,6 +158,21 @@ h3{
     }
     .listing-price{
       font-size: 14px;
+    }
+    .icon-favorite-pink{
+      position: absolute;
+      right: $icon-f_s;
+      top: 25px;
+      z-index: 1;
+      color: $iconPink;
+      visibility: hidden;
+    }
+    .icon-favorite-white{
+      position: absolute;
+      right: $icon-f_s;
+      top: 25px;
+      z-index: 2;
+      color: $white;
     }
   }
   .listing-x{
@@ -185,9 +200,10 @@ h3{
     min-width: 250px;
   }
   .trip-with-airbnb{
-    padding-top: 20px;
+    padding: 40px 10px;
     width: $x-width;
     img{
+      height: 50px;
       width: 50px;
       object-fit: contain;
       float: left;
