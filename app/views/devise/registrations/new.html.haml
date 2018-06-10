@@ -1,0 +1,68 @@
+.position
+/ 編集の際のpositionの調節
+
+.signup_contents
+  .signup_contents__top_content
+    = button_to '×'
+  .signup_contents__registration_elia
+    .facebook_signup_btn
+      %a.redirect_btn{href: root_path}
+        %h3 Facebookで登録
+    .google_signup_btn
+      %a.redirect_btn{href: root_path}
+        %h3 Googleで登録
+    .border_line
+      .border_line__content または
+      %hr
+    .mail_signup_btn
+      %a.redirect_btn{href: root_path}
+        %h3 メールアドレスで登録
+  .signup_contents__border_line
+    %hr
+  .signup_contents__bottom_content
+    .text_elia Airbnbアカウントはお持ちですか？
+    %a.redirect_btn{href: new_user_registration_path} ログイン
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ <!-- <h2>Sign up</h2>
+
+/ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+/   <%= devise_error_messages! %>
+
+/   <div class="field">
+/     <%= f.label :email %><br />
+/     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+/   </div>
+
+/   <div class="field">
+/     <%= f.label :password %>
+/     <% if @minimum_password_length %>
+/     <em>(<%= @minimum_password_length %> characters minimum)</em>
+/     <% end %><br />
+/     <%= f.password_field :password, autocomplete: "off" %>
+/   </div>
+
+/   <div class="field">
+/     <%= f.label :password_confirmation %><br />
+/     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+/   </div>
+
+/   <div class="actions">
+/     <%= f.submit "Sign up" %>
+/   </div>
+/ <% end %>
+
+/ <%= render "devise/shared/links" %>
