@@ -1,3 +1,29 @@
+@mixin font-text {
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: 100%;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 22px;
+  // text-align: left;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  color: $fontTxt;
+}
+
+@mixin clearfix {
+  &::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+   }
+}
+
+
 .container {
   width: 100%;
 
@@ -11,18 +37,20 @@
     }
   }
 
-  .container-main {
-    margin-left: 58px;
-  }
     .container-left {
       width: 56.3%;
-      max-width: 690px;
+      min-width: 696px;
 
+      p, li {
+        @include font-text;
+      }
+    }
+}
       .home-overview {
         height: 1000px;
         &__heading {
           span {
-            color:#9b3143;
+            color:#9b3143 !important;
             font-size: 14px;
             font-weight: bold;
           }
@@ -34,11 +62,6 @@
             font-size: 24px;
             font-weight: bold;
           }
-          p {
-            font-size: 20px;
-            // font-weight: bold;
-            // color: $fontBlack;
-          }
 
           li {
             float: left;
@@ -46,73 +69,154 @@
         }
 
         &__highlight {
-              color: $fontBlack;
+          color: $fontBlack;
 
-            &__top-item {
-              border: 1px solid rgba(0, 0, 0, 0.1);
-              padding:24px;
-              margin: 24px 0px;
-              p {
-                font-size: 16px;
-              }
+          &__top-item {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding:24px;
+            margin: 24px 0px;
+          }
+
+          &__content {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding:24px;
+          }
+        }
+
+        &__detail__item {
+          padding:24px;
+          padding-left:0px;
+          // margin: 24px 0px;
+          border-bottom: 1px #aaa solid;
+          @include font-text;
+
+          h4 {
+            margin-bottom: 16px;
+          }
+          .amenity_item {
+            margin-right: 8px;
+            margin-bottom: 18px;
+            @include clearfix;
+
+              h5 {
+              vertical-align:center;
+              float: left;
+              font-size :16px;
+              margin-left: 10px;
+              margin-bottom: 18px;
             }
 
-            &__detail {
-              border: 1px solid rgba(0, 0, 0, 0.1);
-              padding:24px;
-              margin: 24px 0px;
-              span {
-                text-align: left;
-                line-height: 28px;
-                padding-left: 0px;
-                font-size: 14px;
-                font-weight: bold;
-                color: $fontBlack;
+            img {
+              height:1.2em;
+              width: 1.2em;
+              float: left;
+            }
+          }
+          .home-overview__detail__amenities__left,
+          .home-overview__detail__amenities__right {
+            float:left;
+            width: 40%;
+          }
+
+          //ベッド一覧
+          .detail_bed {
+
+            .bed-item {
+              border: 1px #aaa solid;
+              float:left;
+              margin-right: 10px;
+              font-size:100px;
+
+              .bed-item p {
+                font-weight:600px;
               }
             }
           }
 
-        &__detail {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        }
+
+
+      }
+
+.home-reviews {
+  .review-search{
+    background-image:url("search_icon.png");
+    background-repeat: no-repeat;
+    background-position: 2px center;
+    background-size: 15px;
+  }
+
+  &__summary__head {
+    padding: 24px 0 20px;
+    border-bottom: 1px #aaa solid;
+  }
+
+  &__summary__body {
+    .home-reviews__summary__body__left,
+    .home-reviews__summary__body__right {
+      width: 50%;
+    }
+      .review-metric {
+        padding: 12px 0px;
+        @include clearfix;
+        p{
+          float: left;
+        }
+
+        span {
+          float: right;
+          color: $viridian;
+          text-align: right;
+          padding-right: 50px;
+          width: 30%;
         }
       }
+    }
 
-      .home-reviews {
+    &__box {
+      padding: 24 0;
+      border-bottom: 1px #aaa solid;
 
+        &__top {
+          margin: 10px 0 0px ;
 
+          &__left{
+            float:left;
 
+            .user-pic {
+              float:left;
+            }
 
-      }
+            &__info{
+              float:left;
+            }
+          }
 
-
-  }
+          &__right {
+            float:right;
+            img {
+             height: 10px;
+            }
+          }
+        }
+    }
 }
-
-
-
-      .item-title {
-        text-align: left;
-        padding-left: 0px;
-        color: $fontBlack;
-        word-wrap: break-word !important;
-        font-size: 16px !important;
-        line-height: 22px !important;
-        letter-spacing: normal !important;
-        font-weight: 800 !important;
-      }
-
 
 
       .japanese-translation {
         border: 1px solid #383838;
         padding: 5px;
-        text-align: center;
         border-radius: 5px;
         color: $fontBlack;
         font-weight: bold;
+        margin-top: 24px;
+        cursor: pointer;
+        text-align: center;
 
         h4 {
           font-weight:bold;
+          text-align: center;
         }
       }
 
@@ -123,13 +227,12 @@
 
 
 .font-text {
-  cursor: pointer ;
-  display: inline;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   font-stretch: 100%;
   height: auto;
   letter-spacing: normal;
-  line-height: 18px;
+  line-height: 22px;
   text-align: left;
   text-indent: 0px;
   text-size-adjust: 100%;
@@ -139,16 +242,12 @@
   color: $fontTxt;
 }
 
-.subtitle, .name {
+.subtitle, .name, span {
   font-size: 16px;
   font-weight: 600;
   height: 22px;
   letter-spacing: normal;
   line-height: 22px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top:0px ;
   text-size-adjust: 100%;
   width: 216px;
   word-wrap:break-word ;
@@ -165,6 +264,50 @@
   width: auto;
   word-wrap: break-word;
 }
+
+
+
+
+
+h4 ,p {
+  display:block;
+}
+
+.bold-subtitle {
+  color: $fontBold;
+  font-weight: 600;
+}
+
+.fontsize-12px {
+  font-size: 12px !important;
+}
+
+.bed-item {
+  border: 1px #DBDBDB solid;
+  border-radius: 5px ;
+  float:left;
+  margin-right: 20px;
+  padding: 24px;
+  width: 20%;
+
+
+  span {
+    text-align: left;
+  }
+
+  .bed-icon {
+    margin-bottom: 30px;
+    img {
+      height:20px;
+      width: 20px;
+    }
+  }
+}
+
+h3 {
+  padding: 0 0px;
+}
+
 
 
 

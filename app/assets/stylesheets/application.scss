@@ -14,12 +14,16 @@
 }
 
 .bold{
-  font-weight:600;
+  font-weight:600 !important;
   letter-spacing: 0.025em;
 }
 
 .left{
   float: left;
+}
+
+.right {
+  float: right;
 }
 
 .contents{
@@ -86,3 +90,6 @@ h6,
 p {
   margin: 0 0 10px;
 }
+
+
+
