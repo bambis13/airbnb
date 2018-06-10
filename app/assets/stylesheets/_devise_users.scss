@@ -5,6 +5,8 @@
   height: 100px;
 }
 
+// login
+
 .login_contents{
   height: 350px;
   width: 530px;
@@ -13,6 +15,7 @@
   background-color: $white;
   // わかりやすくするために追加
   border: 1px solid #848484;
+  font-family: Helvetica Neue;
   .top_content{
     height: 15px;
     width: 100%;
@@ -130,3 +133,143 @@
   }
 }
 
+// login_session
+
+.login_session_contents{
+  height: 520px;
+  width: 510px;
+  margin: 0 auto;
+  padding: 32px;
+  font-family: Helvetica Neue;
+  background-color: $white;
+  // わかりやすくするために追加
+  border: 1px solid #848484;
+  &__top_content{
+    height: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: $white;
+  }
+  &__title_content{
+    height: 40px;
+    h1{
+      margin-bottom: 24px;
+    }
+  }
+  .correction_position_top{
+    height: 15px;
+  }
+  &__form_content{
+    height: 245px;
+    width: 100%;
+    background-color: $white;
+    .field_input_elia{
+      height: 42px;
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #E6E6E6;
+      border-radius: 2px;
+      .login_form{
+        // height: 100%;
+        width: 90%;
+        border-color: $white;
+        padding: 10px 35px 10px 10px;
+      }
+    }
+    .field_checkbox_elia{
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .field_submit_elia{
+      margin-bottom: 16px;
+      .login_btn{
+        font-size: 16px;
+        line-height: 21px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-weight: 800;
+        padding-left: 24px;
+        padding-right: 24px;
+        min-width: 77.6656px;
+        box-shadow: none;
+        height: 50px;
+        width: 100%;
+        color: $white;
+        border-radius: 4px;
+        border-width: 2px;
+        border-style: solid;
+        background: #F7819F;
+        border-color: transparent;
+      }
+    }
+    .redirect_btn{
+      padding-left: 33%;
+      color: rgb(0, 132, 137);
+    }
+    .section_message{
+      padding: 16px;
+      background: none;
+      position: relative;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
+  .correction_position_center{
+    height: 55px;
+  }
+  &__split_button{
+    height: 60px;
+    width: 100%;
+    margin-bottom: 16px;
+    .left_login_btn{
+      height: 50px;
+      width: 250px;
+      float: left;
+      border: 1px solid #848484;
+      .redirect_btn{
+        height: 100%;
+        width: 50%;
+        h3{
+          height: 30px;
+          width: 200px;
+        }
+      }
+    }
+    .right_login_btn{
+      height: 50px;
+      width: 250px;
+      float: right;
+      border: 1px solid #848484;
+      .redirect_btn{
+        height: 100%;
+        width: 50%;
+        h3{
+          height: 30px;
+          width: 200px;
+        }
+      }
+    }
+  }
+  &__border_line{
+    margin-bottom: 16px;
+  }
+  &__bottom_content{
+    .text_elia{
+      padding-left: 100px;
+      float: left;
+      color: #848484;
+    }
+    .redirect_btn{
+      padding-left: 10px;
+      color: rgb(0, 132, 137);
+    }
+  }
+}
