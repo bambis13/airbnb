@@ -1,32 +1,98 @@
+/ deviseを確認する。
+/ もしかしたら
+/ deviseのuserの新規登録フォームのコードに置換するべきかもしれない
+
+
+/ .position
+/ / 編集の際のpositionの調節
+
+/ .signup_contents
+/   .signup_contents__top_content
+/     = button_to '×'
+/   .signup_contents__registration_elia
+/     .facebook_signup_btn
+/       %a.redirect_btn{href: root_path}
+/         %h3 Facebookで登録
+/     .google_signup_btn
+/       %a.redirect_btn{href: root_path}
+/         %h3 Googleで登録
+/     .border_line
+/       .border_line__content または
+/       %hr
+/     .mail_signup_btn
+/       %a.redirect_btn{href: root_path}
+/         %h3 メールアドレスで登録
+/   .signup_contents__border_line
+/     %hr
+/   .signup_contents__bottom_content
+/     .text_elia Airbnbアカウントはお持ちですか？
+/     %a.redirect_btn{href: new_user_registration_path} ログイン
+
+
+
 .position
 / 編集の際のpositionの調節
 
-.signup_contents
-  .signup_contents__top_content
+.signup_registration_contents
+  .signup_registration_contents__top_content
     = button_to '×'
-  .signup_contents__registration_elia
-    .facebook_signup_btn
-      %a.redirect_btn{href: root_path}
-        %h3 Facebookで登録
-    .google_signup_btn
-      %a.redirect_btn{href: root_path}
-        %h3 Googleで登録
-    .border_line
-      .border_line__content または
-      %hr
-    .mail_signup_btn
-      %a.redirect_btn{href: root_path}
-        %h3 メールアドレスで登録
-  .signup_contents__border_line
+  .signup_registration_contents__switch_content
+    %a.redirect_btn{href: root_path} Facebook
+    または
+    %a.redirect_btn{href: root_path} Google
+    で登録
+  .section_message または
+  .signup_registration_contents__form_content
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field_input_elia
+        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
+      .field_input_elia
+        = f.text_field :name, placeholder: "名", autocomplete: true, class: 'login_form'
+      .field_input_elia
+        = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
+      .field_input_elia
+        = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form'
+      / .field_password_certifcation
+      /   .field_password_certifcation__mark ×
+      /   .field_password_certifcation__text パスワードの強度
+      / .field_password_certifcation
+      /   .field_password_certifcation__mark ×
+      /   .field_password_certifcation__text 指名やパスワードは使用できません
+      / .field_password_certifcation
+      /   .field_password_certifcation__mark ×
+      /   .field_password_certifcation__text 最低8文字
+      / .field_password_certifcation
+      /   .field_password_certifcation__mark ×
+      /   .field_password_certifcation__text 数字や記号を含めます
+      .field_label
+        = f.label :birth_day, "生年月日"
+        .field_label__text ご登録は18歳以上の方に限ります。誕生日は非公開です
+      .field_select_elia
+        = f.date_select(                        |
+          :birth_day,                           |
+          include_blank: true,                  |
+          start_year:     1930,                 |
+          end_year:       (Time.now.year - 18)) |
+      .field_content お得なキャンペーン、スペシャルオファー、旅やポリシーの最新情報をメールでお届けします
+      .field_submit_elia
+        = f.submit "登録", class: 'registration_btn', id: 'submit'
+      .field_checkbox_elia
+        = f.check_box :remember_me
+        .field_checkbox_elia__label
+          = f.label "Airbnbから広告メッセージの受け取りを希望しない。広告メッセージはアカウントの設定や文中リンクでいつでも配信解除できる。"
+  .signup_registration_contents__border_line
+    .correction_position
     %hr
-  .signup_contents__bottom_content
+  .signup_registration_contents__bottom_content
     .text_elia Airbnbアカウントはお持ちですか？
-    %a.redirect_btn{href: new_user_registration_path} ログイン
+    %a.redirect_btn{href: root_path} ログイン
 
 
-
-
-
+/ .airbnb-embed-frame{"data-id" => "260524", "data-view" => "home", :style => "width:450px;height:300px;margin:auto"}
+/   %a{:href => "https://www.airbnb.jp/rooms/260524?s=51"}
+/     %span Airbnbで見る
+/   %a{:href => "https://www.airbnb.jp/rooms/260524?s=51", :rel => "nofollow"} Leccio Apartment - Cimbolello
+/   %script{:async => "", :src => "https://www.airbnb.jp/embeddable/airbnb_jssdk"}
 
 
 
