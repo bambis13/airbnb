@@ -7,19 +7,67 @@
         %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
     %ul.navibar__list
-      %li
+      %li.navibar__list__content
         = link_to 'お部屋を掲載', root_path
-      %li.navigation
-        ホスト
-      %li
+      %li.navibar__list__content
+        ホストをはじめる
+        %ul.navigation.hide#host
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'
+      %li.navibar__list__content
         お気に入り
-      %li
+        %ul.navigation.hide#favorite
+          .hide_content__title
+            %span お気に入り
+            = link_to 'お気に入りを表示'
+          %li.hide_content
+            = link_to do
+              .favorite__link
+                / %span リストが作成されていません
+                / %p お気に入りを作成する
+                / / icon.heart
+          %li.hide_content
+            = link_to 'ファボリスト名'
+      %li.navibar__list__content
         旅行
-      %li
+        %ul.navigation.hide#trip
+          .hide_content__title
+            %span 旅行
+            = link_to '旅行一覧を見る'
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'
+      %li.navibar__list__content
         メッセージ
-      %li
+        %ul.navigation.hide#message
+          %li.hide_content
+            %span メッセージ
+            = link_to '全てを表示する'
+          %li.hide_content
+            %span 通知
+            = link_to '全てを表示する'
+      %li.navibar__list__content
         クーポン
-      %li
+        .navigation.hide#coupon
+          %span
+            Airbnbに友達を1人紹介するごとに¥ 1,900獲得できます。
+          = link_to '規約を読む'
+          .square_btn
+            友達を招待する
+      %li.navibar__list__content
         ヘルプ
-      %li
+        %ul.navigation.hide#help
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'
+      %li.navibar__list__content
         = image_tag("no_img.png", alt: "no_img_icon", id: "navibar__list__user__img")
+        %ul.navigation.hide#user
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'

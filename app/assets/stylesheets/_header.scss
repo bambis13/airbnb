@@ -46,15 +46,18 @@
       }
       .search{
         width: 300px;
-        border: 1px $fontBlack solid;
+        border: 1px #DFDFDF solid;
+        border-radius: 3px;
         background-color: $white;
         position: absolute;
         padding-left: 40px;
         top: 65px;
         left: 5px;
+        // 検索バーのjs
         .category{
           &__title{
             font-size: 14px;
+            color: $fontBlack;
           }
           &__tag{
             font-size: 14px;
@@ -78,8 +81,10 @@
     }
     .navibar__list{
       float: right;
-      li{
-        height: 80px;
+      &__content{
+        font-size: 14px;
+        font-weight: bold;
+        height: 78px;
         margin-right: 10px;
         float: left;
         padding: 0 10px;
@@ -90,11 +95,90 @@
           padding-top: 20px;
         }
       }
-      li:hover{
+      &__content:hover{
         border-bottom: 2px black solid;
+      }
+      &__content{
+        position: relative;
+        #host{
+          width: 200px;
+          position: absolute;
+          top: 80px;
+          left: 0;
+        }
+        #favorite{
+          width: 300px;
+          position: absolute;
+          top: 80px;
+          left: 0;
+        }
+        #trip{
+          width: 300px;
+          position: absolute;
+          top: 80px;
+          left: 0;
+        }
+        #message{
+          width: 300px;
+          position: absolute;
+          top: 80px;
+          right: 0;
+        }
+        #coupon{
+          width: 400px;
+          position: absolute;
+          top: 80px;
+          right: 0;
+        }
+        #help{
+          width: 300px;
+          position: absolute;
+          top: 80px;
+          right: -80px;
+        }
+        #user{
+          width: 300px;
+          position: absolute;
+          top: 80px;
+          right: 0;
+        }
+        .navigation{
+          background-color: $white;
+          position: absolute;
+          border: 1px #dfdfdf solid;
+          border-radius: 3px;
+          box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+          .hide_content__title{
+            background-color: #efefef;
+            padding: 10px;
+            height: 50px;
+            line-height: 50px;
+            a{
+              float: right;
+              height: 32px;
+            }
+            a:hover{
+              border-bottom: 1px $fontBlack solid;
+            }
+          }
+          .hide_content{
+            height: 50px;
+            padding: 10px;
+            line-height: 70px;
+            a{
+              padding: 17px;
+            }
+            a:hover{
+              border-bottom: 1px #aaa solid;
+            }
+          }
+        }
       }
     }
   }
+}
+.hide{
+  display: none;
 }
 .clearfix:after{
   content: '';
