@@ -68,3 +68,4 @@ gem 'erb2haml'
 gem 'turbolinks'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'faker'
