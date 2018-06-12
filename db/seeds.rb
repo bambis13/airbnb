@@ -3,7 +3,7 @@
   capacity = rand(0..9)
   number_of_bedroom = rand(0..9)
   number_of_bathroom = rand(0..9)
-  bathroom_for_guest = Faker::Boolean.boolean
+  bathroom_for_guest = Faker::Boolean.boolean(0.2)
   postalcode = Faker::Address.postcode
   prefecture = Faker::Address.state
   town = Faker::Pokemon.location
@@ -14,6 +14,9 @@
   name = Faker::TheFreshPrinceOfBelAir.quote
   created_at = Faker::Time.between(DateTime.now - 1, DateTime.now)
   updated_at = Faker::Time.between(DateTime.now - 1, DateTime.now)
+  random_number = (1..100)
+  sentence = Faker::Hacker.say_something_smart
+  boolean = Faker::Boolean.boolean(0.2)
 
   Home.create(
     capacity:capacity,
@@ -31,7 +34,55 @@
     created_at: created_at,
     updated_at: updated_at
   )
+
+
+  Country.create(
+    name:"日本",
+    created_at: created_at,
+    updated_at: updated_at
+  )
+
+  AdditionalHomeRule.create(
+    content: sentence,
+    home_id: random_number,
+    created_at: created_at,
+    updated_at: updated_at
+  )
+
+  Amenity.create(
+    necessities:boolean,
+    wifi: boolean,
+    shampoo: boolean,
+    closet: boolean,
+    tv_set: boolean,
+    heating: boolean,
+    air_conditioner: boolean,
+    breakfast: boolean,
+    desk: boolean,
+    fireplace: boolean,
+    iron: boolean,
+    hair_dryer: boolean,
+    allowed_pet: boolean,
+    smoke_detector: boolean,
+    carbon_monoxide_detecter: boolean,
+    aid_set: boolean,
+    fire_extinguisher: boolean,
+    disaster_card: boolean,
+    keyed_door: boolean,
+    home_id: random_number,
+    created_at: created_at,
+    updated_at: updated_at
+)
  end
+
+
+
+
+
+
+
+
+
 
 #ホームルール
 # accept_kids = Faker::Boolean.boolean
