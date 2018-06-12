@@ -1,14 +1,14 @@
 .header.clearfix
   .navibar
     .navibar__icon
-      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), root_path
+      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
     .navibar__search
-      = form_tag(root_path, method: :get) do
+      = form_tag('#', method: :get) do
         %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
     %ul.navibar__list
       %li.navibar__list__content
-        = link_to 'お部屋を掲載', root_path
+        = link_to 'お部屋を掲載', '#'
       %li.navibar__list__content
         ホストをはじめる
         %ul.navigation.hide#host
@@ -51,7 +51,7 @@
             = link_to '全てを表示する'
       %li.navibar__list__content
         クーポン
-        .navigation.hide#coupon
+ '#'avigation.hide#coupon
           %span
             Airbnbに友達を1人紹介するごとに¥ 1,900獲得できます。
           = link_to '規約を読む'

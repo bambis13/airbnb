@@ -1,53 +1,73 @@
-.footer{
-  height: 259px;
-  width: 1032px;
-  margin: 0 auto;
-  padding: 48px 24px;
+.frame__footer{
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background-color: $white;
   border-top: 1px black solid;
-  .footer__lists{
-    height: 188px;
-    padding-bottom: 30px;
-    border-bottom: 1px black solid;
-    .footer__list{
-      float: left;
-      width: 25%;
-      .footer__list__name{
-        height: 20px;
-        font-size: 14px;
-        padding-bottom: 10px;
-        .api_icon_img{
-          float: left;
+  .footer{
+    height: 259px;
+    width: 1032px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    .footer__lists{
+      height: 188px;
+      padding-bottom: 30px;
+      border-bottom: 1px black solid;
+      .footer__list{
+        float: left;
+        width: 25%;
+        .footer__list__name{
           height: 20px;
-          width: 20px;
-          padding-left: 10px;
+          font-size: 14px;
+          padding-bottom: 10px;
+          .api_icon_img{
+            float: left;
+            height: 20px;
+            width: 20px;
+            padding-left: 10px;
+          }
+        }
+        .footer__list__item{
+          font-size: 14px;
+          a{
+            text-decoration: none;
+            color: $fontBlack;
+          }
+          a:hover{
+            border-bottom: 1px black solid;
+          }
         }
       }
-      .footer__list__item{
-        font-size: 14px;
-        a{
-          text-decoration: none;
-          color: $fontBlack;
+    }
+    .footer__copyrights{
+      padding-top: 20px;
+      float: left;
+      .footer__copyrights__img{
+        height: 20px;
+        float: left;
+        #footer__copyrights__img{
+          height: 20px;
+          width: 20px;
         }
-        a:hover{
-          border-bottom: 1px black solid;
-        }
+      }
+      .footer__copyrights__company{
+        padding-left: 20px;
+        float: left;
       }
     }
   }
-  .footer__copyrights{
-    padding-top: 20px;
-    float: left;
-    .footer__copyrights__img{
-      height: 20px;
-      float: left;
-      #footer__copyrights__img{
-        height: 20px;
-        width: 20px;
-      }
-    }
-    .footer__copyrights__company{
-      padding-left: 20px;
-      float: left;
-    }
+}
+.footer__btn{
+  position: fixed;
+  bottom: 13px;
+  right: 13px;
+  cursor: pointer;
+  background-color: $white;
+  border-radius: 3px;
+  border: 1px #dedede solid;
+  padding: 5px;
+  &__icon{
+    height: 20px;
+    width: 20px;
   }
 }
