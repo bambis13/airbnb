@@ -1,3 +1,6 @@
+/*
+ *= require font-awesome
+*/
 @import './reset';
 @import './variable';
 @import './header';
@@ -5,7 +8,10 @@
 @import './footer';
 @import './homes_show';
 @import "font-awesome";
+@import './slick-theme';
+@import './slick';
 
+/*-- Settings ---------------------------------- */
 .clearfix:after {
   content: "";
   display: block;
@@ -22,6 +28,10 @@
 .left{
   float: left;
 }
+.inline{
+  display: inline-block;
+  vertical-align: top;
+}
 
 .right {
   float: right;
@@ -33,6 +43,14 @@
   min-width: 500px;
   overflow-y:scroll;
   padding: 80px 80px 40px; //padding-topを40->80に変更
+}
+
+.centering-wrap{
+  text-align: center;
+}
+
+.align-left{
+  text-align: left;
 }
 
 a{
@@ -60,9 +78,11 @@ p,
 .p,
 {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+.h6 {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
 }
-
+}
 h1,
 .h1 {
   font-size: 25px;
@@ -88,7 +108,6 @@ h6,
   font-size: 10px;
 }
 p {
-  margin: 0 0 10px;
 }
 
 

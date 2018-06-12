@@ -51,7 +51,9 @@ $(function() {
       // var imageHeight = $('.header-img').height();
       var id = $(this).attr("href");
       console.log(id)
-      var position = $(id).offset().top;
+      var contentsPosition= $(".contents").scrollTop();
+      var targetPosition =$(id).scrollTop();
+      var position = $('.contents').scrollTop(targetPosition);
       console.log(position)
       $('.contents').animate({
         "scrollTop":position

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608090243) do
+ActiveRecord::Schema.define(version: 20180611113630) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -228,6 +228,8 @@ ActiveRecord::Schema.define(version: 20180608090243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "listing_photo_id", null: false
+    t.bigint "home_id", null: false
+    t.index ["home_id"], name: "index_listing_photo_homes_on_home_id"
     t.index ["listing_photo_id"], name: "index_listing_photo_homes_on_listing_photo_id"
   end
 
@@ -333,6 +335,7 @@ ActiveRecord::Schema.define(version: 20180608090243) do
   add_foreign_key "favorites", "favorite_lists"
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
+  add_foreign_key "listing_photo_homes", "homes"
   add_foreign_key "listing_photo_homes", "listing_photos"
   add_foreign_key "listing_photos", "users"
   add_foreign_key "messages", "users"
