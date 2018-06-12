@@ -11,8 +11,30 @@
         %li
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
-    = image_tag("home2.png", class: "header-img")
-    = button_to '保存', root_path, class: "like-btn btn"
+    = image_tag("home2.png", class: "header-img", id: "show-modal")
+  .photo-modal-wrapper#modal
+    .listing-slick-3.modal.clearfix
+      .inmodal-img.slick-sub
+        %a{href: "#"}
+          = image_tag("home1.png", class: "modal-photo")
+      .inmodal-img.slick-sub
+        %a{href: "#"}
+          = image_tag("home2.png", class: "modal-photo")
+      .inmodal-img.slick-sub
+        %a{href: "#"}
+          = image_tag("home3.png", class: "modal-photo")
+      .inmodal-img.slick-sub
+        %a{href: "#"}
+          = image_tag("home2.png", class: "modal-photo")
+    %ul.thumnail-list
+      %li.thumnail-item
+        = image_tag("home1.png", class: "modal-thumbnail")
+      %li.thumnail-item
+        = image_tag("home2.png", class: "modal-thumbnail")
+      %li.thumnail-item
+        = image_tag("home3.png", class: "modal-thumbnail")
+      %li.thumnail-item
+        = image_tag("home2.png", class: "modal-thumbnail")
   .container-main
     .container-left
       .home-overview#overview
@@ -220,8 +242,8 @@
             %p 地図は正確な所在地を示しています。
           .similar-category
             %h3.title 類似のリスティング
-            .similar-category__carsel.clearfix
-              .similar-category__item.left
+            .similar-category__carsel.clearfix.listing-slick-2
+              .similar-category__item.left.slick-sub
                 = image_tag("home1.png", class: "similar-home")
                 .listing-s__text
                   %p.listing-category.bold 小屋
@@ -229,8 +251,24 @@
                   %p.listing-price ¥8,761 /泊・キャンセル無料
                   %span.listing-star ★★★★★
                   %span.listing-reviewsum.bold 122
-              .similar-category__item.left
+              .similar-category__item.left.slick-sub
                 = image_tag("home2.png", class: "similar-home")
+                .listing-s__text
+                  %p.listing-category.bold 小屋
+                  %p.listing-title.bold Villa San Gennariello B&B
+                  %p.listing-price ¥8,761 /泊・キャンセル無料
+                  %span.listing-star ★★★★★
+                  %span.listing-reviewsum.bold 122
+              .similar-category__item.left.slick-sub
+                = image_tag("home3.png", class: "similar-home")
+                .listing-s__text
+                  %p.listing-category.bold 小屋
+                  %p.listing-title.bold Villa San Gennariello B&B
+                  %p.listing-price ¥8,761 /泊・キャンセル無料
+                  %span.listing-star ★★★★★
+                  %span.listing-reviewsum.bold 122
+              .similar-category__item.left.slick-sub
+                = image_tag("home3.png", class: "similar-home")
                 .listing-s__text
                   %p.listing-category.bold 小屋
                   %p.listing-title.bold Villa San Gennariello B&B

@@ -38,46 +38,13 @@ $(function() {
             originalHeader.show();
         }
     });
-    //スクロールしてトップ
-    topBtn.click(function () {
-        $('.contents').animate({
-            scrollTop: 0
-        },   500);
-        return false;
-    });
-
     $("#header_show a").click(function(){
-      // var headerHeight = $('#header_show').height();
-      // var imageHeight = $('.header-img').height();
       var id = $(this).attr("href");
-      console.log(id)
-      var contentsPosition= $(".contents").scrollTop();
-      var targetPosition =$(id).scrollTop();
-      var position = $('.contents').scrollTop(targetPosition);
+      var position = $(id).get( 0 ).offsetTop - 70
+      $('.contents').animate({scrollTop: position}, 500)
       console.log(position)
-      $('.contents').animate({
-        "scrollTop":position
-      }, 500);
     });
-
-// var id = $(this).offset().top;
-
-// $('.contents').scroll(function() {
-//     var scroll = $(this).scrollTop();
-
-//     if( scroll >= id) {
-//         console.log('h1要素が画面の一番上に来ました！');
-//     }
-// })
 });
-
-  // $('header a').click(function(){
-  //   var id = $(this).attr('href');
-  //   var position = $(id).offset().top;
-  //   $('.contents').animate({
-  //     'scrollTop': position
-  //   }, 500);
-  // });
 
 
 
