@@ -1,26 +1,22 @@
-/ deviseの仕組みがよくわからず、仮置き
-/ 多分、deviseのregistrationのnew.html.hamlかもしれないけど
-/ loginのビューを先にnew.html.hamlで作ってしまったので要確認！
-
 .position
 / 編集の際のpositionの調節
 
-.signup_resistration_contents
-  .signup_resistration_contents__top_sontent
+.signup_registration_contents
+  .signup_registration_contents__top_sontent
     = button_to '×'
-  .signup_resistration_contents__switch_content
+  .signup_registration_contents__switch_content
     %a.redirect_btn{href: root_path} Facebook
     または
     %a.redirect_btn{href: root_path} Google
     で登録
   .section_message または
-  .signup_resistration_contents__form_content
+  .signup_registration_contents__form_content
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field_input_elia
         = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
       .field_input_elia
-        = f.text_field :personal_name, placeholder: "名", autocomplete: true, class: 'login_form'
+        = f.text_field :name, placeholder: "名", autocomplete: true, class: 'login_form'
       .field_input_elia
-        = f.text_field :family_name, placeholder: "性", autocomplete: true, class: 'login_form'
+        = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
       .field_input_elia
         = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form'
