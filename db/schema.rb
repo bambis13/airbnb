@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611113630) do
+ActiveRecord::Schema.define(version: 20180612035713) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -133,6 +133,8 @@ ActiveRecord::Schema.define(version: 20180611113630) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "home_id", null: false
+    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -212,6 +214,8 @@ ActiveRecord::Schema.define(version: 20180611113630) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "home_category_sub_id"
+    t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["town"], name: "index_homes_on_town"
   end
@@ -222,20 +226,13 @@ ActiveRecord::Schema.define(version: 20180611113630) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "listing_photo_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "listing_photo_id", null: false
-    t.bigint "home_id", null: false
-    t.index ["home_id"], name: "index_listing_photo_homes_on_home_id"
-    t.index ["listing_photo_id"], name: "index_listing_photo_homes_on_listing_photo_id"
-  end
-
   create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "home_id"
+    t.index ["home_id"], name: "index_listing_photos_on_home_id"
     t.index ["user_id"], name: "index_listing_photos_on_user_id"
   end
 
@@ -333,8 +330,8 @@ ActiveRecord::Schema.define(version: 20180611113630) do
   add_foreign_key "favorites", "favorite_lists"
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
-  add_foreign_key "listing_photo_homes", "homes"
-  add_foreign_key "listing_photo_homes", "listing_photos"
+  add_foreign_key "homes", "home_category_subs"
+  add_foreign_key "listing_photos", "homes"
   add_foreign_key "listing_photos", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "overviews", "homes"

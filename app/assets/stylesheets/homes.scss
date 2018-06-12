@@ -222,11 +222,12 @@ h3{
     }
   }
 }
-
 .showall{
   color: $viridian;
   font-size: 16px;
   padding: 20px 0;
+  display: block;
+  clear: both;
 }
 ._share_check {
     padding-top: 24px;
