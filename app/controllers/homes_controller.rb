@@ -11,6 +11,14 @@ class HomesController < ApplicationController
     @homes_sp = @homes.sphost_home
   end
 
+  def family
+    @homes_fm = Home.all
+  end
+
+  def business
+    @homes_bs = Home.all
+  end
+
   # GET /homes/1
   # GET /homes/1.json
   def show
