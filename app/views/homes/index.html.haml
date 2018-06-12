@@ -10,20 +10,19 @@
 .listings
   %h1.bold スーパーホストのリスティングに滞在しよう
   %p 品質と快適性は認証済み。新しいホームセレクションです
-  / = render 'listing-s'
+  = render partial: 'listing-s', collection: @homes_sp, as: :home
   %a.showall.bold{:href => "/"} すべて見る(2000+) >
-= render 'listing-l'
 = render 'share-check'
 .listings
   %h1.bold ニューヨークのお家
-  / = render 'listing-s'
+  = render partial: 'listing-s', collection: @homes_ny, as: :home
   %a.showall.bold{:href => "/"} すべて見る(2000+) >
 .listings
   %h1.bold バルセロナのお家
-  / = render 'listing-s'
+  = render partial: 'listing-s', collection: @homes_br, as: :home
   %a.showall.bold{:href => "/"} すべて見る(2000+) >
 .listings
   %h1.bold パリのお家
-  / = render 'listing-s'
+  = render partial: 'listing-s', collection: @homes_pr, as: :home
   %a.showall.bold{:href => "/"} すべて見る(2000+) >
 / = render 'trip-with-airbnb'

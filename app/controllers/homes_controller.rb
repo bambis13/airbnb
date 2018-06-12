@@ -4,7 +4,11 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-    @homes = Home.all.limit(5)
+    @homes = Home.all
+    @homes_ny = @homes.by_prefecture("ニューヨーク")
+    @homes_br = @homes.by_prefecture("バルセロナ")
+    @homes_pr = @homes.by_prefecture("パリ")
+    @homes_sp = @homes.sphost_home
   end
 
   # GET /homes/1

@@ -1,8 +1,8 @@
 class Home < ApplicationRecord
-   enum status: { visitor: 0, host: 1 }
   has_many                :additional_home_rules
   belongs_to              :home_category_sub
   belongs_to              :room_type
+  belongs_to              :user
   has_one                 :amenity
   has_one                 :bed_type
   has_one                 :available_spaces
@@ -23,4 +23,8 @@ class Home < ApplicationRecord
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
   end
+
+  default_scope { limit(5) }
+  scope :sphost_home, -> { where user_id: User.superhost.ids }
+  scope :by_prefecture, ->(string) { where(prefecture: string) }
 end
