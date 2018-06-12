@@ -12,6 +12,7 @@ class Home < ApplicationRecord
   has_one                 :home_rule
   has_one                 :additional_home_rule
   has_one                 :home_notification
+  has_many                :listing_photos, through: :listing_photos
 
   accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
 
