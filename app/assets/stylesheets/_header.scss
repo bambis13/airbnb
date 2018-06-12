@@ -107,33 +107,34 @@
           left: 0;
         }
         #favorite{
-          width: 300px;
+          width: 330px;
           position: absolute;
           top: 80px;
           left: 0;
         }
         #trip{
-          width: 300px;
+          width: 330px;
           position: absolute;
           top: 80px;
           left: 0;
         }
         #message{
-          width: 300px;
+          width: 330px;
           position: absolute;
           top: 80px;
           right: 0;
         }
         #coupon{
-          width: 400px;
+          width: 500px;
+          height: 130px;
           position: absolute;
           top: 80px;
           right: 0;
         }
         #help{
-          width: 300px;
+          width: 350px;
+          height: 100vh;
           position: absolute;
-          top: 80px;
           right: -80px;
         }
         #user{
@@ -144,11 +145,10 @@
         }
         .navigation{
           background-color: $white;
-          position: absolute;
           border: 1px #dfdfdf solid;
           border-radius: 3px;
           box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-          .hide_content__title{
+          .content__head{
             background-color: #efefef;
             padding: 10px;
             height: 50px;
@@ -161,16 +161,58 @@
               border-bottom: 1px $fontBlack solid;
             }
           }
-          .hide_content{
-            height: 50px;
+          .content__row{
             padding: 10px;
-            line-height: 70px;
+            .content__block{
+              height: 80px;
+              &__text{
+                float: left;
+                height: 20px;
+                .content__title{
+                  height: 17px;
+                  padding: 3px;
+                }
+                .content__info{
+                  height: 17px;
+                  padding: 3px;
+                  font-size: 14px;
+                  font-weight: normal;
+                }
+              }
+              &__img{
+                float: right;
+                height: 78px;
+                width: 78px;
+                background-color: #dedede;
+              }
+            }
+          }
+          .hide_content{
+            height: 40px;
+            padding: 10px;
+            line-height: 40px;
             a{
               padding: 17px;
             }
             a:hover{
               border-bottom: 1px #aaa solid;
             }
+          }
+          .hide_coupon_link{
+            color: $viridian;
+          }
+          .invite__friend{
+            width: 100px;
+            height: 30px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            margin-left: 10px;
+            padding: 10px;
+            background-color: $viridian;
+            color: $white;
+            border-radius: 4px;
+            line-height: 30px;
           }
         }
       }
@@ -179,6 +221,9 @@
 }
 .hide{
   display: none;
+}
+.right{
+  float: right;
 }
 .clearfix:after{
   content: '';
