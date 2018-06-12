@@ -30,10 +30,9 @@
 .contents{
   height: 100vh;
   width: calc(100vw - 160px);
-
   min-width: 500px;
   overflow-y:scroll;
-  padding: 40px 80px;
+  padding: 80px 80px 40px; //padding-topを40->80に変更
 }
 
 a{
