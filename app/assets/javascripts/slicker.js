@@ -23,17 +23,17 @@ $(function() {
   });
 });
 
+//モーダル表示
 $(function() {
   $('#show-modal').click(function() {
     $('.photo-modal-wrapper').fadeIn();
   });
-  $(document).click(function(e) {
-    if(e.srcElement.id!=='#modal'){
-      $('#modal').fadeOut();
-      }
+  $(".close-modal").on("click", function() {
+    $('#modal').fadeOut();
     });
 });
 
+//homes_showのトップ画面モーダル制御
 $(function() {
   $('.listing-slick-3').slick({
       accessibility: true,

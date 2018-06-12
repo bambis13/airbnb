@@ -42,7 +42,6 @@ $(function() {
       var id = $(this).attr("href");
       var position = $(id).get( 0 ).offsetTop - 70
       $('.contents').animate({scrollTop: position}, 500)
-      console.log(position)
     });
 });
 

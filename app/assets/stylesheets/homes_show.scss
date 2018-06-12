@@ -26,6 +26,7 @@
 .heading-img {
   margin: 0px -80px;
   position:relative;
+  cursor: pointer;
 
   .header-img {
     width: 100%;
@@ -33,6 +34,7 @@
     background-size: cover !important;
     background-position: 50% 50% !important;
     height: 368px !important;
+    width: 100%;
 
     .like-btn {
       background: #ffffff !important;
@@ -476,6 +478,23 @@ h3 {
   left: 0;
   overflow-y: auto;
   padding: 66px 0px 120px;
+  .close-modal {
+    .fa-times {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 16px 28px 8px;
+      font-size: 2em;
+      width: auto;
+      height: auto;
+      background: transparent;
+      border: 0;
+      outline: none;
+      color: #fff;
+      z-index: 1000;
+      cursor: pointer;
+    }
+  }
   .thumnail-list {
     width: 400px;
     margin: 0 auto;
@@ -488,9 +507,7 @@ h3 {
   .modal-thumbnail {
     height: 75px;
     width: 100px;
-    &::hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }
 
