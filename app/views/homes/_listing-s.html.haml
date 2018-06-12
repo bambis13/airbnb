@@ -2,11 +2,10 @@
   = link_to root_path,data: {id: ''},class: 'favorite-btn', id: "like-button" do
     %i.fa.fa-heart.fa-lg.icon-favorite-pink
     %i.fa.fa-heart-o.fa-lg.icon-favorite-white
-  .listing-slick
-  - home.listing_photos.each do |photo|
-    /[TODO]listing-slickはhoverされたら表示にする
-    .listing-s__image.slick-sub
-      = image_tag(photo.image)
+    .listing-slick
+      - home.listing_photos.each do |image|
+        .listing-s__image.slick-sub
+          = image_tag(image.image)
   .listing-s__text
     %p.listing-category.bold #{home.home_category_sub.name}
     %p.listing-title.bold #{home.name}
