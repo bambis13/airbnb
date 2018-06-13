@@ -9,11 +9,7 @@ $(function(){
     });
   $('.tag-slick').slick({
       accessibility: true,
-      infinite: true,
-      fade: true,
-      rows: 1,
-            // slidesPerRow: 1;
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
   });
 });
