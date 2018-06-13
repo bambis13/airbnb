@@ -1,4 +1,27 @@
 = render 'toptag'
 = render 'airbnbplus'
+.listings
+  %h1.bold 世界中のリスティング
+  = render partial: 'listing-s', collection: @homes, as: :home
+
+  %a.showall.bold{:href => "/"} すべて見る(2000+) >
+= render 'listing-xl'
+= render 'listing-m'
+.listings
+  %h1.bold スーパーホストのリスティングに滞在しよう
+  %p 品質と快適性は認証済み。新しいホームセレクションです
+  = render partial: 'listing-s', collection: @homes_super, as: :home
+  %a.showall.bold{:href => "/"} すべて見る(2000+) >
 = render 'share-check'
-= render 'listing-s'
+.listings
+  %h1.bold ニューヨークのお家
+  = render partial: 'listing-s', collection: @homes_newyork, as: :home
+  %a.showall.bold{:href => "/"} すべて見る(2000+) >
+.listings
+  %h1.bold バルセロナのお家
+  = render partial: 'listing-s', collection: @homes_barcelona, as: :home
+  %a.showall.bold{:href => "/"} すべて見る(2000+) >
+.listings
+  %h1.bold パリのお家
+  = render partial: 'listing-s', collection: @homes_paris, as: :home
+  %a.showall.bold{:href => "/"} すべて見る(2000+) >

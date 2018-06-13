@@ -1,9 +1,15 @@
+/*
+ *= require font-awesome
+*/
 @import './reset';
 @import './variable';
 @import './header';
 @import './homes';
 @import './footer';
+@import './slick-theme';
+@import './slick';
 
+/*-- Settings ---------------------------------- */
 .clearfix:after {
   content: "";
   display: block;
@@ -20,14 +26,25 @@
 .left{
   float: left;
 }
+.inline{
+  display: inline-block;
+  vertical-align: top;
+}
 
 .contents{
   height: 100vh;
   width: calc(100vw - 160px);
-
   min-width: 500px;
   overflow-y:scroll;
   padding: 40px 80px;
+}
+
+.centering-wrap{
+  text-align: center;
+}
+
+.align-left{
+  text-align: left;
 }
 
 a{
@@ -51,7 +68,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
 }
 
@@ -80,5 +97,4 @@ h6,
   font-size: 10px;
 }
 p {
-  margin: 0 0 10px;
 }
