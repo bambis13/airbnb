@@ -68,4 +68,6 @@ gem 'erb2haml'
 gem 'kaminari'
 gem 'mechanize'
 gem 'devise'
-gem 'font-awesome-rails'
+gem 'turbolinks'
+gem "font-awesome-rails"
+
