@@ -10,6 +10,8 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    @beds = BedType.where(home_id: params[:id])
+    binding.pry
   end
 
   # GET /homes/new
