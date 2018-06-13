@@ -31,12 +31,18 @@ $(function(){
   var navibarListContent = $('.navibar__list__content')
   var hideContent = $('.navigation')
   navibarListContent.on('click', function(){
-    $(hideContent).addClass('hide'); //一度全てのhideContentにhideクラスを追加
+    hideContent.addClass('hide'); //一度全てのhideContentにhideクラスを追加
     $('.navigation', this).removeClass('hide');
+    $('.help__head__close__img').on('click', function(){
+      hideContent.addClass('hide');
+      console.log(hideContent)
+    });
     $(document).on('click', function(e){
       if (!$(event.target).closest(navibarListContent).length){
-        $('.navigation').addClass('hide');
+        hideContent.addClass('hide');
       };
     });
   });
+  var help = $('#help')
+
 });
