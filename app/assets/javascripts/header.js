@@ -31,12 +31,18 @@ $(function(){
   var navibarListContent = $('.navibar__list__content')
   var hideContent = $('.navigation')
   navibarListContent.on('click', function(){
-    $(hideContent).addClass('hide'); //一度全てのhideContentにhideクラスを追加
+    hideContent.addClass('hide'); //一度全てのhideContentにhideクラスを追加
     $('.navigation', this).removeClass('hide');
-    $(document).on('click', function(e){
-      if (!$(event.target).closest(navibarListContent).length){
-        $('.navigation').addClass('hide');
-      };
-    });
+    return false
   });
+  $(document).on('click', function(e){
+    if (!$(event.target).closest(navibarListContent).length || $('#help-non-login').click()){
+      hideContent.addClass('hide');
+      return false
+    };
+  });
+  $('.help__head__close').on('click', function(){
+    hideContent.addClass('hide');
+    return false
+  })
 });

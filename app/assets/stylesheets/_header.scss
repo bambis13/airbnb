@@ -7,6 +7,7 @@
   top:0;
   background-color: $white;
   border-bottom: 1px #aaa solid;
+  z-index: 10;
   .navibar{
     height: 80px;
     line-height: 80px;
@@ -81,6 +82,7 @@
     }
     .navibar__list{
       float: right;
+      z-index: 1;
       &__content{
         font-size: 14px;
         font-weight: bold;
@@ -136,6 +138,16 @@
           height: 100vh;
           position: absolute;
           right: -80px;
+          top: 0;
+          z-index: 3;
+        }
+        #help-non-login{
+          width: 350px;
+          height: 100vh;
+          position: absolute;
+          right: -180px;
+          top: 0;
+          z-index: 3;
         }
         #user{
           width: 300px;
@@ -213,6 +225,90 @@
             color: $white;
             border-radius: 4px;
             line-height: 30px;
+          }
+          .help__head{
+            height: 28px;
+            line-height: 28px;
+            border-bottom: 1px solid #dedede;
+            padding: 20px;
+            &__link{
+              margin: 0 auto;
+              display: inline-block;
+            }
+            &__close{
+              height: 30px;
+              width: 30px;
+              float: right;
+              &__img{
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+              }
+            }
+          }
+          .help__content{
+            padding: 0 20px;
+            height: calc(100vh - 195px);
+            overflow-y: auto;
+            &__form{
+              padding: 35px 0;
+              height: 50px;
+              position: relative;
+              line-height: 50px;
+              &__input{
+                height: 50px;
+                width: 260px;
+                padding-left: 50px;
+                line-height: 50px;
+                font-weight: normal;
+                font-size: 14px;
+                border-radius: 3px;
+              }
+              img{
+                height: 30px;
+                width: 30px;
+                position: absolute;
+                top: 45px;
+                left: 10px;
+              }
+            }
+            &__head{
+              height: 16px;
+              line-height: 16px;
+              font-size: 14px;
+              font-weight: normal;
+            }
+            &__list{
+              &__item{
+                border-bottom: 1px solid #dedede;
+              }
+            }
+          }
+          .help__row{
+            height: 105px;
+            background-color: $white;
+            position: fixed;
+            bottom: 0;
+            padding: 10px 20px;
+            border-top: 1px solid #dedede;
+            &__block{
+              width: 310px;
+              &__btn{
+                color: $white;
+                background-color: $viridian;
+                border-radius: 4px;
+                padding: 0 90px;
+                height: 50px;
+                line-height: 50px;
+              }
+              &__link{
+                &__text{
+                  color: $viridian;
+                  padding: 0 80px;
+                  font-weight: normal;
+                }
+              }
+            }
           }
         }
       }
