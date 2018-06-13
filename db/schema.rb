@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611113630) do
+ActiveRecord::Schema.define(version: 20180613015355) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20180611113630) do
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
     t.integer "number_of_bathroom", null: false
-    t.boolean "bathroom_for_guest", null: false
+    t.boolean "number_of_beds", null: false
     t.string "postalcode", null: false
     t.string "prefecture", null: false
     t.string "town", null: false

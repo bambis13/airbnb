@@ -4,7 +4,7 @@
   number_of_bedroom = rand(0..9)
   number_of_bathroom = rand(0..9)
   bathroom_for_guest = Faker::Boolean.boolean(0.2)
-  postalcode = Faker::Address.postcode
+  postalcode = Faker::Address.postcode -> string型
   prefecture = Faker::Address.state
   town = Faker::Pokemon.location
   street = Faker::Address.street_name

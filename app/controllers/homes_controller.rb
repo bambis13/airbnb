@@ -10,7 +10,6 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
-
   end
 
   # GET /homes/new

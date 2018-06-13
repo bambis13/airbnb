@@ -11,7 +11,7 @@
         %li
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
-    = image_tag("home2.png", class: "header-img", id: "show-modal")
+    = image_tag("home1.png", class: "header-img", id: "show-modal")
   .photo-modal-wrapper#modal
     .close-modal.right
       %i.fa.fa-2x.fa-times
@@ -42,13 +42,20 @@
       .home-overview#overview
         .home-overview__heading
           %span ログハウスの個室
-          %h3 Aroma(n)tica TreehouseinMonferrato
-          %p San Salvatore Monferrato
+          %h3
+            = "#{@home.name}"
+          %p
+            = "#{@home.prefecture}"
           %ul.clearfix
-            %li ゲスト2人
-            %li 1寝室
-            %li ベッド1台
-            %li 1専用バスルーム
+            %li
+              = "ゲスト#{@home.capacity}人"
+            %li
+              = "#{@home.number_of_bedroom}寝室"
+            %li
+              ベッド1台
+              = "ベッド#{@home.number_of_bedroom}"
+            %li
+              = "#{@home.bathroom_for_guest}専用バスルーム"
 
         .home-overview__highlight
           .home-overview__highlight__top-item
