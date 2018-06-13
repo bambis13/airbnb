@@ -26,6 +26,7 @@ street|string|null: false
 building|string|null: false
 self_introduction|text|null: false
 status|enum|null: false
+superhost|enum|default: 0
 currency_id|references|null: false,foreign_key: true
 language_id|references|null: false, foreign_key: true
 ___
@@ -60,8 +61,8 @@ building|string|null: false
 location_x|integer|null: false
 location_y|integer|null: false
 name|string|null: false, index: true
-home_category_sub_id|references|null: false
-room_type_id|references|null: false
+home_category_sub_id|references|null: false, foreign_key: true
+room_type_id|references|null: false, foreign_key: true
 ___
 
 ### Home_reservation

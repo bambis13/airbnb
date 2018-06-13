@@ -1,12 +1,27 @@
 .listings.clearfix
   %h1.bold 一度は泊まってみたいユニークなリスティング
   %p ユニークなリスティングに泊まって、今までにない旅をしよう
-  - 3.times do
-    %a{:href => "/"}
-      .listing-x.inline-left
-        .listing-x__image
-          = image_tag("https://a0.muscache.com/im/pictures/0e25bbd4-d081-4bab-85de-a8fd05245b53.jpg?aki_policy=large")
-        .listing-x__text
-          %h5.listing-category.bold 1,912件のツリーハウス
-          %h2.listing-title.bold 樹上の秘密基地
-          %h4.listing-price 憧れのツリーハウスに泊まって、好奇心がくすぐられる冒険へ。
+  %a{:href => "/"}
+    .listing-x.inline
+      .listing-x__image
+        = image_tag("https://a0.muscache.com/im/pictures/0e25bbd4-d081-4bab-85de-a8fd05245b53.jpg?aki_policy=large")
+      .listing-x__text
+        %h5.listing-category.bold 1,912件のツリーハウス
+        %h2.listing-title.bold 樹上の秘密基地
+        %h4.listing-price 憧れのツリーハウスに泊まって、好奇心がくすぐられる冒険へ。
+  %a{:href => "/"}
+    .listing-x.inline
+      .listing-x__image
+        = image_tag("https://a0.muscache.com/im/pictures/1df93d87-26a5-4c5e-8a91-b37ccb173aa1.jpg?aki_policy=large")
+      .listing-x__text
+        %h5.listing-category.bold 9,167件のボート
+        %h2.listing-title.bold 海の旅
+        %h4.listing-price 大小さまざまな舟に乗り、大海原を渡った偉大な先人のパワーを感じよう。
+  %a{:href => "/"}
+    .listing-x.inline
+      .listing-x__image
+        = image_tag("https://a0.muscache.com/im/pictures/408ad1e8-0367-4cb7-be52-6d7bfcc9d046.jpg?aki_policy=large")
+      .listing-x__text
+        %h5.listing-category.bold 1,912件のツリーハウス
+        %h2.listing-title.bold グランピングにぴったりな宿
+        %h4.listing-price 中は快適、外は大自然。いいところどりできます。

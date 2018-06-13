@@ -1,0 +1,7 @@
+.index-head.clearfix
+  = image_tag("https://a0.muscache.com/4ea/air/v2/pictures/d3a5c259-a409-42ce-92e9-6979716d39ed.jpg?t=c:w1131-h343,r:w1131-h343-sfit,e:fjpg-c75")
+  .index-head__text
+    %h1 出張で泊まりたいお家
+    %h2 ビジネスに欠かせない基本を備えた評価トップ水準の宿です。柔軟な予約対応、ワークスペース、Wi-Fiやセルフチェックインシステムなどをフル装備
+.listings
+  = render partial: 'listing-s', collection: @homes_bs, as: :home

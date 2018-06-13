@@ -1,5 +1,5 @@
-$(function() {
-    $('.listing-slick').slick({
+$(function(){
+  $('.listing-slick').slick({
       accessibility: true,
       infinite: true,
       fade: true,
@@ -7,7 +7,6 @@ $(function() {
       slidesToShow: 1,
       slidesToScroll: 1,
      });
-
 });
 
 //複数枚表示
@@ -59,4 +58,5 @@ $(function() {
     focusOnSelect: true,
   });
 });
+
 
