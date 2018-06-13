@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root 'homes#index'
+  resources :devise_users
   resources :messages
+
+
+
   resources :home_reviews
   # resources :devise_users
   # resources :home do

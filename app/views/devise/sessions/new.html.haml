@@ -1,0 +1,81 @@
+.position
+/ 編集の際のpositionの調節
+
+.login_session_contents
+  .login_session_contents__top_content
+    = button_to '×'
+  .login_session_contents__correction_position_top
+  .login_session_contents__title_content
+    %h1 ログイン
+  .correction_position_top
+  .login_session_contents__form_content
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field_input_elia
+        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
+      .field_input_elia
+        = f.password_field :password, placeholder: "パスワード", autocomplete: "off", class: 'login_form'
+      .field_checkbox_elia
+        = f.check_box :remember_me
+        = f.label "ログイン情報を保存"
+      .field_submit_elia
+        = f.submit "ログイン", class: 'login_btn', id: 'submit'
+      %a.redirect_btn{href: root_path} パスワードをお忘れですか？
+    .section_message または
+  .correction_position_center
+  .login_session_contents__split_button
+    .left_login_btn
+      %a.redirect_btn{href: root_path}
+        %h3.bold Facebook
+    .right_login_btn
+      %a.redirect_btn{href: root_path}
+        %h3.bold Google
+  .login_session_contents__border_line
+    %hr
+  .login_session_contents__bottom_content
+    .text_elia アカウントはお持ちでないですか？
+    %a.redirect_btn{href: new_user_registration_path} 登録
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ <!-- <h2>Log in</h2>
+
+/ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+/   <div class="field">
+/     <%= f.label :email %><br />
+/     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+/   </div>
+
+/   <div class="field">
+/     <%= f.label :password %><br />
+/     <%= f.password_field :password, autocomplete: "off" %>
+/   </div>
+
+/   <% if devise_mapping.rememberable? -%>
+/     <div class="field">
+/       <%= f.check_box :remember_me %>
+/       <%= f.label :remember_me %>
+/     </div>
+/   <% end -%>
+
+/   <div class="actions">
+/     <%= f.submit "Log in" %>
+/   </div>
+/ <% end %>
+
+/ <%= render "devise/shared/links" %>
