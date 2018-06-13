@@ -1,0 +1,40 @@
+@import './reset';
+@import './variable';
+@import './header';
+@import './homes';
+@import './footer';
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.bold{
+  font-weight:600;
+  letter-spacing: 0.025em;
+}
+
+.left{
+  float: left;
+}
+
+.contents{
+  height: 100vh;
+  width: calc(100vw - 160px);
+
+  min-width: 500px;
+  overflow-y:scroll;
+  padding: 40px 80px;
+}
+
+a{
+  text-decoration: none;
+  color: $fontBlack;
+}
+
+body{
+  min-width: 800px;
+}
