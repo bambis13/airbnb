@@ -12,9 +12,7 @@
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
     = image_tag("home1.png", class: "header-img", id: "show-modal")
-  .photo-modal-wrapper#modal
-    .close-modal.right
-      %i.fa.fa-2x.fa-times
+  .photo-modal-wrapper
     .listing-slick-3.modal.clearfix
       .inmodal-img.slick-sub
         %a{href: "#"}
@@ -48,14 +46,21 @@
             = "#{@home.prefecture}"
           %ul.clearfix
             %li
-              = "ゲスト#{@home.capacity}人"
+              %img{:src => "https://png.icons8.com/ios/50/000000/conference-call-filled.png"}/
+              %p
+                = "ゲスト#{@home.capacity}人"
             %li
-              = "#{@home.number_of_bedroom}寝室"
+              %img{:src => "https://png.icons8.com/wired/50/000000/door-opened.png"}/
+              %p
+                = "#{@home.number_of_bedroom}寝室"
             %li
-              ベッド1台
-              = "ベッド#{@home.number_of_bedroom}"
+              %img{:src => "https://png.icons8.com/wired/50/000000/sleeping-in-bed.png"}/
+              %p
+                = "ベッド#{@home.number_of_beds}台"
             %li
-              = "#{@home.bathroom_for_guest}専用バスルーム"
+              %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
+              %p
+                = "#{@home.number_of_bathroom}専用バスルーム"
 
         .home-overview__highlight
           .home-overview__highlight__top-item
@@ -245,7 +250,8 @@
           .area-info#address
             .area-info__heading.readmore-item-map
               %h3.title エリア
-              %p よしおさん宅の所在地はSan Salvatore Monferrato, Alessandria, イタリアです。よしおさん宅の所在地はSan Salvatore Monferrato, Alessandria, イタリアです。よしおさん宅の所在地はSan Salvatore Monferrato, Alessandria, イタリアです。よしおさん宅の所在地はSan Salvatore Monferrato, Alessandria, イタリアです。
+              %p
+                -# = "よしおさん宅の所在地は#{@home.town}、#{@home.prefecture}、#{@home.country_id}です。#{@home.user.name}さんの所在地は#{@home.user.address}です。"
             .area-info__map
               = image_tag ("map.png")
             %p 地図は正確な所在地を示しています。

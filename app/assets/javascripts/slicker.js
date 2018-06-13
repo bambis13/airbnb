@@ -29,7 +29,7 @@ $(function() {
     $('.photo-modal-wrapper').fadeIn();
   });
   $(".close-modal").on("click", function() {
-    $('#modal').fadeOut();
+    $('.photo-modal-wrapper').fadeOut();
     });
 });
 

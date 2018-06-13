@@ -1,3 +1,4 @@
+//設定
 @mixin font-text {
   font-size: 16px;
   font-weight: 400;
@@ -23,6 +24,108 @@
    }
 }
 
+h3 {
+  padding: 0 0 7px;
+  text-align: left;
+}
+
+h4 ,p {
+  display:block;
+}
+
+.bold-subtitle {
+  color: $fontBold;
+  font-weight: 600;
+}
+
+.fontsize-12px {
+  font-size: 12px !important;
+}
+
+
+.font-text {
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: 100%;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 22px;
+  text-align: left;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  color: $fontTxt;
+}
+
+.subtitle, .name, span {
+  font-size: 16px;
+  font-weight: 600 !important;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+  text-size-adjust: 100%;
+  word-wrap:break-word ;
+  color: $fontBold;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 800;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 30px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+
+
+//隠れヘッダー
+#header_show{
+  height: 60px;
+  width: 100vw;
+  min-width: 1100px;
+  position: fixed;
+  top:0;
+  background-color: $white;
+  border-bottom: 1px #aaa solid;
+  margin: 0 -80px;
+  .navibar{
+    height: 60px;
+    line-height: 60px;
+    padding-left: 100px;
+    .navibar__list{
+      float: left;
+      li{
+        padding-right: 10px;
+        float: left;
+        a{
+          height: 100%;
+          text-decoration: none;
+          color: $viridian;
+          padding: 0 5px 20px 5px;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        a:hover{
+          border-bottom: 2px black solid;
+        }
+      }
+    }
+  }
+}
+
+//トップ画像
 .heading-img {
   margin: 0px -80px;
   position:relative;
@@ -47,6 +150,100 @@
   }
 }
 
+//モーダル
+.photo-modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  padding: 66px 0px 120px;
+
+  .modal {
+    position: fixed;
+    margin: 0 auto ;
+    width: 100%;
+    height: 80% !important;
+    max-width: 105vh !important;
+    padding: 20px 0 120px;
+    border-radius: 10px;
+    text-align: center;
+
+    .inmodal-img {
+      float: left;
+      height: 80vh;
+
+      .modal-photo {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .slick-prev:before, .slick-next:before {
+      height: 100%;
+      width: 24px;
+      display: block;
+      font-size: 80px;
+      color: #fff;
+      font-weight: 1000;
+    }
+
+    .slick-prev:before {
+      margin-left: -300px;
+    }
+
+    .slick-next:before {
+      margin-left: 260px;
+    }
+
+    .slick-prev,
+    .slick-next {
+      top: 45%;
+    }
+  }
+
+  .close-modal {
+    .fa-times {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 16px 28px 8px;
+      font-size: 2em;
+      width: auto;
+      height: auto;
+      background: transparent;
+      border: 0;
+      outline: none;
+      color: #fff;
+      z-index: 1000;
+      cursor: pointer;
+    }
+  }
+  .thumnail-list {
+    width: 400px;
+    margin: 0 auto;
+
+    .thumnail-item {
+      width: 100px;
+      float: left;
+
+      .modal-thumbnail {
+        height: 75px;
+        width: 100px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//左側のコンテンツ
 .container-left {
   width: 56.3%;
   min-width: 696px;
@@ -56,6 +253,7 @@
   }
 }
 
+//概要
 .home-overview {
   height: 1000px;
 
@@ -72,10 +270,23 @@
       padding-left: 0px;
       font-size: 24px;
       font-weight: bold;
+      width: 100%;
     }
 
     li {
       float: left;
+      margin-right: 15px;
+      margin-top: 7px;
+
+      img {
+        height: 20px;
+        float:left;
+        margin-right: 5px
+      }
+
+      p {
+        float:left;
+      }
     }
   }
 
@@ -123,7 +334,7 @@
       }
 
       img {
-        height:1.2em;
+        height: 1.2em;
         width: 1.2em;
         float: left;
       }
@@ -135,23 +346,47 @@
       width: 40%;
     }
 
-    .detail_bed {
+    .bed-item {
+      // border: 1px #aaa solid;
+      float:left;
+      margin-right: 10px;
+      font-size:100px;
+      border: 1px #DBDBDB solid;
+      border-radius: 5px ;
+      float:left;
+      margin-right: 20px;
+      padding: 24px;
+      width: 20%;
 
-      .bed-item {
-        border: 1px #aaa solid;
-        float:left;
-        margin-right: 10px;
-        font-size:100px;
+      .bed-item p {
+        font-weight:600px;
+      }
 
-        .bed-item p {
-          font-weight:600px;
+      span {
+        text-align: left;
+      }
+
+      .bed-icon {
+        margin-bottom: 30px;
+        position: relative;
+        height: 40px;
+        img {
+          height:20px;
+          width: 20px;
+          top: 0px;
+          position: absolute;
         }
       }
     }
   }
 }
 
+
+
+
+//レビュー
 .home-reviews {
+
   .review-search{
     background-image:url("search_icon.png");
     background-repeat: no-repeat;
@@ -199,6 +434,9 @@
 
             .user-pic {
               float:left;
+              height: 40px;
+              border-radius: 20px;
+  
             }
 
             &__info{
@@ -217,11 +455,15 @@
     }
 }
 
+
+//ページネーション
 .pagination {
   height: 70px;
   margin: 20px 0px;
 }
 
+
+//ホスト紹介
 .host-introduction__heading {
   border-bottom: 1px #aaa solid;
   padding: 20px;
@@ -256,11 +498,15 @@
     padding: 20px 0;
 }
 
+
+//位置情報
 .area-info {
   border-bottom: 1px #aaa solid;
   padding: 20px 0;
 }
 
+
+//類似のリスティング
 .similar-category {
   margin-top: 40px;
   margin-bottom: 24px;
@@ -289,6 +535,7 @@
   }
 }
 
+//日本語で読む欄
 .japanese-translation {
   border: 1px solid #383838;
   padding: 5px;
@@ -305,98 +552,6 @@
   }
 }
 
-.user-pic {
-  height: 40px;
-  border-radius: 20px;
-}
-
-.host-pic {
-  height: 60px;
-  width: 60px;
-  border-radius: 20px;
-}
-
-
-.font-text {
-  font-size: 16px;
-  font-weight: 400;
-  font-stretch: 100%;
-  height: auto;
-  letter-spacing: normal;
-  line-height: 22px;
-  text-align: left;
-  text-indent: 0px;
-  text-size-adjust: 100%;
-  width: auto;
-  word-spacing: 0px;
-  word-wrap: break-word;
-  color: $fontTxt;
-}
-
-.subtitle, .name, span {
-  font-size: 16px;
-  font-weight: 600 !important;
-  height: 22px;
-  letter-spacing: normal;
-  line-height: 22px;
-  text-size-adjust: 100%;
-  word-wrap:break-word ;
-  color: $fontBold;
-}
-
-.title {
-  font-size: 25px;
-  font-weight: 800;
-  height: auto;
-  letter-spacing: normal;
-  line-height: 30px;
-  text-size-adjust: 100%;
-  width: auto;
-  word-wrap: break-word;
-}
-
-
-
-
-
-h4 ,p {
-  display:block;
-}
-
-.bold-subtitle {
-  color: $fontBold;
-  font-weight: 600;
-}
-
-.fontsize-12px {
-  font-size: 12px !important;
-}
-
-.bed-item {
-  border: 1px #DBDBDB solid;
-  border-radius: 5px ;
-  float:left;
-  margin-right: 20px;
-  padding: 24px;
-  width: 20%;
-
-  span {
-    text-align: left;
-  }
-
-  .bed-icon {
-    margin-bottom: 30px;
-    img {
-      height:20px;
-      width: 20px;
-    }
-  }
-}
-
-h3 {
-  padding: 0 0 7px;
-  text-align: left;
-}
 
 .additional-info {
   color: #008489 !important;
@@ -405,45 +560,9 @@ h3 {
   margin-top: 20px;
 }
 
-#header_show{
-  height: 60px;
-  width: 100vw;
-  min-width: 1100px;
-  position: fixed;
-  top:0;
-  background-color: $white;
-  border-bottom: 1px #aaa solid;
-  margin: 0 -80px;
-  .navibar{
-    height: 60px;
-    line-height: 60px;
-    padding-left: 100px;
-    .navibar__list{
-      float: left;
-      li{
-        padding-right: 10px;
-        float: left;
-        a{
-          height: 100%;
-          text-decoration: none;
-          color: $viridian;
-          padding: 0 5px 20px 5px;
-          font-size: 14px;
-          font-weight: 600;
-        }
-        a:hover{
-          border-bottom: 2px black solid;
-        }
-      }
-    }
-  }
-}
 
-.clearfix:after{
-  content: '';
-  display: block;
-  clear: both;
-}
+
+
 
 .similar-category__carsel {
   .slick-prev:before, .slick-next:before {
@@ -463,95 +582,11 @@ h3 {
   }
 }
 
-.photo-modal-wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-  display: none;
-  z-index: 2000;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: auto;
-  padding: 66px 0px 120px;
 
-  .close-modal {
-    .fa-times {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: 16px 28px 8px;
-      font-size: 2em;
-      width: auto;
-      height: auto;
-      background: transparent;
-      border: 0;
-      outline: none;
-      color: #fff;
-      z-index: 1000;
-      cursor: pointer;
-    }
-  }
-  .thumnail-list {
-    width: 400px;
-    margin: 0 auto;
-    .thumnail-item {
-      width: 100px;
-      float: left;
-      // display: inline;
-    }
-  }
-  .modal-thumbnail {
-    height: 75px;
-    width: 100px;
-    cursor: pointer;
-  }
-}
 
-.modal {
-  position: fixed;
-  margin: 0 auto;
-  width: 100%;
-  height: 80% !important;
-  max-width: 105vh !important;
-  padding: 20px 0 120px;
-  border-radius: 10px;
-  text-align: center;
 
-  .slick-prev:before, .slick-next:before {
-    height: 100%;
-    width: 24px;
-    display: block;
-    font-size: 80px;
-    color: #fff;
-    font-weight: 1000;
-  }
 
-  .slick-prev:before {
-    margin-left: -300px;
-  }
 
-  .slick-next:before {
-    margin-left: 260px;
-  }
-
-  .slick-prev,
-  .slick-next {
-    top: 45%;
-  }
-}
-
-.inmodal-img {
-  float: left;
-  height: 80vh;
-  .modal-photo {
-    width: 100%;
-    height: auto;
-  }
-}
 
 
 
