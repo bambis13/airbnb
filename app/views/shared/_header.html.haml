@@ -1,25 +1,83 @@
 .header.clearfix
   .navibar
     .navibar__icon
-      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), root_path
+      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
     .navibar__search
-      = form_tag(root_path, method: :get) do
-        %input.search__query{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
+      = form_tag('#', method: :get) do
+        %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
     %ul.navibar__list
-      %li
-        = link_to 'お部屋を掲載', root_path
-      %li
-        = link_to 'ホスト', root_path
-      %li
-        = link_to 'お気に入り', root_path
-      %li
-        = link_to '旅行', root_path
-      %li
-        = link_to 'メッセージ', root_path
-      %li
-        = link_to 'クーポン', root_path
-      %li
-        = link_to 'ヘルプ', root_path
-      %li
-        = link_to image_tag("no_img.png", alt: "no_img_icon", id: "navibar__list__user__img"), root_path
+      %li.navibar__list__content
+        = link_to 'お部屋を掲載', '#'
+      %li.navibar__list__content
+        ホストをはじめる
+        %ul.navigation.hide#host
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'
+      %li.navibar__list__content
+        お気に入り
+        %ul.navigation.hide#favorite
+          .content__head
+            %span お気に入り
+            = link_to 'お気に入りを表示'
+          %li.content__row
+            = link_to(class: 'content__row__link') do
+              .content__block
+                .content__block__text
+                  .content__title
+                    %span リストが作成されていません
+                  .content__info
+                    お気に入りを作成する
+                .content__block__img
+                  / icon.heart
+          / %li.hide_content
+          /   = link_to 'ファボリスト名'
+      %li.navibar__list__content
+        旅行
+        %ul.navigation.hide#trip
+          .content__head
+            %span 旅行
+            = link_to '旅行一覧を見る'
+          %li.content__row
+            = link_to(class: 'content__row__link') do
+              .content__block
+                .content__block__text
+                  .content__title
+                    %span 今後の旅行 0件
+                  .content__info
+                    宿泊先を探す
+                .content__block__img
+      %li.navibar__list__content
+        メッセージ
+        %ul.navigation.hide#message
+          %li.hide_content
+            = link_to do
+              %span メッセージ
+              %span.right 全てを表示する
+          %li.hide_content
+            = link_to do
+              %span 通知
+              %span.right 全てを表示する
+      %li.navibar__list__content
+        クーポン
+        .navigation.hide#coupon
+          %span.hide_content
+            Airbnbに友達を1人紹介するごとに¥ 1,900獲得できます。
+          = link_to '規約を読む', '#', class: 'hide_coupon_link'
+          = link_to '友達を招待する', '#', class: 'invite__friend'
+      %li.navibar__list__content
+        ヘルプ
+        .navigation.hide#help
+          / %li.hide_content
+          /   = link_to '宿泊先をホストする'
+          / %li.hide_content
+          /   = link_to '体験をホストする'
+      %li.navibar__list__content
+        = image_tag("no_img.png", alt: "no_img_icon", id: "navibar__list__user__img")
+        %ul.navigation.hide#user
+          %li.hide_content
+            = link_to '宿泊先をホストする'
+          %li.hide_content
+            = link_to '体験をホストする'
