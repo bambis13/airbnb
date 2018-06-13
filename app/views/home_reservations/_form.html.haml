@@ -1,0 +1,20 @@
+= form_with(model: home_reservation, local: true) do |form|
+  - if home_reservation.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(home_reservation.errors.count, "error")
+        prohibited this home_reservation from being saved:
+      %ul
+        - home_reservation.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :checkin_date
+    = form.datetime_select :checkin_date, id: :home_reservation_checkin_date
+  .field
+    = form.label :checkout_date
+    = form.datetime_select :checkout_date, id: :home_reservation_checkout_date
+  .field
+    = form.label :number_of_guests
+    = form.number_field :number_of_guests, id: :home_reservation_number_of_guests
+  .actions
+    = form.submit

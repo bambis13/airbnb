@@ -1,0 +1,618 @@
+@charset "UTF-8";
+/*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+/*
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+/* line 11, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+html {
+  color: #000;
+  background: #FFF;
+}
+
+/*
+    TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+    TODO test putting a class on HEAD.
+        - Fails on FF.
+*/
+/* line 22, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 50, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 54, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+fieldset,
+img {
+  border: 0;
+}
+
+/*
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+/* line 61, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* line 74, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+ol,
+ul {
+  list-style: none;
+}
+
+/* line 79, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+caption,
+th {
+  text-align: left;
+}
+
+/* line 83, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 92, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+q:before,
+q:after {
+  content: '';
+}
+
+/* line 96, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* to preserve line-height and selector appearance */
+/* line 102, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+sup {
+  vertical-align: text-top;
+}
+
+/* line 105, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+sub {
+  vertical-align: text-bottom;
+}
+
+/* line 108, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*to enable resizing for IE*/
+/* line 116, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+
+/*because legend doesn't inherit in IE */
+/* line 122, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+legend {
+  color: #000;
+}
+
+/* YUI CSS Detection Stamp */
+/* line 126, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_reset.scss */
+#yui3-css-stamp.cssreset {
+  display: none;
+}
+
+/* line 1, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header {
+  height: 80px;
+  width: 100vw;
+  min-width: 1100px;
+  position: fixed;
+  top: 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px #aaa solid;
+}
+/* line 9, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar {
+  height: 80px;
+  line-height: 80px;
+}
+/* line 12, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__icon {
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+/* line 16, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__icon img {
+  height: 30px;
+  width: 30px;
+  padding: 25px;
+}
+/* line 22, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__search {
+  float: left;
+}
+/* line 24, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__search form {
+  height: 40px;
+  width: 300px;
+  line-height: 80px;
+  padding: 5px 5px;
+  display: inline;
+  position: relative;
+}
+/* line 31, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__search form img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 3px;
+  left: 17px;
+}
+/* line 38, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__search form .search__query {
+  height: 40px;
+  width: 300px;
+  line-height: 80px;
+  padding-left: 40px;
+}
+/* line 46, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__list {
+  float: right;
+}
+/* line 48, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__list li {
+  padding-right: 10px;
+  float: left;
+}
+/* line 51, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__list li a {
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 0 5px 30px 5px;
+}
+/* line 57, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__list li a:hover {
+  border-bottom: 2px black solid;
+}
+/* line 60, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.header .navibar .navibar__list li #navibar__list__user__img {
+  height: 40px;
+  width: 40px;
+  padding-top: 20px;
+}
+
+/* line 69, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_header.scss */
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* line 1, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._1ibtygfe {
+  min-width: 1520px;
+  margin-top: 80px;
+  padding-top: 20px;
+}
+
+/* line 6, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.square_btn {
+  font-size: 0;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  text-decoration: none;
+  background: #FFFFFF;
+  /*ボタン色*/
+  color: #383838;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  border: solid 1px #DFDFDF;
+}
+/* line 18, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.square_btn .btn-text {
+  height: 72px;
+  width: calc( 290px - 96px);
+  vertical-align: center;
+}
+
+/* line 25, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.square_btn:active {
+  /*ボタンを押したとき*/
+  -ms-transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  /*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  /*影を小さく*/
+  border-bottom: none;
+}
+
+/* line 33, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.inline_left {
+  display: inline-block;
+  float: left;
+}
+
+/* line 38, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+h2 {
+  text-align: center;
+  line-height: 72px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+/* line 45, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+h3 {
+  text-align: center;
+  line-height: 28px;
+  width: 300px;
+  padding: 12px 24px;
+  font-size: 15px;
+}
+
+/* line 53, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._aov0j6 {
+  margin: 40px 0;
+  width: calc(100vw - 160px);
+}
+/* line 56, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._aov0j6 .airbnb-link {
+  height: 342px;
+  min-width: 500px;
+  background-image: url("airbnbplus.png");
+  background-size: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+/* line 63, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._aov0j6 .airbnb-link .airbnbplus-btn {
+  height: 113px;
+  padding: 110px 0 0 38px;
+}
+/* line 68, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._aov0j6 .btn-text {
+  height: 72px;
+  vertical-align: center;
+}
+
+/* line 74, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._share_check {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 500px;
+}
+
+/* line 83, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  margin: 0px auto;
+}
+
+/* line 91, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._74l3jy {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* line 96, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._16syclo {
+  letter-spacing: 0.2px;
+  font-size: 17px;
+}
+
+/* line 101, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._1vab2qmv {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  transition-property: background, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  width: auto;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-width: 51.7771px;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  background: #008489;
+  border-color: transparent;
+}
+
+/* line 127, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._square_box {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+/* line 134, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+._share_check {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* line 144, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .showall {
+  color: #107275;
+  font-size: 16px;
+  padding: 4px;
+}
+/* line 149, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s {
+  display: inline-block;
+  margin: 0 auto;
+  width: 280px;
+  height: 288px;
+  color: #383838;
+  padding: 8px 8px 12px 8px;
+}
+/* line 158, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s img {
+  border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
+}
+/* line 163, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s span {
+  font-size: 12px;
+}
+/* line 166, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s__text {
+  font-size: 16px;
+}
+/* line 169, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s .listing-category {
+  font-size: 14px;
+}
+/* line 172, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s .listing-star {
+  color: #107275;
+}
+/* line 175, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/homes.scss */
+.listings .listing-s .listing-price {
+  font-size: 14px;
+}
+
+/* line 1, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer {
+  height: 259px;
+  width: 1032px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  border-top: 1px black solid;
+}
+/* line 7, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists {
+  height: 188px;
+  padding-bottom: 30px;
+  border-bottom: 1px black solid;
+}
+/* line 11, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list {
+  float: left;
+  width: 25%;
+}
+/* line 14, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list .footer__list__name {
+  height: 20px;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+/* line 18, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list .footer__list__name .api_icon_img {
+  float: left;
+  height: 20px;
+  width: 20px;
+  padding-left: 10px;
+}
+/* line 25, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list .footer__list__item {
+  font-size: 14px;
+}
+/* line 27, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list .footer__list__item a {
+  text-decoration: none;
+  color: #383838;
+}
+/* line 31, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__lists .footer__list .footer__list__item a:hover {
+  border-bottom: 1px black solid;
+}
+/* line 37, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__copyrights {
+  padding-top: 20px;
+  float: left;
+}
+/* line 40, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__copyrights .footer__copyrights__img {
+  height: 20px;
+  float: left;
+}
+/* line 43, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__copyrights .footer__copyrights__img #footer__copyrights__img {
+  height: 20px;
+  width: 20px;
+}
+/* line 48, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/_footer.scss */
+.footer .footer__copyrights .footer__copyrights__company {
+  padding-left: 20px;
+  float: left;
+}
+
+/* line 7, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* line 15, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+.bold {
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* line 20, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+.left {
+  float: left;
+}
+
+/* line 24, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+.contents {
+  height: 100vh;
+  width: calc(100vw - 160px);
+  min-width: 500px;
+  overflow-y: scroll;
+  padding: 40px 80px;
+}
+
+/* line 33, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+  color: #383838;
+}
+
+/* line 38, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+body {
+  min-width: 800px;
+}
+
+/* line 42, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #383838;
+}
+
+/* line 58, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h1,
+.h1 {
+  font-size: 25px;
+}
+
+/* line 62, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h2,
+.h2 {
+  font-size: 16px;
+}
+
+/* line 66, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h3,
+.h3 {
+  font-size: 15px;
+}
+
+/* line 70, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h4,
+.h4 {
+  font-size: 14px;
+}
+
+/* line 74, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h5,
+.h5 {
+  font-size: 12px;
+}
+
+/* line 78, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+h6,
+.h6 {
+  font-size: 10px;
+}
+
+/* line 82, /Users/takahashi-katsunori/projects/airbnb_clone/app/assets/stylesheets/application.scss */
+p {
+  margin: 0 0 10px;
+}

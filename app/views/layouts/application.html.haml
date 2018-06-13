@@ -11,3 +11,9 @@
     .contents
       = yield
     = render "shared/footer"
+
+    / - if controller.controller_name != "devise_user"
+    /   = render 'shared/header'
+    / .contents
+    /   = yield
+    / = render "shared/footer"
