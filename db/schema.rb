@@ -133,8 +133,6 @@ ActiveRecord::Schema.define(version: 20180612074859) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "home_id", null: false
-    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
