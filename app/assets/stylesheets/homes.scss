@@ -39,7 +39,15 @@ h3{
       line-height: 72px;
       padding-left: 20px;
     }
+  }
+  .btn-image{
+    height: 72px;
+    width: 96px;
+    img{
+      height: 100%;
+      width: 100%;
     }
+  }
 }
 
 .square_btn:active {/*ボタンを押したとき*/
@@ -94,10 +102,7 @@ h3{
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 8px 16px;
   min-width: 51.7771px;
   color: rgb(255, 255, 255) !important;
   text-decoration: none;
@@ -109,19 +114,14 @@ h3{
 }
 
 ._square_box {
-  padding-top: 24px !important;
-  padding-bottom: 24px !important;
-  margin-top: 24px !important;
-  margin-bottom: 24px !important;
+  padding-top: 24px 0 !important;
+  margin-top: 24px 0 !important;
 }
 
 ._share_check {
-  padding-top: 24px !important;
-  padding-bottom: 24px !important;
-  margin-top: 24px !important;
-  margin-bottom: 24px !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding-top: 24px 0 !important;
+  margin-top: 24px 0 !important;
+  border: 1px 0 solid rgba(0, 0, 0, 0.1) !important;
 }
 
 ._check {
