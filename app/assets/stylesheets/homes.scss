@@ -93,20 +93,32 @@ h3{
 //   float: right;
 // }
 
-/*--------- Contents ------------------------*/
+/*--------- Airbnb plus ------------------------*/
 ._aov0j6{
   margin: 40px 0;
   width: calc(100vw - 160px);
   .airbnb-link{
-  height: 342px;
-  min-width: 500px;
-  background-image: url("airbnbplus.png");
-  background-size:cover;
-  border-radius: 10px;
-  margin-top: 10px;
+    height: 200px;
+    min-width: 230px;
+    background-image: url("airbnbplus_back.png");
+    background-size:cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 50px 0 0 38px;
+    p{
+      font-size: 18px;
+      color: $fontBlack;
+      width: 350px;
+      padding-left: 10px;
+    }
     .airbnbplus-btn{
-    height: 113px;
-    padding: 110px 0 0 38px;
+    padding-top: 10px;
+    height: 65px;
+    }
+    img{
+      height:   50px;
+      width: 91px;
+      padding-left: 10px;
     }
   }
     .btn-text{
@@ -114,54 +126,44 @@ h3{
       vertical-align: center;
     }
 }
-._74l3jy {
-  font-size: 28px;
-  font-weight: bold;
-}
-._16syclo {
-  letter-spacing: 0.2px;
-  font-size: 17px;
-}
-._1vab2qmv {
-  cursor: pointer;
+/*--------- Share check ------------------------*/
+.more-detail-btn{
   display: inline-block;
-  position: relative;
   text-align: center;
-  transition-property: background, border-color, color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out;
-  width: auto;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
   padding: 8px 16px;
   min-width: 51.7771px;
-  color: rgb(255, 255, 255) !important;
+  color: $white;
   text-decoration: none;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  background: rgb(0, 132, 137);
+  background: $viridian;
   border-color: transparent;
 }
 
-._square_box {
-  padding-top: 24px 0 !important;
-  margin-top: 24px 0 !important;
-}
-
-._share_check {
-  padding-top: 24px 0 !important;
-  margin-top: 24px 0 !important;
-  border: 1px 0 solid rgba(0, 0, 0, 0.1) !important;
-}
-
-._check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 85%;
-    margin: 0px auto;
+.share-check {
+  margin: 0 auto;
+  height: 300px;
+  width: 850px;
+  .share-check-left{
+    width: 360px;
+    height:100%;
+    padding-right: 10px;
+    img{
+      width: 100%;
+    }
+  }
+  .share-check-right{
+    width: 450px;
+    height: 100%;
+    padding-left: 10px;
+    padding-top: 50px;
+    h2{
+      padding-bottom: 15px;
+    }
+  }
 }
 
 /*--------- Listings ------------------------*/
