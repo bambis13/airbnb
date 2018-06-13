@@ -132,8 +132,8 @@
             .help__head
               .help__head__link
                 = link_to 'Airbnbヘルプ', '#'
-              / .help__head__close
-              /   = image_tag('close_icon.png', alt: 'close_icon', class: 'help__head__close__img')
+              .help__head__close
+                = image_tag('close_icon.png', alt: 'close_icon', class: 'help__head__close__img')
             .help__content
               .help__content__form
                 %input.help__content__form__input{name: "keyword", placeholder: "質問またはキーワード検索", type: "text", value: ""}

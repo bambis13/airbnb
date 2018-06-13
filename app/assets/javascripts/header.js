@@ -33,16 +33,16 @@ $(function(){
   navibarListContent.on('click', function(){
     hideContent.addClass('hide'); //一度全てのhideContentにhideクラスを追加
     $('.navigation', this).removeClass('hide');
-    $('.help__head__close__img').on('click', function(){
-      hideContent.addClass('hide');
-      console.log(hideContent)
-    });
-    $(document).on('click', function(e){
-      if (!$(event.target).closest(navibarListContent).length){
-        hideContent.addClass('hide');
-      };
-    });
+    return false
   });
-  var help = $('#help')
-
+  $(document).on('click', function(e){
+    if (!$(event.target).closest(navibarListContent).length || $('#help-non-login').click()){
+      hideContent.addClass('hide');
+      return false
+    };
+  });
+  $('.help__head__close').on('click', function(){
+    hideContent.addClass('hide');
+    return false
+  })
 });
