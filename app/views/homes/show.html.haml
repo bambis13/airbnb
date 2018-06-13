@@ -39,7 +39,8 @@
     .container-left
       .home-overview#overview
         .home-overview__heading
-          %span ログハウスの個室
+          %span
+            = "#{@home.home_category_sub.name}"
           %h3
             = "#{@home.name}"
           %p
@@ -251,7 +252,7 @@
             .area-info__heading.readmore-item-map
               %h3.title エリア
               %p
-                -# = "よしおさん宅の所在地は#{@home.town}、#{@home.prefecture}、#{@home.country_id}です。#{@home.user.name}さんの所在地は#{@home.user.address}です。"
+                = "よしおさん宅の所在地は#{@home.town}, #{@home.prefecture}, #{@home.country.name}です。よしおさんの所在地はイタリアです。"
             .area-info__map
               = image_tag ("map.png")
             %p 地図は正確な所在地を示しています。

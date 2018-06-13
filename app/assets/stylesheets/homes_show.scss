@@ -24,6 +24,10 @@
    }
 }
 
+    p {
+      margin-bottom: 10px;
+    }
+
 h3 {
   padding: 0 0 7px;
   text-align: left;
@@ -271,12 +275,13 @@ h4 ,p {
       font-size: 24px;
       font-weight: bold;
       width: 100%;
+      margin: 6px 0 4px 0px;
     }
 
     li {
       float: left;
       margin-right: 15px;
-      margin-top: 7px;
+      margin-top: 30px;
 
       img {
         height: 20px;
