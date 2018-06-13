@@ -1,0 +1,7 @@
+.index-head.clearfix
+  = image_tag("business.png")
+  .index-head__text
+    %h1 出張で泊まりたいお家
+    %h2 ビジネスに欠かせない基本を備えた評価トップ水準の宿です。柔軟な予約対応、ワークスペース、Wi-Fiやセルフチェックインシステムなどをフル装備
+.listings
+  = render partial: 'listing-s', collection: @homes_business, as: :home

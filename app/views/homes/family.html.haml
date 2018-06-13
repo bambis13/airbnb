@@ -1,0 +1,8 @@
+.index-head.clearfix
+  = image_tag("family.png")
+  .index-head__text
+    %h1 ファミリーで泊まりたいお家
+    %h2 キッチンやTVなどの必需品が揃っていて、
+    %h2 ゲスト評価5つ星の一軒家を見つけよう。
+.listings
+  = render partial: 'listing-s', collection: @homes_family, as: :home

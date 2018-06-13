@@ -5,6 +5,22 @@ class HomesController < ApplicationController
   # GET /homes.json
   def index
     @homes = Home.all
+    @homes_newyork = @homes.by_prefecture("ニューヨーク")
+    @homes_barcelona = @homes.by_prefecture("バルセロナ")
+    @homes_paris = @homes.by_prefecture("パリ")
+    @homes_super = @homes.sphost_home
+  end
+
+  def family
+    @homes_family = Home.all
+  end
+
+  def business
+    @homes_business = Home.all
+  end
+
+  def homes
+    @homes = Home.all
   end
 
   # GET /homes/1
