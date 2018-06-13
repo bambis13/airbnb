@@ -24,7 +24,6 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
-  default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
 end

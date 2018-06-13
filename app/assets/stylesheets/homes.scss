@@ -1,3 +1,22 @@
+/*--------- variable ------------------------*/
+.icon-mini{
+  height: 40px;
+  width: 40px;
+  img{
+    height:100%;
+    width: 100%;
+  }
+}
+.home-contents_head{
+  vertical-align: center;
+  margin-bottom: 20px;
+}
+.vertical-center{
+  vertical-align: center;
+  p{
+    line-height: 40px;
+  }
+}
 /*--------- TopPage ------------------------*/
 h3{
   text-align: center;
@@ -11,19 +30,13 @@ h3{
   min-width: 1520px;
   margin-top: 80px;
   padding-top: 20px;
-  h2{
-  text-align: center;
-  line-height: 72px;
-  padding-left: 20px;
-  }
 }
-
-/*--------- SquareBtn ------------------------*/
+/*--------- Button ------------------------*/
 .square_btn{
   font-size:0;
   display: inline-block;
   float: left;
-  margin: 10px;
+  margin: 2px;
   text-decoration: none;
   background: $white;/*ボタン色*/
   color: $fontBlack;
@@ -49,7 +62,10 @@ h3{
     }
   }
 }
-
+.slick-wrapper{
+  background-color: transparent;
+  border: none;
+}
 .square_btn:active {/*ボタンを押したとき*/
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
@@ -57,6 +73,25 @@ h3{
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
     border-bottom: none;
 }
+//citytagのarrowを変えたい
+// .round_btn{
+//   width: 42px;
+//   height: 42px;
+//   text-align: center;
+//   background: $white;/*ボタン色*/
+//   color: $fontBlack;
+//   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+//   border-radius: 100%;
+//   border: solid 1px #DFDFDF;
+//   img{
+//     margin-top: 8px;
+//     height: 25px;
+//     width: 25px;
+//   }
+// }
+// .next-arrow{
+//   float: right;
+// }
 
 /*--------- Contents ------------------------*/
 ._aov0j6{
@@ -79,17 +114,14 @@ h3{
       vertical-align: center;
     }
 }
-
 ._74l3jy {
   font-size: 28px;
   font-weight: bold;
 }
-
 ._16syclo {
   letter-spacing: 0.2px;
   font-size: 17px;
 }
-
 ._1vab2qmv {
   cursor: pointer;
   display: inline-block;

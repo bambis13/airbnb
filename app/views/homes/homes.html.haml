@@ -1,1 +1,10 @@
 = render 'toptag_city'
+.listings
+  %h1.bold 評価トップの宿泊先
+  %h4 世界中の高評価の宿泊先を探索してみよう
+  = render partial: 'listing-s', collection: @homes, as: :home
+= render 'listing-xl'
+= render 'trip-with-airbnb'
+.listings
+  %h1.bold 全300+件のお家
+  = render partial: 'listing-s', collection: @homes, as: :home

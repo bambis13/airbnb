@@ -19,16 +19,19 @@
 }
 
 .bold{
-  font-weight:600;
-  letter-spacing: 0.025em;
+  font-weight:600 !important;
+  letter-spacing: 0.025em !important;
 }
 
 .left{
-  float: left;
+  float: left !important;
 }
 .inline{
-  display: inline-block;
-  vertical-align: top;
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+.margin10px{
+  margin: 0 10px !important;
 }
 
 .contents{
@@ -44,7 +47,7 @@
 }
 
 .align-left{
-  text-align: left;
+  text-align: left !important;
 }
 
 a{
