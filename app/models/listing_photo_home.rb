@@ -1,2 +1,0 @@
-class ListingPhotoHome < ApplicationRecord
-end

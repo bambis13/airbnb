@@ -1,11 +1,21 @@
+/*-- Color ---------------------------------- */
 $white: #FFFFFF;
 $viridian: #107275;
 
-// font-color
+/*-- font-color ----------------------------- */
 $fontBlack: #383838;
 $fontDarkRed: #6B1F0D;
 $fontLightGray: rgb(72, 72, 72);
 
-// background-color
+/*-- background-color ----------------------- */
 $airbnb_pink: #F7819F;
 $facebook_blue: rgba(30, 50, 97, 1);
+$lightBlack: #383838;
+$iconPink: #FC3F4D;
+
+/*-- Size ----------------------------------- */
+$s-width: calc((100vw - 300px)/5);
+$s-height: calc((100vw - 300px)/5*0.7);
+$x-width: calc(33vw - 100px);
+$icon-f-s: 2vw;
+
