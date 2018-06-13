@@ -1,8 +1,12 @@
+/*
+ *= require font-awesome
+ */
 @import './reset';
 @import './variable';
 @import './header';
 @import './homes';
 @import './footer';
+@import './users';
 
 .clearfix:after {
   content: "";
