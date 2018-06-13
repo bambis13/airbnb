@@ -618,3 +618,39 @@
     }
   }
 }
+
+// welcom sign_up
+
+.welcome_section_contents{
+  height: 510px;
+  width: 430px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  &__background_image{
+    height: 510px;
+    width: 430px;
+    z-index: 1;
+    .image{
+      max-height: 510px;
+      max-width: 430px;
+    }
+  }
+  &__button_content{
+    position: relative;
+    height: 42px;
+    width: 310px;
+    padding-bottom: 40px;
+    .step_btn{
+      height: 42px;
+      width: 310px;
+      background-color: $airbnb_pink;
+      .redirect_btn{
+        height: 42px;
+        width: 310px;
+        h3{
+          color: $white;
+        }
+      }
+    }
+  }
+}

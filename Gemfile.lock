@@ -268,15 +268,9 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave
-<<<<<<< HEAD
-  coffee-rails (~> 4.2)
   devise
   erb2haml
   haml
-=======
-  devise
-  erb2haml
->>>>>>> signup_func
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)

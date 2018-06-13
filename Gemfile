@@ -59,10 +59,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 gem "haml"
-=======
->>>>>>> signup_func
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
 gem 'mini_magick'
@@ -71,8 +68,4 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'kaminari'
 gem 'mechanize'
-<<<<<<< HEAD
 gem 'devise'
-=======
-gem 'devise'
->>>>>>> signup_func
