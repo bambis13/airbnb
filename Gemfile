@@ -69,4 +69,5 @@ gem 'kaminari'
 gem 'mechanize'
 gem 'devise'
 gem 'turbolinks'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'ransack'
