@@ -19,8 +19,8 @@ class Home < ApplicationRecord
   belongs_to                :room_type
   belongs_to                :currency
   belongs_to                :home_category_sub
-  geocoded_by               :town
-  after_validation          :geocode
+  # geocoded_by               :town
+  # after_validation          :geocode
 
 
 

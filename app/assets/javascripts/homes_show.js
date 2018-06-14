@@ -45,18 +45,7 @@ $(function() {
     });
 });
 
-$(function() {
-  handler = Gmaps.build('Google');
-    handler.buildMap({
-      provider: {
-        zoom: 12,
-        center:    new google.maps.LatLng(#{@home.latitude}, #{@home.longitude}),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      },
-      internal: {id: 'map'}}, function(){
-    handler.fitMapToBounds();
-  });
-});
+
 
 
 

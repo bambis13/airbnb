@@ -28,10 +28,10 @@ class HomesController < ApplicationController
     @host      = @home.user
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
-    @hash      = Gmaps4rails.build_markers(@home) do |home, marker|
-      marker.lat home.location_x
-      marker.lng home.location_y
-    end
+    # @hash      = Gmaps4rails.build_markers(@home) do |home, marker|
+    #   marker.lat home.location_x
+    #   marker.lng home.location_y
+    # end
   end
 
   # GET /homes/new

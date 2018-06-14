@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614065927) do
+ActiveRecord::Schema.define(version: 20180614024148) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -84,15 +84,6 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_bed_types_on_home_id"
-  end
-
-  create_table "cancel_policies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "strict_level", null: false
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "home_id"
-    t.index ["home_id"], name: "index_cancel_policies_on_home_id"
   end
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -218,8 +209,8 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.string "town", null: false
     t.string "street", null: false
     t.string "building", null: false
-    t.float "location_x", limit: 24, null: false
-    t.float "location_y", limit: 24, null: false
+    t.integer "location_x", null: false
+    t.integer "location_y", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -344,7 +335,6 @@ ActiveRecord::Schema.define(version: 20180614065927) do
   add_foreign_key "availability_settings", "homes"
   add_foreign_key "available_spaces", "homes"
   add_foreign_key "bed_types", "homes"
-  add_foreign_key "cancel_policies", "homes"
   add_foreign_key "favorite_lists", "users"
   add_foreign_key "favorites", "favorite_lists"
   add_foreign_key "home_notifications", "homes"
