@@ -1,5 +1,5 @@
-.position
-/ 編集の際のpositionの調節
+/ .position
+/ / 編集の際のpositionの調節
 
 .signup_registration_contents
   .signup_registration_contents__top_content
@@ -19,7 +19,7 @@
       .field_input_elia
         = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
       .field_input_elia
-        = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form'
+        = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form click_password'
       / .field_password_certifcation
       /   .field_password_certifcation__mark ×
       /   .field_password_certifcation__text パスワードの強度
@@ -53,7 +53,7 @@
     %hr
   .signup_registration_contents__bottom_content
     .text_elia Airbnbアカウントはお持ちですか？
-    %a.redirect_btn{href: root_path} ログイン
+    %a.redirect_btn#redirect_login_btn{href: root_path} ログイン
 
 
 
