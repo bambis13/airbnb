@@ -23,7 +23,11 @@ class HomesController < ApplicationController
   # GET /homes/1.json
   def show
     @beds = BedType.where(home_id: params[:id])
-    binding.pry
+    @rules = @home.home_rule
+    @amenities = @home.amenity
+    @host = @home.user
+    @photos = @home.listing_photos
+
   end
 
   # GET /homes/new

@@ -24,9 +24,9 @@
    }
 }
 
-    p {
-      margin-bottom: 10px;
-    }
+p {
+  margin-bottom: 10px;
+}
 
 h3 {
   padding: 0 0 7px;
@@ -44,6 +44,10 @@ h4 ,p {
 
 .fontsize-12px {
   font-size: 12px !important;
+}
+
+.inline {
+  display:inline
 }
 
 
@@ -89,6 +93,10 @@ h4 ,p {
   content: '';
   display: block;
   clear: both;
+}
+
+.padding-top-2px {
+  padding-top: 1.3px;
 }
 
 
@@ -350,36 +358,47 @@ h4 ,p {
       float:left;
       width: 40%;
     }
+    .beds-list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
 
-    .bed-item {
-      // border: 1px #aaa solid;
-      float:left;
-      margin-right: 10px;
-      font-size:100px;
-      border: 1px #DBDBDB solid;
-      border-radius: 5px ;
-      float:left;
-      margin-right: 20px;
-      padding: 24px;
-      width: 20%;
+      .bed-item {
+        // border: 1px #aaa solid;
+        display: inline;
+        margin-right: 10px;
+        font-size:100px;
+        border: 1px #DBDBDB solid;
+        border-radius: 5px ;
+        float:left;
+        margin-right: 20px;
+        padding: 24px;
+        width: 20%;
 
-      .bed-item p {
-        font-weight:600px;
-      }
+        p {
+          font-weight:600px;
+          font-size: 14px;
+        }
 
-      span {
-        text-align: left;
-      }
+        span {
+          text-align: left;
+        }
 
-      .bed-icon {
-        margin-bottom: 30px;
-        position: relative;
-        height: 40px;
-        img {
-          height:20px;
-          width: 20px;
-          top: 0px;
-          position: absolute;
+        .bed-icon {
+          margin-bottom: 30px;
+          position: relative;
+          height: 40px;
+          img {
+            height:20px;
+            width: 20px;
+            top: 0px;
+            margin-right: 8px;
+            // position: absolute;
+          }
         }
       }
     }

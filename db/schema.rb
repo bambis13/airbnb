@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180613032239) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -134,8 +133,6 @@ ActiveRecord::Schema.define(version: 20180613032239) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "home_id", null: false
-    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -220,19 +217,13 @@ ActiveRecord::Schema.define(version: 20180613032239) do
     t.bigint "home_category_sub_id"
     t.bigint "country_id"
     t.bigint "room_type_id"
-<<<<<<< HEAD
     t.bigint "currency_id"
     t.index ["country_id"], name: "index_homes_on_country_id"
     t.index ["currency_id"], name: "index_homes_on_currency_id"
-=======
-    t.bigint "user_id"
-    t.index ["country_id"], name: "index_homes_on_country_id"
->>>>>>> 61014bd7709d1ffd2f16e4b876a1c3cc1897d119
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
     t.index ["town"], name: "index_homes_on_town"
-    t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -350,9 +341,6 @@ ActiveRecord::Schema.define(version: 20180613032239) do
   add_foreign_key "homes", "currencies"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
-  add_foreign_key "listing_photo_homes", "homes"
-  add_foreign_key "listing_photo_homes", "listing_photos"
-  add_foreign_key "homes", "users"
   add_foreign_key "listing_photos", "homes"
   add_foreign_key "listing_photos", "users"
   add_foreign_key "messages", "users"

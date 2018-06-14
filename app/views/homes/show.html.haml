@@ -113,37 +113,66 @@
                 %h5 シャワー
               .item-icon.amenity-icon.amenity_item.clearfix
                 %img{:src => "https://png.icons8.com/wired/50/000000/toaster.png"}/
-                %h5 タオル
+                %h5 朝食
             %p.additional-info
               20項目全てを表示
 
           .home-overview__detail__item.detail_bed.clearfix
             %h4.subtitle ベッドのタイプ
-            .bed-item
-              .item-icon.bed-icon
-                %img{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
-              %p.bold 寝室1
-              %p キングベッド 1
-            .bed-item
-              .item-icon.bed-icon
-                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
-                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
-              %p.bold 寝室2
-              %p シングルベッド2
-            .bed-item
-              .item-icon.bed-icon
-                %img{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
-              %p.bold 寝室3
-              %p シングルベッド
-
-          .home-overview__detail__item.readmore-item-house-rule
+            .beds-list
+              - @beds.each.with_index(1) do |bed, i|
+                .bed-item
+                  .item-icon.bed-icon
+                    - if bed.single_bed?
+                      %img.left{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
+                    - if bed.double_bed?
+                      %img.left.padding-top-2px{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
+                    - if bed.queen_bed?
+                      %img.left.padding-top-2px{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
+                    - if bed.sofa_bed?
+                      %img.left{:src => "https://png.icons8.com/wired/50/000000/sofa.png"}/
+                  %p.bold
+                    = "寝室#{i}"
+                  %p
+                    = "シングルベッド#{bed.single_bed} 台" if bed.single_bed?
+                  %p
+                    = "ダブルベッド#{bed.double_bed} 台" if bed.double_bed?
+                  %p
+                    = "クイーンベッド#{bed.queen_bed}台"  if bed.queen_bed?
+                  %p
+                    = "ソファベッド#{bed.sofa_bed} 台"   if bed.sofa_bed?
+          .home-overview__detail__item
             %h4.subtitle ハウスルール
-            %p 禁煙
-            %p ペットお断り
-            %p パーティー&イベントお断り
-            %p お子様に安全とは言えない/不向き (0-12歳)
-            %p チェックイン時間: 15:00～20:00
-            %p 11:00までにチェックアウト
+            .readmore-item-house-rule
+              %p
+                - if @rules.accept_kids?
+                  = "お子様に安全とは言えます (7歳未満)"
+                - else
+                  = "お子様には安全とは言えない/不向き (7歳未満)"
+              %p
+                - if @rules.accept_event_party?
+                  = "パーティー&イベント大歓迎！"
+                - else
+                  = "パーティー&イベントお断り"
+              %p
+                - if @rules.accept_babies?
+                  = "乳幼児に安全と言えます (2歳未満)"
+                - else
+                  = "乳幼児に安全とは言えない/不向き (2歳未満)"
+              %p
+                - if @rules.accept_smoking?
+                  = "喫煙可能"
+                - else
+                  = "禁煙"
+              %p
+                - if @rules.accept_pet?
+                  = "ペット同伴可能"
+                - else
+                  = "ペット同伴不可能"
+              %p
+                = @rules.kids_reason
+              %p
+                = @rules.babies_reason
           .home-overview__detail__item
             %h4.subtitle キャンセル
             %p 厳格
@@ -155,7 +184,7 @@
             %span 2018年7月01日 - 2018年8月31日
             %span は最低
             %span 2泊
-            %span 1日前に更新
+            %span
           %p.additional-info
             詳細を見る
 
@@ -213,8 +242,10 @@
             .host-introduction__heading.clearfix
               .host-info.clearfix
                 .host-introduction__heading__left-item
-                  %h3.title ホストは小島よしおさん
-                  %p San Salvatore Monferrato, イタリア · 2013年1月からメンバー
+                  %h3.title
+                    = "ホストは#{@host.name}さん"
+                  %p
+                    = "#{@host.town}, #{@host.prefecture}, #{@host.country.name}、#{@host.created_at}からメンバー"
                 .host-introduction__heading__host-pic
                   = image_tag("host1.png", class: "host-pic")
               .host-introduction__heading__subinfo.clearfix
@@ -229,12 +260,13 @@
               %span.bold Mauroさんはスーパーホストです
               %p スーパーホストとは素敵な滞在で高い評価を得ている経験豊富なホストに与えられる称号です。
             .host-introduction__text
-              %p Here we are, Pina and Mauro. Our adventure began thirty years ago with the house on the hill, the refuge of the family: two daughters, a grandmother with a passion for the vegetable garden and lots of animals! We offer a discreet hospitality, genuine lifestyle and enjoyment of…
+              %p
+                = @host.self_introduction
               .host-introduction__sub-info
                 .language-use.clearfix
                   %p.left 言語：
                   %span.subtitle.left
-                  English、Français
+                    = @host.language.name
                 .response-rate.clearfix
                   %p.left 返答率：
                   %span.subtitle.left
@@ -252,7 +284,7 @@
             .area-info__heading.readmore-item-map
               %h3.title エリア
               %p
-                = "よしおさん宅の所在地は#{@home.town}, #{@home.prefecture}, #{@home.country.name}です。よしおさんの所在地はイタリアです。"
+                = "#{@host.name}さん宅の所在地は#{@host.town}, #{@host.prefecture}, #{@host.country.name}です。よしおさんの所在地は#{@host.country.name}です。"
             .area-info__map
               = image_tag ("map.png")
             %p 地図は正確な所在地を示しています。
