@@ -28,6 +28,8 @@
     .container-left
       .home-overview#overview
         .home-overview__heading
+          .host-introduction__heading__host-pic.margin-top-15px
+            = image_tag("host1.png", class: "host-pic")
           %span
             = "#{@home.home_category_sub.name}"
           %h3
@@ -62,15 +64,33 @@
             .detail-item
             %span 入室がスムーズと大好評:
             %p 最近泊まった人の95%がチェックイン手順に5つ星を付けています。
-            %p.fontsize-12px 役に立った　役に立たなかった
+            .thumb-up
+              %p.fontsize-12px.left
+                役に立った　
+              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+            .thumb-down
+              %p.fontsize-12px
+                役に立たなかった
             .detail-item
               %span 清潔感抜群:
               %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
-              %p.fontsize-12px 役に立った　役に立たなかった
+              .thumb-up
+              %p.fontsize-12px.left
+                役に立った　
+              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+            .thumb-down
+              %p.fontsize-12px
+                役に立たなかった
             .detail-item
               %span 清潔感抜群:
               %p 最近のゲスト8人が、このお家はとても清潔だったと言っています。
-              %p.fontsize-12px 役に立った　役に立たなかった
+              .thumb-up
+              %p.fontsize-12px.left
+                役に立った　
+              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+            .thumb-down
+              %p.fontsize-12px
+                役に立たなかった
         .japanese-translation
           %h4 日本語で読む　
         %p.additional-info
@@ -82,28 +102,30 @@
             .readmore-item-space
               %p A wonderful suspended nest, an amazing panoramic view on the hills, among the fragrances of the linden trees and other aromatic herbs. A garden with solarium and a swimming pool (seasonal opening) surrounded by blooming peaceful nature.The g arden measures 18,000 square meters with awe-inspiring trees such as majestic cedars of Lebanon and magnolias, pagodas, hollies and tamarisks.You can find Nature walks, cycle routes, wine tours and cultural paths.The Monferrato is, with its deep-rooted enological traditions, an area in which you can find the top quality wines such as Barbera, Freisa, Grignolino and Cortese; it is possible to visit the wine cellars of high-qualified productors.In the mansion, you can have access as well to the wine cellar carved in tuff of the late XIXth century, with the typical "infernot", barrels and an ancient press to produce wine.(URL HIDDEN) Free wifi around the swimming pool(URL HIDDEN) Shabby chic decor.(URL HIDDEN) Private bathroom with sink, toilet and shower(URL HIDDEN) Private parking.(URL HIDDEN) Very close to Casale Monferrato, Alessandria (5 minutes by car)(URL HIDDEN) Not far from Alba, Barolo and Asti.(URL HIDDEN) 1 hour driving to Turin, Milan and Genoa(URL HIDDEN)Nearby, it is possible to find taverns and cottages where you can taste the typical specialties of the territory.
           .home-overview__detail__item.clearfix
-            %h4.subtitle アメニティ・設備
-            .home-overview__detail__amenities__left.clearfix
-              .amenity_item
-                %img{:src => "https://png.icons8.com/android/50/000000/wifi.png"}/
-                %h5 Wi-Fi
-              .item-icon.amenity-icon.amenity_item
-                %img{:src => "https://png.icons8.com/wired/50/000000/garage.png"}/
-                %h5 駐車場
-              .item-icon.amenity-icon.amenity_item
-                %img{:src => "https://png.icons8.com/wired/50/000000/hair-dryer.png"}/
-                %h5 ヘアドライヤー
-            .home-overview__detail__amenities__right.clearfix
-              .item-icon.amenity-icon.amenity_item
-                %img{:src => "https://png.icons8.com/wired/50/000000/shampoo-dispenser.png"}/
-                %h5 シャンプー
-              .item-icon.amenity-icon.amenity_item
-                %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
-                %h5 シャワー
-              .item-icon.amenity-icon.amenity_item.clearfix
-                %img{:src => "https://png.icons8.com/wired/50/000000/toaster.png"}/
-                %h5 朝食
-            %p.additional-info
+            %h4.subtitle
+              アメニティ・設備
+            .amenity-contents.clearfix
+              .home-overview__detail__amenities__left.clearfix
+                .amenity_item
+                  %img{:src => "https://png.icons8.com/android/50/000000/wifi.png"}/
+                  %h5 Wi-Fi
+                .item-icon.amenity-icon.amenity_item
+                  %img{:src => "https://png.icons8.com/wired/50/000000/garage.png"}/
+                  %h5 駐車場
+                .item-icon.amenity-icon.amenity_item
+                  %img{:src => "https://png.icons8.com/wired/50/000000/hair-dryer.png"}/
+                  %h5 ヘアドライヤー
+              .home-overview__detail__amenities__right.clearfix
+                .item-icon.amenity-icon.amenity_item
+                  %img{:src => "https://png.icons8.com/wired/50/000000/shampoo-dispenser.png"}/
+                  %h5 シャンプー
+                .item-icon.amenity-icon.amenity_item
+                  %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
+                  %h5 シャワー
+                .item-icon.amenity-icon.amenity_item.clearfix
+                  %img{:src => "https://png.icons8.com/wired/50/000000/toaster.png"}/
+                  %h5 朝食
+            %p.additional-info.left
               20項目全てを表示
 
           .home-overview__detail__item.detail_bed.clearfix
@@ -164,8 +186,13 @@
                 = @rules.babies_reason
           .home-overview__detail__item
             %h4.subtitle キャンセル
-            %p 厳格
-            %p 宿泊30日前までに解約すれば、全額返金されます。それを過ぎてからの解約では、宿泊料金の50%とサービス料全額が返金されます。
+            %p
+              = "かなり適当" if @cancel.strict_level == "easy"
+              = "普通"      if @cancel.strict_level == "normal"
+              = "厳格"      if @cancel.strict_level == "strict"
+              = "かなり厳格" if @cancel.strict_level == "very_strict"
+            %p
+              = @cancel.text
           .home-overview__detail__item
             %h4.subtitle 予約可能状況
             %p 最低
@@ -246,7 +273,7 @@
                   %img.left{:src => "https://png.icons8.com/wired/50/000000/diploma.png"}/
                   %p.left 認証済み
             // 該当部分
-            - if @host.superhost?
+            - if @host.superhost == "super"
               .host-introduction__title
                 %span.bold
                   = "#{@host.name}さんはスーパーホストです"

@@ -27,6 +27,7 @@ class HomesController < ApplicationController
     @amenities = @home.amenity
     @host = @home.user
     @photos = @home.listing_photos
+    @cancel = @home.cancel_policy
 
   end
 
