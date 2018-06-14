@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614062322) do
+ActiveRecord::Schema.define(version: 20180614065927) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -218,8 +218,8 @@ ActiveRecord::Schema.define(version: 20180614062322) do
     t.string "town", null: false
     t.string "street", null: false
     t.string "building", null: false
-    t.integer "location_x", null: false
-    t.integer "location_y", null: false
+    t.float "location_x", limit: 24, null: false
+    t.float "location_y", limit: 24, null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
