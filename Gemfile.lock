@@ -276,6 +276,7 @@ DEPENDENCIES
   devise
   erb2haml
   font-awesome-rails
+  haml
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)

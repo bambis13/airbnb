@@ -5,13 +5,14 @@ $viridian: #107275;
 /*-- font-color ----------------------------- */
 $fontBlack: #383838;
 $fontDarkRed: #6B1F0D;
-$fontLightGray: rgb(72, 72, 72);
+$fontLightGray: rgba(72, 72, 72, 1);
 
 /*-- background-color ----------------------- */
 $airbnb_pink: #F7819F;
 $facebook_blue: rgba(30, 50, 97, 1);
 $lightBlack: #383838;
 $iconPink: #FC3F4D;
+$modalBg: rgba(46, 46, 46, 0.5);
 
 /*-- Size ----------------------------------- */
 $s-width: calc((100vw - 300px)/5);

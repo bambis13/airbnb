@@ -1,12 +1,20 @@
 @import './variable';
 
+.modal_background{
+  display: none;
+  z-index: 1;
+  width:100%;
+  height:100%;
+  background-color: $modalBg;
+  position:fixed;
+  top:0;
+  left:0;
+}
 .position{
   // 編集の際のpositionの調節
-  height: 100px;
+  height: 400px;
 }
-
 // login
-
 .login_contents{
   height: 350px;
   width: 530px;
@@ -14,8 +22,9 @@
   margin: 0 auto;
   background-color: $white;
   font-family: Helvetica Neue;
+  z-index: 2;
   // わかりやすくするために追加
-  border: 1px solid #848484;
+  // border: 1px solid #848484;
   .top_content{
     height: 15px;
     width: 100%;
@@ -654,3 +663,4 @@
     }
   }
 }
+

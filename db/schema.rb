@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607105321) do
+ActiveRecord::Schema.define(version: 20180612074859) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -86,6 +86,33 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.index ["home_id"], name: "index_bed_types_on_home_id"
   end
 
+  create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "currencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_favorite_lists_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "favorite_list_id", null: false
+    t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
+  end
+
   create_table "home_category_main_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "home_category_sub_id"
     t.bigint "home_category_main_id"
@@ -108,22 +135,6 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
-
-  create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "checkin_date", null: false
-    t.datetime "checkout_date", null: false
-    t.integer "number_of_guests", null: false
 
   create_table "home_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "only_stairs", default: false
@@ -148,6 +159,28 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_home_notifications_on_home_id"
+  end
+
+  create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "checkin_date", null: false
+    t.datetime "checkout_date", null: false
+    t.integer "number_of_guests", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "accomodation_fee", null: false
+    t.integer "total_price", null: false
+  end
+
+  create_table "home_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "review", null: false
+    t.integer "accuracy_rate", null: false
+    t.integer "location_rate", null: false
+    t.integer "communication_rate", null: false
+    t.integer "cleanliness_rate", null: false
+    t.integer "checkin_rate", null: false
+    t.integer "cost_performance_rate", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -191,9 +224,6 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
-
-  create_table "listing_photo_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -208,11 +238,15 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.bigint "home_id"
     t.index ["home_id"], name: "index_listing_photos_on_home_id"
     t.index ["user_id"], name: "index_listing_photos_on_user_id"
-
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "overviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "home_id", null: false
@@ -292,14 +326,13 @@ ActiveRecord::Schema.define(version: 20180607105321) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "users", "countries"
-  add_foreign_key "users", "currencies"
-  add_foreign_key "users", "languages"
   add_foreign_key "additional_home_rules", "homes"
   add_foreign_key "amenities", "homes"
   add_foreign_key "availability_settings", "homes"
   add_foreign_key "available_spaces", "homes"
   add_foreign_key "bed_types", "homes"
+  add_foreign_key "favorite_lists", "users"
+  add_foreign_key "favorites", "favorite_lists"
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
   add_foreign_key "homes", "countries"
@@ -311,5 +344,7 @@ ActiveRecord::Schema.define(version: 20180607105321) do
   add_foreign_key "messages", "users"
   add_foreign_key "overviews", "homes"
   add_foreign_key "prices", "homes"
-
+  add_foreign_key "users", "countries"
+  add_foreign_key "users", "currencies"
+  add_foreign_key "users", "languages"
 end
