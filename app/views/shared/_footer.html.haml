@@ -1,65 +1,72 @@
-.footer
-  .footer__lists
-    .footer__list
-      %h4.footer__list__name.bold Airbnb
-      %ul.footer__list__item
-        %li
-          = link_to '採用情報', root_path
-        %li
-          = link_to 'プレス', root_path
-        %li
-          = link_to 'ポリシー', root_path
-        %li
-          = link_to 'ヘルプ', root_path
-        %li
-          = link_to 'ダイバーシティ＆ビロンギング', root_path
-    .footer__list
-      %h4.footer__list__name.bold スタッフのおすすめ
-      %ul.footer__list__item
-        %li
-          = link_to '信頼＆安全', root_path
-        %li
-          = link_to 'お友達紹介クーポン', root_path
-        %li
-          = link_to 'Airbnb Citizen', root_path
-        %li
-          = link_to '出張', root_path
-        %li
-          = link_to 'ガイドブック', root_path
-        %li
-          = link_to 'Airbnbmag', root_path
-        %li
-          = link_to 'イベント', root_path
-    .footer__list
-      %h4.footer__list__name.bold ホスティング
-      %ul.footer__list__item
-        %li
-          = link_to 'ホストになる理由', root_path
-        %li
-          = link_to 'ホストに招待', root_path
-        %li
-          = link_to 'おもてなしの心', root_path
-        %li
-          = link_to 'ホストの責任', root_path
-        %li
-          = link_to 'コミュニティセンター', root_path
-    .footer__list
-      %h4.footer__list__name
-        = link_to root_path do
-          = image_tag('facebook_icon.png', alt: 'facebook', class: 'api_icon_img')
-        = link_to root_path do
-          = image_tag('twitter_icon.png', alt: 'twitter', class: 'api_icon_img')
-        = link_to root_path do
-          = image_tag('instagram_icon.png', alt: 'instagram', class: 'api_icon_img clearfix')
-      %ul.footer__list__item
-        %li
-          = link_to '利用規約', root_path
-        %li
-          = link_to 'プライバシー', root_path
-        %li
-          = link_to 'サイトマップ', root_path
-  .footer__copyrights
-    .footer__copyrights__img
-      = image_tag("no_color_icon.png", alt: "no_color_icon", id: "footer__copyrights__img")
-    .footer__copyrights__company
-      © Airbnb, Inc.
+.frame__footer
+  .footer.hide
+    .footer__lists
+      .footer__list
+        %h4.footer__list__name.bold Airbnb
+        %ul.footer__list__item
+          %li
+            = link_to '採用情報', '#'
+          %li
+            = link_to 'プレス', '#'
+          %li
+            = link_to 'ポリシー', '#'
+          %li
+            = link_to 'ヘルプ', '#'
+          %li
+            = link_to 'ダイバーシティ＆ビロンギング', '#'
+      .footer__list
+        %h4.footer__list__name.bold スタッフのおすすめ
+        %ul.footer__list__item
+          %li
+            = link_to '信頼＆安全', '#'
+          %li
+            = link_to 'お友達紹介クーポン', '#'
+          %li
+            = link_to 'Airbnb Citizen', '#'
+          %li
+            = link_to '出張', '#'
+          %li
+            = link_to 'ガイドブック', '#'
+          %li
+            = link_to 'Airbnbmag', '#'
+          %li
+            = link_to 'イベント', '#'
+      .footer__list
+        %h4.footer__list__name.bold ホスティング
+        %ul.footer__list__item
+          %li
+            = link_to 'ホストになる理由', '#'
+          %li
+            = link_to 'ホストに招待', '#'
+          %li
+            = link_to 'おもてなしの心', '#'
+          %li
+            = link_to 'ホストの責任', '#'
+          %li
+            = link_to 'コミュニティセンター', '#'
+      .footer__list
+        %h4.footer__list__name
+          = link_to '#' do
+            = image_tag('facebook_icon.png', alt: 'facebook', class: 'api_icon_img')
+          = link_to '#' do
+            = image_tag('twitter_icon.png', alt: 'twitter', class: 'api_icon_img')
+          = link_to '#' do
+            = image_tag('instagram_icon.png', alt: 'instagram', class: 'api_icon_img clearfix')
+        %ul.footer__list__item
+          %li
+            = link_to '利用規約', '#'
+          %li
+            = link_to 'プライバシー', '#'
+          %li
+            = link_to 'サイトマップ', '#'
+    .footer__copyrights
+      .footer__copyrights__img
+        = image_tag("no_color_icon.png", alt: "no_color_icon", id: "footer__copyrights__img")
+      .footer__copyrights__company
+        © Airbnb, Inc.
+.footer__btn#show__footer
+  = image_tag('globe_earth.png', alt: 'globe_earth', class: 'footer__btn__icon')
+  %span 条件、プライバシー、通貨など
+.footer__btn#hide__footer.hide
+  = image_tag('close_icon.png', alt: 'close', class: 'footer__btn__icon')
+  %span 閉じる
