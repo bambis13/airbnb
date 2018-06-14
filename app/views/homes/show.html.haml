@@ -11,30 +11,19 @@
         %li
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
-    = image_tag("home1.png", class: "header-img", id: "show-modal")
+    = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
   .photo-modal-wrapper
+    .close-modal
+      .fa.fa-times
     .listing-slick-3.modal.clearfix
-      .inmodal-img.slick-sub
-        %a{href: "#"}
-          = image_tag("home1.png", class: "modal-photo")
-      .inmodal-img.slick-sub
-        %a{href: "#"}
-          = image_tag("home2.png", class: "modal-photo")
-      .inmodal-img.slick-sub
-        %a{href: "#"}
-          = image_tag("home3.png", class: "modal-photo")
-      .inmodal-img.slick-sub
-        %a{href: "#"}
-          = image_tag("home2.png", class: "modal-photo")
-    %ul.thumnail-list
-      %li.thumnail-item
-        = image_tag("home1.png", class: "modal-thumbnail")
-      %li.thumnail-item
-        = image_tag("home2.png", class: "modal-thumbnail")
-      %li.thumnail-item
-        = image_tag("home3.png", class: "modal-thumbnail")
-      %li.thumnail-item
-        = image_tag("home2.png", class: "modal-thumbnail")
+      - @photos.each do |photo|
+        .inmodal-img.slick-sub
+          %a{href: "#"}
+            = image_tag(photo.image, class: "modal-photo")
+    %ul.thumnail-list.clearfix
+      - @photos.each do |photo|
+        %li.thumnail-item
+          = image_tag(photo.image, class: "modal-thumbnail")
   .container-main
     .container-left
       .home-overview#overview
@@ -134,13 +123,13 @@
                   %p.bold
                     = "寝室#{i}"
                   %p
-                    = "シングルベッド#{bed.single_bed} 台" if bed.single_bed?
+                    = "シングルベッド #{bed.single_bed}台" if bed.single_bed?
                   %p
-                    = "ダブルベッド#{bed.double_bed} 台" if bed.double_bed?
+                    = "ダブルベッド #{bed.double_bed}台" if bed.double_bed?
                   %p
-                    = "クイーンベッド#{bed.queen_bed}台"  if bed.queen_bed?
+                    = "クイーンベッド #{bed.queen_bed}台"  if bed.queen_bed?
                   %p
-                    = "ソファベッド#{bed.sofa_bed} 台"   if bed.sofa_bed?
+                    = "ソファベッド #{bed.sofa_bed}台"   if bed.sofa_bed?
           .home-overview__detail__item
             %h4.subtitle ハウスルール
             .readmore-item-house-rule
@@ -256,9 +245,13 @@
                 .certification.left.clearfix
                   %img.left{:src => "https://png.icons8.com/wired/50/000000/diploma.png"}/
                   %p.left 認証済み
-            .host-introduction__title
-              %span.bold Mauroさんはスーパーホストです
-              %p スーパーホストとは素敵な滞在で高い評価を得ている経験豊富なホストに与えられる称号です。
+            // 該当部分
+            - if @host.superhost?
+              .host-introduction__title
+                %span.bold
+                  = "#{@host.name}さんはスーパーホストです"
+                  %p
+                    スーパーホストとは素敵な滞在で高い評価を得ている経験豊富なホストに与えられる称号です。
             .host-introduction__text
               %p
                 = @host.self_introduction
@@ -284,7 +277,7 @@
             .area-info__heading.readmore-item-map
               %h3.title エリア
               %p
-                = "#{@host.name}さん宅の所在地は#{@host.town}, #{@host.prefecture}, #{@host.country.name}です。よしおさんの所在地は#{@host.country.name}です。"
+                = "#{@host.name}さん宅の所在地は#{@host.town}, #{@host.prefecture}, #{@host.country.name}です。#{@host.name}さんの所在地は#{@host.country.name}です。"
             .area-info__map
               = image_tag ("map.png")
             %p 地図は正確な所在地を示しています。

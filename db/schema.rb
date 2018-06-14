@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613032239) do
+ActiveRecord::Schema.define(version: 20180614024148) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -218,12 +218,14 @@ ActiveRecord::Schema.define(version: 20180613032239) do
     t.bigint "country_id"
     t.bigint "room_type_id"
     t.bigint "currency_id"
+    t.bigint "user_id"
     t.index ["country_id"], name: "index_homes_on_country_id"
     t.index ["currency_id"], name: "index_homes_on_currency_id"
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
     t.index ["town"], name: "index_homes_on_town"
+    t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -341,6 +343,7 @@ ActiveRecord::Schema.define(version: 20180613032239) do
   add_foreign_key "homes", "currencies"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
+  add_foreign_key "homes", "users"
   add_foreign_key "listing_photos", "homes"
   add_foreign_key "listing_photos", "users"
   add_foreign_key "messages", "users"

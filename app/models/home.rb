@@ -10,8 +10,7 @@ class Home < ApplicationRecord
   has_one                   :home_rule
   has_one                   :additional_home_rule
   has_one                   :home_notification
-  has_many                  :listing_photo_homes
-  has_many                  :listing_photos, through: :listing_photo_homes
+  has_many                  :listing_photos
   belongs_to                :home_category_sub
   belongs_to                :room_type
   belongs_to                :user
