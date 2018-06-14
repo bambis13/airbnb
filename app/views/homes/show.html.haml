@@ -306,7 +306,13 @@
               %p
                 = "#{@host.name}さん宅の所在地は#{@host.town}, #{@host.prefecture}, #{@host.country.name}です。#{@host.name}さんの所在地は#{@host.country.name}です。"
             .area-info__map
-              = image_tag ("map.png")
+              -# = image_tag ("map.png")
+              %div{:style => "width: 800px;"}
+                #map{:style => "width: 800px; height: 400px;"}
+                :javascript
+                  markers = handler.addMarkers(#{raw @hash.to_json});
+
+
             %p 地図は正確な所在地を示しています。
           .similar-category
             %h3.title 類似のリスティング

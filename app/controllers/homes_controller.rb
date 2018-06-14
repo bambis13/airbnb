@@ -22,13 +22,16 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
-    @beds = BedType.where(home_id: params[:id])
-    @rules = @home.home_rule
+    @beds      = BedType.where(home_id: params[:id])
+    @rules     = @home.home_rule
     @amenities = @home.amenity
-    @host = @home.user
-    @photos = @home.listing_photos
-    @cancel = @home.cancel_policy
-
+    @host      = @home.user
+    @photos    = @home.listing_photos
+    @cancel    = @home.cancel_policy
+    @hash      = Gmaps4rails.build_markers(@home) do |home, marker|
+      marker.lat home.location_x
+      marker.lng home.location_y
+    end
   end
 
   # GET /homes/new
