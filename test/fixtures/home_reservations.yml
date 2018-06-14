@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  checkin_date: 2018-06-06 12:31:20
+  checkout_date: 2018-06-06 12:31:20
+  number_of_guests: 1
+
+two:
+  checkin_date: 2018-06-06 12:31:20
+  checkout_date: 2018-06-06 12:31:20
+  number_of_guests: 1

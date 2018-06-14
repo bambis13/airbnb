@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  %strong Review:
+  = @home_review.review
+%p
+  %strong Accuracy rate:
+  = @home_review.accuracy_rate
+%p
+  %strong Location rate:
+  = @home_review.location_rate
+%p
+  %strong Communication rate:
+  = @home_review.communication_rate
+%p
+  %strong Cleanliness rate:
+  = @home_review.cleanliness_rate
+%p
+  %strong Checkin rate:
+  = @home_review.checkin_rate
+%p
+  %strong Cost performance rate:
+  = @home_review.cost_performance_rate
+= link_to 'Edit', edit_home_review_path(@home_review)
+|
+= link_to 'Back', home_reviews_path
