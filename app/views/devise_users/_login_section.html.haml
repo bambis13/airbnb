@@ -20,7 +20,7 @@
         .border_line__content または
         %hr
       .split_button
-        .left_login_btn
+        .left_login_btn#mail_login
           %a.redirect_btn{href: new_user_session_path}
             %h3 メールアドレス
         .right_login_btn
@@ -28,4 +28,4 @@
             %h3 Google
       .bottom_content
         .bottom_content__text_elia アカウントはお持ちでないですか？
-        %a.redirect_btn{href: root_path} 登録
+        %a.redirect_btn#signup_action{href: root_path} 登録
