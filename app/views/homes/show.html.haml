@@ -258,7 +258,7 @@
             .host-introduction__heading.clearfix
               .host-info.clearfix
                 .host-introduction__heading__left-item
-                  %h3.title
+                  %h3.title.align-left
                     = "ホストは#{@host.name}さん"
                   %p
                     = "#{@host.town}, #{@host.prefecture}, #{@host.country.name}、#{@host.created_at}からメンバー"
@@ -302,11 +302,10 @@
                 もっと詳しく
           .area-info#address
             .area-info__heading.readmore-item-map
-              %h3.title エリア
+              %h3.title.align-left エリア
               %p
                 = "#{@host.name}さん宅の所在地は#{@host.town}, #{@host.prefecture}, #{@host.country.name}です。#{@host.name}さんの所在地は#{@host.country.name}です。"
             .area-info__map.clearfix
-              -# = image_tag ("map.png")
               :javascript
                 function initMap() {
 
@@ -333,8 +332,7 @@
                         infowindow.open(map, marker);
                     });
                 }
-              %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDZ8IUMjQ1_F-an8wbcBirQ2WOpdaKP7-w&callback=initMap"}
-                :cdata
+              %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key=&callback=initMap"}
               #map.left
 
 

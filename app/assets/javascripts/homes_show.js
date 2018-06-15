@@ -1,5 +1,5 @@
+// 続きを読むボタン
 $(function () {
-  // 続きを読むボタン
   $('.readmore-item-space').readmore({
     speed: 700,
     collapsedHeight: 200,
@@ -22,22 +22,22 @@ $(function () {
   });
 });
 
+//ヘッダーチェンジ
 $(function() {
     var topBtn = $('#header_show');
     var originalHeader = $('#hide-header');
     topBtn.hide();
-    //スクロールが100に達したらボタン表示
+    //スクロールが500に達したらボタン表示
     $('.contents').scroll(function () {
         if ($('.contents').scrollTop() > 500) {
-        //ボタンの表示方法
             originalHeader.hide();
             topBtn.show();
         } else {
-        //ボタンの非表示方法
             topBtn.hide();
             originalHeader.show();
         }
     });
+    //任意の位置までジャンプ
     $("#header_show a").click(function(){
       var id = $(this).attr("href");
       var position = $(id).get( 0 ).offsetTop - 70
