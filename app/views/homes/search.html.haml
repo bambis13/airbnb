@@ -1,0 +1,10 @@
+._1ibtygfe.clearfix
+  .vertical-center
+    = image_tag("trophy.gif", class: 'icon-mini')
+    %p.bold.inline パリのお家はレビュー総数2,000,000+件、評価は平均4.6つ星です。
+  .listings
+    %h1.bold 300件以上のお家
+    = render partial: 'listing-s', collection: @homes_paris, as: :home
+  = render 'listing-xl'
+  .listings
+    = render partial: 'listing-s', collection: @homes_paris, as: :home
