@@ -1,5 +1,7 @@
 {
   "name": "airbnb",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "readmore-js": "^2.1.0"
+  }
 }
