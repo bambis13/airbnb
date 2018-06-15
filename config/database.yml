@@ -52,7 +52,7 @@ production:
   database: airbnb_production
   username: airbnb
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
 
   default_google:
   google_api_key : <%= ENV["GOOGLE_API_KEY"] %>
