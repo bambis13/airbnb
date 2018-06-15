@@ -1,3 +1,21 @@
-// Place all the styles related to the home_reservations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.side-box{
+  color: $fontBlack;
+  float: right;
+  .reservation{
+    width: 326px;
+    border: solid 1px gray;
+    padding: 0 24px;
+    .top-box{
+      border-bottom: solid 1px gray;
+    }
+    .select-box{
+
+    }
+    .request-btn{
+
+    }
+  }
+  .report{
+    text-align: center;
+  }
+}

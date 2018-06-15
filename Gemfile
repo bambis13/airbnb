@@ -70,3 +70,4 @@ gem 'mechanize'
 gem 'devise'
 gem 'turbolinks'
 gem "font-awesome-rails"
+gem 'jquery-ui-rails'

@@ -35,6 +35,7 @@ class HomesController < ApplicationController
   # GET /homes/new
   def new
     @home = Home.new
+    @home_reservation = HomeReservation.new
   end
 
   # GET /homes/1/edit

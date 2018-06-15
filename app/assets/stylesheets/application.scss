@@ -1,6 +1,8 @@
 /*
+ *= require jquery-ui/datepicker
  *= require font-awesome
 */
+
 @import './reset';
 @import './variable';
 @import './header';
@@ -8,6 +10,7 @@
 @import './footer';
 @import './slick-theme';
 @import './slick';
+@import './home_reservations';
 
 /*-- Settings ---------------------------------- */
 .clearfix:after {
@@ -40,6 +43,7 @@
   min-width: 500px;
   overflow-y:scroll;
   padding: 40px 80px;
+  margin-top: 80px;
 }
 
 .centering-wrap{

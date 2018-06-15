@@ -69,7 +69,7 @@ $slick-opacity-not-active: 0.25 !default;
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
-    background: rgba(255,255,255,$slick-opacity-default); 
+    background: black; 
     border-radius: 100%;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border: solid 1px #DFDFDF;
@@ -134,28 +134,48 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-// ._1ibtygfe{
-//     // .slick_container {
-//     //     width:360px; /* 任意の値 */
-//     //     margin:0 auto; /* 任意の値 */
-//     //     position:relative;
-//     // }
-
-//      .slick-prev, .slick-next {
-//         width:60px; /* 画像幅 */
-//         height:34px /* 画像高さ */
-//     }
-//     .slick-prev:before, .slick-next:before {
-//         content:"";
-//     }
-//     button.slick-prev, button.slick-next {
-//         z-index:2;
-//     }
-//     .slick-prev{left:20px; /* 任意の値 */}
-//     .slick-next{right:20px; /* 任意の値 */}
-
-//     .slick-arrow{z-index:10;/* 値は適当に */}
-// }
+._1ob6ca33{
+    .slick-prev,.slick-next {
+        position: absolute;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 0px;
+        font-size: 0px;
+        cursor: pointer;
+        background: $fontBlack; 
+        border-radius: 100%;
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        border: solid 1px #DFDFDF;
+        vertical-align: center;
+        top: 50%;
+        // margin-right: 20px;
+        visibility: visible !important;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        padding: 0;
+        border: none;
+        outline: none;
+        &:hover, &:focus {
+            outline: none;
+            background: transparent;
+            color: transparent;
+            &:before {
+            }
+        }
+        &.slick-disabled:before {
+        }
+        &:before {
+            font-family: $slick-font-family;
+            font-size: 20px;
+            line-height: 1;
+            color: $slick-arrow-color;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+}
+}
 
 /* Dots */
 

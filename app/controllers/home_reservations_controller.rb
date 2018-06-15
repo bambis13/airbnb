@@ -14,7 +14,7 @@ class HomeReservationsController < ApplicationController
 
   # GET /home_reservations/new
   def new
-    @home_reservation = HomeReservation.new
+    # @home_reservation = HomeReservation.new
   end
 
   # GET /home_reservations/1/edit
@@ -25,8 +25,6 @@ class HomeReservationsController < ApplicationController
   # POST /home_reservations.json
   def create
     @home_reservation = HomeReservation.new(home_reservation_params)
-    @home_reservation
-
     respond_to do |format|
       if @home_reservation.save
         format.html { redirect_to @home_reservation, notice: 'Home reservation was successfully created.' }
