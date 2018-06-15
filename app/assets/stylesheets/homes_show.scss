@@ -79,7 +79,7 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: 50% 50% !important;
-    height: 368px !important;
+    height: 552px !important;
     width: 100%;
 
     .like-btn {
@@ -123,7 +123,7 @@
 
       .modal-photo {
         width: 100%;
-        height: auto;
+        height: 80%;
       }
     }
 
@@ -131,9 +131,10 @@
       height: 100%;
       width: 24px;
       display: block;
-      font-size: 80px;
+      font-size: 80px !important;
       color: #fff;
       font-weight: 1000;
+      visibility: visible;
     }
 
     .slick-prev:before {
@@ -168,8 +169,12 @@
     }
   }
   .thumnail-list {
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
+
+    img {
+      margin-right: 0px;
+    }
 
 
     .thumnail-item {
@@ -177,8 +182,8 @@
       float: left;
 
       .modal-thumbnail {
-        height: 75px;
-        width: 100px;
+        height: 80px;
+        width: 100%;
         cursor: pointer;
       }
     }
@@ -214,6 +219,7 @@
       font-weight: bold;
       width: 100%;
       margin: 6px 0 4px 0px;
+      color: $fontTxt;
     }
 
     li {
@@ -534,9 +540,13 @@
     font-size: 40px;
     color: rgb(118, 118, 118);
     font-weight: 800;
+    visibility: visible;
   }
   .slick-prev:before {
-    margin-left: -70px;
+    margin-left: -50px;
+  }
+   .slick-next:before {
+    margin-left: 50px;
   }
   .slick-prev,
   .slick-next {

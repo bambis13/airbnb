@@ -11,7 +11,7 @@
         %li
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
-    = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
+    = image_tag(@photos[2].image, class: "header-img", id: "show-modal")
   .photo-modal-wrapper
     .close-modal
       .fa.fa-times
@@ -332,7 +332,7 @@
                         infowindow.open(map, marker);
                     });
                 }
-              %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key=&callback=initMap"}
+              %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDZ8IUMjQ1_F-an8wbcBirQ2WOpdaKP7-w&callback=initMap"}
               #map.left
 
 
