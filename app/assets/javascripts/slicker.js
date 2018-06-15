@@ -30,6 +30,11 @@ $(function() {
   $(".close-modal").on("click", function() {
     $('.photo-modal-wrapper').fadeOut();
     });
+  $('.tag-slick').slick({
+      accessibility: true,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+  });
 });
 
 //homes_showのトップ画面モーダル制御

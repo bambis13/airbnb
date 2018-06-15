@@ -34,15 +34,6 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
-  # def accept_kids?
-  #   if accept_kids == true then
-  #     puts "乳幼児に安全とは言えます (2歳未満)"
-  #   else
-  #     puts "乳幼児に安全とは言えない/不向き (2歳未満)"
-  #   end
-  # end
-
-
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
