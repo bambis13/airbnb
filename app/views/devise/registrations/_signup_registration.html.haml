@@ -20,18 +20,18 @@
         = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
       .field_input_elia
         = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form click_password'
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text パスワードの強度
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 指名やパスワードは使用できません
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 最低8文字
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 数字や記号を含めます
+      .field_password_certifcation
+        .field_password_certifcation__mark ×
+        .field_password_certifcation__text パスワードの強度
+      .field_password_certifcation
+        .field_password_certifcation__mark ×
+        .field_password_certifcation__text 指名やパスワードは使用できません
+      .field_password_certifcation
+        .field_password_certifcation__mark ×
+        .field_password_certifcation__text 最低8文字
+      .field_password_certifcation
+        .field_password_certifcation__mark ×
+        .field_password_certifcation__text 数字や記号を含めます
       .field_label
         = f.label :birth_day, "生年月日"
         .field_label__text ご登録は18歳以上の方に限ります。誕生日は非公開です
