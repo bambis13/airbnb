@@ -6,10 +6,13 @@
 @import './header';
 @import './homes';
 @import './footer';
+@import './homes_show';
+@import "font-awesome";
 @import './slick-theme';
 @import './slick';
 
 /*-- Settings ---------------------------------- */
+
 .clearfix:after {
   content: "";
   display: block;
@@ -34,12 +37,16 @@
   margin: 0 10px !important;
 }
 
+.right {
+  float: right;
+}
+
 .contents{
   height: 100vh;
   width: calc(100vw - 160px);
   min-width: 500px;
   overflow-y:scroll;
-  padding: 40px 80px;
+  padding: 80px 80px 40px; //padding-topを40->80に変更
 }
 
 .centering-wrap{
@@ -48,6 +55,71 @@
 
 .align-left{
   text-align: left !important;
+}
+
+.bold-subtitle {
+  color: $fontBold;
+  font-weight: 600;
+}
+
+.fontsize-12px {
+  font-size: 12px !important;
+}
+
+.inline {
+  display:inline
+}
+
+.font-text {
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: 100%;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 22px;
+  text-align: left;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  color: $fontTxt;
+}
+
+.subtitle, .name, span {
+  font-size: 16px;
+  font-weight: 600 !important;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+  text-size-adjust: 100%;
+  word-wrap:break-word ;
+  color: $fontBold;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 800;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 30px;
+  text-size-adjust: 100%;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.padding-top-2px {
+  padding-top: 1.3px;
+}
+
+.margin-top-15px {
+  margin-top: 15px;
 }
 
 a{
@@ -65,16 +137,21 @@ h3,
 h4,
 h5,
 h6,
+p,
 .h1,
 .h2,
 .h3,
 .h4,
 .h5,
+.h6,
+.p,
+{
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 .h6 {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
 }
-
+}
 h1,
 .h1 {
   font-size: 25px;
@@ -100,4 +177,19 @@ h6,
   font-size: 10px;
 }
 p {
+  margin-bottom: 10px;
 }
+
+
+
+
+h3 {
+  padding: 0 0 7px;
+  // text-align: left;
+}
+
+
+
+
+
+
