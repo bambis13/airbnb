@@ -3,6 +3,7 @@ class Home < ApplicationRecord
   belongs_to              :home_category_sub
   belongs_to              :room_type
   belongs_to              :user
+  belongs_to              :country
   has_one                 :amenity
   has_one                 :bed_type
   has_one                 :available_spaces

@@ -24,7 +24,12 @@ class HomesController < ApplicationController
   end
 
   def search
-
+    @search = Home.search(params[:q])
+    @result = @search.result
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /homes/1
