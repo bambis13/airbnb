@@ -72,4 +72,5 @@ gem 'mini_magick'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
 gem 'mechanize'
-
+gem 'carrierwave'
+gem 'fog-aws'
