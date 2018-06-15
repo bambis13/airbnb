@@ -1,4 +1,13 @@
 $(function(){
+
+  $('.listing-slick').hover(
+    function(){
+      $(this).children('.slick-arrow').css("visibility", "visible");
+    },
+    function(){
+      $(this).children('.slick-arrow').css("visibility", "hidden");
+    }
+  );
   $('.listing-slick').slick({
       accessibility: true,
       infinite: true,
