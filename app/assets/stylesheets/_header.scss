@@ -26,7 +26,7 @@
       position: relative;
       form{
         height: 40px;
-        width: 300px;
+        width: 400px;
         line-height: 80px;
         padding: 5px 5px;
         display: inline;
@@ -40,13 +40,13 @@
         }
         .search__query{
           height: 40px;
-          width: 300px;
+          width: 400px;
           line-height: 80px;
           padding-left: 40px;
         }
       }
       .search{
-        width: 300px;
+        width: 400px;
         border: 1px #DFDFDF solid;
         border-radius: 3px;
         background-color: $white;
@@ -76,6 +76,17 @@
               border: solid 1px #DFDFDF;
               margin-right: 20px;
             }
+          }
+        }
+        &__lists{
+          padding: 0 40px 20px 0;
+          &__result{
+            height: 50px;
+            line-height: 50px;
+            padding: 5px;
+          }
+          &__result:hover{
+            background-color: #aaefee;
           }
         }
       }

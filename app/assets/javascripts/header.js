@@ -1,5 +1,5 @@
 $(function(){
-  CategoryHTML = `<div class="search">
+  var CategoryHTML = `<div class="search">
                     <ul class="category clearfix">
                       <span class="category__title bold">Airbnbで探す</span>
                       <li class="category__tag">
@@ -15,12 +15,70 @@ $(function(){
                     <ul class="recentry_search">
                       <span class="category__title bold">最近の検索</span>
                     </ul>
+                    <ul class='search__lists'>
+                      <li class='search__lists__result'>
+                        <span>アムステルダム、オランダの宿泊先</span>
+                      </li>
+                      <li class='search__lists__result'>
+                        <span>アムステルダム、オランダの体験</span>
+                      </li>
+                      <li class='search__lists__result'>
+                        <span>アムステルダム、オランダ</span>
+                      </li>
+                    </ul>
                   </div>`
+  function buildFrameHTML(lists){
+    html =  `<div class='search'>
+              <ul class='search__lists'>
+                ${lists}
+              </ul>
+            </div>`
+    return html
+  }
+  function buildHTML(home){
+    html = `<li class='search__lists__result'>
+              <span>${home.prefecture},${home.country}</span>
+            </li>
+            `
+    return html
+  }
 
   var searchField = $('#search-field')
-  searchField.on('click', function(){
-    $('.navibar__search').append(CategoryHTML)
-    var input = searchField.val()
+  var searchResult = $('.navibar__search__result')
+  searchField.on('click', function(e){
+    searchResult.append(CategoryHTML)
+  });
+  searchField.on('keyup', function(){
+    var input = searchField.val();
+    if(input.length === 0 ){
+      // searchResult.append(CategoryHTML)
+    }
+    else {
+      $.ajax({
+        url: '/search',
+        type: "GET",
+        data: {q: input},
+        dataType: 'json'
+      })
+      .done(function(homes){
+        var insertHTML = '';
+        searchResult.empty();
+        console.log(homes)
+        if (homes.length !== 0 ){
+          homes.forEach(function(home){
+            insertHTML += buildHTML(home)
+          })
+          resultLists = buildFrameHTML(insertHTML)
+          searchResult.append(resultLists)
+        }
+        else {
+          searchResult.empty();
+        }
+      })
+      .fail(function(){
+        alert('インクリに失敗しました')
+      })
+    }
   });
   $(document).on('click', function(e){
      if (!$(event.target).closest('#search-field').length){
