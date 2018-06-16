@@ -37,7 +37,7 @@ $(function(){
   }
   function buildHTML(home){
     html = `<li class='search__lists__result'>
-              <a href ='${home.prefecture}'>${home.prefecture}, ${home.country}</a>
+              <a class = "result-item" href ='${home.prefecture}'>${home.prefecture}, ${home.country}</a>
             </li>
             `
     return html
@@ -81,38 +81,6 @@ $(function(){
       })
     }
   });
-
-  //検索結果をクリックしたらコントローラに情報を送る　＊別の方法試すため一旦コメントアウト
-  // $('.result-item').on('click', function(){
-  //   var input = $('.result-item').val();
-  //   if(input.length === 0 ){
-  //   }
-  //   else {
-  //     $.ajax({
-  //       url: '/index',
-  //       type: "GET",
-  //       data: {keyword: input},
-  //       dataType: 'json'
-  //     })
-  //     .done(function(homes){
-  //       var insertHTML = '';
-  //       searchResult.empty();
-  //       if (homes.length !== 0 ){
-  //         homes.forEach(function(home){
-  //           insertHTML += buildHTML(home)
-  //         })
-  //         resultLists = buildFrameHTML(insertHTML)
-  //         searchResult.append(resultLists)
-  //       }
-  //       else {
-  //         searchResult.empty();
-  //       }
-  //     })
-  //     .fail(function(){
-  //       alert('インクリに失敗しました')
-  //     })
-  //   }
-  // });
 
 
   // 他を押したら消す
