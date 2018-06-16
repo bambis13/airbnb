@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
-  before_action :get_homes, only: [:index, :homes, :search]
+  before_action :get_homes, only: [:index, :homes, :search, :area_specific]
   # GET /homes
   # GET /homes.json
   def index
@@ -9,6 +9,12 @@ class HomesController < ApplicationController
     @homes_barcelona = @homes_barcelona[0..4]
     @homes_paris = @homes_paris[0..4]
     @homes_super = @homes_super[0..4]
+  end
+
+  def area_specific
+    @homes = @homes.by_prefecture(params[:prefecture])
+    @homes_super = @homes.sphost_home
+    @area_name = params[:prefecture]
   end
 
   def family
@@ -24,8 +30,8 @@ class HomesController < ApplicationController
   end
 
   def search
-    @search = Home.search(params[:q])
-    @result = @search.result
+    # @homes = Home.where("prefecture LIKE(?)", "パリ")
+    @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
       format.json

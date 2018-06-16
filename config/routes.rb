@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'business', to: 'homes#business'
   get 'homes', to: 'homes#homes'
   get 'search', to: 'homes#search'
+  get '/:prefecture' => 'homes#area_specific'
   resources :home_reservations, only: [:new, :create, :edit, :update]
 end

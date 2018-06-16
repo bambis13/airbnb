@@ -1,7 +1,7 @@
 $(function(){
   var CategoryHTML = `<div class="search">
                     <ul class="category clearfix">
-                      <span class="category__title bold">Airbnbで探す</span>
+                      <span class="category__title CategoryHTML bold">Airbnbで探す</span>
                       <li class="category__tag">
                         <a href="/" class="category__tag__link bold">すべて</a>
                       </li>
@@ -17,7 +17,7 @@ $(function(){
                     </ul>
                     <ul class='search__lists'>
                       <li class='search__lists__result'>
-                        <span>アムステルダム、オランダの宿泊先</span>
+                        <span>後でやるの宿泊先</span>
                       </li>
                       <li class='search__lists__result'>
                         <span>アムステルダム、オランダの体験</span>
@@ -37,17 +37,20 @@ $(function(){
   }
   function buildHTML(home){
     html = `<li class='search__lists__result'>
-              <span>${home.prefecture},${home.country}</span>
+              <a href ='${home.prefecture}'>${home.prefecture}, ${home.country}</a>
             </li>
             `
     return html
   }
 
+  //サーチフィールド表示
   var searchField = $('#search-field')
   var searchResult = $('.navibar__search__result')
   searchField.on('click', function(e){
     searchResult.append(CategoryHTML)
   });
+
+  //検索のインクリメンタルサーチ
   searchField.on('keyup', function(){
     var input = searchField.val();
     if(input.length === 0 ){
@@ -56,7 +59,7 @@ $(function(){
       $.ajax({
         url: '/search',
         type: "GET",
-        data: {q: input},
+        data: {keyword: input},
         dataType: 'json'
       })
       .done(function(homes){
@@ -78,6 +81,41 @@ $(function(){
       })
     }
   });
+
+  //検索結果をクリックしたらコントローラに情報を送る　＊別の方法試すため一旦コメントアウト
+  // $('.result-item').on('click', function(){
+  //   var input = $('.result-item').val();
+  //   if(input.length === 0 ){
+  //   }
+  //   else {
+  //     $.ajax({
+  //       url: '/index',
+  //       type: "GET",
+  //       data: {keyword: input},
+  //       dataType: 'json'
+  //     })
+  //     .done(function(homes){
+  //       var insertHTML = '';
+  //       searchResult.empty();
+  //       if (homes.length !== 0 ){
+  //         homes.forEach(function(home){
+  //           insertHTML += buildHTML(home)
+  //         })
+  //         resultLists = buildFrameHTML(insertHTML)
+  //         searchResult.append(resultLists)
+  //       }
+  //       else {
+  //         searchResult.empty();
+  //       }
+  //     })
+  //     .fail(function(){
+  //       alert('インクリに失敗しました')
+  //     })
+  //   }
+  // });
+
+
+  // 他を押したら消す
   $(document).on('click', function(e){
      if (!$(event.target).closest('#search-field').length){
       $('.search').hide();
@@ -94,7 +132,7 @@ $(function(){
   $(document).on('click', function(e){
     if (!$(event.target).closest(navibarListContent).length || $('#help-non-login').click()){
       hideContent.addClass('hide');
-      return false
+      // return false
     };
   });
   $('.help__head__close').on('click', function(){
