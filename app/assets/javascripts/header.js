@@ -51,7 +51,6 @@ $(function(){
   searchField.on('keyup', function(){
     var input = searchField.val();
     if(input.length === 0 ){
-      // searchResult.append(CategoryHTML)
     }
     else {
       $.ajax({
@@ -63,7 +62,6 @@ $(function(){
       .done(function(homes){
         var insertHTML = '';
         searchResult.empty();
-        console.log(homes)
         if (homes.length !== 0 ){
           homes.forEach(function(home){
             insertHTML += buildHTML(home)

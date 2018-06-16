@@ -7,33 +7,33 @@
         %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
       .navibar__search__result
-    - if user_signed_in?
-      %ul.navibar__list
-        %li.navibar__list__content
-          = link_to 'お部屋を掲載', '#'
-        %li.navibar__list__content
-          ホストをはじめる
-          %ul.navigation.hide#host
-            %li.hide_content
-              = link_to '宿泊先をホストする'
-            %li.hide_content
-              = link_to '体験をホストする'
-        %li.navibar__list__content
-          お気に入り
-          %ul.navigation.hide#favorite
-            .content__head
-              %span お気に入り
-              = link_to 'お気に入りを表示'
-            %li.content__row
-              = link_to(class: 'content__row__link') do
-                .content__block
-                  .content__block__text
-                    .content__title
-                      %span リストが作成されていません
-                    .content__info
-                      お気に入りを作成する
-                  .content__block__img
-                    .fa.fa-heart-o.my-favorite
+    -# - if user_signed_in?
+    -#   %ul.navibar__list
+    -#     %li.navibar__list__content
+    -#       = link_to 'お部屋を掲載', '#'
+    -#     %li.navibar__list__content
+    -#       ホストをはじめる
+    -#       %ul.navigation.hide#host
+    -#         %li.hide_content
+    -#           = link_to '宿泊先をホストする'
+    -#         %li.hide_content
+    -#           = link_to '体験をホストする'
+    -#     %li.navibar__list__content
+    -#       お気に入り
+    -#       %ul.navigation.hide#favorite
+    -#         .content__head
+    -#           %span お気に入り
+    -#           = link_to 'お気に入りを表示'
+    -#         %li.content__row
+    -#           = link_to(class: 'content__row__link') do
+    -#             .content__block
+    -#               .content__block__text
+    -#                 .content__title
+    -#                   %span リストが作成されていません
+    -#                 .content__info
+    -#                   お気に入りを作成する
+    -#               .content__block__img
+    -#                 .fa.fa-heart-o.my-favorite
         %li.navibar__list__content
           旅行
           %ul.navigation.hide#trip
