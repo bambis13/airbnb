@@ -36,10 +36,7 @@ class HomesController < ApplicationController
     @host      = @home.user
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
+    @home_reservation = HomeReservation.new
   end
 
 
@@ -48,7 +45,6 @@ class HomesController < ApplicationController
   # GET /homes/new
   def new
     @home = Home.new
-    @home_reservation = HomeReservation.new
   end
 
   # GET /homes/1/edit
