@@ -80,3 +80,4 @@ gem 'faker'
 gem "gmaps4rails"
 gem "geocoder"
 gem "coffee-rails"
+
