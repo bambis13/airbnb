@@ -49,3 +49,195 @@
     }
   }
 }
+
+  #menuItemComponent-guest_picker {
+    position: absolute !important;
+    top: 170px !important;
+    left: 150px !important;
+    z-index: 1000 !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 14px 36px 2px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    white-space: normal !important;
+    display: inline-block !important;
+    max-height: 55vh !important;
+    visibility: visible !important;
+    background: rgb(255, 255, 255) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+    border-image: initial !important;
+    border-radius: 4px !important;
+    padding: 24px !important;
+
+    .select-capacity {
+      margin-left: -8px !important;
+      margin-right: -8px !important;
+      width: 380px;
+
+      &__item {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        min-height: 1px !important;
+        position: relative !important;
+        width: 100% !important;
+        margin-bottom: 16px;
+        min-width: 344px !important;
+
+        .human-attributes {
+          display: table-cell !important;
+          width: 50% !important;
+          vertical-align: middle !important;
+          word-wrap: break-word !important;
+          font-size: 16px !important;
+          line-height: 22px !important;
+          letter-spacing: normal !important;
+          font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+          color: rgb(72, 72, 72) !important;
+          font-weight: normal !important;
+          margin: 0px !important;
+          float: left !important;
+          padding-top: 5px;
+        }
+        .counting-box {
+          display: table-cell !important;
+          vertical-align: middle !important;
+          display: table !important;
+          width: 120px !important;
+          float: right !important;
+          padding-top: 5px;
+
+
+          .counting-down, .counting-up {
+            display: table-cell !important;
+            vertical-align: middle !important;
+            text-align: left !important;
+            float: left !important;
+            margin-right: 10px;
+            button {
+              display: inline-block !important;
+              cursor: pointer !important;
+              text-align: center !important;
+              line-height: 1 !important;
+              position: relative !important;
+              touch-action: manipulation !important;
+              width: 32px !important;
+              height: 32px !important;
+              box-shadow: none !important;
+              border-radius: 50% !important;
+              border-style: solid !important;
+              border-color: rgb(0, 132, 137) !important;
+              background: transparent !important;
+              border-width: 1px !important;
+              color: rgb(0, 132, 137) !important;
+            }
+          }
+          .number {
+            display: table-cell !important;
+            vertical-align: middle !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            font-size: 16px !important;
+            line-height: 22px !important;
+            letter-spacing: normal !important;
+            color: rgb(72, 72, 72) !important;
+            font-weight: normal !important;
+            margin: 0px !important;
+            float: left !important;
+            margin-right:15px;
+
+            p {
+              margin-right:10px;
+              height: 32px;
+              margin-bottom: 3px;
+              line-height: 32px;
+            }
+          }
+        }
+      }
+    }
+    .action-box {
+      -webkit-box-align: center !important;
+      text-align: justify !important;
+      line-height: 0 !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      .cancel-button {
+        -webkit-box-flex: 1 !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+        text-align: left !important;
+        flex-grow: 1 !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        letter-spacing: normal !important;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0px !important;
+          button {
+            font-size: 16px;
+            border: none;
+            cursor: pointer !important;
+            padding-left: 0px;
+
+          }
+
+      }
+      .apply-button {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        letter-spacing: normal !important;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0px !important;
+
+        button {
+          color: rgb(0, 132, 137) !important;
+          -webkit-appearance: none !important;
+          cursor: pointer !important;
+          user-select: auto !important;
+          text-align: left !important;
+          font: inherit inherit inherit inherit inherit inherit inherit inherit inherit !important;
+          text-decoration: none !important;
+          background: transparent !important;
+          border-width: 0px !important;
+          border-style: initial !important;
+          border-color: initial !important;
+          border-image: initial !important;
+          margin: 0px !important;
+          padding: 0px !important;
+          border:none;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

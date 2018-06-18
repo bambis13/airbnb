@@ -25,3 +25,45 @@
     旅行タイプ
   %button{type: 'button', class: 'area__header__btn'}
     フィルター
+
+// 人数選択ボックス
+.capacity_condition#menuItemComponent-guest_picker
+  .select-capacity.clearfix
+    .select-capacity__adults.select-capacity__item.clearfix
+      .human-attributes
+        %p 大人
+      .counting-box.clearfix.right
+        .counting-down
+          %button -
+        .number
+          %p 1+
+        .counting-up
+          %button +
+
+    .select-capacity__children.select-capacity__item.clearfix
+      .human-attributes
+        %p 子ども
+        %p 年齢2 - 12
+      .counting-box.clearfix.right
+        .counting-down
+          %button -
+        .number
+          %p 1+
+        .counting-up
+          %button +
+    .select-capacity__babies.select-capacity__item.clearfix
+      .human-attributes
+        %p 乳幼児
+        %p 2歳未満
+      .counting-box.clearfix.right
+        .counting-down
+          %button -
+        .number
+          %p 1+
+        .counting-up
+          %button +
+  .action-box
+    .cancel-button
+      %button.bold キャンセル
+    .apply-button
+      %button.bold 適用
