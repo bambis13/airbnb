@@ -1,19 +1,19 @@
 .container#reservation_new
-  = form_for [@prototype, @home_reservation] do |f|
+  = form_for [home_reservation, home] do |f|
     .col-md-8
       .reservation_new__heading.col-md-4
-        %h4
-          = '#{@prototype.accomodation_fee}/泊'
+        .accomodation_fee_per_night
+          = '#{@home.price.accomodation_fee}'
       .reservation_new__body
         .checkin_date
           = f.text_field :checkin_date, required: true, autofocus: true, placeholder: "チェックイン", class: "checkin_date_input"
           = f.text_field :checkout_date, required: true, autofocus: true, placeholder: "チェックアウト", class: "checkout_date_input"
           = f.text_field :number_of_guests, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
       .reservation_new__body--hidden
-          = f.text_field :accomodation_fee, required: true, class: "accomodation_fee_input"
-          = f.text_field :cleaning_fee, required: true, class: "cleaning_fee_date_input"
-          = f.text_field :service_fee, required: true, class: "service_fee_input"
-          = f.text_field :total_price, required: true, class: "total_price_input"
+        = f.text_field :accomodation_fee, home.price.accomodation_fee, required: true, class: "accomodation_fee_input"
+        = f.text_field :cleaning_fee, home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
+        = f.text_field :service_fee, home.price.service_fee, required: true, class: "service_fee_input"
+        = f.text_field :total_price, required: true, class: "total_price_input"
 
     .row.text-center.proto-btn
       = f.submit "予約をリクエスト", id: "button", class: "btn btn-lg btn-primary btn-block"

@@ -30,7 +30,20 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    @beds      = BedType.where(home_id: params[:id])
+    @rules     = @home.home_rule
+    @amenities = @home.amenity
+    @host      = @home.user
+    @photos    = @home.listing_photos
+    @cancel    = @home.cancel_policy
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
+
+
+
 
   # GET /homes/new
   def new

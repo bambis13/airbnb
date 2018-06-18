@@ -42,6 +42,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -61,13 +66,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
+gem 'mechanize'
+gem 'fog', '1.38.0'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'kaminari'
-gem 'mechanize'
-gem 'devise'
 gem 'turbolinks'
 gem "font-awesome-rails"
-gem 'jquery-ui-rails'
+gem 'devise'
+gem 'faker'
+gem "gmaps4rails"
+gem "geocoder"
+gem "coffee-rails"
