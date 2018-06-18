@@ -35,6 +35,8 @@ class HomesController < ApplicationController
   # GET /homes/new
   def new
     @home = Home.new
+    @home.additional_home_rules.build
+
   end
 
   # GET /homes/1/edit
@@ -44,6 +46,7 @@ class HomesController < ApplicationController
   # POST /homes
   # POST /homes.json
   def create
+    binding.pry
     @home = Home.new(home_params)
 
     respond_to do |format|

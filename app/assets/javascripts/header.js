@@ -38,7 +38,7 @@ $(function(){
   $(document).on('click', function(e){
     if (!$(event.target).closest(navibarListContent).length || $('#help-non-login').click()){
       hideContent.addClass('hide');
-      return false
+      // return false
     };
   });
   $('.help__head__close').on('click', function(){

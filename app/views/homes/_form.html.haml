@@ -1,4 +1,4 @@
-= form_with(model: home, local: true) do |form|
+= form_with(model: home, local: true) do |f|
   - if home.errors.any?
     #error_explanation
       %h2
@@ -8,4 +8,235 @@
         - home.errors.full_messages.each do |message|
           %li= message
   .actions
-    = form.submit
+    / = f.hidden_field :user_id, value: current_user.id
+
+    / = f.select :capacity, [["最大定員：1名”, "データベースに登録する値”], ["表示する文字”, "データベースに登録する値”]]
+    %h4 capacity
+    = f.number_field :capacity
+    %h4 num-of-bedroom
+    = f.number_field :number_of_bedroom
+    %h4 num-of-bathroom
+    = f.number_field :number_of_bathroom
+    %h4 bath-for-guest
+    //チェッッックボックス？
+    %h4 postal
+    = f.text_field :postalcode
+    %h4 prefecture
+    = f.text_field :prefecture
+    %h4 town
+    = f.text_field :town
+    %h4 street
+    = f.text_field :street
+    %h4 building
+    = f.text_field :building
+    %h4 locationX
+    = f.number_field :location_x
+    //should change text_field
+    %h4 locationY
+    = f.number_field :location_y
+    %h4 name
+    = f.text_field :name
+    %h4 country-id
+    // check-box
+    %h4 home-cate-sub-id
+    // drop-box
+    %h4 room-type-id
+    //drop-box
+    %h4 user-id
+    / =
+
+    %h3 additional_home_rules
+    = f.fields_for :additional_home_rules do |additional_home_rules|
+      %h5 content
+      = additional_home_rules.text_field :content
+
+    %h3 アメニティ
+    = f.fields_for :amenity, @home.amenity || Amenity.new do |amenity|
+      %h5 ness
+      = amenity.check_box :necessities
+      %h5 wifi
+      = amenity.check_box :wifi
+      %h5 shampoo
+      = amenity.check_box :shampoo
+      %h5 closet
+      = amenity.check_box :closet
+      %h5 tv
+      = amenity.check_box :tv_set
+      %h5 heating
+      = amenity.check_box :heating
+      %h5 air-cond
+      = amenity.check_box :air_conditioner
+      %h5 breakfast
+      = amenity.check_box :breakfast
+      %h5 desk
+      = amenity.check_box :desk
+      %h5 fireplace
+      = amenity.check_box :fireplace
+      %h5 iron
+      = amenity.check_box :iron
+      %h5 hair-dryer
+      = amenity.check_box :hair_dryer
+      %h5 allowed-pet
+      = amenity.check_box :allowed_pet
+      %h5 smoke-detector
+      = amenity.check_box :smoke_detector
+      %h5 carbon-monoxide-dete
+      = amenity.check_box :carbon_monoxide_detecter
+      %h5 aid-set
+      = amenity.check_box :aid_set
+      %h5 fire-extinguidher
+      = amenity.check_box :fire_extinguisher
+      %h5 disaster-card
+      = amenity.check_box :disaster_card
+      %h5 keyed-door
+      = amenity.check_box :keyed_door
+
+    %h3 ベッドタイプ
+    = f.fields_for :bed_type, @home.bed_type || BedType.new do |bed_type|
+      %h5 single
+      = bed_type.number_field :single_bed
+      %h5 double
+      = bed_type.number_field :double_bed
+      %h5 queen
+      = bed_type.number_field :queen_bed
+      %h5 sofa
+      = bed_type.number_field :sofa_bed
+
+    %h3 アベイラブルスペース
+    = f.fields_for :available_space do |available_space|
+      %h5 dedicated-living
+      = f.check_box :dedicated_living
+      %h5 pool
+      = f.check_box :pool
+      %h5 kitchen
+      = f.check_box :kitchen
+      %h5 washer-machine
+      = f.check_box :washer_machine
+      %h5 wash-dry-machine
+      = f.check_box :washer_dryer_machine
+      %h5 parking
+      = f.check_box :parking
+      %h5 elevator
+      = f.check_box :elevator
+      %h5 gacuzzi
+      = f.check_box :gacuzzi
+      %h5 gym
+      = f.check_box :gym
+
+    %h3 overview
+    = f.fields_for :overview, @home.overview || Overview.new do |overview|
+      %h5 overview
+      = f.text_field :overview
+      %h5 about-listing
+      = f.text_field :about_listing
+      %h5 areas-avalable
+      = f.text_field :areas_available
+      %h5 communication-frequ
+      = f.text_field :communication_frequency
+      %h5 other-notice
+      = f.text_field :other_notices
+      %h5 area-info
+      = f.text_field :area_information
+      %h5 transportation
+      = f.text_field :transportation
+
+    %h3 available_setting
+    = f.fields_for :availability_setting, @home.availability_setting || AvailabilitySetting.new do |availability_setting|
+      %h5 reserv-deadline
+      = availability_setting.text_field :reservation_deadline
+      %h5 chin-time-deadline-from
+      = availability_setting.time_select :checkin_time_deadline_from
+      %h5 chin-time dead-to
+      = availability_setting.time_select :checkin_time_deadline_to
+      %h5 acceptable-month-ahead
+      = availability_setting.text_field :acceptable_month_ahead
+      %h5 max-accom-range
+      = availability_setting.text_field :muximum_accomodation_range
+      %h5 min-accom-range
+      = availability_setting.text_field :minimum_accomodation_range
+
+    %h3 price
+    = f.fields_for :price, @home.price || Price.new do |p|
+      %h5 pricing-method
+      / = p.text_field :  コレクションチェックぼっkす？
+      %h5 defo-price
+      = p.text_field :default_price
+      %h5 max-price
+      = p.text_field :muximum_price
+      %h5 min-price
+      = p.text_field :minimum_price
+      %h5 first-arrival-discount
+      = p.check_box :first_arrival_discount
+      %h5 weekly-discount
+      = p.text_field :weekly_discount_rate
+      %h5 monthly-discount
+      = p.text_field :monthly_discount_rate
+      %h5 cleaning-fee
+      = p.text_field :cleaning_fee
+      %h5 deposit
+      = p.text_field :deposit
+      %h5 add-fee-per-person
+      = p.text_field :additional_fee_per_person
+
+    %h3 home_rule
+    = f.fields_for :home_rule, @home.home_rule || HomeRule.new do |home_rule|
+      %h5 accept-kid
+      = home_rule.check_box :accept_kids
+      %h5 kid-reason
+      = home_rule.text_field :kids_reason
+      %h5 accept-baby
+      = home_rule.check_box :accept_babies
+      %h5 baby-reason
+      = home_rule.text_field :babies_reason
+      %h5 accept-pet
+      = home_rule.check_box :accept_pet
+      %h5 accept-smk
+      = home_rule.check_box :accept_smoking
+      %h5 accept-party
+      = home_rule.check_box :accept_event_party
+
+    %h3 home _notification
+    = f.fields_for :home_notification, @home.home_notification || HomeNotification.new do |home_notification|
+      %h5 only-stairs
+      = home_notification.check_box :only_stairs
+      %h5 stair-detail
+      = home_notification.text_field :stairs_detail
+      %h5 noisy
+      = home_notification.check_box :noisy
+      %h5 noisy-detail
+      = home_notification.text_field :noisy_detail
+      %h5 pet-stayed
+      = home_notification.check_box :pet_stayed
+      %h5 pet-detail
+      = home_notification.text_field :pet_detail
+      %h5 no-parking
+      = home_notification.check_box :no_parking
+      %h5 parking-guide
+      = home_notification.text_field :parking_guide
+      %h5 share-space
+      = home_notification.check_box :shared_space
+      %h5 share-space-detail
+      = home_notification.text_field :shared_space_detail
+      %h5 limimted-amenity
+      = home_notification.check_box :limited_amenity
+      %h5 limited-amenity-detail
+      = home_notification.text_field :limited_amenity_detail
+      %h5 surveillance-cam
+      = home_notification.check_box :surveillance_camera
+      %h5 cam-detail
+      = home_notification.text_field :camera_detail
+      %h5 firearm
+      = home_notification.check_box :firearm
+      %h5 firearm-detail
+      = home_notification.text_field :firearm_detail
+      %h5 dangerous-animal
+      = home_notification.check_box :dangerous_animal
+      %h5 animal-detail
+      = home_notification.text_field :animal_detail
+
+    %h3 listing_photos
+    = f.fields_for :listing_photos, @home.listing_photos || ListingPhotos.new do |listing_photos|
+      %h5 img
+      = listing_photos.file_field :image
+      = listing_photos.file_field :image
+    = f.submit

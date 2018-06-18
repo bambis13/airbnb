@@ -1,3 +1,4 @@
+@import './home_new_form';
 /*--------- variable ------------------------*/
 .icon-mini{
   height: 40px;
@@ -251,7 +252,7 @@ h3{
       width: 50px;
       object-fit: contain;
       float: left;
-      padding: 0 0 10px 5px; 
+      padding: 0 0 10px 5px;
     }
     &__text{
       clear: both;

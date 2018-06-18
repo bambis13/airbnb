@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :home_reviews
   # resources :devise_users
-  resources :home
+  resources :homes
   get 'family', to: 'homes#family'
   get 'business', to: 'homes#business'
   get 'homes', to: 'homes#homes'
