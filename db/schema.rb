@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612074859) do
+ActiveRecord::Schema.define(version: 20180615065806) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -133,8 +133,6 @@ ActiveRecord::Schema.define(version: 20180612074859) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "home_id", null: false
-    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -319,6 +317,7 @@ ActiveRecord::Schema.define(version: 20180612074859) do
     t.datetime "updated_at", null: false
     t.integer "status", null: false
     t.integer "superhost", default: 0
+    t.string "avatar"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"

@@ -1,152 +1,118 @@
-.main-ky{:style => "width: 100%; height: 40px;"}
+.add-header-box
+.user-show-marginleft
 
-.center-ky
-  .col-md-4
-    #site-content-ky
+  .user-show-left-contents-1
+    #user-show-left-contents-2
+      #user-media-container
+        %img#user-show-img{alt: "", src: "https://a0.muscache.com/im/users/4655535/profile_pic/1361460218/original.jpg?aki_policy=profile_x_medium"}/
+        .user-show-left-box-1
+    .user-show-left-contents-3
+      .panel-header 認証済み項目
+      %ul.list-unstyled.space-3
+        %li.row.row-table.space-2
+          .col-12.col-middle
+            政府発行の身分証明書
+            %i.fa.fa-check-circle-o.check-icon
+        %li.row.row-table.space-2
+          .col-12.col-middle
+            メールアドレス
+            %i.fa.fa-check-circle-o.check-icon
+        %li.row.row-table.space-2
+          .col-12.col-middle
+            電話番号
+            %i.fa.fa-check-circle-o.check-icon
+        %a{href: "/users"}
+          .col-12.col-middle.color-008489
+            本人確認の詳しい流れ»
 
-      #user-media-container{:style => "width: 225px"}
-        %img#slideshow-preload-1{:alt => "", :src => "https://a0.muscache.com/im/users/4655535/profile_pic/1361460218/original.jpg?aki_policy=profile_x_medium"}/
-        .box{:style => "width: 225px; height: 60px;"}
+    .user-show-left-contents-3
+      .panel-header 基本データ
+      .panel-body
+      %dl.space-2.language-box
+        %dt.col-middle.dtbold 言語
+        %dd.col-middle.dtpadding English, Français
 
-      .space-4
-        .panel-header 認証済み項目
-        %ul.list-unstyled.space-3
-          %li.row.row-table.space-2
-            .col-12.col-middle
-              政府発行の身分証明書
-              %i.fa.fa-check-circle-o.icon-ky
-          %li.row.row-table.space-2
-            .col-12.col-middle
-              メールアドレス
-              %i.fa.fa-check-circle-o.icon-ky
-          %li.row.row-table.space-2
-            .col-12.col-middle
-              電話番号
-              %i.fa.fa-check-circle-o.icon-ky
-          %a{:href => "/help/article/1237"}
-            .col-12.col-middle.flow23
-              本人確認の詳しい流れ»
+    .listing-detail
+      リスティング
+      %small.small-number (6)
 
-      .space-4
-        .panel-header 基本データ
-        .panel-body
-        %dl.space-2.data-ky
-          %dt.col-middle.dtbold-ky 言語
-          %dd.col-middle.dtpadding-ky English, Français
+    %ul.listings-list
+      %li.listings-item
+        %a.listings-item-image{href: "/users"}
+          .text-relative
+            %img.img-responsive-height{alt: "appartamento con giardino e piscina", height: "144", src: "https://a0.muscache.com/im/pictures/17758895/9908f050_original.jpg?aki_policy=small", title: "appartamento con giardino e piscina", width: "225"}
+              .media-caption
+                %div.innermessage
+                  appartamento con giardino e piscina
+                .text-normal
+                  San Salvatore Monferrato
+      %li.listings-item
+        %a.listings-item-image.media-photo.media-photo-block.space-1{href: "/users"}
+          .media-cover.text-relative
+            %img.img-responsive-height{alt: "appartamento con terrazza e piscina", height: "144", src: "https://a0.muscache.com/im/pictures/17757404/641268c9_original.jpg?aki_policy=small", title: "appartamento con terrazza e piscina", width: "225"}
+              .media-caption
+                %div.innermessage
+                  appartamento con terrazza e piscina
+                .text-normal
+                  San Salvatore Monferrato
+      %li.listings-item
+        %a.listings-item-image.media-photo.media-photo-block.space-1{href: "/users"}
+          .media-cover.text-relative
+            %img.img-responsive-height{alt: "Aroma(n)tica TreehouseinMonferrato", height: "144", src: "https://a0.muscache.com/im/pictures/17979331/3f134177_original.jpg?aki_policy=small", title: "Aroma(n)tica TreehouseinMonferrato", width: "225"}
+              .media-caption
+                %div.innermessage
+                  Aroma(n)tica TreehouseinMonferrato
+                .text-normal
+                  San Salvatore Monferrato
+      %div
+      %a.color-008489{href: "/users"} すべてのリスティングを見る »
 
-      .listings
-      .listing-font
-        リスティング
-        %small.small-number-ky (6)
-
-      %ul.listings-list
-        %li.listings-item
-          %a.listings-item-image{:href => "https://www.airbnb.jp/rooms/1181005"}
-            .media-cover.text-center
-              %img.img-responsive-height{:alt => "appartamento con giardino e piscina", :height => "144", :src => "https://a0.muscache.com/im/pictures/17758895/9908f050_original.jpg?aki_policy=small", :title => "appartamento con giardino e piscina", :width => "216"}
-                .media-caption
-                  %div.innermessage
-                    appartamento con giardino e piscina
-                  .text-normal
-                    San Salvatore Monferrato
-        %li.listings-item
-          %a.listings-item-image.media-photo.media-photo-block.space-1{:href => "https://www.airbnb.jp/rooms/1180883"}
-            .media-cover.text-center
-              %img.img-responsive-height{:alt => "appartamento con terrazza e piscina", :height => "144", :src => "https://a0.muscache.com/im/pictures/17757404/641268c9_original.jpg?aki_policy=small", :title => "appartamento con terrazza e piscina", :width => "216"}
-                .media-caption
-                  %div.innermessage
-                    appartamento con terrazza e piscina
-                  .text-normal
-                    San Salvatore Monferrato
-        %li.listings-item
-          %a.listings-item-image.media-photo.media-photo-block.space-1{:href => "https://www.airbnb.jp/rooms/880308"}
-            .media-cover.text-center
-              %img.img-responsive-height{:alt => "Aroma(n)tica TreehouseinMonferrato", :height => "144", :src => "https://a0.muscache.com/im/pictures/17979331/3f134177_original.jpg?aki_policy=small", :title => "Aroma(n)tica TreehouseinMonferrato", :width => "216"}
-                .media-caption
-                  %div.innermessage
-                    Aroma(n)tica TreehouseinMonferrato
-                  .text-normal
-                    San Salvatore Monferrato
-        %div
-        %a.flow23{:href => "https://www.airbnb.jp/users/4655535/listings"} すべてのリスティングを見る »
-
-  .box33
-    .info-box
-      %h1.hello-ky こんにちは、Mauroです！
-      .place San Salvatore Monferrato, イタリア · 2013年1月からメンバー
+  .user-show-right-contents-1
+    .user-info-box
+      %h1.greeting-1 こんにちは、Mauroです！
+      .address-startday San Salvatore Monferrato, イタリア · 2013年1月からメンバー
       %i.fa.fa-flag-o このユーザーを報告
-      %p.text-ky Here we are, Pina and Mauro. Our adventure began thirty years ago with the house on the hill, the refuge of the family: two daughters, a grandmother with a passion for the vegetable garden and lots of animals! We offer a discreet hospitality, genuine lifestyle and enjoyment of uncontaminated nature. There you will meet us collecting fruits or eggs from our hens, while we dry herbs for infusions, or in the cellar to bottle the wine.
-
-      .text01-ky
-        ._36rlri{:style => "margin-top:0;margin-bottom:24px;margin-right:25px"}
-          %img._j86mc1{:alt => "", :height => "50", :src => "https://a0.muscache.com/airbnb/static/badges/super_host_50_new-e5e09829e1fc5ffefdb2d7387590c462.png", :width => "28"}
-          %span._mstzcu.kbox-ky スーパーホスト
-        ._36rlri{:style => "margin-top:0;margin-bottom:24px;margin-right:25px"}
-          %a._t8unl0{:href => "/users/show/4655535#reviews", :rel => "noopener noreferrer nofollow"}
+      %p.self-imformation-1 Here we are, Pina and Mauro. Our adventure began thirty years ago with the house on the hill, the refuge of the family: two daughters, a grandmother with a passion for the vegetable garden and lots of animals! We offer a discreet hospitality, genuine lifestyle and enjoyment of uncontaminated nature. There you will meet us collecting fruits or eggs from our hens, while we dry herbs for infusions, or in the cellar to bottle the wine.
+      .self-information-2
+        .self-information-3{style: "margin-top:0;margin-bottom:24px;margin-right:25px"}
+          %img.image-attribute{alt: "", height: "50", src: "https://a0.muscache.com/airbnb/static/badges/super_host_50_new-e5e09829e1fc5ffefdb2d7387590c462.png", width: "28"}
+          %span._mstzcu.host-box-1 スーパーホスト
+        .self-information-3{style: "margin-top:0;margin-bottom:24px;margin-right:25px"}
+          %a._t8unl0{href: "/users/show/4655535#reviews", rel: "noopener noreferrer nofollow"}
             ._1lhqvjz
             #undefined_count._186vx4j
-              %span._e296pg 234
+              %span._e296pg
+                = @users.count
               %span._mstzcu レビュー
-        ._36rlri{:style => "margin-top:0;margin-bottom:24px;margin-right:25px"}
-          %img#verified-id-icon_image._j86mc1{:alt => "", :height => "32", :src => "https://a0.muscache.com/airbnb/static/badges/verified_badge-6ee370f5ca86a52ed6198fac858ac1f4.png", :width => "32", :style => "margin-top:10px"}
-            %span._mstzcu.sbox-ky 認証済み
-    .review02-ky
-    .fff
+        .self-information-3
+          %img#verified-id-icon_image.image-attribute{alt: "", height: "32", src: "https://a0.muscache.com/airbnb/static/badges/verified_badge-6ee370f5ca86a52ed6198fac858ac1f4.png", width: "32", style: "margin-top:10px"}
+            %span._mstzcu.host-box-2 認証済み
+    .review-font-size
       レビュー
-      %span.small (234)
+      %span.small-number
+        = "(#{@users.count})"
     .reviews_section.as_host ゲストからのレビュー
-    %h4.space-45
-      .col-sm-12
-        %img.lazy.loaded{:alt => "Sara", "data-original" => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :height => "68", :src => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :title => "Sara", :width => "68"}
-        .profile-name.text-wrap Sara
-      ._453-ky
-        .review-from-user
-          Location da sogno, ideale per staccare la spina! Mauro e la sua splendida famiglia gentilissimi!
-          Molto pulito, giustamente appartato. Ci siamo sentiti coccolati e goduti l'alloggio!
-        .boxxs
-          %span
-            From
-            %a.link-reset{:href => "users"} Lodi, 2018年5月
-            %i.fa.fa-flag-o.text-space-ky
-          %span.listing-name.text-center-sm
-            %i.fa.fa-home
-            %a.flow23{:href => "https://www.airbnb.jp/rooms/880308"} Aroma(n)tica TreehouseinMonferrato
-          .col-10.col-offset-2
-            %hr
-    %h4.space-45
-      .col-sm-12
-        %img.lazy.loaded{:alt => "Sara", "data-original" => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :height => "68", :src => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :title => "Sara", :width => "68"}
-        .profile-name.text-wrap Sara
-      ._453-ky
-        .review-from-user
-          Location da sogno, ideale per staccare la spina! Mauro e la sua splendida famiglia gentilissimi!
-          Molto pulito, giustamente appartato. Ci siamo sentiti coccolati e goduti l'alloggio!
-        .message-space
-          %span
-            From
-            %a.link-reset{:href => "users"} Lodi, 2018年5月
-            %i.fa.fa-flag-o.text-space-ky
-          %span.listing-name.text-center-sm
-            %i.fa.fa-home
-            %a.flow23{:href => "https://www.airbnb.jp/rooms/880308"} Aroma(n)tica TreehouseinMonferrato
-          .col-10.col-offset-2
-            %hr
-    %h4.space-45
-      .col-sm-12
-        %img.lazy.loaded{:alt => "Sara", "data-original" => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :height => "68", :src => "https://a0.muscache.com/im/pictures/user/e47184f7-8888-45fe-a2c4-4e61405fffe7.jpg?aki_policy=profile_medium", :title => "Sara", :width => "68"}
-        .profile-name.text-wrap Sara
-      ._453-ky
-        .review-from-user
-          Location da sogno, ideale per staccare la spina! Mauro e la sua splendida famiglia gentilissimi!
-          Molto pulito, giustamente appartato. Ci siamo sentiti coccolati e goduti l'alloggio!
-        .boxxs
-          %span
-            From
-            %a.link-reset{:href => "users"} Lodi, 2018年5月
-            %i.fa.fa-flag-o.text-space-ky
-          %span.listing-name.text-center-sm
-            %i.fa.fa-home
-            %a.flow23{:href => "https://www.airbnb.jp/rooms/880308"} Aroma(n)tica TreehouseinMonferrato
-          .col-10.col-offset-2
-            %hr
-    .flow23 もっと
+
+    - @users.each do |user|
+      %h4.space-45
+        .col-sm-12
+          %img.visiter-image{height: "68", width: "68", src: "#{user.avatar}"}
+          .profile-name
+            = user.name
+        .review-from-users-1
+          .review-from-user
+            = user.self_introduction
+          .message-space
+            %span
+              From
+              %a.link-reset{href: "users"}
+                = user.name
+                = user.created_at.strftime("%Y年%m月%d日")
+              %i.fa.fa-flag-o.text-space-1
+            %span.listing-name.text-relative-sm
+              %i.fa.fa-home
+              %a.color-008489{href: "/users"} Aroma(n)tica TreehouseinMonferrato
+            .col-10.col-offset-2
+              %hr
+
+    .color-008489 もっと
