@@ -3,14 +3,14 @@
     .navibar__icon
       = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
     .navibar__search
-      = form_tag('#', method: :get, autocomplete: 'off') do
-        %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
+      = form_tag("/:prefecture", method: :get, autocomplete: 'off') do
+        %input.search__query#search-field{name: "prefecture", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
       .navibar__search__result
     -# - if user_signed_in?
     -#   %ul.navibar__list
     -#     %li.navibar__list__content
-    -#       = link_to 'お部屋を掲載', '#'
+    -#       s link_to 'お部屋を掲載', '#'
     -#     %li.navibar__list__content
     -#       ホストをはじめる
     -#       %ul.navigation.hide#host
