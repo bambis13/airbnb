@@ -1,7 +1,23 @@
+/*---devise_users---------------------------------------*/
+/ devise_users(削除) → users(変更先)に変更する
 = render 'devise_users/login_content'
-/ = render 'devise/sessions/login_session'
-/ = render 'devise_users/signup_branch' 間違えて消した
+= render 'devise_users/signup_branch'
+= render 'devise_users/covenant_section'
 
+/*---devise/registrations-------------------------------*/
+= render 'devise/registrations/signup_welcome'
+= render 'devise/registrations/section'
+= render 'devise/registrations/registration'
+= render 'devise/registrations/profile'
+= render 'devise/registrations/phone_number'
+= render 'devise/registrations/one_more_section'
+= render 'devise/registrations/mail_certification'
+= render 'devise/registrations/finish_section'
+
+/*---devise/sessions------------------------------------*/
+= render 'devise/sessions/login_session'
+
+/*---header---------------------------------------------*/
 .header.clearfix
   .navibar
     .navibar__icon

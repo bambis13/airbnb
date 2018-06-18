@@ -12,11 +12,11 @@
   .section_message または
   .signup_registration_contents__form_content
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field_input_elia
+      .field_input_area
         = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
-      .field_input_elia
+      .field_input_area
         = f.text_field :name, placeholder: "名", autocomplete: true, class: 'login_form'
-      .field_input_elia
+      .field_input_area
         = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
-      .field_input_elia
+      .field_input_area
         = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form'

@@ -1,0 +1,25 @@
+.position
+/ 編集の際のpositionの調整
+
+.signup_mail_certification_contents
+  .signup_mail_certification_contents__top_content
+  .signup_mail_certification_contents__title_field
+    %span メールをチェックしてください
+  .signup_mail_certification_contents__body_field
+    .signup_mail_certification_contents__body_field__top_text_area
+      %span 届いたメールのリンクをタップしてください。
+    .signup_mail_certification_contents__body_field__bottom_text_area
+      %span 宿泊の予約確認のメールの連絡先ですので、メールアドレスの確認は重要です。
+  .signup_mail_certification_contents__icon
+    .signup_mail_certification_contents__icon__image
+      / = image_tag
+  .signup_mail_certification_contents__input_field
+    .signup_mail_certification_contents__input_field__input_area
+  .signup_mail_certification_contents__button_field
+    %a.redirect_btn{href: root_path}
+      %h3.bold メールを再送信
+    .signup_mail_certification_contents__button_field__text_area
+      %a.redirect_btn{href: root_path} メールアドレスを変更
+  .signup_mail_certification_contents__bottom_content
+    %span あとで
+

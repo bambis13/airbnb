@@ -18,7 +18,7 @@ $(function(){
 
 //   var firstLoginSection = $('.login_contents')
 //   var loginAction = $('#login_action')
-//   var loginModel = $('#login_model')
+//   var loginModal = $('#login_modal')
 //   var mailBer = $('#mail_login')
 //   var redirectLogin = $('.login_session_contents')
 //   var redirectSignup = $('#signup_action')
@@ -29,7 +29,7 @@ $(function(){
 //   var actionPassword = $('.click_password')
 
 //   loginAction.click(function(){
-//     loginModel.fadeIn();
+//     loginModal.fadeIn();
 //   })
 //   mailBer.on('click', function(){
 //     firstLoginSection.hide();

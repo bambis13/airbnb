@@ -130,7 +130,7 @@
     width: 100%;
     font-size: 16px;
     line-height: 22px;
-    &__text_elia{
+    &__text_area{
       padding-left: 120px;
       float: left;
       color: #848484;
@@ -172,7 +172,7 @@
     height: 245px;
     width: 100%;
     background-color: $white;
-    .field_input_elia{
+    .field_input_area{
       height: 42px;
       font-size: 16px;
       line-height: 22px;
@@ -191,12 +191,12 @@
         padding: 10px 35px 10px 10px;
       }
     }
-    .field_checkbox_elia{
+    .field_checkbox_area{
       font-size: 14px;
       line-height: 1.5;
       margin-bottom: 16px;
     }
-    .field_submit_elia{
+    .field_submit_area{
       margin-bottom: 16px;
       .login_btn{
         font-size: 16px;
@@ -270,7 +270,7 @@
     margin-bottom: 16px;
   }
   &__bottom_content{
-    .text_elia{
+    .text_area{
       padding-left: 100px;
       float: left;
       color: #848484;
@@ -284,7 +284,7 @@
 
 // signup
 
-.signup_contents{
+.signup_branch_contents{
   height: 340px;
   width: 530px;
   margin: 0 auto;
@@ -296,8 +296,8 @@
   &__top_content{
     margin-bottom: 24px;
   }
-  &__registration_elia{
-    .facebook_signup_btn{
+  &__registration_area{
+    &__facebook_btn{
       height: 50px;
       width: 100%;
       background-color: $facebook_blue;
@@ -310,7 +310,7 @@
         }
       }
     }
-    .google_signup_btn{
+    &__google_btn{
       height: 50px;
       width: 100%;
       border: 1px solid #848484;
@@ -362,7 +362,7 @@
     }
   }
   &__bottom_content{
-    .text_elia{
+    .text_area{
       padding-left: 100px;
       float: left;
       color: #848484;
@@ -413,7 +413,7 @@
     margin-bottom: 16px;
   }
   &__form_content{
-    .field_input_elia{
+    .field_input_area{
       height: 42px;
       font-size: 16px;
       line-height: 22px;
@@ -448,7 +448,7 @@
         padding: 8px 0 10px 0;
       }
     }
-    .field_select_elia{
+    .field_select_area{
       height: 42px;
       width: 100%;
       font-size: 16px;
@@ -482,7 +482,7 @@
       color: $fontLightGray;
       font-weight: normal;
     }
-    .field_submit_elia{
+    .field_submit_area{
       margin-bottom: 16px;
       .registration_btn{
         font-size: 16px;
@@ -504,7 +504,7 @@
         border-color: transparent;
       }
     }
-    .field_checkbox_elia{
+    .field_checkbox_area{
       &__label{
         font-size: 14px;
         line-height: 18px;
@@ -524,7 +524,7 @@
     }
   }
   &__bottom_content{
-    .text_elia{
+    .text_area{
       padding-left: 100px;
       float: left;
       color: #848484;
@@ -664,3 +664,342 @@
   }
 }
 
+// profile section
+
+.signup_profile_contents{
+  height: 520px;
+  width: 400px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  color: $fontLightGray;
+  &__top_content{
+  }
+  &__title_content{
+    margin-bottom: 6px;
+    span{
+      font-size: 24px;
+    }
+  }
+  &__body_content{
+    margin-bottom: 24px;
+    span{
+      font-size: 16px;
+    }
+  }
+}
+
+// signup_phone_number section
+
+.signup_phone_number_contents{
+  height: 580px;
+  width: 400px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  color: $fontLightGray;
+  &__top_content{
+  }
+  &__title_content{
+    margin-bottom: 6px;
+    span{
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.1;
+    }
+  }
+  &__body_content{
+    margin-bottom: 24px;
+    span{
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.1;
+    }
+  }
+  &__icon{
+    margin: 24px 0 24px 0 auto;
+    height: 90px;
+    width: 90px;
+    &__image{
+    }
+  }
+  &__language_field{
+    &__label_area{
+      padding: 9px 0 8px 0;
+      span{
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.43;
+      }
+    }
+    &__select_area{
+    }
+  }
+  &__phone_number_field{
+    &__label_area{
+      padding: 9px 0 8px 0;
+      span{
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.43;
+      }
+    }
+    &__input_area{
+      height: 36px;
+      width: 250px;
+      margin: 0 0 24px 0 auto;
+      padding: 0 12px 0 12px;
+      .international_country_code{
+        width: 43.5px;
+        background-color: rgba(45, 45, 45, 0.7);
+        border: 1px solid $fontLightGray;
+        float: left;
+      }
+      .phone_number{
+        width: calc(250px - 43.5px);
+        border: 1px solid $fontLightGray;
+        float: right;
+      }
+    }
+    &__certification_area{
+      margin: 0 0 6px 0 auto;
+      height: 42px;
+      width: 250px;
+      .redirect_btn{
+        width: 167px;
+        height: 100%;
+        background-color: $airbnb_pink;
+        h3{
+          color: $white;
+          padding: 9px 23px;
+          text-align: center;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  &__bottom_content{
+    height: 50px;
+    span{
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+// signup_certification section
+
+.signup_ertification_contents{
+  width: 400px;
+  height: 520px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  color: $fontLightGray;
+  &__top_content{
+  }
+  &__title_field{
+    margin-bottom: 6px;
+    span{
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.1;
+    }
+  }
+  &__body_field{
+    &__top_text_area{
+      span{
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.1
+      }
+    }
+    &__bottom_text_area{
+      span{
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.1;
+      }
+    }
+  }
+  &__icon{
+    margin: 24px 0 24px 0;
+    height: 90px;
+    &__image{
+      height: 90px;
+      width: 90px;
+    }
+  }
+  &__input_field{
+    height: 35px;
+    width: 310px;
+    margin-bottom: 12px;
+    &__input_area{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__buttom_field{
+    height: 67px;
+    width: 310px;
+    .redirect_btn{
+      height: 35px;
+      width: 100%;
+      margin-bottom: 12px;
+      background-color: $airbnb_pink;
+      h3{
+        text-align: center;
+        font-size: 14px;
+        color: $white;
+      }
+    }
+    &__text_area{
+      .redirect_btn{
+        font-size: 14px;
+        color: $viridian;
+        text-align: center;
+      }
+    }
+  }
+  &__bottom_content{
+    height: 45px;
+    span{
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+// signup one_more_section
+
+.signup_one_more_contents{
+  height: 520px;
+  width: 410px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  color: $fontLightGray;
+  padding: 70px 60px 35px 60px;
+  &__top_content{
+  }
+  &__icon{
+    width: auto;
+    margin-bottom: 18px;
+    &__image{
+      height: 90px;
+      width: 90px;
+    }
+  }
+  &__title_field{
+    width: auto;
+    margin: 25px 0 6px 0;
+    span{
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.1;
+    }
+  }
+  &__body_field{
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.43;
+    &__top_text_area{
+      margin-bottom: 24px;
+      span{
+      }
+    }
+    &__bottom_text_area{
+      margin-bottom: 24px;
+      span{
+      }
+      .redirect_btn{
+        color: $viridian;
+      }
+    }
+  }
+  &__user_address_field{
+    margin-bottom: 6px;
+    span{
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.43;
+    }
+  }
+  &__input_field{
+    margin-bottom: 12px;
+    &__input_area{
+      height: 35px;
+      width: 310px;
+      .redirect_btn{
+        background-color: $airbnb_pink;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        h3{
+          font-size: 14px;
+          line-height: 1.43;
+          text-align: center;
+          color: $white;
+        }
+      }
+    }
+  }
+  &__bottom_content{
+    height: 45px;
+    span{
+      font-size: 14px;
+      line-height: 1.43;
+    }
+  }
+}
+
+// signup finish_section
+
+.signup_finish_contents{
+  height: 520px;
+  width: 430px;
+  margin: 0 auto;
+  font-family: Helvetica Neue;
+  color: $fontLightGray;
+  &__correction_position{
+    height: 50%;
+  }
+  &__main_content{
+    height: 310px;
+    width: 240px;
+    margin: 0 auto;
+    &__icon{
+      margin-bottom: 12px;
+      &__image{
+      }
+    }
+    &__title_field{
+      margin: 25px 0 15px 0;
+      span{
+        font-size: 24px;
+        line-height: 1.1;
+        text-align: center;
+      }
+    }
+    &__body_field{
+      margin: 25px 0;
+      span{
+        font-size: 16px;
+        line-height: 1.1;
+        text-align: center;
+      }
+    }
+    &__button_field{
+      height: 42px;
+      width: 310px;
+      margin: 0 auto;
+      .redirect_btn{
+        height: 100%;
+        width: 100%;
+        background-color: $airbnb_pink;
+        h3{
+          color: $white;
+          text-align: center;
+          font-size: 16px;
+          line-height: 1.1;
+        }
+      }
+    }
+  }
+}
