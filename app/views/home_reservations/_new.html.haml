@@ -1,19 +1,51 @@
-.container#reservation_new
+.reservation_new
   = form_for home_reservation do |f|
-    .col-md-8
-      .reservation_new__heading.col-md-4
-        .accomodation_fee_per_night
-          #{home.price.default_price}
-      .reservation_new__body
-        .checkin_date
-          = f.text_field :checkin_date, required: true, autofocus: true, placeholder: "チェックイン", class: "checkin_date_input"
-          = f.text_field :checkout_date, required: true, autofocus: true, placeholder: "チェックアウト", class: "checkout_date_input"
-          = f.text_field :number_of_guests, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
-      / .reservation_new__body--hidden
-      /   = f.text_field :accomodation_fee, home.price.accomodation_fee, required: true, class: "accomodation_fee_input"
-      /   = f.text_field :cleaning_fee, home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
-      /   = f.text_field :service_fee, home.price.service_fee, required: true, class: "service_fee_input"
-      /   = f.text_field :total_price, required: true, class: "total_price_input"
-
-    .row.text-center.proto-btn
-      = f.submit "予約をリクエスト", id: "button", class: "btn btn-lg btn-primary btn-block"
+    .reservation_new__heading
+      .default_fee
+        %h1.bold ¥ #{home.price.default_price}
+        %p / 1泊
+      .review
+        %span.review-star ★★★★★
+        %span.bold 255
+    .reservation_new__body
+      %h5 日付
+      .checkin_date
+        = f.date_field :checkin_date, required: true, autofocus: true, placeholder: "チェックイン", class: "checkin_date_input"
+      .checkout_date
+        = f.date_field :checkout_date, required: true, autofocus: true, placeholder: "チェックアウト", class: "checkout_date_input"
+      .number_of_guests
+        %h5 人数
+        .number_of_guests
+          %h2 ゲスト1人
+        .number_of_adults
+          = f.number_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
+        .number_of_kids
+          = f.number_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
+        .number_of_babies
+          = f.number_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
+    .reservation_new__body--hidden
+      = f.hidden_field :default_fee, value: home.price.default_price, required: true, class: "default_fee_input"
+      / = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, class: "cleaning_fee_date_input"
+      = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
+      = f.hidden_field :service_fee, value: home.price.deposit, required: true, class: "service_fee_input"
+      / = f.text_field :total_fee, required: true, class: "total_price_input"
+    .reservation_new__result
+      .reservation_new__result__default.clearfix
+        %span.left ¥ #{home.price.default_price} × 1泊
+        %span.right ¥ #{home.price.default_price}
+      .reservation_new__result__cleaning.clearfix
+        %span.left 清掃料金？
+        %span.right ¥ 3,984
+      .reservation_new__result__service.clearfix
+        %span.left サービス料？
+        %span.right ¥ 2,877
+      .reservation_new__result__total.clearfix
+        %span.left.bold 合計
+        %span.right.bold ¥ 21,689
+      .reservation_new__submit
+        = f.submit "予約をリクエスト", id: "button", class: "submit_btn"
+        %p まだ請求は発生しません
+    .reservation_new__message
+      %h1.bold お得
+      %p この立地、星評価、アメニティ・設備でこの料金設定はお得感あり
+      = image_tag("trophy.gif")

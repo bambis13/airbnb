@@ -90,7 +90,7 @@
   color: $fontTxt;
 }
 
-.subtitle, .name, span {
+.subtitle, .name{
   font-size: 16px;
   font-weight: 600 !important;
   height: 22px;
@@ -112,18 +112,17 @@
   word-wrap: break-word;
 }
 
-.clearfix:after{
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .padding-top-2px {
   padding-top: 1.3px;
 }
 
 .margin-top-15px {
   margin-top: 15px;
+}
+
+.review-star{
+  font-size: 12px;
+  color: $viridian;
 }
 
 a{
@@ -142,6 +141,7 @@ h4,
 h5,
 h6,
 p,
+span,
 .h1,
 .h2,
 .h3,
@@ -150,11 +150,9 @@ p,
 .h6,
 .p,
 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-.h6 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
-}
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
 }
 h1,
 .h1 {
@@ -185,6 +183,4 @@ p {
 }
 h3 {
   padding: 0 0 7px;
-  // text-align: left;
 }
-

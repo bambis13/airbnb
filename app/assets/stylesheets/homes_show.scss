@@ -189,7 +189,7 @@
 .container-left {
   width: 56.3%;
   min-width: 696px;
-
+  float:left;
   p, li {
     @include font-text;
   }
