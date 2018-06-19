@@ -59,7 +59,6 @@
     overflow-y: auto !important;
     overflow-x: hidden !important;
     white-space: normal !important;
-    display: inline-block !important;
     max-height: 55vh !important;
     visibility: visible !important;
     background: rgb(255, 255, 255) !important;
@@ -103,7 +102,7 @@
           display: table-cell !important;
           vertical-align: middle !important;
           display: table !important;
-          width: 120px !important;
+          width: 140px !important;
           float: right !important;
           padding-top: 5px;
 
@@ -114,6 +113,7 @@
             text-align: left !important;
             float: left !important;
             margin-right: 10px;
+
             button {
               display: inline-block !important;
               cursor: pointer !important;
@@ -123,13 +123,16 @@
               touch-action: manipulation !important;
               width: 32px !important;
               height: 32px !important;
-              box-shadow: none !important;
               border-radius: 50% !important;
               border-style: solid !important;
               border-color: rgb(0, 132, 137) !important;
               background: transparent !important;
               border-width: 1px !important;
               color: rgb(0, 132, 137) !important;
+
+                &:active {
+                  box-shadow: 0 0 15px  #008489;
+                }
             }
           }
           .number {
@@ -151,12 +154,13 @@
               height: 32px;
               margin-bottom: 3px;
               line-height: 32px;
+              width: 30px;
             }
           }
         }
       }
     }
-    .action-box {
+  .action-box {
       -webkit-box-align: center !important;
       text-align: justify !important;
       line-height: 0 !important;
@@ -219,7 +223,6 @@
       }
     }
   }
-
 
 
 

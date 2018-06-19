@@ -32,7 +32,7 @@ class HomesController < ApplicationController
   def search
     @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
     respond_to do |format|
-      format.html {redirect_to "/<%=keyword%>"}
+      format.html
       format.json
     end
   end

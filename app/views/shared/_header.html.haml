@@ -4,7 +4,7 @@
       = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
     .navibar__search
       = form_tag("/:prefecture", method: :get, autocomplete: 'off') do
-        %input.search__query#search-field{name: "prefecture", placeholder: "◯○などエリアを入力", type: "text", value: ""}
+        %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
       .navibar__search__result
     -# - if user_signed_in?

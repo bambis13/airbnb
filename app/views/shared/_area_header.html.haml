@@ -27,40 +27,40 @@
     フィルター
 
 // 人数選択ボックス
-.capacity_condition#menuItemComponent-guest_picker
+.capacity_condition.hide#menuItemComponent-guest_picker
   .select-capacity.clearfix
     .select-capacity__adults.select-capacity__item.clearfix
       .human-attributes
         %p 大人
       .counting-box.clearfix.right
-        .counting-down
+        .counting-down.count-down-adult
           %button -
         .number
-          %p 1+
+          %p.number-of-adult 1+
         .counting-up
-          %button +
+          %button.count-up-adult +
 
     .select-capacity__children.select-capacity__item.clearfix
       .human-attributes
         %p 子ども
         %p 年齢2 - 12
       .counting-box.clearfix.right
-        .counting-down
+        .counting-down.count-down-children
           %button -
         .number
-          %p 1+
-        .counting-up
+          %p.number-of-children 1+
+        .counting-up.count-up-children
           %button +
     .select-capacity__babies.select-capacity__item.clearfix
       .human-attributes
         %p 乳幼児
         %p 2歳未満
       .counting-box.clearfix.right
-        .counting-down
+        .counting-down.count-down-babies
           %button -
         .number
-          %p 1+
-        .counting-up
+          %p.number-of-babies 1+
+        .counting-up.count-up-babies
           %button +
   .action-box
     .cancel-button
