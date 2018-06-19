@@ -24,49 +24,63 @@ $(function(){
     };
   });
 
+  //数値取得
   $(function(){
-    var countAdult = 1;
-    var countChildren = 0;
-    var countBabies = 0;
+    var countAdult    = $('.number-of-adult').attr('value');
+    var countChildren = $('.number-of-children').attr('value');
+    var countBabies   = $('.number-of-babies').attr('value');
 
       //大人
-      $(".count-up-adult").click(function() {
+      $(".count-up-adult").click(function(e) {
+        e.preventDefault();
         if (countAdult < 17){
         countAdult++;
+        console.log(countAdult)
       };
-      $(".number-of-adult").html(countAdult+"+");
+      $(".number-of-adult-html").html(countAdult+"+");
+      $('.number-of-adult').attr('value', countAdult);
     })
-      $(".count-down-adult").click(function() {
+      $(".count-down-adult").click(function(e) {
+        e.preventDefault();
         if (countAdult > 1){
         countAdult = countAdult - 1
-      $(".number-of-adult").html(countAdult+"+");
+      $(".number-of-adult-html").html(countAdult+"+")
+      $('.number-of-adult').attr('value', countAdult);
     };
     });
       //子ども
-      $(".count-up-children").click(function() {
+      $(".count-up-children").click(function(e) {
+        e.preventDefault();
         if (countChildren < 5){
         countChildren++;
       };
-      $(".number-of-children").html(countChildren+"+");
+      $(".number-of-children-html").html(countChildren+"+");
+      $('.number-of-children').attr('value', countChildren);
     })
-      $(".count-down-children").click(function() {
+      $(".count-down-children").click(function(e) {
+        e.preventDefault();
         if (countChildren > 0){
         countChildren = countChildren - 1
-      $(".number-of-children").html(countChildren+"+");
+      $(".number-of-children-html").html(countChildren+"+");
+      $('.number-of-children').attr('value', countChildren);
     };
     });
 
       //幼児
-      $(".count-up-babies").click(function() {
+      $(".count-up-babies").click(function(e) {
+        e.preventDefault();
         if (countBabies < 5){
         countBabies++;
       };
-      $(".number-of-babies").html(countBabies+"+");
+      $(".number-of-babies-html").html(countBabies+"+");
+      $('.number-of-babies').attr('value', countBabies);
     })
-      $(".count-down-babies").click(function() {
+      $(".count-down-babies").click(function(e) {
+        e.preventDefault();
         if (countBabies > 0){
         countBabies = countBabies - 1
-      $(".number-of-babies").html(countBabies+"+");
+      $(".number-of-babies-html").html(countBabies+"+");
+      $('.number-of-babies').attr('value', countBabies);
     };
     });
   });

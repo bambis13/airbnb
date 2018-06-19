@@ -27,12 +27,15 @@ class HomesController < ApplicationController
 
   def homes
     @homes = @homes[0..9]
+    if params[:capacity]
+      @homes = Home.where("capacity > ?", params[:capacity])
+    end
   end
 
   def search
     @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
     respond_to do |format|
-      format.html
+      format.html {redirect_to homes_path(@homes)}
       format.json
     end
   end
