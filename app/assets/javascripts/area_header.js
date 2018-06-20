@@ -1,6 +1,5 @@
 $(function(){
   $('.area__header__ppl__num').on('click', function(){
-    console.log(2)
     $('#menuItemComponent-guest_picker').removeClass('hide');
     $('.contents').css({
       'position': 'relative',
@@ -11,6 +10,13 @@ $(function(){
     });
   })
 
+    $('.area__header__btn, .area__header__ppl__num').click(function(){
+    $(this).css({
+      'background-color': 'rgb(0, 132, 137)',
+      'color': 'white'
+    });
+  });
+
   $(document).on('click', function(e){
      if (!$(e.target).closest('.select-capacity').length && !$(e.target).closest('.area__header__ppl__num').length){
       $('#menuItemComponent-guest_picker').hide();
@@ -18,8 +24,6 @@ $(function(){
 
         if($('#menuItemComponent-guest_picker').is(':hidden')){
             $('#menuItemComponent-guest_picker').show();
-        }else{
-            $('#menuItemComponent-guest_picker').hide();
         }
     };
   });

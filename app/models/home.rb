@@ -33,8 +33,14 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
+  def home_rules_children(params)
+    HomeRule.where("accept_children> ?", paramas)
+  end
+
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
+  scope :accept_children, ->(params) { where(accept_babies: params) }
+  scope :accept_babies, ->(params) { where(accept_babies: params) }
 
 end
