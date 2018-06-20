@@ -7,6 +7,7 @@
         %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
           = image_tag('search_icon.png', alt: 'search_icon')
       .navibar__search__result
+    //エラーが出たので一時コメントアウト
     -# - if user_signed_in?
     -#   %ul.navibar__list
     -#     %li.navibar__list__content

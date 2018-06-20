@@ -344,9 +344,6 @@
   }
 }
 
-
-
-
 //レビュー
 .home-reviews {
   span {
@@ -420,13 +417,11 @@
     }
 }
 
-
 //ページネーション
 .pagination {
   height: 70px;
   margin: 20px 0px;
 }
-
 
 //ホスト紹介
 .host-introduction__heading {
@@ -467,7 +462,6 @@
     padding: 20px 0;
 }
 
-
 //位置情報
 .area-info {
   border-bottom: 1px #aaa solid;
@@ -477,7 +471,6 @@
     color: $fontTxt;
   }
 }
-
 
 //類似のリスティング
 .similar-category {
@@ -527,17 +520,12 @@
   }
 }
 
-
 .additional-info {
   color: #008489 !important;
   cursor: pointer !important;
   font-weight: 600 !important;
   margin-top: 10px;
 }
-
-
-
-
 
 .similar-category__carsel {
   .slick-prev:before, .slick-next:before {
