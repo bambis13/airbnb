@@ -1,3 +1,4 @@
+// 表示/非表示制御
 $(function(){
   $('.area__header__ppl__num').on('click', function(){
     $('#menuItemComponent-guest_picker').removeClass('hide');
@@ -28,7 +29,7 @@ $(function(){
     };
   });
 
-  //数値取得
+  //数値取得+計算
   $(function(){
     var countAdult    = $('.number-of-adult').attr('value');
     var countChildren = $('.number-of-children').attr('value');
