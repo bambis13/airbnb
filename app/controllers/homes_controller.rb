@@ -1,8 +1,7 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
   before_action :get_homes, only: [:index, :homes, :search, :area_specific]
-  # GET /homes
-  # GET /homes.json
+
   def index
     @homes = @homes[0..4]
     @homes_newyork = @homes_newyork[0..4]
@@ -32,7 +31,6 @@ class HomesController < ApplicationController
     end
   end
 
-
   def search
     @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
     @homes.where
@@ -42,8 +40,6 @@ class HomesController < ApplicationController
     end
   end
 
-  # GET /homes/1
-  # GET /homes/1.json
   def show
     @beds      = BedType.where(home_id: params[:id])
     @rules     = @home.home_rule
@@ -51,26 +47,16 @@ class HomesController < ApplicationController
     @host      = @home.user
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
+    @space     = AvailableSpace.find_by(home_id: params[:id])
   end
 
-
-
-
-  # GET /homes/new
   def new
     @home = Home.new
   end
 
-  # GET /homes/1/edit
   def edit
   end
 
-  # POST /homes
-  # POST /homes.json
   def create
     @home = Home.new(home_params)
 
@@ -85,8 +71,6 @@ class HomesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /homes/1
-  # PATCH/PUT /homes/1.json
   def update
     respond_to do |format|
       if @home.update(home_params)
@@ -99,8 +83,6 @@ class HomesController < ApplicationController
     end
   end
 
-  # DELETE /homes/1
-  # DELETE /homes/1.json
   def destroy
     @home.destroy
     respond_to do |format|
@@ -110,11 +92,11 @@ class HomesController < ApplicationController
   end
 
 private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_home
     @home = Home.find(params[:id])
   end
-  # Never trust parameters from the scary internet, only allow the white list through.
+
   def home_params
     params.fetch(:home, {})
   end

@@ -78,7 +78,7 @@ $(function(){
         }
       })
       .fail(function(){
-        alert('インクリに失敗しました')
+        alert('検索に失敗しました')
       })
     }
   });

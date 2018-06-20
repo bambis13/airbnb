@@ -13,8 +13,6 @@ $slick-loader-path: "./" !default;
 $slick-arrow-color: $white !default;
 $slick-dot-color: $white !default;
 $slick-dot-color-active: $slick-dot-color !default;
-// $slick-prev-character: "◀︎" !default; スプリントレビューのため一旦変更
-// $slick-next-character: "▶" !default; スプリントレビューのため一旦変更
 $slick-prev-character: "<" !default;
 $slick-next-character: ">" !default;
 
@@ -45,12 +43,12 @@ $slick-opacity-not-active: 0.25 !default;
 /* Slider */
 
 
-.slick-list {
-    .slick-loading & {
-        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
-        // centerPadding: '20%'
-    }
-}
+// .slick-list {
+//     .slick-loading & {
+//         background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+//         // centerPadding: '20%'
+//     }
+// }
 
 // .slick-list {
 //     .slick-loading & {
