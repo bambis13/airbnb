@@ -1,24 +1,20 @@
-.position
-/ 編集の際のpositionの調節
-
 .signup_branch_contents
   .signup_branch_contents__top_content
     = button_to '×'
   .signup_branch_contents__registration_area
     .signup_branch_contents__registration_area__facebook_btn
       %a.redirect_btn{href: root_path}
-        %h3 Facebookでログイン
+        %h3 Facebookで登録
     .signup_branch_contents__registration_area__google_btn
       %a.redirect_btn{href: root_path}
-        %h3 Googleでログイン
+        %h3 Googleで登録
     .signup_branch_contents__registration_area__border_line
       %hr または
-    .signup_branch_contents__mail_login_ber
-      .signup_branch_contents__mail_login_ber__btn
-        %a.redirect_btn{href: root_path}
-          %h3 メールアドレスでログイン
+    .signup_branch_contents__registration_area__mail_signup_btn
+      %a.redirect_btn#mail_signup_field{href: root_path}
+        %h3 メールアドレスで登録
   .signup_branch_contents__border_line
     %hr
   .signup_branch_contents__bottom_content
     .text_area Airbnbアカウントはお持ちですか？
-    %a.redirect_btn{href: new_user_registration_path} 登録
+    %a.redirect_btn#redirect_login{href: root_path} ログイン
