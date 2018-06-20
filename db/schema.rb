@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180615065806) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -225,8 +224,10 @@ ActiveRecord::Schema.define(version: 20180615065806) do
     t.bigint "home_category_sub_id"
     t.bigint "country_id"
     t.bigint "room_type_id"
+    t.bigint "currency_id"
     t.bigint "user_id"
     t.index ["country_id"], name: "index_homes_on_country_id"
+    t.index ["currency_id"], name: "index_homes_on_currency_id"
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
@@ -348,6 +349,7 @@ ActiveRecord::Schema.define(version: 20180615065806) do
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
   add_foreign_key "homes", "countries"
+  add_foreign_key "homes", "currencies"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
   add_foreign_key "homes", "users"
