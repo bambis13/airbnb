@@ -1,0 +1,219 @@
+.visible{
+  visibility: visible !important;
+}
+
+//-------------- パレット ----------------//
+
+.reservation_new{
+  z-index: 5;
+  &__body{
+    position: relative;
+  }
+}
+
+.capacity_condition {
+    width: 85%;
+    position: absolute;
+    top: 61px;
+    left: 3px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 14px 36px 2px;
+    background: $white;
+    border: solid 1px $borderGray;
+    border-top: solid 2px $viridian;
+    border-radius: 4px;
+    padding: 24px;
+    visibility: hidden;
+    &_guests{
+      position: absolute !important;
+      top: 125px !important;
+    }
+    .select-capacity {
+      width: 100%;
+      &__item {
+        position: relative;
+        width: 100% ;
+        height: 49px;
+        margin-bottom: 16px;
+        vertical-align: center;
+        .adult{
+          line-height: 49px;
+        }
+        .human-attributes {
+          display: table-cell;
+          width: 50%;
+          vertical-align: middle;
+          // font-size: 16px;
+          // letter-spacing: normal;
+          margin: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .counting-box {
+          display: table-cell;
+          vertical-align: middle;
+          display: table;
+          float: right;
+          padding-top: 5px;
+
+
+          .counting-down, .counting-up {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+            float: left;
+            margin-right: 10px;
+
+            button {
+              display: inline-block !important;
+              cursor: pointer;
+              text-align: center !important;
+              line-height: 1 !important;
+              position: relative !important;
+              // touch-action: manipulation !important;
+              width: 32px !important;
+              height: 32px !important;
+              border-radius: 50% !important;
+              border-style: solid !important;
+              border-color: rgb(0, 132, 137) !important;
+              background: transparent !important;
+              border-width: 1px !important;
+              color: rgb(0, 132, 137) !important;
+
+                &:active {
+                  box-shadow: 0 0 15px  #008489;
+                }
+            }
+          }
+          .number {
+            display: table-cell !important;
+            vertical-align: middle !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            font-size: 16px !important;
+            line-height: 22px !important;
+            letter-spacing: normal !important;
+            color: rgb(72, 72, 72) !important;
+            font-weight: normal !important;
+            margin: 0px !important;
+            float: left !important;
+            margin-right:15px;
+
+            p {
+              margin-right:10px;
+              height: 32px;
+              margin-bottom: 3px;
+              line-height: 32px;
+              width: 30px;
+            }
+          }
+        }
+      }
+    }
+    .close-button {
+      border: none;
+      background-color: transparent;
+      font-size: 15px;
+      color: $viridian;
+      float: right;
+      cursor: pointer;
+      &:focus{
+        outline: 0;
+      }
+    }
+}
+.notification-box{
+  h4{
+    padding: 10px 8px;
+    color: $fontGray;
+  }
+}
+
+//選択ボタン
+.form-type-btn{
+  height: 40px;
+  width: 98%;
+  margin: 2px auto;
+  vertical-align: middle;
+  &__visible{
+    border: solid 1px $borderGray;
+    z-index: 1;
+  }
+  &__hidden{
+    position: relative;
+    top: -42px;
+    z-index: 0;
+  }
+  th{
+    text-align: center;
+  }
+  .mini-col{
+    width: 30px;
+  }
+  i{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    float: right;
+    padding-top: 13px;
+    color: $fontGray;
+  }
+  p{
+    display: inline-block;
+    line-height: 40px;
+    padding-left: 10px;
+  }
+}
+
+.reservation-checkout,.reservation-checkin{
+  border:none;
+  width: 125px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  &:focus{
+    outline: 0;
+    background-color: #8BEBE0;
+  }
+}
+
+
+//日付選択
+// input[type="date"]::-webkit-outer-spin-button,
+// input[type="date"]::-webkit-inner-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+// }
+// input[type="date"] {
+//     -moz-appearance:textfield;
+// }
+// input[type="date"]::-webkit-calendar-picker-indicator{
+//   width: 100%;
+//   height: 100%;
+//   // visibility: hidden;
+//   cursor: pointer;
+// }
+
+// .date_input{
+//   height: 90%;
+//   border: none;
+//   &__in{
+//     padding-left: 5px;
+//     float: left;
+//     // visibility: hidden;
+//   }
+//   &__out{
+//     float: right;
+//     padding-right: 5px;
+//     // visibility: hidden;
+//   }
+//   &:focus{
+//     outline: 0;
+//   }
+// }
+// .fa-arrow-right{
+//   color: $borderGray;
+// }
+// .hidden{
+//   display: hidden;
+// }

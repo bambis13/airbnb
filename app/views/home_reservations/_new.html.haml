@@ -9,26 +9,70 @@
         %span.bold 255
     .reservation_new__body
       %h5 日付
-      .checkin_date
-        = f.date_field :checkin_date, required: true, autofocus: true, placeholder: "チェックイン", class: "checkin_date_input"
-      .checkout_date
-        = f.date_field :checkout_date, required: true, autofocus: true, placeholder: "チェックアウト", class: "checkout_date_input"
+      %table.form-type-btn.form-type-btn__visible
+        %th
+          = f.text_field :checkin_date, class: 'reservation-checkin',placeholder: "チェックイン"
+        %th
+          %i.fa.fa-arrow-right.fa-lg
+        %th
+          = f.text_field :checkout_date, class: 'reservation-checkout',placeholder: "チェックアウト"
       .number_of_guests
         %h5 人数
-        .number_of_guests
-          %h2 ゲスト1人
-        .number_of_adults
-          = f.number_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
-        .number_of_kids
-          = f.number_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
-        .number_of_babies
-          = f.number_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
-    .reservation_new__body--hidden
-      = f.hidden_field :default_fee, value: home.price.default_price, required: true, class: "default_fee_input"
-      / = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, class: "cleaning_fee_date_input"
-      = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
-      = f.hidden_field :service_fee, value: home.price.deposit, required: true, class: "service_fee_input"
-      / = f.text_field :total_fee, required: true, class: "total_price_input"
+        .form-type-btn.form-type-btn__visible#guests-num-btn
+          %p ゲスト１人
+          %i.fa.fa-angle-down.fa-lg#rotate
+        .capacity_condition.capacity_condition_guests#select-guests-num
+          .select-capacity.clearfix
+            .select-capacity__adults.select-capacity__item.clearfix
+              .human-attributes
+                %p.adult 大人
+              .counting-box.clearfix.right
+                .counting-down.count-down-adult
+                  %button -
+                .number
+                  %p.number-of-adult 1
+                .counting-up
+                  %button.count-up-adult +
+            .select-capacity__children.select-capacity__item.clearfix
+              .human-attributes
+                %p 子ども
+                %h5 年齢2 - 12
+              .counting-box.clearfix.right
+                .counting-down.count-down-children
+                  %button -
+                .number
+                  %p.number-of-children 0
+                .counting-up.count-up-children
+                  %button +
+            .select-capacity__babies.select-capacity__item.clearfix
+              .human-attributes
+                %p 乳幼児
+                %h5 2歳未満
+              .counting-box.clearfix.right
+                .counting-down.count-down-babies
+                  %button -
+                .number
+                  %p.number-of-babies 0
+                .counting-up.count-up-babies
+                  %button +
+            .notification-box
+              %h4 最大2名まで宿泊可能。乳幼児は人数にカウントされません。
+            .action-box
+              %button.close-button.bold 閉じる
+    /     .number_of_guests
+    /       %h2 ゲスト1人
+    /     .number_of_adults
+    /       = f.number_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
+    /     .number_of_kids
+    /       = f.number_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
+    /     .number_of_babies
+    /       = f.number_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
+    / .reservation_new__body--hidden
+    /   = f.hidden_field :default_fee, value: home.price.default_price, required: true, class: "default_fee_input"
+    /   = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, class: "cleaning_fee_date_input"
+    /   = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
+    /   = f.hidden_field :service_fee, value: home.price.deposit, required: true, class: "service_fee_input"
+    /   = f.text_field :total_fee, required: true, class: "total_price_input"
     .reservation_new__result
       .reservation_new__result__default.clearfix
         %span.left ¥ #{home.price.default_price} × 1泊

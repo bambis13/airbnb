@@ -94,6 +94,10 @@ h3{
     .airbnbplus-btn{
     padding-top: 10px;
     height: 65px;
+    h3{
+      line-height: 40px;
+      padding: 0 10px;
+    }
     }
     img{
       height:   50px;
@@ -114,13 +118,15 @@ h3{
   line-height: 18px;
   padding: 8px 16px;
   min-width: 51.7771px;
-  color: $white;
   text-decoration: none;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
   background: $viridian;
   border-color: transparent;
+  span{
+    color: $white;
+  }
 }
 
 .share-check {

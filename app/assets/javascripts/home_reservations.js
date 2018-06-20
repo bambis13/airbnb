@@ -1,3 +1,18 @@
+$(function(){
+  $('#guests-num-btn').on('click',function(){
+  $('#rotate').removeClass('fa-angle-down');
+  $('#rotate').addClass('fa-angle-up');
+    $('#select-guests-num').css('visibility','visible');
+    });
+  $('.close-button').on('click',function(e){
+    e.preventDefault();
+    $('#rotate').removeClass('fa-angle-up');
+    $('#rotate').addClass('fa-angle-down');
+    $('#select-guests-num').css('visibility','hidden');
+  });
+});
+
+
 // $(function(home) {
 // $("#reservation_new").on("input", function() {
 
@@ -32,7 +47,7 @@
 //   })
 // });
 
-// //
-// // ①railsのコントローラの値を代入（変数展開があっているか）→合ってる
-// // ②隠してある値を出す。→だす
-// // ③正しい合計をformから送れるようにする
+//
+// ①railsのコントローラの値を代入（変数展開があっているか）→合ってる
+// ②隠してある値を出す。→だす
+// ③正しい合計をformから送れるようにする
