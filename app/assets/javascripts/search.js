@@ -56,7 +56,6 @@ $(function(){
     if(input.length === 0 ){
     }
     else {
-       console.log(3)
       $.ajax({
         url: '/search',
         type: "GET",

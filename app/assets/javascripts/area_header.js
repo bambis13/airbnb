@@ -40,7 +40,6 @@ $(function(){
         e.preventDefault();
         if (countAdult < 17){
         countAdult++;
-        console.log(countAdult)
       };
       $(".number-of-adult-html").html(countAdult+"+");
       $('.number-of-adult').attr('value', countAdult);
