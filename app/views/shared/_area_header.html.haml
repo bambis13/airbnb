@@ -1,0 +1,63 @@
+.area__header
+
+  %button{type: 'button', class: 'area__header__btn'}
+    日付
+  .area__header__ppl
+    %button{type: 'button', class: 'area__header__ppl__num'}
+      人数
+  %button{type: 'button', class: 'area__header__btn'}
+    部屋タイプ
+  %button{type: 'button', class: 'area__header__btn'}
+    料金
+  %button{type: 'button', class: 'area__header__btn'}
+    今すぐ予約
+  %button{type: 'button', class: 'area__header__btn'}
+    旅行タイプ
+  %button{type: 'button', class: 'area__header__btn'}
+    フィルター
+
+// 人数選択ボックス
+.capacity_condition.hide#menuItemComponent-guest_picker
+  = form_tag("/homes/homes", method: :get, autocomplete: 'off') do
+    .select-capacity.clearfix
+      .select-capacity__adults.select-capacity__item.clearfix
+        .human-attributes
+          %p 大人
+        .counting-box.clearfix.right
+          .counting-down.count-down-adult
+            %button -
+          .number
+            %input.number-of-adult{name: "capacity", type: "hidden", value: "1", class: "number-of-adult"}
+            %p.number-of-adult-html 1+
+          .counting-up
+            %button.count-up-adult +
+
+      .select-capacity__children.select-capacity__item.clearfix
+        .human-attributes
+          %p 子ども
+          %p 年齢2 - 12
+        .counting-box.clearfix.right
+          .counting-down.count-down-children
+            %button -
+          .number
+            %input.number-of-children{name: "children", type: "hidden", value: "", class: "number-of-children"}
+            %p.number-of-children-html 0+
+          .counting-up.count-up-children
+            %button +
+      .select-capacity__babies.select-capacity__item.clearfix
+        .human-attributes
+          %p 乳幼児
+          %p 2歳未満
+        .counting-box.clearfix.right
+          .counting-down.count-down-babies
+            %button -
+          .number
+            %input.number-of-babies{name: "babies",  value: "", type: "hidden", class: "number-of-babies"}
+            %p.number-of-babies-html 0+
+          .counting-up.count-up-babies
+            %button +
+    .action-box
+      .cancel-button
+        %button.bold キャンセル
+      .apply-button
+        %input{type: "submit", value:"適用", class: "submit-btn"}
