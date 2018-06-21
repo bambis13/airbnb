@@ -18,10 +18,12 @@ $(function(){
         $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
         p = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
         $('.number-of-adult-html').text(countAdult);
+        $('.form-text-adult').text("ゲスト" + countAdult + "人");
       }else{
         countAdult += 1;
         $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
         $('.number-of-adult-html').text(countAdult);
+        $('.form-text-adult').text("ゲスト" + countAdult + "人");
         $(this).prop("disabled", true);
         $(".count-up-children").prop("disabled", true);
       }
@@ -35,10 +37,12 @@ $(function(){
       countAdult -= 1;
       $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
       $('.number-of-adult-html').text(countAdult);
+      $('.form-text-adult').text("ゲスト" + countAdult + "人");
       }else{
       countAdult -= 1;
       $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
       $('.number-of-adult-html').text(countAdult);
+      $('.form-text-adult').text("ゲスト1人");
       $(this).prop("disabled", true);
       }
     });//大人down閉じ
@@ -55,10 +59,20 @@ $(function(){
         countChildren += 1;
         $('input:hidden[name="number-of-children-sa"]').val(countChildren);
         $('.number-of-children-html').text(countChildren);
+        if($('.form-text-children').length){
+          $('.form-text-children').text(", 子ども" + countChildren + "人");
+        }else{
+          $('.form-texts').append("<p class=\"form-text-children\">, 子ども1人</p>");
+        }
+        // $('.form-text-children').remove();
+        // $('.form-texts').append("<p class=\"form-text-children\">, 子ども" + countChildren + "人</p>");
       }else{
         countChildren += 1;
         $('input:hidden[name="number-of-children-sa"]').val(countChildren);
         $('.number-of-children-html').text(countChildren);
+        $('.form-text-children').text(", 子ども" + countChildren + "人");
+        // $('.form-text-children').remove();
+        // $('.form-texts').append("<p class=\"form-text-children\">, 子ども" + countChildren + "人</p>");
         $(this).prop("disabled", true);
         $(".count-up-adult").prop("disabled", true);
       }
@@ -72,10 +86,14 @@ $(function(){
       countChildren -= 1;
       $('input:hidden[name="number-of-children-sa"]').val(countChildren);
       $('.number-of-children-html').text(countChildren);
+      $('.form-text-children').text(", 子ども" + countChildren + "人");
+      // $('.form-text-children').remove();
+      // $('.form-texts').append("<p class=\"form-text-children\">, 子ども" + countChildren + "人</p>");
       }else{
       countChildren -= 1;
       $('input:hidden[name="number-of-children-sa"]').val(countChildren);
       $('.number-of-children-html').text(countChildren);
+      $('.form-text-children').remove();
       $(this).prop("disabled", true);
       }
     });//子供down閉じ
@@ -87,12 +105,20 @@ $(function(){
       var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
       if (countBabies < 4){
         countBabies += 1;
+        if($('.form-text-babies').length){
+          $('.form-text-babies').text(", 乳幼児" + countBabies + "人");
+        }else{
+          $('.form-texts').append("<p class=\"form-text-babies\">, 乳幼児1人</p>");
+        }
         $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
         $('.number-of-babies-html').text(countBabies);
+        $('.form-text-babies').remove();
+        $('.form-texts').append("<p class=\"form-text-babies\">, 乳幼児" + countBabies + "人</p>");
       }else{
         countBabies += 1;
         $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
         $('.number-of-babies-html').text(countBabies);
+        $('.form-text-babies').text(", 乳幼児" + countBabies + "人");
         $(this).prop("disabled", true);
         $(".count-up-babies").prop("disabled", true);
       }
@@ -102,14 +128,18 @@ $(function(){
       $(".count-up-babies").prop("disabled", false);
       var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
       if (countBabies > 1){
-      countBabies -= 1;
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
+        countBabies -= 1;
+        $('.form-text-babies').text(", 乳幼児" + countBabies + "人");
+        $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+        $('.number-of-babies-html').text(countBabies);
+        // $('.form-text-babies').remove();
+        // $('.form-texts').append("<p class=\"form-text-babies\">, 乳幼児" + countBabies + "人</p>");
       }else{
-      countBabies -= 1;
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
-      $(this).prop("disabled", true);
+        countBabies -= 1;
+        $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+        $('.number-of-babies-html').text(countBabies);
+        $('.form-text-babies').remove();
+        $(this).prop("disabled", true);
       }
     });//乳幼児down閉じ
   });//人数選択フィールド閉じ

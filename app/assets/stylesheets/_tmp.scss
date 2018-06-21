@@ -154,17 +154,19 @@
   .mini-col{
     width: 30px;
   }
-  i{
+  .form-icon{
     display: inline-block;
     height: 25px;
     width: 25px;
     float: right;
-    padding-top: 13px;
+    padding-top: 6px;
     color: $fontGray;
   }
   p{
     display: inline-block;
     line-height: 40px;
+  }
+  .form-texts{
     padding-left: 10px;
   }
 }
