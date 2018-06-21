@@ -1,13 +1,53 @@
 .visible{
   visibility: visible !important;
 }
+.removed{
+  display: none;
+}
 
+// .nav {
+//   width: 100%;
+// }
+.container-left.is-fixed{
+  // margin-bottom: 64px;
+}
+.container-left.is-fixed .nav-set {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 //-------------- パレット ----------------//
 
 .reservation_new{
   z-index: 5;
   &__body{
     position: relative;
+  }
+  i{
+    display: inline;
+    width: 20px;
+    padding-left: 5px;
+    color: $midiumGray;
+  }
+  .sub-window{
+    z-index: 1;
+    padding: 20px;
+    width: 300px;
+    padding: 20px;
+    border: solid 1px $borderGray;
+    p{
+      display: inline-block;
+      width: 270px;
+      font-size: 14px;
+    }
+    h2{
+      display: inline-block;
+      float: right;
+      color: $midiumGray;
+      font-size: 22px;
+      width: 25px;
+      height: 25px;
+    }
   }
 }
 
@@ -43,8 +83,6 @@
           display: table-cell;
           width: 50%;
           vertical-align: middle;
-          // font-size: 16px;
-          // letter-spacing: normal;
           margin: 0px;
           float: left;
           padding-top: 5px;
@@ -63,14 +101,12 @@
             text-align: left;
             float: left;
             margin-right: 10px;
-
             button {
               display: inline-block ;
               cursor: pointer;
               text-align: center;
               line-height: 1;
               position: relative;
-              // touch-action: manipulation !important;
               width: 32px;
               height: 32px;
               border-radius: 50%;
@@ -79,7 +115,6 @@
               background: transparent !important;
               border-width: 1px;
               color: rgb(0, 132, 137);
-
                 &:active {
                   box-shadow: 0 0 15px  #008489;
                 }
@@ -102,7 +137,6 @@
             margin: 0px !important;
             float: left !important;
             margin-right:15px;
-
             p {
               margin-right:10px;
               height: 32px;
@@ -183,43 +217,3 @@
   }
 }
 
-
-//日付選択
-input[type="date"]::-webkit-outer-spin-button,
-input[type="date"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="date"] {
-    -moz-appearance:textfield;
-}
-input[type="date"]::-webkit-calendar-picker-indicator{
-  width: 100%;
-  height: 100%;
-  // visibility: hidden;
-  cursor: pointer;
-}
-
-// .date_input{
-//   height: 90%;
-//   border: none;
-//   &__in{
-//     padding-left: 5px;
-//     float: left;
-//     // visibility: hidden;
-//   }
-//   &__out{
-//     float: right;
-//     padding-right: 5px;
-//     // visibility: hidden;
-//   }
-//   &:focus{
-//     outline: 0;
-//   }
-// }
-// .fa-arrow-right{
-//   color: $borderGray;
-// }
-// .hidden{
-//   display: hidden;
-// }

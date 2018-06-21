@@ -1,4 +1,4 @@
-.reservation_new
+.reservation_new.nav-set
   = form_for home_reservation do |f|
     .reservation_new__heading
       .default_fee
@@ -83,13 +83,22 @@
     .reservation_new__result
       .reservation_new__result__default.clearfix
         %span.left ¥ #{home.price.default_price} × 1泊
+        %i.fa.fa-question-circle-o.bill-statement
         %span.right ¥ #{home.price.default_price}
       .reservation_new__result__cleaning.clearfix
-        %span.left 清掃料金？
+        %span.left 清掃料金
+        %i.fa.fa-question-circle-o
         %span.right ¥ #{home.price.cleaning_fee}
+        .fee-annotation_cleaning.sub-window.removed
+          %p お部屋のお掃除の費用をホストが請求します。1滞在につき1回の料金です。
+          %h2.close-btn-annotation ×
       .reservation_new__result__service.clearfix
-        %span.left サービス料？
+        %span.left サービス料
+        %i.fa.fa-question-circle-o
         %span.right ¥ #{home.price.service_fee}
+        .fee-annotation_service.sub-window.removed
+          %p プラットフォームの運営と24時間365日の旅行サポートなどのサービス提供にかかる費用です。VAT込み。
+          %h2.close-btn-annotation ×
       .reservation_new__result__total.clearfix
         %span.left.bold 合計
         %span.right.bold ¥ 9,999
