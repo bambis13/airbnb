@@ -57,7 +57,7 @@ $(function(){
     }
     else {
       $.ajax({
-        url: '/search',
+        url: 'search',
         type: "GET",
         data: {keyword: input},
         dataType: 'json'
@@ -77,7 +77,7 @@ $(function(){
         }
       })
       .fail(function(){
-        alert('検索に失敗しました')
+        // alert('検索に失敗しました')
       })
     }
   });
