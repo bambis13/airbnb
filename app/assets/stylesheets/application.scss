@@ -92,6 +92,13 @@
   color: $fontTxt;
 }
 
+button{
+  cursor: pointer !important;
+  &:focus{
+    outline: 0 !important;
+  }
+}
+
 .subtitle, .name{
   font-size: 16px;
   font-weight: 600 !important;

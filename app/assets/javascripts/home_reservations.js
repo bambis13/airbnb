@@ -1,53 +1,138 @@
 $(function(){
+  //人数選択フィールド出現
   $('#guests-num-btn').on('click',function(){
-  $('#rotate').removeClass('fa-angle-down');
-  $('#rotate').addClass('fa-angle-up');
+    $('#rotate').removeClass('fa-angle-down');
+    $('#rotate').addClass('fa-angle-up');
     $('#select-guests-num').css('visibility','visible');
-    });
+
+    //大人
+    $(".count-up-adult").click(function(e) {
+      e.preventDefault();
+      $(".count-down-adult").prop("disabled", false);
+      var maxGuestsNum  = parseInt($('input:hidden[name="max_guests_num"]').val());
+      var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+      var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+      var guestsSum = countAdult + countChildren
+      if (guestsSum < maxGuestsNum - 1){
+        countAdult += 1;
+        $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
+        p = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+        $('.number-of-adult-html').text(countAdult);
+      }else{
+        countAdult += 1;
+        $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
+        $('.number-of-adult-html').text(countAdult);
+        $(this).prop("disabled", true);
+        $(".count-up-children").prop("disabled", true);
+      }
+    });//大人up閉じ
+    $(".count-down-adult").click(function(e) {
+      e.preventDefault();
+      $(".count-up-adult").prop("disabled", false);
+      $(".count-up-children").prop("disabled", false);
+      var countAdult = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+      if (countAdult > 2){
+      countAdult -= 1;
+      $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
+      $('.number-of-adult-html').text(countAdult);
+      }else{
+      countAdult -= 1;
+      $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
+      $('.number-of-adult-html').text(countAdult);
+      $(this).prop("disabled", true);
+      }
+    });//大人down閉じ
+
+    //子供
+    $(".count-up-children").click(function(e) {
+      e.preventDefault();
+      $(".count-down-children").prop("disabled", false);
+      var maxGuestsNum  = parseInt($('input:hidden[name="max_guests_num"]').val());
+      var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+      var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+      var guestsSum = countAdult + countChildren
+      if (guestsSum < maxGuestsNum - 1){
+        countChildren += 1;
+        $('input:hidden[name="number-of-children-sa"]').val(countChildren);
+        $('.number-of-children-html').text(countChildren);
+      }else{
+        countChildren += 1;
+        $('input:hidden[name="number-of-children-sa"]').val(countChildren);
+        $('.number-of-children-html').text(countChildren);
+        $(this).prop("disabled", true);
+        $(".count-up-adult").prop("disabled", true);
+      }
+    });//子供up閉じ
+    $(".count-down-children").click(function(e) {
+      e.preventDefault();
+      $(".count-up-adult").prop("disabled", false);
+      $(".count-up-children").prop("disabled", false);
+      var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+      if (countChildren > 1){
+      countChildren -= 1;
+      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
+      $('.number-of-children-html').text(countChildren);
+      }else{
+      countChildren -= 1;
+      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
+      $('.number-of-children-html').text(countChildren);
+      $(this).prop("disabled", true);
+      }
+    });//子供down閉じ
+
+    //乳幼児
+    $(".count-up-babies").click(function(e) {
+      e.preventDefault();
+      $(".count-down-babies").prop("disabled", false);
+      var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
+      if (countBabies < 4){
+        countBabies += 1;
+        $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+        $('.number-of-babies-html').text(countBabies);
+      }else{
+        countBabies += 1;
+        $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+        $('.number-of-babies-html').text(countBabies);
+        $(this).prop("disabled", true);
+        $(".count-up-babies").prop("disabled", true);
+      }
+    });//乳幼児up閉じ
+    $(".count-down-babies").click(function(e) {
+      e.preventDefault();
+      $(".count-up-babies").prop("disabled", false);
+      var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
+      if (countBabies > 1){
+      countBabies -= 1;
+      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+      $('.number-of-babies-html').text(countBabies);
+      }else{
+      countBabies -= 1;
+      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
+      $('.number-of-babies-html').text(countBabies);
+      $(this).prop("disabled", true);
+      }
+    });//乳幼児down閉じ
+  });//人数選択フィールド閉じ
+
+  //フィールド閉じる
   $('.close-button').on('click',function(e){
     e.preventDefault();
     $('#rotate').removeClass('fa-angle-up');
     $('#rotate').addClass('fa-angle-down');
     $('#select-guests-num').css('visibility','hidden');
   });
-});
 
+  //料金計算
+  $("input[type='text']").change(function(){
+    var checkin = Date.parse($('.reservation-checkin').val());
+    var checkout = Date.parse($('.reservation-checkout').val());
+    days = (checkout - checkin)/1000/60/60/24;
+    var defaultFee = $('input:hidden[name="default_fee"]').val();
+    var additionalFee = $('input:hidden[name="additional_guests_fee"]').val();
+    var cleaningFee = $('input:hidden[name="cleaning_fee"]').val();
+    var serviceFee = $('input:hidden[name="service_fee"]').val();
+    var totalFee = (defaultFee * days)+ cleaningFee + serviceFee
+    var additionalFeeFrom = $('.additional_fee_from').val();
+  });
 
-// $(function(home) {
-// $("#reservation_new").on("input", function() {
-
-//     //滞在期間 -①
-//     var checkin_date = $('.checkin_date_input').val();
-//     var checkout_date = $('.checkout_date_input').val();
-//     var duration_of_stay = checkout_date - checkin_date;
-
-//     //宿泊料金(1日) -②
-//     var accomodation_fee = ${home.price.accomodation_fee};
-//     var number_of_guests = $('.number_of_guests_input').val();
-//     var fee_for_additional_people = ${home.price.additional_fee_per_person} * number_of_guests;
-
-//     //小計 ①+②
-//     var sub_total = (accomodation_fee + fee_for_additional_people) * duration_of_stay;
-
-//     //その他料金
-//     var cleaning_fee = $('.cleaning_fee_date_input').val();
-//     var service_fee = $('.service_fee_input').val();
-
-//     //合計
-//     var total_price = sub_total + cleaning_fee + service_fee
-
-
-//     $('.reservation_new__body--hidden').css({
-//       'display':'block'
-//     });
-
-//     $('.accomodation_fee_per_night').val(accomodation_fee);
-//     $('.total_price_input').val(total_price);
-
-//   })
-// });
-
-//
-// ①railsのコントローラの値を代入（変数展開があっているか）→合ってる
-// ②隠してある値を出す。→だす
-// ③正しい合計をformから送れるようにする
+});//一番上のfunction閉じ

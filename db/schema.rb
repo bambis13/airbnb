@@ -294,8 +294,9 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cleaning_fee", null: false
-    t.integer "deposit", null: false
+    t.integer "service_fee", null: false
     t.integer "additional_fee_per_person", null: false
+    t.integer "additional_fee_from", null: false
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 

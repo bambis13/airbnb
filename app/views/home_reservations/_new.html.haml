@@ -25,67 +25,72 @@
           .select-capacity.clearfix
             .select-capacity__adults.select-capacity__item.clearfix
               .human-attributes
-                %p.adult 大人
+                %p 大人
               .counting-box.clearfix.right
-                .counting-down.count-down-adult
-                  %button -
+                .counting-down
+                  %button.count-down-adult{disabled: true} -
                 .number
-                  %p.number-of-adult 1
+                  %input.number-of-adult{name: "number-of-adult-sa", type: "hidden", value: 1, class: "number-of-adult"}
+                  %p.number-of-adult-html 1
                 .counting-up
                   %button.count-up-adult +
             .select-capacity__children.select-capacity__item.clearfix
               .human-attributes
                 %p 子ども
-                %h5 年齢2 - 12
+                %p 年齢2 - 12
               .counting-box.clearfix.right
-                .counting-down.count-down-children
-                  %button -
+                .counting-down
+                  %button.count-down-children{disabled: true} -
                 .number
-                  %p.number-of-children 0
-                .counting-up.count-up-children
-                  %button +
+                  %input.number-of-children{name: "number-of-children-sa", type: "hidden", value: 0, class: "number-of-children"}
+                  %p.number-of-children-html 0
+                .counting-up
+                  %button.count-up-children +
             .select-capacity__babies.select-capacity__item.clearfix
               .human-attributes
                 %p 乳幼児
-                %h5 2歳未満
+                %p 2歳未満
               .counting-box.clearfix.right
-                .counting-down.count-down-babies
-                  %button -
+                .counting-down
+                  %button.count-down-babies{disabled: true} -
                 .number
-                  %p.number-of-babies 0
-                .counting-up.count-up-babies
-                  %button +
+                  %input.number-of-babies{name: "number-of-babies-sa",  value: 0, type: "hidden", class: "number-of-babies"}
+                  %p.number-of-babies-html 0
+                .counting-up
+                  %button.count-up-babies +
             .notification-box
-              %h4 最大2名まで宿泊可能。乳幼児は人数にカウントされません。
+              %h4 最大#{home.capacity}名まで宿泊可能。乳幼児は人数にカウントされません。
             .action-box
               %button.close-button.bold 閉じる
-    /     .number_of_guests
-    /       %h2 ゲスト1人
-    /     .number_of_adults
-    /       = f.number_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
-    /     .number_of_kids
-    /       = f.number_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
-    /     .number_of_babies
-    /       = f.number_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
-    / .reservation_new__body--hidden
-    /   = f.hidden_field :default_fee, value: home.price.default_price, required: true, class: "default_fee_input"
-    /   = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, class: "cleaning_fee_date_input"
-    /   = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
-    /   = f.hidden_field :service_fee, value: home.price.deposit, required: true, class: "service_fee_input"
-    /   = f.text_field :total_fee, required: true, class: "total_price_input"
+        .number_of_guests
+          / %h2 ゲスト1人
+        .number_of_adults
+          = f.hidden_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
+        .number_of_kids
+          = f.hidden_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
+        .number_of_babies
+          = f.hidden_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
+    .reservation_new__body--hidden
+      %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
+      %input{name: "additional_fee_from", type: "hidden", value: "#{home.price.additional_fee_from}"}/
+      = f.hidden_field :default_fee, value: home.price.default_price, required: true, name: "default_fee"
+      = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, name: "additional_guests_fee"
+      = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, name: "cleaning_fee"
+      = f.hidden_field :service_fee, value: home.price.service_fee, required: true, name: "service_fee"
+      = f.hidden_field :total_fee, value: 9999,required: true, name: "total_price_input"
     .reservation_new__result
       .reservation_new__result__default.clearfix
         %span.left ¥ #{home.price.default_price} × 1泊
         %span.right ¥ #{home.price.default_price}
       .reservation_new__result__cleaning.clearfix
         %span.left 清掃料金？
-        %span.right ¥ 3,984
+        %span.right ¥ #{home.price.cleaning_fee}
       .reservation_new__result__service.clearfix
         %span.left サービス料？
-        %span.right ¥ 2,877
+        %span.right ¥ #{home.price.service_fee}
       .reservation_new__result__total.clearfix
         %span.left.bold 合計
-        %span.right.bold ¥ 21,689
+        %span.right.bold ¥ 9,999
       .reservation_new__submit
         = f.submit "予約をリクエスト", id: "button", class: "submit_btn"
         %p まだ請求は発生しません
