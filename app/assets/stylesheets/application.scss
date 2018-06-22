@@ -146,6 +146,10 @@ button{
   color: $fontTxt;
 }
 
+input[type="text"]:focus {
+  outline: 0;
+}
+
 a{
   text-decoration: none;
   color: $fontBlack;

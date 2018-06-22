@@ -42,6 +42,9 @@ h3{
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   border: solid 1px #DFDFDF;
+  h3{
+    padding:8px 5px;
+  }
   .btn-text{
     height: 72px;
     width: calc( 290px - 96px);
@@ -84,7 +87,7 @@ h3{
     background-size:cover;
     border-radius: 10px;
     margin-top: 10px;
-    padding: 50px 0 0 38px;
+    padding: 30px 0 20px 38px;
     p{
       font-size: 18px;
       color: $fontBlack;
