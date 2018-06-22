@@ -1,17 +1,25 @@
 .container
+
+  //隠れヘッダー
   .clearfix#header_show
     .navibar
       %ul.navibar__list
         %li
-          %a{:href => "#overview", :class=>"scroll"} 概要
+          %a{href: "#overview", class: "scroll"} 概要
         %li
-          %a{:href => "#review", :class=>"scroll"} レビュー
+          %a{href: "#review", class: "scroll"} レビュー
         %li
-          %a{:href => "#host-introduction", :class=>"scroll"} ホストについて
+          %a{href: "#host-introduction", class: "scroll"} ホストについて
         %li
-          %a{:href => "#address", :class=>"scroll"} ロケーション
+          %a{href: "#address", class: "scroll"} ロケーション
+
+  //トップ画像
   .heading-img
     = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
+    =@homes
+    = @a
+
+  //モーダル
   .photo-modal-wrapper
     .close-modal
       .fa.fa-times
@@ -38,22 +46,23 @@
             = "#{@home.prefecture}"
           %ul.clearfix
             %li
-              %img{:src => "https://png.icons8.com/ios/50/000000/conference-call-filled.png"}/
+              %img{src: "https://png.icons8.com/ios/50/000000/conference-call-filled.png"}/
               %p
                 = "ゲスト#{@home.capacity}人"
             %li
-              %img{:src => "https://png.icons8.com/wired/50/000000/door-opened.png"}/
+              %img{src: "https://png.icons8.com/wired/50/000000/door-opened.png"}/
               %p
                 = "#{@home.number_of_bedroom}寝室"
             %li
-              %img{:src => "https://png.icons8.com/wired/50/000000/sleeping-in-bed.png"}/
+              %img{src: "https://png.icons8.com/wired/50/000000/sleeping-in-bed.png"}/
               %p
                 = "ベッド#{@home.number_of_beds}台"
             %li
-              %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
+              %img{src: "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
               %p
                 = "#{@home.number_of_bathroom}専用バスルーム"
 
+        //概要
         .home-overview__highlight
           .home-overview__highlight__top-item
             %span.subtitle
@@ -67,7 +76,7 @@
             .thumb-up
               %p.fontsize-12px.left
                 役に立った　
-              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+              %img.left{src: "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
             .thumb-down
               %p.fontsize-12px
                 役に立たなかった
@@ -77,7 +86,7 @@
               .thumb-up
               %p.fontsize-12px.left
                 役に立った　
-              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+              %img.left{src: "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
             .thumb-down
               %p.fontsize-12px
                 役に立たなかった
@@ -87,7 +96,7 @@
               .thumb-up
               %p.fontsize-12px.left
                 役に立った　
-              %img.left{:src => "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
+              %img.left{src: "https://png.icons8.com/wired/50/000000/facebook-like.png"}/
             .thumb-down
               %p.fontsize-12px
                 役に立たなかった
@@ -97,37 +106,42 @@
           ホストに連絡
 
         .home-overview__detail
+          //スペース
           .home-overview__detail__item
             %h4.subtitle.clearfix スペース
             .readmore-item-space
-              %p A wonderful suspended nest, an amazing panoramic view on the hills, among the fragrances of the linden trees and other aromatic herbs. A garden with solarium and a swimming pool (seasonal opening) surrounded by blooming peaceful nature.The g arden measures 18,000 square meters with awe-inspiring trees such as majestic cedars of Lebanon and magnolias, pagodas, hollies and tamarisks.You can find Nature walks, cycle routes, wine tours and cultural paths.The Monferrato is, with its deep-rooted enological traditions, an area in which you can find the top quality wines such as Barbera, Freisa, Grignolino and Cortese; it is possible to visit the wine cellars of high-qualified productors.In the mansion, you can have access as well to the wine cellar carved in tuff of the late XIXth century, with the typical "infernot", barrels and an ancient press to produce wine.(URL HIDDEN) Free wifi around the swimming pool(URL HIDDEN) Shabby chic decor.(URL HIDDEN) Private bathroom with sink, toilet and shower(URL HIDDEN) Private parking.(URL HIDDEN) Very close to Casale Monferrato, Alessandria (5 minutes by car)(URL HIDDEN) Not far from Alba, Barolo and Asti.(URL HIDDEN) 1 hour driving to Turin, Milan and Genoa(URL HIDDEN)Nearby, it is possible to find taverns and cottages where you can taste the typical specialties of the territory.
+              %p
+                = @space.text
+
+          //アメニティ
           .home-overview__detail__item.clearfix
             %h4.subtitle
               アメニティ・設備
             .amenity-contents.clearfix
               .home-overview__detail__amenities__left.clearfix
                 .amenity_item
-                  %img{:src => "https://png.icons8.com/android/50/000000/wifi.png"}/
+                  %img{src: "https://png.icons8.com/android/50/000000/wifi.png"}/
                   %h5 Wi-Fi
                 .item-icon.amenity-icon.amenity_item
-                  %img{:src => "https://png.icons8.com/wired/50/000000/garage.png"}/
+                  %img{src: "https://png.icons8.com/wired/50/000000/garage.png"}/
                   %h5 駐車場
                 .item-icon.amenity-icon.amenity_item
-                  %img{:src => "https://png.icons8.com/wired/50/000000/hair-dryer.png"}/
+                  %img{src: "https://png.icons8.com/wired/50/000000/hair-dryer.png"}/
                   %h5 ヘアドライヤー
               .home-overview__detail__amenities__right.clearfix
                 .item-icon.amenity-icon.amenity_item
-                  %img{:src => "https://png.icons8.com/wired/50/000000/shampoo-dispenser.png"}/
+                  %img{src: "https://png.icons8.com/wired/50/000000/shampoo-dispenser.png"}/
                   %h5 シャンプー
                 .item-icon.amenity-icon.amenity_item
-                  %img{:src => "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
+                  %img{src: "https://png.icons8.com/wired/50/000000/shower-and-tub.png"}/
                   %h5 シャワー
                 .item-icon.amenity-icon.amenity_item.clearfix
-                  %img{:src => "https://png.icons8.com/wired/50/000000/toaster.png"}/
+                  %img{src: "https://png.icons8.com/wired/50/000000/toaster.png"}/
                   %h5 朝食
             %p.additional-info.left
               20項目全てを表示
 
+          //ベッド
           .home-overview__detail__item.detail_bed.clearfix
             %h4.subtitle ベッドのタイプ
             .beds-list
@@ -135,13 +149,13 @@
                 .bed-item
                   .item-icon.bed-icon
                     - if bed.single_bed?
-                      %img.left{:src => "https://png.icons8.com/wired/50/000000/single-bed.png"}/
+                      %img.left{src: "https://png.icons8.com/wired/50/000000/single-bed.png"}/
                     - if bed.double_bed?
-                      %img.left.padding-top-2px{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
+                      %img.left.padding-top-2px{src: "https://png.icons8.com/wired/50/000000/bed.png"}/
                     - if bed.queen_bed?
-                      %img.left.padding-top-2px{:src => "https://png.icons8.com/wired/50/000000/bed.png"}/
+                      %img.left.padding-top-2px{src: "https://png.icons8.com/wired/50/000000/bed.png"}/
                     - if bed.sofa_bed?
-                      %img.left{:src => "https://png.icons8.com/wired/50/000000/sofa.png"}/
+                      %img.left{src: "https://png.icons8.com/wired/50/000000/sofa.png"}/
                   %p.bold
                     = "寝室#{i}"
                   %p
@@ -152,6 +166,7 @@
                     = "クイーンベッド #{bed.queen_bed}台"  if bed.queen_bed?
                   %p
                     = "ソファベッド #{bed.sofa_bed}台"   if bed.sofa_bed?
+          //ハウスルール
           .home-overview__detail__item
             %h4.subtitle ハウスルール
             .readmore-item-house-rule
@@ -236,7 +251,6 @@
                     %span.listing-star ★★★★★
           .japanese-translation
             %h4 日本語にレビューを翻訳する
-
           .home-reviews__index
             - 2.times do
               .home-reviews__box
@@ -247,13 +261,14 @@
                       %span.name.fontsize-12px 吉岡里帆
                       %p.fontsize-12px 2018年 5月
                   .home-reviews__box__top__right.clearfix
-                    %img{:src => "https://png.icons8.com/wired/50/000000/foul.png"}/
+                    %img{src: "https://png.icons8.com/wired/50/000000/foul.png"}/
                 .home-reviews__box__content
                   %p Beautifully located tree house in the Monferrato countryside. Even though probably every day a different guest comes by, Mauro's approach to the guests is remarkably personal and genuine, showing great passion for the tree house both in words and fact, keeping it in a great condi
 
-
+          //ページネーション
           .pagination
 
+          //ホスト紹介
           .host-introduction#host-introduction
             .host-introduction__heading.clearfix
               .host-info.clearfix
@@ -266,16 +281,16 @@
                   = image_tag("host1.png", class: "host-pic")
               .host-introduction__heading__subinfo.clearfix
                 .number-of-reivews.left.clearfix
-                  %img.left{:src => "https://png.icons8.com/wired/50/000000/add-to-favorites.png"}/
+                  %img.left{src: "https://png.icons8.com/wired/50/000000/add-to-favorites.png"}/
 
                   %p.left レビュー500件
                 .certification.left.clearfix
-                  %img.left{:src => "https://png.icons8.com/wired/50/000000/diploma.png"}/
+                  %img.left{src: "https://png.icons8.com/wired/50/000000/diploma.png"}/
                   %p.left 認証済み
             // 該当部分
             - if @host.superhost == "super"
               .host-introduction__title
-                %span.bold
+                %span.bold.gray
                   = "#{@host.name}さんはスーパーホストです"
                   %p
                     スーパーホストとは素敵な滞在で高い評価を得ている経験豊富なホストに与えられる称号です。
@@ -300,6 +315,7 @@
               %p  お支払をお守りするためにも、Airbnbのサイトやアプリ以外の場所では決して送金や連絡を行わないようご注意ください。
               %p.additional-info
                 もっと詳しく
+          // 地図
           .area-info#address
             .area-info__heading.readmore-item-map
               %h3.title.align-left エリア
@@ -332,12 +348,11 @@
                         infowindow.open(map, marker);
                     });
                 }
-              %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key=&callback=initMap"}
-              #map.left
-
-
-
+              %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDZ8IUMjQ1_F-an8wbcBirQ2WOpdaKP7-w&callback=initMap"}
+              #map.left.position-static
             %p 地図は正確な所在地を示しています。
+
+          //類似のリスティング
           .similar-category
             %h3.title 類似のリスティング
             .similar-category__carsel.clearfix.listing-slick-2

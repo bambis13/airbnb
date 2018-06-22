@@ -73,9 +73,16 @@ gem 'carrierwave'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'turbolinks'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'ransack'
 gem 'devise'
 gem 'faker'
 gem "gmaps4rails"
 gem "geocoder"
 gem "coffee-rails"
+<<<<<<< HEAD
+=======
+gem "pycall"
+gem "pandas"
+gem "numpy"
+>>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1

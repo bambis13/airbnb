@@ -170,6 +170,7 @@ h3{
     min-width: 200px;
     color: $fontBlack;
     padding: 8px 8px 12px 8px;
+    z-index: 0;
     span{
       font-size: 12px;
     }
@@ -211,6 +212,7 @@ h3{
     width: $x-width;
     padding: 8px 8px 12px 8px;
     min-width: 200px;
+    z-index: 0;
     &__text{
       padding-top: 5px;
     }
@@ -228,6 +230,7 @@ h3{
     width: calc(50vw - 100px);
     padding: 8px 8px 12px 8px;
     min-width: 250px;
+    z-index: 0;
   }
   .trip-with-airbnb{
     padding: 40px 10px;
@@ -237,7 +240,7 @@ h3{
       width: 50px;
       object-fit: contain;
       float: left;
-      padding: 0 0 10px 5px; 
+      padding: 0 0 10px 5px;
     }
     &__text{
       clear: both;
