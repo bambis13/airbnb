@@ -11,17 +11,18 @@
         %li
           %a{:href => "#address", :class=>"scroll"} ロケーション
   .heading-img
-    = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
+    / - binding.pry
+    = image_tag(@listing_photos[0].image, class: "header-img", id: "show-modal")
   .photo-modal-wrapper
     .close-modal
       .fa.fa-times
     .listing-slick-3.modal.clearfix
-      - @photos.each do |photo|
+      - @listing_photos.each do |photo|
         .inmodal-img.slick-sub
           %a{href: "#"}
-            = image_tag(photo.image_url, class: "modal-photo")
+            = image_tag(photo.image, class: "modal-photo")
     %ul.thumnail-list.clearfix
-      - @photos.each do |photo|
+      - @listing_photos.each do |photo|
         %li.thumnail-item
           = image_tag(photo.image, class: "modal-thumbnail")
   .container-main
