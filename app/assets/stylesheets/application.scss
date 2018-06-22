@@ -12,13 +12,9 @@
 @import "font-awesome";
 @import './slick-theme';
 @import './slick';
-<<<<<<< HEAD
 @import './home_reservations';
 @import './tmp';
-=======
 @import './area_header';
-
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
 /*-- Settings ---------------------------------- */
 
 .clearfix:after {
@@ -97,7 +93,6 @@
   color: $fontTxt;
 }
 
-<<<<<<< HEAD
 button{
   cursor: pointer !important;
   &:focus{
@@ -105,10 +100,7 @@ button{
   }
 }
 
-.subtitle, .name{
-=======
 .subtitle, .name {
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
   font-size: 16px;
   font-weight: 600 !important;
   height: 22px;
@@ -138,7 +130,6 @@ button{
   margin-top: 15px;
 }
 
-<<<<<<< HEAD
 .review-star{
   font-size: 12px;
   color: $viridian;
@@ -146,14 +137,13 @@ button{
 
 .hidden{
   visibility: hidden;
-=======
+}
 .hide {
   display: none !important;
 }
 
 .gray {
   color: $fontTxt;
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
 }
 
 a{

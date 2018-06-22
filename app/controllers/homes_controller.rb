@@ -46,11 +46,8 @@ class HomesController < ApplicationController
     @host      = @home.user
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
-<<<<<<< HEAD
     @home_reservation = HomeReservation.new
-=======
     @space     = AvailableSpace.find_by(home_id: params[:id])
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
   end
 
   def new

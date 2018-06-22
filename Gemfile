@@ -80,9 +80,7 @@ gem 'faker'
 gem "gmaps4rails"
 gem "geocoder"
 gem "coffee-rails"
-<<<<<<< HEAD
-=======
-gem "pycall"
-gem "pandas"
-gem "numpy"
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
+# gem "pycall"
+# gem "pandas"
+# gem "numpy"
+

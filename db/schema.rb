@@ -143,6 +143,8 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "home_id", null: false
+    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -186,15 +188,8 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.index ["home_id"], name: "index_home_reservations_on_home_id"
     t.index ["user_id"], name: "index_home_reservations_on_user_id"
-=======
-    t.integer "accomodation_fee", null: false
-    t.integer "clieaning_fee", null: false
-    t.integer "sevice_fee", null: false
-    t.integer "total_price", null: false
->>>>>>> be24c80b1da226a13e65be4a4f9d251a07cf2bd1
   end
 
   create_table "home_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -241,10 +236,8 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "home_category_sub_id"
     t.bigint "country_id"
     t.bigint "room_type_id"
-    t.bigint "currency_id"
     t.bigint "user_id"
     t.index ["country_id"], name: "index_homes_on_country_id"
-    t.index ["currency_id"], name: "index_homes_on_currency_id"
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
@@ -366,7 +359,6 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
   add_foreign_key "homes", "countries"
-  add_foreign_key "homes", "currencies"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
   add_foreign_key "homes", "users"
