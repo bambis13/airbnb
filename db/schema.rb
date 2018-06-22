@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "text"
     t.index ["home_id"], name: "index_available_spaces_on_home_id"
   end
 
@@ -175,11 +176,18 @@ ActiveRecord::Schema.define(version: 20180614065927) do
   create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "checkin_date", null: false
     t.datetime "checkout_date", null: false
-    t.integer "number_of_guests", null: false
+    t.integer "number_of_adults", default: 1, null: false
+    t.integer "number_of_kids", default: 0, null: false
+    t.integer "number_of_babies", default: 0, null: false
+    t.integer "additional_guests_fee", null: false
+    t.bigint "user_id", null: false
+    t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "accomodation_fee", null: false
     t.integer "total_price", null: false
+    t.index ["home_id"], name: "index_home_reservations_on_home_id"
+    t.index ["user_id"], name: "index_home_reservations_on_user_id"
   end
 
   create_table "home_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -284,9 +292,9 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cleaning_fee", null: false
-    t.integer "deposit", null: false
+    t.integer "service_fee", null: false
     t.integer "additional_fee_per_person", null: false
+    t.integer "additional_fee_from", null: false
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 
