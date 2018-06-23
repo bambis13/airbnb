@@ -58,6 +58,7 @@ class HomesController < ApplicationController
     @home.build_home_rule
     @home.build_home_notification
     @home.listing_photos.build
+    @home.build_cancel_policy
 
     @countries = Country.all
     @sub_categories = HomeCategorySub.all
@@ -73,7 +74,9 @@ class HomesController < ApplicationController
   # POST /homes
   # POST /homes.json
   def create
+
     @home = Home.new(home_params)
+    binding.pry
     respond_to do |format|
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
@@ -224,7 +227,10 @@ private
         :animal_detail],
       listing_photos_attributes: [
         :image,
-        :user_id]
+        :user_id],
+      cancel_policy_attributes: [
+        :strict_level,
+        :text]
     )
   end
 

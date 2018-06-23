@@ -32,6 +32,7 @@ class Home < ApplicationRecord
   accepts_nested_attributes_for :home_rule, allow_destroy: true
   accepts_nested_attributes_for :home_notification, allow_destroy: true
   accepts_nested_attributes_for :listing_photos, allow_destroy: true
+  accepts_nested_attributes_for :cancel_policy, allow_destroy: true
 
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
@@ -40,6 +41,12 @@ class Home < ApplicationRecord
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
   end
+
+  # geocoded_by :address, latitude: :location_x, longitude: :location_y
+  # before_validation :concat_address
+  # def concat_address
+  # address=[prefecture,town,street].join('')
+  # end
 
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }

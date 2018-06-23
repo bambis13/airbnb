@@ -9,10 +9,6 @@
           %li= message
   .actions
     = f.hidden_field :user_id, value: 1
-    = f.hidden_field :currency_id, value: 1
-
-
-    / = f.select :capacity, [["最大定員：1名”, "データベースに登録する値”], ["表示する文字”, "データベースに登録する値”]]
     %h4 capacity（定員）
     = f.number_field :capacity
     %h4 num-of-bedroom（部屋数）
@@ -21,7 +17,7 @@
     = f.number_field :number_of_bathroom
     %h4 ベッド数
     = f.number_field :number_of_beds
-    %h4 postal（ゆう人番号）
+    %h4 postal（郵便番号）
     = f.text_field :postalcode
     %h4 prefecture（県）
     = f.text_field :prefecture
@@ -236,9 +232,18 @@
       %h5 animal-detail
       = home_notification.text_field :animal_detail
 
+    %h3  キャンセルポリシー
+    = f.fields_for :cancel_policy do |c|
+      %h5 厳しさ
+      = c.select :strict_level, CancelPolicy.strict_levels.keys
+      %h5 内容
+      = c.text_field :text
+
     %h3 listing_photos
     = f.fields_for :listing_photos do |photo|
       %h5 img
-      = photo.hidden_field :user_id, value: 1
-      = photo.file_field :image
+      - 3.times do |i|
+        = photo.hidden_field :user_id, value: 1
+        = photo.file_field :image
+
   = f.submit
