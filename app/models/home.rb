@@ -1,4 +1,7 @@
 class Home < ApplicationRecord
+  require 'open-uri'
+  require 'json'
+  require 'webrick/httputils'
 
   enum status: { visitor: 0, host: 1 }
   has_many                  :additional_home_rules
@@ -33,8 +36,16 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
-  def home_rules_children(params)
-    HomeRule.where("accept_children> ?", paramas)
+  def recommend(name)
+    # begin
+      url = ""
+      url = URI.parse("http://127.0.0.1:5000/#{name}")
+      buffer = open(url).read
+      result = JSON.parse(buffer)
+      return result
+    # rescue URI::InvalidURIError
+    #   "おすすめが出てきません。。。"
+    # end
   end
 
   default_scope { limit(5) }

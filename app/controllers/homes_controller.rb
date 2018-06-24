@@ -47,6 +47,7 @@ class HomesController < ApplicationController
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
     @space     = AvailableSpace.find_by(home_id: params[:id])
+    @homes     = @home.recommend(@home.name)
   end
 
   def new
