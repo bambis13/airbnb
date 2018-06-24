@@ -69,12 +69,10 @@ $slick-opacity-not-active: 0.25 !default;
     width: 30px;
     line-height: 0px;
     font-size: 0px;
-    cursor: pointer;
-
-    background: black; 
-
-    background: rgba(255,255,255,$slick-opacity-default);
-
+    z-index: $slick-arrows !important;
+    cursor: pointer; 
+    opacity: $slick-opacity-default;
+    background: $white;
     border-radius: 100%;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border: solid 1px #DFDFDF;
@@ -89,8 +87,7 @@ $slick-opacity-not-active: 0.25 !default;
     outline: none;
     &:hover, &:focus {
         outline: none;
-        background: transparent;
-        color: transparent;
+        background: $slick-opacity-on-hover;
         &:before {
             opacity: $slick-opacity-on-hover;
         }
@@ -99,7 +96,6 @@ $slick-opacity-not-active: 0.25 !default;
         opacity: $slick-opacity-not-active;
     }
     &:before {
-        // font-family: $slick-font-family;
         font-size: 20px;
         line-height: 1;
         color: $slick-arrow-color;
@@ -195,6 +191,7 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0;
     margin: 0;
     width: 100%;
+    z-index: $slick-dots;
     li {
         position: relative;
         display: inline-block;

@@ -21,8 +21,7 @@ Rails.application.routes.draw               do
   get 'home/s', to: 'homes#homes'
   get 'search', to: 'homes#search'
   resources :home_reservations, only: [:new, :create, :edit, :update]
+  get '/calc',        to: 'home_reservations#calc_total_fee'
   get '/search',      to: 'homes#search'
   get '/:prefecture', to: 'homes#area_specific'
 end
-
-

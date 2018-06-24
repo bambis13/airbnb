@@ -11,11 +11,11 @@
       %h5 日付
       %table.form-type-btn.form-type-btn__visible
         %th
-          = f.text_field :checkin_date, class: 'reservation-checkin',placeholder: "チェックイン"
+          = f.text_field :checkin_date, class: 'reservation-checkin calc-listner',placeholder: "チェックイン"
         %th
           %i.fa.fa-arrow-right.fa-lg
         %th
-          = f.text_field :checkout_date, class: 'reservation-checkout',placeholder: "チェックアウト"
+          = f.text_field :checkout_date, class: 'reservation-checkout calc-listner',placeholder: "チェックアウト"
       .number_of_guests
         %h5 人数
         .form-type-btn.form-type-btn__visible#guests-num-btn
@@ -76,11 +76,12 @@
       %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
       %input{name: "additional_fee_from", type: "hidden", value: "#{home.price.additional_fee_from}"}/
       = f.hidden_field :default_fee, value: home.price.default_price, required: true, name: "default_fee"
-      = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, name: "additional_guests_fee"
+      = f.hidden_field :additional_fee_per_person, value: home.price.additional_fee_per_person, required: true, name: "additional_guests_fee"
       = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, name: "cleaning_fee"
       = f.hidden_field :service_fee, value: home.price.service_fee, required: true, name: "service_fee"
+      = f.hidden_field :additional_fee_from, value: home.price.additional_fee_from, required: true, name: "cleaning_fee"
       = f.hidden_field :total_fee, value: 9999,required: true, name: "total_price_input"
-    .reservation_new__result
+    .reservation_new__result.removed
       .reservation_new__result__default.clearfix
         %span.left ¥ #{home.price.default_price} × 1泊
         %i.fa.fa-question-circle-o.bill-statement
@@ -102,9 +103,9 @@
       .reservation_new__result__total.clearfix
         %span.left.bold 合計
         %span.right.bold ¥ 9,999
-      .reservation_new__submit
-        = f.submit "予約をリクエスト", id: "button", class: "submit_btn"
-        %p まだ請求は発生しません
+    .reservation_new__submit
+      = f.submit "料金を計算", id: "button", class: "submit_btn"
+      %p まだ請求は発生しません
     .reservation_new__message
       %h1.bold お得
       %p この立地、星評価、アメニティ・設備でこの料金設定はお得感あり
