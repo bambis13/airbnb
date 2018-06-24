@@ -1,4 +1,4 @@
-$(function(){
+$(window).load(function (){
   //人数選択フィールド出現
   $('#guests-num-btn').click(function(){
     $('#rotate').removeClass('fa-angle-down');
@@ -8,11 +8,12 @@ $(function(){
   //フィールド閉じる
   $('.close-button').on('click',function(e){
     e.preventDefault();
+    calc_prices();
     $('#rotate').removeClass('fa-angle-up');
     $('#rotate').addClass('fa-angle-down');
     $('#select-guests-num').css('visibility','hidden');
   });
-  
+
     //大人
     $(".count-up-adult").click(function(e) {
       e.preventDefault();
@@ -158,63 +159,45 @@ $(function(){
   //     }
   //   });
   // });
-
+  function calc_prices(){
+    var checkin = Date.parse($('.reservation-checkin').val());
+    var checkout = Date.parse($('.reservation-checkout').val());
+    var days = (checkout - checkin)/1000/60/60/24;
+    var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+    var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+    var guestsSum = countAdult + countChildren
+    if (days > 0) {
+      var homeId = parseInt(location.pathname.split('/')[2]);
+      $.ajax({
+        type: 'GET',
+        url: '/calc',
+        data: { days: days, guests_sum: guestsSum, id: homeId},
+        dataType: 'json'
+      })
+      .done(function(data) {
+        var variable_price = data.per_day*days
+        $('#default_price').text('¥ '+data.per_day);
+        $('#total_price').text("¥ "+data.total);
+        $('.per_day').text("¥ "+data.per_day);
+        $('.stay_day').text("¥ "+data.per_day+" × "+days+"泊");
+        $('.variable_price').text("¥ "+variable_price);
+        $('.reservation_new__result').removeClass('removed');
+        $('#rotate').removeClass('fa-angle-up');
+        $('#rotate').addClass('fa-angle-down');
+        $('#select-guests-num').css('visibility','hidden');
+      })
+      .fail(function() {
+        alert('料金計算に失敗しました');
+      })
+    }
+    else {
+      return false
+    }
+    return false
+  }
   // //料金計算
-    $('.calc-listner').change(function(){
-      var checkin = Date.parse($('.reservation-checkin').val());
-      var checkout = Date.parse($('.reservation-checkout').val());
-      var days = (checkout - checkin)/1000/60/60/24;
-      var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
-      var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
-      var guestsSum = countAdult + countChildren
-      if (days > 0) {
-        console.log(days +"泊");
-        var homeId = parseInt(location.pathname.split('/')[2]);
-        console.log("home_id:"+homeId);
-        $.ajax({
-          type: 'GET',
-          url: '/calc',
-          data: { days: days, guests_sum: guestsSum, id: homeId},
-          dataType: 'json'
-        })
-        .done(function(total, add) {
-          alert("OK!");
-          console.log(total);
-          console.log(add);
-          // if (users.length !== 0) {
-          //   insertHTML = '';
-          //   users.forEach(function(user){
-          //     insertHTML += BuildUserHTML(user);
-          //   });
-          // }
-        })
-        .fail(function() {
-          alert('料金計算に失敗しました');
-        })
-      }
-      else {
-        return false
-      }
-    // var defaultFee = parseInt($('input:hidden[name="default_fee"]').val());
-    // var additionalFee = parseInt($('input:hidden[name="additional_guests_fee"]').val());
-    // var cleaningFee = parseInt($('input:hidden[name="cleaning_fee"]').val());
-    // var serviceFee = parseInt($('input:hidden[name="service_fee"]').val());
-    // var totalFee = (defaultFee * days)+ cleaningFee + serviceFee;
-    // console.log("合計"+totalFee);
-    // var maxGuestsNum  = parseInt($('input:hidden[name="max_guests_num"]').val());
-    // var additionalFeeFrom = parseInt($('.additional_fee_from').val());
-    // console.log("合計人数"+guestsSum);
-    // console.log("追加"+additionalFeeFrom+"人〜");
-    // if(guestsSum > additionalFeeFrom){
-    //   additionalFeeNum = guestsSum - additionalFeeFrom;
-    //   console.log("追加人数"+additionalFeeFrom);
-    //   totalFee = totalFee + (additionalFeeNum * additionalFee);
-    //   $('input:hidden[name="total_fee"]').val(totalFee);
-    //   p = parseInt($('input:hidden[name="total_fee"]').val());
-    // }else{
-
-    // }
-
+  $('.calc-listner').change(function(){
+    calc_prices();
   });
 
 });//一番上のfunction閉じ

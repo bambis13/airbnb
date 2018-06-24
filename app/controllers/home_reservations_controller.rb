@@ -17,15 +17,19 @@ class HomeReservationsController < ApplicationController
   end
 
   def calc_total_fee
-    @total_price = (@home.price.default_price * params[:days].to_i) + @home.price.cleaning_fee + @home.price.service_fee
-    additional_num = params[:guests_sum].to_i - @home.price.additional_fee_from
-    if additional_num > 0
-      @additional_price = additional_num * @home.price.additional_fee_per_person
+    stay_days = params[:days].to_i
+    per_day = @home.price.default_price
+    fixed_price = @home.price.cleaning_fee + @home.price.service_fee
+    total_price = (per_day*stay_days) + fixed_price
+    add_num = params[:guests_sum].to_i - @home.price.additional_fee_from
+    if add_num > 0
+      per_day += (add_num * @home.price.additional_fee_per_person)
+      total_price = (per_day*stay_days) + fixed_price
     else
-      @additional_price = 0
+      add_num = 0
     end
     respond_to do |format|
-      format.json{ render json: {total: @total_price, add: @additional_price }}
+      format.json{ render json: {total: total_price, per_day: per_day}}
     end
   end
 

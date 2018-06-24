@@ -2,7 +2,7 @@
   = form_for home_reservation do |f|
     .reservation_new__heading
       .default_fee
-        %h1.bold ¥ #{home.price.default_price}
+        %h1.bold.per_day ¥ #{home.price.default_price}
         %p / 1泊
       .review
         %span.review-star ★★★★★
@@ -74,18 +74,12 @@
           = f.hidden_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
     .reservation_new__body--hidden
       %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
-      %input{name: "additional_fee_from", type: "hidden", value: "#{home.price.additional_fee_from}"}/
-      = f.hidden_field :default_fee, value: home.price.default_price, required: true, name: "default_fee"
-      = f.hidden_field :additional_fee_per_person, value: home.price.additional_fee_per_person, required: true, name: "additional_guests_fee"
-      = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, name: "cleaning_fee"
-      = f.hidden_field :service_fee, value: home.price.service_fee, required: true, name: "service_fee"
-      = f.hidden_field :additional_fee_from, value: home.price.additional_fee_from, required: true, name: "cleaning_fee"
       = f.hidden_field :total_fee, value: 9999,required: true, name: "total_price_input"
     .reservation_new__result.removed
       .reservation_new__result__default.clearfix
-        %span.left ¥ #{home.price.default_price} × 1泊
+        %span.left.stay_day
         %i.fa.fa-question-circle-o.bill-statement
-        %span.right ¥ #{home.price.default_price}
+        %span.right.variable_price
       .reservation_new__result__cleaning.clearfix
         %span.left 清掃料金
         %i.fa.fa-question-circle-o
@@ -102,11 +96,12 @@
           %h2.close-btn-annotation ×
       .reservation_new__result__total.clearfix
         %span.left.bold 合計
-        %span.right.bold ¥ 9,999
+        %span.right.bold#total_price
     .reservation_new__submit
-      = f.submit "料金を計算", id: "button", class: "submit_btn"
+      = f.submit "予約をリクエスト", id: "button", class: "submit_btn"
       %p まだ請求は発生しません
     .reservation_new__message
       %h1.bold お得
       %p この立地、星評価、アメニティ・設備でこの料金設定はお得感あり
       = image_tag("trophy.gif")
+  
