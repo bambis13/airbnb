@@ -23,8 +23,6 @@ class Home < ApplicationRecord
   belongs_to                :room_type
   belongs_to                :currency
   belongs_to                :home_category_sub
-  # geocoded_by               :town
-  # after_validation          :geocode
 
   accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
 
@@ -37,15 +35,14 @@ class Home < ApplicationRecord
   end
 
   def recommend(name)
-    # begin
-      url = ""
-      url = URI.parse("http://127.0.0.1:5000/#{name}")
+    begin
+      modified_name = name.gsub(" ", "%20")
+      url = URI.parse("http://127.0.0.1:5000/#{modified_name}")
       buffer = open(url).read
-      result = JSON.parse(buffer)
-      return result
-    # rescue URI::InvalidURIError
-    #   "おすすめが出てきません。。。"
-    # end
+      return buffer
+    rescue URI::InvalidURIError
+      "おすすめが出てきません。。。"
+    end
   end
 
   default_scope { limit(5) }
