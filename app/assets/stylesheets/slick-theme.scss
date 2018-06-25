@@ -27,7 +27,6 @@ $slick-opacity-not-active: 0.25 !default;
     cursor: pointer; 
     opacity: $slick-opacity-default;
     background: $white;
-    // border-radius: 100%;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border: solid 1px #DFDFDF;
     vertical-align: center;
@@ -66,6 +65,7 @@ $slick-opacity-not-active: 0.25 !default;
         right: -25px;
     }
     &:before {
+        font-size: 30px;
         content: $slick-prev-character;
         [dir="rtl"] & {
             content: $slick-next-character;
@@ -80,6 +80,7 @@ $slick-opacity-not-active: 0.25 !default;
         right: auto;
     }
     &:before {
+        font-size: 30px;
         content: $slick-next-character;
         [dir="rtl"] & {
             content: $slick-prev-character;
@@ -87,46 +88,23 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-._1ob6ca33{
+.tag-slick{
     .slick-prev,.slick-next {
-        position: absolute;
-        display: block;
         height: 40px;
         width: 40px;
-        line-height: 0px;
-        font-size: 0px;
-        cursor: pointer;
-        background: $fontBlack; 
+        background: $white; 
+        opacity: 1;
         border-radius: 100%;
         box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
         border: solid 1px #DFDFDF;
         vertical-align: center;
         top: 50%;
-        // margin-right: 20px;
         visibility: visible !important;
-        -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        padding: 0;
-        border: none;
-        outline: none;
-        &:hover, &:focus {
-            outline: none;
-            background: transparent;
-            color: transparent;
-            &:before {
-            }
-        }
-        &.slick-disabled:before {
-        }
         &:before {
-            font-size: 20px;
-            line-height: 1;
-            color: $slick-arrow-color;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        line-height: 15px;
+        color: $viridian;
         }
-}
+    }
 }
 
 /* Dots */

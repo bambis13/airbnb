@@ -33,7 +33,7 @@
 
 //隠れヘッダー
 #header_show{
-  height: 60px;
+  height: 80px;
   width: 100vw;
   min-width: 1100px;
   position: fixed;
@@ -42,8 +42,8 @@
   border-bottom: 1px #aaa solid;
   margin: 0 -80px;
   .navibar{
-    height: 60px;
-    line-height: 60px;
+    height: 80px;
+    line-height: 80px;
     padding-left: 100px;
     .navibar__list{
       float: left;
