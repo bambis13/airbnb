@@ -64,7 +64,6 @@ class HomesController < ApplicationController
     @sub_categories = HomeCategorySub.all
     @room_types = RoomType.all
     @currency = Currency.all
-
   end
 
   # GET /homes/1/edit
@@ -74,10 +73,9 @@ class HomesController < ApplicationController
   # POST /homes
   # POST /homes.json
   def create
-
     @home = Home.new(home_params)
-    binding.pry
     respond_to do |format|
+
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render :show, status: :created, location: @home }

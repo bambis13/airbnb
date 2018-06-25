@@ -19,8 +19,6 @@ class Home < ApplicationRecord
   belongs_to                :room_type
   belongs_to                :currency
   belongs_to                :home_category_sub
-  # geocoded_by               :town
-  # after_validation          :geocode
 
   accepts_nested_attributes_for :additional_home_rules, allow_destroy: true, reject_if: :reject_additional_home_rules
   accepts_nested_attributes_for :amenity, allow_destroy: true
@@ -41,12 +39,6 @@ class Home < ApplicationRecord
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
   end
-
-  # geocoded_by :address, latitude: :location_x, longitude: :location_y
-  # before_validation :concat_address
-  # def concat_address
-  # address=[prefecture,town,street].join('')
-  # end
 
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }

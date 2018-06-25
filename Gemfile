@@ -70,7 +70,6 @@ gem 'mechanize'
 gem 'carrierwave'
 gem 'fog', '1.38.0'
 gem 'mini_magick'
-gem 'carrierwave'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'turbolinks'
@@ -78,6 +77,6 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'faker'
 gem "gmaps4rails"
-gem "geocoder"
+# gem "geocoder"
 gem "coffee-rails"
 
