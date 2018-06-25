@@ -64,10 +64,6 @@ h3{
     }
   }
 }
-.slick-wrapper{
-  background-color: transparent;
-  border: none;
-}
 .square_btn:active {/*ボタンを押したとき*/
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
@@ -160,12 +156,11 @@ h3{
   padding: 20px 0;
   min-width: 500px;
   img{
-  border-radius: 10px;
+  border-radius: $listing-s-image;
   width: 100%;
   height: 100%;
   }
   .listing-s{
-    // min-width: 200px;
     position: relative;
     display: inline-block;
     margin: 0 auto;
@@ -173,7 +168,7 @@ h3{
     min-width: 200px;
     color: $fontBlack;
     padding: 8px 8px 12px 8px;
-    z-index: 0;
+    z-index: $linstingS_X_Xl;
     span{
       font-size: 12px;
     }
@@ -197,7 +192,7 @@ h3{
       position: absolute;
       right: $icon-f_s;
       top: 25px;
-      z-index: 1;
+      z-index: $iconFavoritePink;
       color: $iconPink;
       visibility: hidden;
     }
@@ -205,8 +200,27 @@ h3{
       position: absolute;
       right: $icon-f_s;
       top: 25px;
-      z-index: 2;
+      z-index: $iconFavoriteWhite;
       color: $white;
+    }
+    .slick-prev,.slick-next{
+      top: 48%;
+      height: 96.5%;
+      width: 40px;
+      margin-bottom: 10px;
+      border: none;
+    }
+    .slick-prev{
+      border-radius: $listing-s-image 0 0 $listing-s-image;
+      background: -moz-linear-gradient(left, $fontBlack,70%, transparent);
+      background: -webkit-linear-gradient(left, $fontBlack,70%, transparent);
+      background: linear-gradient(to right, $fontBlack,70%, transparent);
+    }
+    .slick-next{
+      border-radius: 0 $listing-s-image $listing-s-image 0;
+      background: -moz-linear-gradient(right, $fontBlack,70%, transparent);
+      background: -webkit-linear-gradient(right, $fontBlack,70%, transparent);
+      background: linear-gradient(to left, $fontBlack,70%, transparent);
     }
   }
   .listing-x{
@@ -215,13 +229,12 @@ h3{
     width: $x-width;
     padding: 8px 8px 12px 8px;
     min-width: 200px;
-    z-index: 0;
+    z-index: $linstingS_X_Xl;
     &__text{
       padding-top: 5px;
     }
     img{
       height: 255px;
-      // object-fit: cover;
     }
     .listing-category{
       font-size: 10px;
@@ -233,7 +246,7 @@ h3{
     width: calc(50vw - 100px);
     padding: 8px 8px 12px 8px;
     min-width: 250px;
-    z-index: 0;
+    z-index: $linstingS_X_Xl;
   }
   .trip-with-airbnb{
     padding: 40px 10px;

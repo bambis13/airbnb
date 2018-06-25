@@ -17,16 +17,17 @@ $s-height: calc((100vw - 300px)/5*0.7);
 $x-width: calc(33vw - 100px);
 $icon-f-s: 2vw;
 /*-- z-index ---------------------------------- */
-$slick-dots: 1000;
-$slick-arrows: 1000;
+$slick-dots: 1001;
+$slick-arrows: 1001;
 $photoModalWrapper: 2000;
 $closeModal: 1000;
 $bedIcon: 10;
 $menuItemComponentGuestPicker: 1000;
-$slickPrev_Next: 1;
 $linstingS_X_Xl: 0;
-$iconFavoritePink: 1;
-$iconFavoriteWhite: 2;
+$iconFavoritePink: 1002;
+$iconFavoriteWhite: 1003;
 $header: 10;
 $navibarList: 1;
 $help: 3;
+/*-- border-radius ---------------------------------- */
+$listing-s-image: 10px;

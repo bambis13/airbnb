@@ -23,11 +23,11 @@ $slick-opacity-not-active: 0.25 !default;
     width: 30px;
     line-height: 0px;
     font-size: 0px;
-    z-index: $slick-arrows !important;
+    z-index: $slick-arrows;
     cursor: pointer; 
     opacity: $slick-opacity-default;
     background: $white;
-    border-radius: 100%;
+    // border-radius: 100%;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border: solid 1px #DFDFDF;
     vertical-align: center;
@@ -60,7 +60,6 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    z-index: 1;
     left: 0;
     [dir="rtl"] & {
         left: auto;
@@ -76,7 +75,6 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-next {
     right: 0;
-    z-index: 1;
     [dir="rtl"] & {
         left: -25px;
         right: auto;
