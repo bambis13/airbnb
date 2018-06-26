@@ -17,20 +17,22 @@
     = f.number_field :number_of_bathroom
     %h4 ベッド数
     = f.number_field :number_of_beds
+    #map
     %h4 postal（郵便番号）
-    = f.text_field :postalcode
-    %h4 prefecture（県）
-    = f.text_field :prefecture
+    = f.text_field :postalcode, id: "zip"
+    = button_tag"住所を自動入力", type: 'button', class: 'zip_btn'
+    %h4 prefecture（都道府県）
+    = f.text_field :prefecture, id: "state"
     %h4 town（市町村）
-    = f.text_field :town
+    = f.text_field :town, id: "town"
     %h4 street（番地）
-    = f.text_field :street
+    = f.text_field :street, id: "street1"
     %h4 building（建物名）
-    = f.text_field :building
+    = f.text_field :building, id: "street2"
     %h4 locationX
-    = f.text_field :location_x
+    = f.text_field :location_x, id: "lat"
     %h4 locationY
-    = f.text_field :location_y
+    = f.text_field :location_y, id: "lon"
     %h4 name
     = f.text_field :name
     %h4 country-id

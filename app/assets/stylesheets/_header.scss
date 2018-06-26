@@ -82,7 +82,7 @@
     }
     .navibar__list{
       float: right;
-      z-index: 1;
+      // z-index: 1;
       &__content{
         font-size: 14px;
         font-weight: bold;
@@ -139,7 +139,7 @@
           position: absolute;
           right: -80px;
           top: 0;
-          z-index: 3;
+          // z-index: 3;
         }
         #help-non-login{
           width: 350px;
@@ -147,7 +147,7 @@
           position: absolute;
           right: -180px;
           top: 0;
-          z-index: 3;
+          // z-index: 3;
         }
         #user{
           width: 300px;
