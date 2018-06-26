@@ -17,12 +17,12 @@ $(window).load(function (){
   var $rotate         = $('#rotate');
 
   function calc_prices(){
-    var checkin = Date.parse($('.reservation-checkin').val());
-    var checkout = Date.parse($('.reservation-checkout').val());
-    var days = (checkout - checkin)/1000/60/60/24;
+    var checkin       = Date.parse($('.reservation-checkin').val());
+    var checkout      = Date.parse($('.reservation-checkout').val());
+    var days          = (checkout - checkin)/1000/60/60/24;
     var countAdult    = parseInt($adultHidden.val());
     var countChildren = parseInt($childrenHidden.val());
-    var guestsSum = countAdult + countChildren
+    var guestsSum     = countAdult + countChildren
     if (days > 0) {
       var homeId = parseInt(location.pathname.split('/')[2]);
       $.ajax({
@@ -81,7 +81,7 @@ $(window).load(function (){
     var maxGuestsNum  = parseInt($maxGuestsNum.val());
     var countAdult    = parseInt($adultHidden.val());
     var countChildren = parseInt($childrenHidden.val());
-    var guestsSum = countAdult + countChildren
+    var guestsSum     = countAdult + countChildren
     if (guestsSum < maxGuestsNum - 1){
       countAdult += 1;
       $adultHidden.val(countAdult);
@@ -119,7 +119,7 @@ $(window).load(function (){
   $childrenUp.click(function(e) {
     e.preventDefault();
     $childrenDown.prop("disabled", false);
-    var $childrenForm   = $('.form-text-children');
+    var $childrenForm = $('.form-text-children');
     var maxGuestsNum  = parseInt($maxGuestsNum.val());
     var countAdult    = parseInt($adultHidden.val());
     var countChildren = parseInt($childrenHidden.val());
