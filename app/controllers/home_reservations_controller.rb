@@ -17,19 +17,9 @@ class HomeReservationsController < ApplicationController
   end
 
   def calc_total_fee
-    stay_days = params[:days].to_i
-    per_day = @home.price.default_price
-    fixed_price = @home.price.cleaning_fee + @home.price.service_fee
-    total_price = (per_day*stay_days) + fixed_price
-    add_num = params[:guests_sum].to_i - @home.price.additional_fee_from
-    if add_num > 0
-      per_day += (add_num * @home.price.additional_fee_per_person)
-      total_price = (per_day*stay_days) + fixed_price
-    else
-      add_num = 0
-    end
+    price = view_context.calc_prices(@home)
     respond_to do |format|
-      format.json{ render json: {total: total_price, per_day: per_day, variable: variable_price}}
+      format.json{ render json: {total: price[:total], per_day: price[:per_day], variable: price[:variable]}}
     end
   end
 

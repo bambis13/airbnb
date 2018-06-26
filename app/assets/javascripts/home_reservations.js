@@ -16,12 +16,11 @@ $(window).load(function (){
         dataType: 'json'
       })
       .done(function(data) {
-        var variable_price = data.per_day*days
         $('#default_price').text(currency(data.per_day));
         $('#total_price').text(currency(data.total));
         $('.per_day').text(currency(data.per_day));
         $('.stay_day').text(currency(data.per_day)+" × "+staydays(days));
-        $('.variable_price').text(currency(variable_price));
+        $('.variable_sum').text(currency(data.variable));
         $('input:hidden[name="total-price-sa"]').val(data.total);
         $('.reservation_new__result').removeClass('removed');
         $('#rotate').removeClass('fa-angle-up');
