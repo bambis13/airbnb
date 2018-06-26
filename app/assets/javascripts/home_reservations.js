@@ -1,11 +1,27 @@
 $(window).load(function (){
 
+  var $adultUp        = $(".count-up-adult");
+  var $adultDown      = $(".count-down-adult");
+  var $childrenUp     = $(".count-up-children");
+  var $childrenDown   = $(".count-down-children");
+  var $babiesUp       = $(".count-up-babies");
+  var $babiesDown     = $(".count-down-babies");
+  var $adultForm      = $('.form-text-adult');
+  var $adultHtml      = $('.number-of-adult-html');
+  var $childrenHtml   = $('.number-of-children-html');
+  var $babiesHtml     = $('.number-of-babies-html');
+  var $adultHidden    = $('input:hidden[name="number-of-adult-sa"]');
+  var $childrenHidden = $('input:hidden[name="number-of-children-sa"]');
+  var $babiesHidden   = $('input:hidden[name="number-of-babies-sa"]');
+  var $maxGuestsNum   = $('input:hidden[name="max_guests_num"]');
+  var $rotate         = $('#rotate');
+
   function calc_prices(){
     var checkin = Date.parse($('.reservation-checkin').val());
     var checkout = Date.parse($('.reservation-checkout').val());
     var days = (checkout - checkin)/1000/60/60/24;
-    var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
-    var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+    var countAdult    = parseInt($adultHidden.val());
+    var countChildren = parseInt($childrenHidden.val());
     var guestsSum = countAdult + countChildren
     if (days > 0) {
       var homeId = parseInt(location.pathname.split('/')[2]);
@@ -23,9 +39,7 @@ $(window).load(function (){
         $('.variable_sum').text(currency(data.variable));
         $('input:hidden[name="total-price-sa"]').val(data.total);
         $('.reservation_new__result').removeClass('removed');
-        $('#rotate').removeClass('fa-angle-up');
-        $('#rotate').addClass('fa-angle-down');
-        $('#select-guests-num').css('visibility','hidden');
+        close_select_guests();
       })
       .fail(function() {
         alert('料金計算に失敗しました');
@@ -37,19 +51,23 @@ $(window).load(function (){
     return false
   }
 
+  function close_select_guests(){
+    $rotate.removeClass('fa-angle-up');
+    $rotate.addClass('fa-angle-down');
+    $('#select-guests-num').css('visibility','hidden');
+  }
+
   $('#guests-num-btn').click(
     function(){
-    $('#rotate').removeClass('fa-angle-down');
-    $('#rotate').addClass('fa-angle-up');
+    $rotate.removeClass('fa-angle-down');
+    $rotate.addClass('fa-angle-up');
     $('#select-guests-num').css('visibility','visible');
   });
 
   $('.close-button').on('click',function(e){
     e.preventDefault();
     calc_prices();
-    $('#rotate').removeClass('fa-angle-up');
-    $('#rotate').addClass('fa-angle-down');
-    $('#select-guests-num').css('visibility','hidden');
+    close_select_guests()
   });
 
   $('.calc-listner').change(function(){
@@ -57,131 +75,132 @@ $(window).load(function (){
   });
 
      //大人
-  $(".count-up-adult").click(function(e) {
+  $adultUp.click(function(e) {
     e.preventDefault();
-    $(".count-down-adult").prop("disabled", false);
-    var maxGuestsNum  = parseInt($('input:hidden[name="max_guests_num"]').val());
-    var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
-    var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+    $adultDown.prop("disabled", false);
+    var maxGuestsNum  = parseInt($maxGuestsNum.val());
+    var countAdult    = parseInt($adultHidden.val());
+    var countChildren = parseInt($childrenHidden.val());
     var guestsSum = countAdult + countChildren
     if (guestsSum < maxGuestsNum - 1){
       countAdult += 1;
-      $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
-      p = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
-      $('.number-of-adult-html').text(countAdult);
-      $('.form-text-adult').text(buildGuestsNum(0, countAdult));
+      $adultHidden.val(countAdult);
+      $adultHtml.text(countAdult);
+      $adultForm.text(buildGuestsNum(0, countAdult));
     }else{
       countAdult += 1;
-      $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
-      $('.number-of-adult-html').text(countAdult);
-      $('.form-text-adult').text(buildGuestsNum(0, countAdult));
+      $adultHidden.val(countAdult);
+      $adultHtml.text(countAdult);
+      $adultForm.text(buildGuestsNum(0, countAdult));
       $(this).prop("disabled", true);
-      $(".count-up-children").prop("disabled", true);
+      $childrenUp.prop("disabled", true);
     }
   });
-  $(".count-down-adult").click(function(e) {
+  $adultDown.click(function(e) {
     e.preventDefault();
-    $(".count-up-adult").prop("disabled", false);
-    $(".count-up-children").prop("disabled", false);
-    var countAdult = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
+    $adultUp.prop("disabled", false);
+    $childrenUp.prop("disabled", false);
+    var countAdult = parseInt($adultHidden.val());
     if (countAdult > 2){
     countAdult -= 1;
-    $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
-    $('.number-of-adult-html').text(countAdult);
-    $('.form-text-adult').text(buildGuestsNum(0, countAdult));
+    $adultHidden.val(countAdult);
+    $adultHtml.text(countAdult);
+    $adultForm.text(buildGuestsNum(0, countAdult));
     }else{
     countAdult -= 1;
-    $('input:hidden[name="number-of-adult-sa"]').val(countAdult);
-    $('.number-of-adult-html').text(countAdult);
-    $('.form-text-adult').text(buildGuestsNum(0, countAdult));
+    $adultHidden.val(countAdult);
+    $adultHtml.text(countAdult);
+    $adultForm.text(buildGuestsNum(0, countAdult));
     $(this).prop("disabled", true);
     }
   });
 
     //子供
-  $(".count-up-children").click(function(e) {
+  $childrenUp.click(function(e) {
     e.preventDefault();
-    $(".count-down-children").prop("disabled", false);
-    var maxGuestsNum  = parseInt($('input:hidden[name="max_guests_num"]').val());
-    var countAdult    = parseInt($('input:hidden[name="number-of-adult-sa"]').val());
-    var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+    $childrenDown.prop("disabled", false);
+    var $childrenForm   = $('.form-text-children');
+    var maxGuestsNum  = parseInt($maxGuestsNum.val());
+    var countAdult    = parseInt($adultHidden.val());
+    var countChildren = parseInt($childrenHidden.val());
     var guestsSum = countAdult + countChildren
     if (guestsSum < maxGuestsNum - 1){
       countChildren += 1;
-      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
-      $('.number-of-children-html').text(countChildren);
-      if($('.form-text-children').length){
-        $('.form-text-children').text(buildGuestsNum(1, countChildren));
+      $childrenHidden.val(countChildren);
+      $childrenHtml.text(countChildren);
+      if($childrenForm.length){
+        $childrenForm.text(buildGuestsNum(1, countChildren));
       }else{
         $('.form-texts').append("<p class=\"form-text-children\">, 子ども1人</p>");
       }
     }else{
       countChildren += 1;
-      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
-      $('.number-of-children-html').text(countChildren);
-      $('.form-text-children').text(buildGuestsNum(1, countChildren));
+      $childrenHidden.val(countChildren);
+      $childrenHtml.text(countChildren);
+      $childrenForm.text(buildGuestsNum(1, countChildren));
       $(this).prop("disabled", true);
-      $(".count-up-adult").prop("disabled", true);
+      $adultUp.prop("disabled", true);
     }
   });
-  $(".count-down-children").click(function(e) {
+  $childrenDown.click(function(e) {
     e.preventDefault();
-    $(".count-up-adult").prop("disabled", false);
-    $(".count-up-children").prop("disabled", false);
-    var countChildren = parseInt($('input:hidden[name="number-of-children-sa"]').val());
+    $adultUp.prop("disabled", false);
+    $childrenUp.prop("disabled", false);
+    var $childrenForm   = $('.form-text-children');
+    var countChildren = parseInt($childrenHidden.val());
     if (countChildren > 1){
       countChildren -= 1;
-      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
-      $('.number-of-children-html').text(countChildren);
-      $('.form-text-children').text(buildGuestsNum(1, countChildren));
+      $childrenHidden.val(countChildren);
+      $childrenHtml.text(countChildren);
+      $childrenForm.text(buildGuestsNum(1, countChildren));
     }else{
       countChildren -= 1;
-      $('input:hidden[name="number-of-children-sa"]').val(countChildren);
-      $('.number-of-children-html').text(countChildren);
-      $('.form-text-children').remove();
+      $childrenHidden.val(countChildren);
+      $childrenHtml.text(countChildren);
+      $childrenForm.remove();
       $(this).prop("disabled", true);
     }
   });
 
     //乳幼児
-  $(".count-up-babies").click(function(e) {
+  $babiesUp.click(function(e) {
     e.preventDefault();
-    $(".count-down-babies").prop("disabled", false);
-    var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
+    $babiesDown.prop("disabled", false);
+    var $babiesForm = $('.form-text-babies');
+    var countBabies = parseInt($babiesHidden.val());
     if (countBabies < 4){
       countBabies += 1;
-      if($('.form-text-babies').length){
-        $('.form-text-babies').text(buildGuestsNum(2, countBabies));
+      if($babiesForm.length){
+        $babiesForm.text(buildGuestsNum(2, countBabies));
       }else{
         $('.form-texts').append("<p class=\"form-text-babies\">, 乳幼児1人</p>");
       }
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
-      $('.form-text-babies').remove();
-      $('.form-texts').append("<p class=\"form-text-babies\">, 乳幼児" + countBabies + "人</p>");
+      $babiesHidden.val(countBabies);
+      $babiesHtml.text(countBabies);
     }else{
       countBabies += 1;
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
-      $('.form-text-babies').text(buildGuestsNum(2, countBabies));
+      $babiesHidden.val(countBabies);
+      $babiesHtml.text(countBabies);
+      $babiesForm.text(buildGuestsNum(2, countBabies));
       $(this).prop("disabled", true);
-      $(".count-up-babies").prop("disabled", true);
+      $babiesUp.prop("disabled", true);
     }
   });
-  $(".count-down-babies").click(function(e) {
+  $babiesDown.click(function(e) {
     e.preventDefault();
-    $(".count-up-babies").prop("disabled", false);
-    var countBabies = parseInt($('input:hidden[name="number-of-babies-sa"]').val());
+    $babiesUp.prop("disabled", false);
+    var $babiesForm = $('.form-text-babies');
+    var countBabies = parseInt($babiesHidden.val());
     if (countBabies > 1){
       countBabies -= 1;
-      $('.form-text-babies').text(buildGuestsNum(2, countBabies));
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
+      $babiesForm.text(buildGuestsNum(2, countBabies));
+      $babiesHidden.val(countBabies);
+      $babiesHtml.text(countBabies);
     }else{
       countBabies -= 1;
-      $('input:hidden[name="number-of-babies-sa"]').val(countBabies);
-      $('.number-of-babies-html').text(countBabies);
-      $('.form-text-babies').remove();
+      $babiesHidden.val(countBabies);
+      $babiesHtml.text(countBabies);
+      $babiesForm.remove();
       $(this).prop("disabled", true);
     }
   });
