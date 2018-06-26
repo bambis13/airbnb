@@ -40,14 +40,17 @@ class HomesController < ApplicationController
   end
 
   def show
-    @beds      = BedType.where(home_id: params[:id])
-    @rules     = @home.home_rule
-    @amenities = @home.amenity
-    @host      = @home.user
-    @photos    = @home.listing_photos
-    @cancel    = @home.cancel_policy
-    @space     = AvailableSpace.find_by(home_id: params[:id])
-    @homes     = @home.recommend(@home.name)
+    @beds       = BedType.where(home_id: params[:id])
+    @rules      = @home.home_rule
+    @amenities  = @home.amenity
+    @host       = @home.user
+    @photos     = @home.listing_photos
+    @cancel     = @home.cancel_policy
+    @space      = AvailableSpace.find_by(home_id: params[:id])
+    @result     = @home.recommend(@home.name)
+    @homes      = extract_recommend_ids(@result)[1..5]
+    @similarity = extract_degree_of_similarity(@result)[1..5]
+
   end
 
   def new
@@ -108,4 +111,17 @@ private
     @homes_paris = @homes.by_prefecture("パリ")
     @homes_super = @homes.sphost_home
   end
+
+  #homeIDを算出
+  def extract_recommend_ids(learning_result)
+    recommend_ids = learning_result.split("|")[1].delete("[]")
+    recommend_ids = recommend_ids.split().map{|e|e.to_i}
+  end
+
+  #近似度を算出
+  def extract_degree_of_similarity(learning_result)
+    similarities      = learning_result.split("|")[0].delete("[]")
+    similarity_degree = similarities.split().map{|e| e.to_f.round(2)}
+  end
 end
+

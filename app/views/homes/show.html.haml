@@ -16,7 +16,10 @@
   //トップ画像
   .heading-img
     = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
-    =@homes
+    %p
+      =@homes
+    %p
+      =@similarity
 
   //モーダル
   .photo-modal-wrapper
