@@ -1,8 +1,9 @@
-.reservation_new.nav-set
+.reservation_new
   = form_for home_reservation do |f|
     .reservation_new__heading
       .default_fee
-        %h1.bold.per_day ¥ #{home.price.default_price}
+        %h1.bold.per_day
+          = currency("#{home.price.default_price}")
         %p / 1泊
       .review
         %span.review-star ★★★★★
@@ -11,11 +12,11 @@
       %h5 日付
       %table.form-type-btn.form-type-btn__visible
         %th
-          = f.text_field :checkin_date, class: 'reservation-checkin calc-listner',placeholder: "チェックイン"
+          = f.text_field :checkin_date, class: 'reservation-checkin calc-listner',placeholder: "チェックイン",autocomplete: "off"
         %th
           %i.fa.fa-arrow-right.fa-lg
         %th
-          = f.text_field :checkout_date, class: 'reservation-checkout calc-listner',placeholder: "チェックアウト"
+          = f.text_field :checkout_date, class: 'reservation-checkout calc-listner',placeholder: "チェックアウト",autocomplete: "off"
       .number_of_guests
         %h5 人数
         .form-type-btn.form-type-btn__visible#guests-num-btn
@@ -32,7 +33,6 @@
                 .counting-down
                   %button.count-down-adult{disabled: true} -
                 .number
-                  %input.number-of-adult{name: "number-of-adult-sa", type: "hidden", value: 1, class: "number-of-adult"}
                   %p.number-of-adult-html 1
                 .counting-up
                   %button.count-up-adult +
@@ -44,7 +44,6 @@
                 .counting-down
                   %button.count-down-children{disabled: true} -
                 .number
-                  %input.number-of-children{name: "number-of-children-sa", type: "hidden", value: 0, class: "number-of-children"}
                   %p.number-of-children-html 0
                 .counting-up
                   %button.count-up-children +
@@ -56,7 +55,6 @@
                 .counting-down
                   %button.count-down-babies{disabled: true} -
                 .number
-                  %input.number-of-babies{name: "number-of-babies-sa",  value: 0, type: "hidden", class: "number-of-babies"}
                   %p.number-of-babies-html 0
                 .counting-up
                   %button.count-up-babies +
@@ -64,17 +62,12 @@
               %h4 最大#{home.capacity}名まで宿泊可能。乳幼児は人数にカウントされません。
             .action-box
               %button.close-button.bold 閉じる
-        .number_of_guests
-          / %h2 ゲスト1人
-        .number_of_adults
-          = f.hidden_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
-        .number_of_kids
-          = f.hidden_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
-        .number_of_babies
-          = f.hidden_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
     .reservation_new__body--hidden
       %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
-      = f.hidden_field :total_fee, value: 9999,required: true, name: "total_price_input"
+      = f.hidden_field :number_of_adults, required: true,name: "number-of-adult-sa", value: 1
+      = f.hidden_field :number_of_kids,name: "number-of-children-sa", value: 0
+      = f.hidden_field :number_of_babies, name: "number-of-babies-sa", value: 0
+      = f.hidden_field :total_fee, value: 0,required: true, name: "total-price-sa"
     .reservation_new__result.removed
       .reservation_new__result__default.clearfix
         %span.left.stay_day
@@ -83,14 +76,16 @@
       .reservation_new__result__cleaning.clearfix
         %span.left 清掃料金
         %i.fa.fa-question-circle-o
-        %span.right ¥ #{home.price.cleaning_fee}
+        %span.right
+          = currency("#{home.price.cleaning_fee}")
         .fee-annotation_cleaning.sub-window.removed
           %p お部屋のお掃除の費用をホストが請求します。1滞在につき1回の料金です。
           %h2.close-btn-annotation ×
       .reservation_new__result__service.clearfix
         %span.left サービス料
         %i.fa.fa-question-circle-o
-        %span.right ¥ #{home.price.service_fee}
+        %span.right
+          = currency("#{home.price.service_fee}")
         .fee-annotation_service.sub-window.removed
           %p プラットフォームの運営と24時間365日の旅行サポートなどのサービス提供にかかる費用です。VAT込み。
           %h2.close-btn-annotation ×

@@ -29,7 +29,7 @@ class HomeReservationsController < ApplicationController
       add_num = 0
     end
     respond_to do |format|
-      format.json{ render json: {total: total_price, per_day: per_day}}
+      format.json{ render json: {total: total_price, per_day: per_day, variable: variable_price}}
     end
   end
 

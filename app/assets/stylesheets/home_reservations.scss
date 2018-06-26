@@ -19,7 +19,14 @@
   }
 }
 
+.scroll-stop{
+  position: fixed;
+  top: 90px;
+  right: 80px;
+}
+
 .reservation_new{
+  background-color: $white;
   width: 367px;
   border: solid 1px $borderGray;
   padding: 24px;
@@ -38,28 +45,6 @@
       }
     }
   }
-  // &__body{
-  //     %p 日付
-  //     .checkin_date
-  //       = f.text_field :checkin_date, required: true, autofocus: true, placeholder: "チェックイン", class: "checkin_date_input"
-  //     .checkout_date
-  //       = f.text_field :checkout_date, required: true, autofocus: true, placeholder: "チェックアウト", class: "checkout_date_input"
-  //     .number_of_guests
-  //       %p 人数
-  //       .number_of_adults
-  //         = f.text_field :number_of_adults, required: true, autofocus: true, placeholder: "ゲスト1人", class: "number_of_guests_input"
-  //       .number_of_kids
-  //         = f.text_field :number_of_kids, autofocus: true, placeholder: "子供", class: "number_of_guests_input"
-  //       .number_of_babies
-  //         = f.text_field :number_of_babies, autofocus: true, placeholder: "乳幼児", class: "number_of_guests_input"
-  // }
-  // &__body--hidden{
-  //     = f.hidden_field :default_fee, value: home.price.default_price, required: true, class: "default_fee_input"
-  //     / = f.hidden_field :additional_guests_fee, value: home.price.additional_fee_per_person, required: true, class: "cleaning_fee_date_input"
-  //     = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee, required: true, class: "cleaning_fee_date_input"
-  //     = f.hidden_field :service_fee, value: home.price.deposit, required: true, class: "service_fee_input"
-  //     / = f.text_field :total_fee, required: true, class: "total_price_input"
-  // }
   &__result{
     padding-top: 20px;
     line-height: 30px;
@@ -90,15 +75,6 @@
     text-align: center;
   }
 }
-  // .btn-text{
-  //   height: 72px;
-  //   width: calc( 290px - 96px);
-  //   vertical-align: center;
-  //   h2{
-  //     text-align: center;
-  //     line-height: 72px;
-  //     padding-left: 20px;
-  //   }
   &__message{
     border-top-width: 200px;
     border-top: solid 1px $borderGray;
