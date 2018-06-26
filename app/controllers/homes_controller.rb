@@ -1,14 +1,19 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
-  before_action :get_homes, only: [:index, :homes, :search]
-  # GET /homes
-  # GET /homes.json
+  before_action :get_homes, only: [:index, :homes, :search, :area_specific]
+
   def index
     @homes = @homes[0..4]
     @homes_newyork = @homes_newyork[0..4]
     @homes_barcelona = @homes_barcelona[0..4]
     @homes_paris = @homes_paris[0..4]
     @homes_super = @homes_super[0..4]
+  end
+
+  def area_specific
+    @homes = @homes.by_prefecture(params[:prefecture])
+    @homes_super = @homes.sphost_home
+    @area_name = params[:prefecture]
   end
 
   def family
@@ -21,14 +26,19 @@ class HomesController < ApplicationController
 
   def homes
     @homes = @homes[0..9]
+    if params[:capacity]
+      @homes = Home.joins(:home_rule).where(home_rules: {accept_kids: params[:children], accept_babies: params[:babies]}).where("capacity > ?", params[:capacity])
+    end
   end
 
   def search
-
+    @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
+    respond_to do |format|
+      format.html {redirect_to homes_path(@homes)}
+      format.json
+    end
   end
 
-  # GET /homes/1
-  # GET /homes/1.json
   def show
     @beds             = BedType.where(home_id: params[:id])
     @rules            = @home.home_rule
@@ -36,16 +46,9 @@ class HomesController < ApplicationController
     @host             = @home.user
     @listing_photos   = @home.listing_photos
     @cancel    = @home.cancel_policy
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
+    @space     = AvailableSpace.find_by(home_id: params[:id])
   end
 
-
-
-
-  # GET /homes/new
   def new
     @home = Home.new
     @home.additional_home_rules.build
@@ -66,12 +69,9 @@ class HomesController < ApplicationController
     @currency = Currency.all
   end
 
-  # GET /homes/1/edit
   def edit
   end
 
-  # POST /homes
-  # POST /homes.json
   def create
     @home = Home.new(home_params)
     respond_to do |format|
@@ -86,8 +86,6 @@ class HomesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /homes/1
-  # PATCH/PUT /homes/1.json
   def update
     respond_to do |format|
       if @home.update(home_params)
@@ -100,8 +98,6 @@ class HomesController < ApplicationController
     end
   end
 
-  # DELETE /homes/1
-  # DELETE /homes/1.json
   def destroy
     @home.destroy
     respond_to do |format|
@@ -111,11 +107,11 @@ class HomesController < ApplicationController
   end
 
 private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_home
     @home = Home.find(params[:id])
   end
-  # Never trust parameters from the scary internet, only allow the white list through.
+
   def home_params
     params.require(:home).permit(
       :country_id,

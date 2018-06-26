@@ -11,6 +11,7 @@
 @import './slick-theme';
 @import './slick';
 @import './home_new_form';
+@import './area_header';
 
 /*-- Settings ---------------------------------- */
 
@@ -87,7 +88,7 @@
   color: $fontTxt;
 }
 
-.subtitle, .name, span {
+.subtitle, .name {
   font-size: 16px;
   font-weight: 600 !important;
   height: 22px;
@@ -121,6 +122,14 @@
 
 .margin-top-15px {
   margin-top: 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.gray {
+  color: $fontTxt;
 }
 
 a{
@@ -179,14 +188,6 @@ h6,
 }
 p {
   margin-bottom: 10px;
-}
-
-
-
-
-h3 {
-  padding: 0 0 7px;
-  // text-align: left;
 }
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619102810) do
+ActiveRecord::Schema.define(version: 20180620072232) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180619102810) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "text"
     t.index ["home_id"], name: "index_available_spaces_on_home_id"
   end
 

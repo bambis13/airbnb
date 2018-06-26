@@ -18,3 +18,5 @@ if Rails.env.production?
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/techexp-airbnb'
   end
 end
+
+

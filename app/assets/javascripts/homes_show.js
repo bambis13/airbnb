@@ -23,6 +23,9 @@ $(function () {
 });
 
 //ヘッダーチェンジ
+$(window).bind("load", function(){
+    if(document.URL.match("homes/" + "[0-9０-９]")) {
+
 $(function() {
     var topBtn = $('#header_show');
     var originalHeader = $('#hide-header');
@@ -43,6 +46,8 @@ $(function() {
       var position = $(id).get( 0 ).offsetTop - 70
       $('.contents').animate({scrollTop: position}, 500)
     });
+});
+    };
 });
 
 
