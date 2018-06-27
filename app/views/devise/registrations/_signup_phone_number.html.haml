@@ -6,21 +6,19 @@
     %span こちらは旅行中ホストやゲストからの連絡先となる情報です。
   .signup_phone_number_contents__icon
     .signup_phone_number_contents__icon__image
-    // 携帯のイメージ画像を後で追加する
   .signup_phone_number_contents__language_field
     .signup_phone_number_contents__language_field__label_area
       %span 国
     .signup_phone_number_contents__language_field__select_area
-    // 国識別番号をserectで選べるようにする
-    = select_tag :language, class: 'langugae_list', id: 'phone_country_code_select', style: 'font-size: inherit;'
+      %span 日本 (+81)
   .signup_phone_number_contents__phone_number_field
     .signup_phone_number_contents__phone_number_field__label_area
       %span 電話番号
     .signup_phone_number_contents__phone_number_field__input_area
       %span.international_country_code
-      = input :phone_number, class: 'phone_number', id: 'input'
+      / = input :phone_number, class: 'phone_number', id: 'input'
     .signup_phone_number_contents__phone_number_field__certification_area
       %a.redirect_btn{href: root_path}
-        %h3.bold 電話番号の認証
-  .signup_phone_number_contents__bottom_content
-    %span あとで
+        %h3 電話番号の認証
+  .signup_phone_number_contents__bottom_content#switch_mail_certification
+    %a.redirect_btn{href: root_path} あとで

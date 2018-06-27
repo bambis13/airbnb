@@ -9,26 +9,15 @@
   .section_message または
   .signup_registration_contents__form_content
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
       .field_input_area
         = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
       .field_input_area
-        = f.text_field :name, placeholder: "名", autocomplete: true, class: 'login_form'
+        = f.text_field :first_name, placeholder: "名", autocomplete: true, class: 'login_form'
       .field_input_area
-        = f.text_field :name, placeholder: "性", autocomplete: true, class: 'login_form'
+        = f.text_field :last_name, placeholder: "性", autocomplete: true, class: 'login_form'
       .field_input_area
         = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form click_password'
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text パスワードの強度
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 指名やパスワードは使用できません
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 最低8文字
-      / .field_password_certifcation
-      /   .field_password_certifcation__mark ×
-      /   .field_password_certifcation__text 数字や記号を含めます
       .field_label
         = f.label :birth_day, "生年月日"
         .field_label__text ご登録は18歳以上の方に限ります。誕生日は非公開です
@@ -50,7 +39,7 @@
     %hr
   .signup_registration_contents__bottom_content
     .text_area Airbnbアカウントはお持ちですか？
-    %a.redirect_btn#redirect_login_btn{href: root_path} ログイン
-
+    %a.redirect_btn#return_login{href: root_path} ログイン
+= render "devise/shared/links"
 
 

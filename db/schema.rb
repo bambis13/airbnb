@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612074859) do
+ActiveRecord::Schema.define(version: 20180625074304) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -300,7 +300,6 @@ ActiveRecord::Schema.define(version: 20180612074859) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "name", null: false
     t.date "birth_day", null: false
     t.integer "sex", null: false
     t.string "phone_number", null: false
@@ -317,12 +316,14 @@ ActiveRecord::Schema.define(version: 20180612074859) do
     t.datetime "updated_at", null: false
     t.integer "status", null: false
     t.integer "superhost", default: 0
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.integer "password", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["language_id"], name: "index_users_on_language_id"
-    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

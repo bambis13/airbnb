@@ -1,26 +1,9 @@
-/*---devise_users---------------------------------------*/
-/ devise_users(削除) → users(変更先)に変更する
-= render 'devise_users/login_content'
-= render 'devise_users/signup_branch'
-= render 'devise_users/covenant_section'
-
-/*---devise/registrations-------------------------------*/
-= render 'devise/registrations/signup_welcome'
-= render 'devise/registrations/signup_section'
-= render 'devise/registrations/signup_registration'
-= render 'devise/registrations/signup_profile'
-/ = render 'devise/registrations/signup_phone_number'
-= render 'devise/registrations/signup_one_more_section'
-= render 'devise/registrations/signup_mail_certification'
-= render 'devise/registrations/signup_finish_section'
-
-/*---devise/sessions------------------------------------*/
-= render 'devise/sessions/login_session'
+= render 'devise/registrations/new'
 
 /*---header---------------------------------------------*/
 .header.clearfix
   .navibar
-    .navibar__icon
+    .navibar__icon#modal_escape
       = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
     .navibar__search
       = form_tag('#', method: :get) do

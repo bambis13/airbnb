@@ -6,7 +6,6 @@
     %span 顔を覚えてもらいましょう！こちらはプロフィールに追加し、今後のゲストやホストに共有します。
   .signup_profile_contents__icon
     .signup_profile_contents__icon__image
-      = image_tag 'no_img.png', class: 'image', size: '134×134'
   .signup_profile_contents__facebook_bar
     .signup_profile_contents__facebook_bar__btn
       %a.redirect_btn{href: root_path}
@@ -15,5 +14,5 @@
     .signup_profile_contents__upload_bar__btn
       %a.redirect_btn{href: root_path}
         %h3 写真をアップロード
-  .signup_profile_contents__bottom_content
-    %span あとで
+  .signup_profile_contents__bottom_content#switch_phone_number
+    %a.redirect_btn{href: root_path} あとで

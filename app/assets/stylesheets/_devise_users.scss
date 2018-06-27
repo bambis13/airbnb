@@ -570,6 +570,7 @@
     .text_content{
       font-size: 16px;
       line-height: 22px;
+      color: $fontLightGray;
     }
   }
   &__airbnb_community{
@@ -642,39 +643,41 @@
 //*---welcom_signup------------------------------------------------/
 
 .welcome_section_contents{
-  height: 510px;
-  width: 430px;
+  height: 490px;
+  width: 410px;
   margin: 0 auto;
   font-family: Helvetica Neue;
-  background-color: $white;
   z-index: 2;
   display: none;
   position: absolute;
   top: 35%;
   left: 35%;
   &__background_image{
-    height: 510px;
-    width: 430px;
+    height: 490px;
+    width: 410px;
+    background-image: url("welcome_image.png");
+    background-size: cover;
     z-index: 1;
-    .image{
-      max-height: 510px;
-      max-width: 430px;
-    }
   }
   &__button_content{
     position: relative;
     height: 42px;
     width: 310px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+    top: 420px;
+    left: 55px;
     .step_btn{
       height: 42px;
       width: 310px;
       background-color: $airbnb_pink;
       .redirect_btn{
-        height: 42px;
-        width: 310px;
         h3{
           color: $white;
+          text-align: center;
+          line-height: 1.43;
+          font-size: 16px;
+          height: 20px;
+          width: 260px;
         }
       }
     }
@@ -684,8 +687,8 @@
 //*---profile_section------------------------------------------------/
 
 .signup_profile_contents{
-  height: 520px;
-  width: 400px;
+  height: 450px;
+  width: 310px;
   margin: 0 auto;
   font-family: Helvetica Neue;
   color: $fontLightGray;
@@ -695,27 +698,92 @@
   position: absolute;
   top: 35%;
   left: 35%;
+  padding: 70px 60px 35px 60px;
   &__top_content{
   }
   &__title_content{
     margin-bottom: 6px;
+    text-align: center;
     span{
+      width: 100%;
       font-size: 24px;
+      line-height: 1.1;
     }
   }
   &__body_content{
     margin-bottom: 24px;
+    text-align: center;
     span{
+      width: 100%;
       font-size: 16px;
+      line-height: 1.1;
     }
+  }
+  &__icon{
+    width: 130px;
+    margin: 0 auto 24px auto;
+    &__image{
+      height: 134px;
+      width: 134px;
+      background-image: url("no_img.png");
+      background-size: contain;
+    }
+  }
+  &__facebook_bar{
+    height: 42px;
+    width: 310px;
+    margin: 0 auto;
+    background-color: $facebook_blue;
+    margin-bottom: 12px;
+    &__btn{
+      height: 100%;
+      width: 100%;
+      .redirect_btn{
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        h3{
+          height: 20px;
+          width: 260px;
+          line-height: 1.43;
+          font-size: 16px;
+          text-align: center;
+          color: $white;
+        }
+      }
+    }
+  }
+  &__upload_bar{
+    height: 42px;
+    width: 310px;
+    margin: 0 auto;
+    border: 1px solid #848484;
+    margin-bottom: 25px;
+    &__btn{
+      height: 100%;
+      width: 100%;
+      .redirect_btn{
+        h3{
+          height: 20px;
+          width: 260px;
+          line-height: 1.43;
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  &__bottom_content{
+    text-align: center;
+    color: #AAA;
   }
 }
 
 //*---signup_phone_number section--------------------------------------/
 
 .signup_phone_number_contents{
-  height: 580px;
-  width: 400px;
+  height: 480px;
+  width: 310px;
   margin: 0 auto;
   font-family: Helvetica Neue;
   color: $fontLightGray;
@@ -725,46 +793,60 @@
   position: absolute;
   top: 35%;
   left: 35%;
+  padding: 70px 60px 35px 60px;
   &__top_content{
   }
   &__title_content{
     margin-bottom: 6px;
+    text-align: center;
     span{
       font-size: 24px;
-      text-align: center;
-      line-height: 1.1;
+      line-height: 1.43;
     }
   }
   &__body_content{
     margin-bottom: 24px;
+    text-align: center;
     span{
       font-size: 16px;
-      text-align: center;
-      line-height: 1.1;
+      line-height: 1.43;
     }
   }
   &__icon{
     margin: 24px 0 24px 0 auto;
-    height: 90px;
-    width: 90px;
     &__image{
+      margin: 0 auto;
+      height: 100px;
+      width: 100px;
+      background-image: url("phone_image.png");
+      background-size: contain;
     }
   }
   &__language_field{
     &__label_area{
       padding: 9px 0 8px 0;
+      text-align: center;
       span{
         font-size: 14px;
-        text-align: center;
         line-height: 1.43;
       }
     }
     &__select_area{
+      height: 30px;
+      width: 250px;
+      margin: 0 auto;
+      padding-top: 10px;
+      text-align: center;
+      span{
+        font-size: 16px;
+        line-height: 1.43;
+      }
     }
   }
   &__phone_number_field{
     &__label_area{
       padding: 9px 0 8px 0;
+      text-align: center;
       span{
         font-size: 14px;
         text-align: center;
@@ -789,17 +871,19 @@
       }
     }
     &__certification_area{
-      margin: 0 0 6px 0 auto;
+      margin: 0 auto;
       height: 42px;
       width: 250px;
+      text-align: center;
+      background-color: $airbnb_pink;
       .redirect_btn{
-        width: 167px;
+        width: 100%;
         height: 100%;
-        background-color: $airbnb_pink;
         h3{
+          height: 25px;
+          width: 200px;
           color: $white;
           padding: 9px 23px;
-          text-align: center;
           font-size: 15px;
         }
       }
@@ -807,9 +891,10 @@
   }
   &__bottom_content{
     height: 50px;
-    span{
-      font-size: 16px;
-      text-align: center;
+    padding-top: 20px;
+    text-align: center;
+    .redirect_btn{
+      font-size: 14px;
     }
   }
 }
@@ -817,8 +902,9 @@
 //*---signup_mail_certification--------------------------------------/
 
 .signup_mail_certification_contents{
-  height: 520px;
-  width: 400px;
+  height: 450px;
+  width: 310px;
+  margin: 0 auto;
   font-family: Helvetica Neue;
   color: $fontLightGray;
   background-color: $white;
@@ -827,15 +913,15 @@
   position: absolute;
   top: 35%;
   left: 35%;
-  padding: 70px 60px 35px;
+  padding: 70px 60px 35px 60px;
   &__top_content{
   }
-  &__titile_field{
+  &__title_field{
+    text-align: center;
     margin-bottom: 6px;
     span{
       font-size: 24px;
       line-height: 1.1;
-      text-align: center;
     }
   }
   &__body_field{
@@ -855,15 +941,19 @@
   &__icon{
     margin: 24px 0;
     &__image{
+      background-image: url("mail_image.png");
       height: 90px;
       width: 90px;
       margin: 0 auto;
+      background-size: contain;
     }
   }
   &__input_field{
     margin-bottom: 12px;
     height: 35px;
     width: 310px;
+    //仮置き
+    background-color: #AAA;
     &__input_area{
       height: 100%;
       width: 100%;
@@ -873,119 +963,34 @@
     margin-bottom: 12px;
     height: 35px;
     width: 310px;
+    background-color: $airbnb_pink;
     .redirect_btn{
       height: 100%;
       width: 100%;
-      background-color: $airbnb_pink;
+      text-align: center;
       h3{
+        height: 20px;
+        width: 260px;
         color: $white;
         font-size: 14px;
         line-height: 1.43;
-        text-align: center;
       }
     }
     &__text_area{
+      text-align: center;
       .redirect_btn{
         font-size: 14px;
         line-height: 1.43;
-        text-align: center;
         color: $viridian;
       }
     }
   }
   &__bottom_content{
     height: 50px;
-    span{
-      font-size: 16px;
-      text-align: center;
-    }
-  }
-}
-
-//*---signup_certification section---------------------------------------/
-
-.signup_ertification_contents{
-  width: 400px;
-  height: 520px;
-  margin: 0 auto;
-  font-family: Helvetica Neue;
-  color: $fontLightGray;
-  background-color: $white;
-  z-index: 2;
-  display: none;
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  &__top_content{
-  }
-  &__title_field{
-    margin-bottom: 6px;
-    span{
-      font-size: 24px;
-      text-align: center;
-      line-height: 1.1;
-    }
-  }
-  &__body_field{
-    &__top_text_area{
-      span{
-        font-size: 16px;
-        text-align: center;
-        line-height: 1.1
-      }
-    }
-    &__bottom_text_area{
-      span{
-        font-size: 16px;
-        text-align: center;
-        line-height: 1.1;
-      }
-    }
-  }
-  &__icon{
-    margin: 24px 0 24px 0;
-    height: 90px;
-    &__image{
-      height: 90px;
-      width: 90px;
-    }
-  }
-  &__input_field{
-    height: 35px;
-    width: 310px;
-    margin-bottom: 12px;
-    &__input_area{
-      height: 100%;
-      width: 100%;
-    }
-  }
-  &__buttom_field{
-    height: 67px;
-    width: 310px;
+    padding-top: 30px;
+    text-align: center;
     .redirect_btn{
-      height: 35px;
-      width: 100%;
-      margin-bottom: 12px;
-      background-color: $airbnb_pink;
-      h3{
-        text-align: center;
-        font-size: 14px;
-        color: $white;
-      }
-    }
-    &__text_area{
-      .redirect_btn{
-        font-size: 14px;
-        color: $viridian;
-        text-align: center;
-      }
-    }
-  }
-  &__bottom_content{
-    height: 45px;
-    span{
       font-size: 14px;
-      text-align: center;
     }
   }
 }
@@ -993,8 +998,8 @@
 //*---signup one_more_section-------------------------------------------/
 
 .signup_one_more_contents{
-  height: 520px;
-  width: 410px;
+  height: 450px;
+  width: 310px;
   margin: 0 auto;
   font-family: Helvetica Neue;
   color: $fontLightGray;
@@ -1011,16 +1016,19 @@
     width: auto;
     margin-bottom: 18px;
     &__image{
-      height: 90px;
-      width: 90px;
+      height: 95px;
+      width: 95px;
+      background-image: url("one_more_image.png");
+      background-size: contain;
+      margin: 0 auto;
     }
   }
   &__title_field{
     width: auto;
     margin: 25px 0 6px 0;
+    text-align: center;
     span{
       font-size: 24px;
-      text-align: center;
       line-height: 1.1;
     }
   }
@@ -1040,6 +1048,8 @@
       .redirect_btn{
         color: $viridian;
       }
+      span{
+      }
     }
   }
   &__user_address_field{
@@ -1051,19 +1061,20 @@
     }
   }
   &__input_field{
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     &__input_area{
       height: 35px;
       width: 310px;
+      background-color: $airbnb_pink;
       .redirect_btn{
-        background-color: $airbnb_pink;
         height: 100%;
         width: 100%;
-        margin: auto;
+        text-align: center;
         h3{
+          height: 15px;
+          width: 260px;
           font-size: 14px;
           line-height: 1.43;
-          text-align: center;
           color: $white;
         }
       }
@@ -1071,7 +1082,8 @@
   }
   &__bottom_content{
     height: 45px;
-    span{
+    text-align: center;
+    .redirect_btn{
       font-size: 14px;
       line-height: 1.43;
     }
@@ -1081,23 +1093,23 @@
 //*---signup finish_section---------------------------------------------/
 
 .signup_finish_contents{
-  height: 520px;
-  width: 430px;
+  height: 410px;
+  width: 305px;
   margin: 0 auto;
   font-family: Helvetica Neue;
   color: $fontLightGray;
-  background-color: $white;
+  padding: 70px 60px 35px 60px;
+  background-image: url("let's_use_it_image.png");
+  background-size: contain;
   z-index: 2;
   display: none;
   position: absolute;
   top: 35%;
   left: 35%;
   &__correction_position{
-    height: 50%;
+    height: 343px;
   }
   &__main_content{
-    height: 310px;
-    width: 240px;
     margin: 0 auto;
     &__icon{
       margin-bottom: 12px;
@@ -1123,12 +1135,11 @@
     &__button_field{
       height: 42px;
       width: 310px;
-      margin: 0 auto;
+      background-color: $airbnb_pink;
       .redirect_btn{
-        height: 100%;
-        width: 100%;
-        background-color: $airbnb_pink;
         h3{
+          height: 15px;
+          width: 260px;
           color: $white;
           text-align: center;
           font-size: 16px;

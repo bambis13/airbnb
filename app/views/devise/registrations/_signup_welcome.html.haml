@@ -1,11 +1,10 @@
 .welcome_section_contents
   .welcome_section_contents__background_image
-    = image_tag 'welcome_image.png', class: 'image', size: "430×510"
     .welcome_section_contents__title_content
       %span.title
     .welcome_section_contents__text_content
       %span.text
     .welcome_section_contents__button_content
-      .step_btn
+      .step_btn#next_field
         %a.redirect_btn{href: root_path}
           %h3 次へ。残り4ステップ
