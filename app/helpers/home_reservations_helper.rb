@@ -13,7 +13,7 @@ module HomeReservationsHelper
     else
       per_day = home.price.default_price
     end
-    variable_price = (per_day*stay_days)
+    variable_price = (per_day * stay_days)
     price[:total] = variable_price + fixed_price
     price[:per_day] = per_day
     price[:variable] = variable_price
