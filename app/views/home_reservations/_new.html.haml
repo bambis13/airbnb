@@ -65,8 +65,9 @@
     .reservation_new__body--hidden
       %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
       = f.hidden_field :number_of_adults, required: true,name: "number-of-adult-sa", value: 1
-      = f.hidden_field :number_of_kids,name: "number-of-children-sa", value: 0
+      = f.hidden_field :number_of_children,name: "number-of-children-sa", value: 0
       = f.hidden_field :number_of_babies, name: "number-of-babies-sa", value: 0
+      = f.hidden_field :service_fee, value: 0,required: true, name: "total-price-sa"
       = f.hidden_field :total_fee, value: 0,required: true, name: "total-price-sa"
     .reservation_new__result.removed
       .reservation_new__result__default.clearfix

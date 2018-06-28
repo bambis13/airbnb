@@ -66,6 +66,7 @@ class HomeReservationsController < ApplicationController
     end
 
     def home_reservation_params
-      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_guests, :accomodation_fee, :cleaning_fee, :service_fee,:total_price)
+      binding.pry
+      params.require(:home_reservation).permit(:checkin_date, :checkout_date, :number_of_adults,:number_of_children,:number_of_babies,:service_fee,:cleaning_fee,:per_day_fee,:total_fee,:user_id, :home_id)
     end
 end

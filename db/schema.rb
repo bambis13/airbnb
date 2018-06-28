@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Insteaduto-merging app/assets/stylesheets/slick-theme.sc
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -174,18 +174,19 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   end
 
   create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "checkin_date", null: false
-    t.datetime "checkout_date", null: false
+    t.date "checkin_date", null: false
+    t.date "checkout_date", null: false
     t.integer "number_of_adults", default: 1, null: false
-    t.integer "number_of_kids", default: 0, null: false
+    t.integer "number_of_children", default: 0, null: false
     t.integer "number_of_babies", default: 0, null: false
-    t.integer "additional_guests_fee", null: false
+    t.integer "service_fee", null: false
+    t.integer "cleaning_fee", null: false
+    t.integer "per_day_fee", null: false
+    t.integer "total_fee", null: false
     t.bigint "user_id", null: false
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "accomodation_fee", null: false
-    t.integer "total_price", null: false
     t.index ["home_id"], name: "index_home_reservations_on_home_id"
     t.index ["user_id"], name: "index_home_reservations_on_user_id"
   end
@@ -292,10 +293,10 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cleaning_fee", null: false
     t.integer "service_fee", null: false
     t.integer "additional_fee_per_person", null: false
     t.integer "additional_fee_from", null: false
+    t.integer "cleaning_fee"
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 
