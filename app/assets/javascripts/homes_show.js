@@ -49,7 +49,7 @@ $(window).bind("load", function(){
           //任意の位置までジャンプ
           $("#header_show a").click(function(){
             var id = $(this).attr("href");
-            var position = $(id).get( 0 ).offsetTop - 70
+            var position = $(id).get( 0 ).offsetTop - 150;
             $('.contents').animate({scrollTop: position}, 500)
           });
       });
