@@ -7,245 +7,252 @@
       %ul
         - home.errors.full_messages.each do |message|
           %li= message
-  .actions
+  .actions.clearfix
+    .head
+      %h1 さあ、current_user.nameさん！お部屋の掲載準備を始めましょう
     = f.hidden_field :user_id, value: 1
-    %h4 capacity（定員）
-    = f.number_field :capacity
-    %h4 num-of-bedroom（部屋数）
-    = f.number_field :number_of_bedroom
-    %h4 num-of-bathroom（バスルーム数）
-    = f.number_field :number_of_bathroom
-    %h4 ベッド数
-    = f.number_field :number_of_beds
-    #map
-    %h4 postal（郵便番号）
-    = f.text_field :postalcode, id: "zip"
-    = button_tag"住所を自動入力", type: 'button', class: 'zip_btn'
-    %h4 prefecture（都道府県）
-    = f.text_field :prefecture, id: "state"
-    %h4 town（市町村）
-    = f.text_field :town, id: "town"
-    %h4 street（番地）
-    = f.text_field :street, id: "street1"
-    %h4 building（建物名）
-    = f.text_field :building, id: "street2"
-    %h4 locationX
-    = f.text_field :location_x, id: "lat"
-    %h4 locationY
-    = f.text_field :location_y, id: "lon"
-    %h4 name
-    = f.text_field :name
-    %h4 country-id
+    %h3.content__title お部屋のタイプは？
+    = f.collection_select :room_type_id, @room_types, :id, :name, selected: 1
+    %h3 住所を入力してください
+    %h4 国
     = f.collection_select :country_id, @countries, :id, :name
-    %h4 home-cate-sub-id
-    = f.collection_select :home_category_sub_id, @sub_categories, :id, :name
-    %h4 room-type-id
-    = f.collection_select :room_type_id, @room_types, :id, :name
-    %h4 user-id
-    %h4 currency
-    = f.collection_select :currency_id, @currency, :id, :name
+    %h4 郵便番号
+    = f.text_field :postalcode, id: "zip", placeholder: '郵便番号を入力してください'
+    = button_tag"住所を自動入力", type: 'button', class: 'zip_btn'
+    %h4 都道府県
+    = f.text_field :prefecture, id: "prefecture", placeholder: '都道府県を入力してください'
+    %h4 市町村
+    = f.text_field :town, id: "town", placeholder: '市区町村を入力してください'
+    %h4 番地
+    = f.text_field :street, id: "street1", placeholder: '番地を入力してください'
+    %h4 建物名
+    = f.text_field :building, placeholder: '建物名を入力してください'
+    = button_tag"緯度、経度を取得", type: 'button', class: 'address_btn'
+    %h4 経度
+    = f.text_field :location_x, id: "lat"
+    %h4 緯度
+    = f.text_field :location_y, id: "lon"
 
-    %h3 additional_home_rules
-    = f.fields_for :additional_home_rules do |additional_home_rules|
-      %h5 content
-      = additional_home_rules.text_field :content
+    %h3.content__title カテゴリーを選んでください
+    = f.collection_select :home_category_main_id, @main_categories, :id, :name, prompt: '一つ選択してください'
+    = f.collection_select :home_category_sub_id, @sub_categories, :id, :name, prompt: '建物タイプを選択してください'
 
-    %h3 アメニティ
+    %h3.content__title 定員、ベッドの数等を入力してください
+    %h4 定員
+    = f.number_field :capacity, placeholder: '定員を入力してください'
+    %h4 ベッドルームの数
+    = f.number_field :number_of_bedroom, placeholder: 'ベッドルームの数を入力してください'
+    %h4 バスルームの数
+    = f.number_field :number_of_bathroom, placeholder: 'バスルームの数を入力してください'
+    %h4 ベッドの数
+    = f.number_field :number_of_beds, placeholder: 'ベッドの数を入力してください'
+    %h4 ベッドタイプ
+    = f.fields_for :bed_type do |bed_type|
+      %h5 シングルベッド
+      = bed_type.number_field :single_bed
+      %h5 ダブルベッド
+      = bed_type.number_field :double_bed
+      %h5 クイーンベッド
+      = bed_type.number_field :queen_bed
+      %h5 ソファベッド
+      = bed_type.number_field :sofa_bed
+
+    %h3.content__title ご用意するアメニティ・設備は？
     = f.fields_for :amenity do |amenity|
-      %h5 ness
+      %h5 必需品（タオル、シーツ、石鹸、トイレットペーパー、枕）
       = amenity.check_box :necessities
       %h5 wifi
       = amenity.check_box :wifi
-      %h5 shampoo
+      %h5 シャンプー
       = amenity.check_box :shampoo
-      %h5 closet
+      %h5 クローゼット/タンス
       = amenity.check_box :closet
-      %h5 tv
+      %h5 テレビ
       = amenity.check_box :tv_set
-      %h5 heating
+      %h5 暖房
       = amenity.check_box :heating
-      %h5 air-cond
+      %h5 エアコン
       = amenity.check_box :air_conditioner
-      %h5 breakfast
+      %h5 朝食、コーヒー、お茶
       = amenity.check_box :breakfast
-      %h5 desk
+      %h5 机・ワークスペース
       = amenity.check_box :desk
-      %h5 fireplace
+      %h5   暖炉・薪ストーブ・囲炉裏
       = amenity.check_box :fireplace
-      %h5 iron
+      %h5 アイロン
       = amenity.check_box :iron
-      %h5 hair-dryer
+      %h5 ヘアドライヤー
       = amenity.check_box :hair_dryer
-      %h5 allowed-pet
+      %h5 ペットOK
       = amenity.check_box :allowed_pet
-      %h5 smoke-detector
+      %h4 安全対策のアメニティ
+      %h5 煙感知器
       = amenity.check_box :smoke_detector
-      %h5 carbon-monoxide-dete
+      %h5 一酸化炭素検知器
       = amenity.check_box :carbon_monoxide_detecter
-      %h5 aid-set
+      %h5 応急手当セット
       = amenity.check_box :aid_set
-      %h5 fire-extinguidher
+      %h5 消火器
       = amenity.check_box :fire_extinguisher
-      %h5 disaster-card
+      %h5 防災カード
       = amenity.check_box :disaster_card
-      %h5 keyed-door
+      %h5 寝室は鍵付きドア
       = amenity.check_box :keyed_door
 
-    %h3 ベッドタイプ
-    = f.fields_for :bed_type do |bed_type|
-      %h5 single
-      = bed_type.number_field :single_bed
-      %h5 double
-      = bed_type.number_field :double_bed
-      %h5 queen
-      = bed_type.number_field :queen_bed
-      %h5 sofa
-      = bed_type.number_field :sofa_bed
-
-    %h3 アベイラブルスペース
+    %h3.content__title ゲストが利用可能なスペースは？
     = f.fields_for :available_space do |as|
       %h5 dedicated-living
       = as.check_box :dedicated_living
-      %h5 pool
+      %h5 プール
       = as.check_box :pool
-      %h5 kitchen
+      %h5 キッチン
       = as.check_box :kitchen
-      %h5 washer-machine
+      %h5 洗濯機
       = as.check_box :washer_machine
-      %h5 wash-dry-machine
+      %h5 洗濯乾燥機
       = as.check_box :washer_dryer_machine
-      %h5 parking
+      %h5 駐車場
       = as.check_box :parking
-      %h5 elevator
+      %h5 エレベーター
       = as.check_box :elevator
-      %h5 gacuzzi
+      %h5 ジャクージ&高級風呂
       = as.check_box :jacuzzi
-      %h5 gym
+      %h5 ジム
       = as.check_box :gym
 
-    %h3 overview
+    %h3.content__title ルール
+    = f.fields_for :home_rule do |home_rule|
+      %h5 子ども(2-12歳)OK
+      = home_rule.check_box :accept_kids
+      %h5 リスティングがお子様向きではない理由を説明しましょう
+      = home_rule.text_field :kids_reason
+      %h5 乳幼児(2歳未満)OK
+      = home_rule.check_box :accept_babies
+      %h5 リスティングがお子様向きではない理由を説明しましょう
+      = home_rule.text_field :babies_reason
+      %h5 ペットOK
+      = home_rule.check_box :accept_pet
+      %h5 喫煙OK
+      = home_rule.check_box :accept_smoking
+      %h5 イベント&パーティOK
+      = home_rule.check_box :accept_event_party
+
+    %h3.content__title 追加のルール（任意）
+    = f.fields_for :additional_home_rules do |additional_home_rules|
+      = additional_home_rules.text_field :content, placeholder: '騒音禁止の時間帯、土足厳禁など'
+
+    %h3.content__title 説明文を編集する
     = f.fields_for :overview do |overview|
-      %h5 overview
-      = overview.text_field :overview
-      %h5 about-listing
+      %h5 概要
+      = overview.text_field :overview, placeholder: 'インテリア、照明、近所にあるものなど説明してください'
+      %h5 お家について（任意）
       = overview.text_field :about_listing
-      %h5 areas-avalable
+      %h5 ゲストが利用可能なエリア（任意）
       = overview.text_field :areas_available
-      %h5 communication-frequ
+      %h5 ゲストとの交流頻度（任意）
       = overview.text_field :communication_frequency
-      %h5 other-notice
+      %h5 その他の特記事項（任意）
       = overview.text_field :other_notices
-      %h5 area-info
+      %h5 エリア情報（任意）
       = overview.text_field :area_information
-      %h5 transportation
+      %h5 交通手段（任意）
       = overview.text_field :transportation
 
-    %h3 availability_setting
+    %h3.content__title 予約詳細
     = f.fields_for :availability_setting do |availability_setting|
-      %h5 reserv-deadline
+      %h5 予約締め切りは到着何日前にしますか？
       = availability_setting.text_field :reservation_deadline
-      %h5 chin-time-deadline-from
+      %h3 チェックインできる時間帯は？
+      %h5 from
       = availability_setting.time_select :checkin_time_deadline_from
-      %h5 chin-time dead-to
+      %h5 to
       = availability_setting.time_select :checkin_time_deadline_to
-      %h5 acceptable-month-ahead
+      %h5 予約は何か月先まで受け付けますか?
       = availability_setting.text_field :acceptable_month_ahead
-      %h5 max-accom-range
-      = availability_setting.text_field :muximum_accomodation_range
-      %h5 min-accom-range
+      %h3 ゲストの宿泊可能日数は？
+      %h5 何泊から
       = availability_setting.text_field :minimum_accomodation_range
+      %h5 何泊まで
+      = availability_setting.text_field :muximum_accomodation_range
 
-    %h3 price
+    %h3.content__title お部屋の料金
     = f.fields_for :price do |p|
-      %h5 pricing-method
+      %h5
       = p.hidden_field :pricing_method, value: 1
-      %h5 defo-price
+      %h5 基本料金
       = p.text_field :default_price
-      %h5 max-price
+      %h5 最高料金
       = p.text_field :muximum_price
-      %h5 min-price
+      %h5 最低料金
       = p.text_field :minimum_price
       %h5 first-arrival-discount
       = p.check_box :first_arrival_discount
-      %h5 weekly-discount
+      %h5 週の割引率
       = p.text_field :weekly_discount_rate
-      %h5 monthly-discount
+      %h5 月の割引率
       = p.text_field :monthly_discount_rate
-      %h5 cleaning-fee
+      %h5 清掃料
       = p.text_field :cleaning_fee
-      %h5 deposit
+      %h5 デポジット
       = p.text_field :deposit
-      %h5 add-fee-per-person
+      %h5 一人当たりの追加料金
       = p.text_field :additional_fee_per_person
 
-    %h3 home_rule
-    = f.fields_for :home_rule do |home_rule|
-      %h5 accept-kid
-      = home_rule.check_box :accept_kids
-      %h5 kid-reason
-      = home_rule.text_field :kids_reason
-      %h5 accept-baby
-      = home_rule.check_box :accept_babies
-      %h5 baby-reason
-      = home_rule.text_field :babies_reason
-      %h5 accept-pet
-      = home_rule.check_box :accept_pet
-      %h5 accept-smk
-      = home_rule.check_box :accept_smoking
-      %h5 accept-party
-      = home_rule.check_box :accept_event_party
-
-    %h3 home _notification
+    %h3.content__title home _notification
     = f.fields_for :home_notification do |home_notification|
-      %h5 only-stairs
+      %h5 階段を登らないとたどり着けません
       = home_notification.check_box :only_stairs
-      %h5 stair-detail
-      = home_notification.text_field :stairs_detail
-      %h5 noisy
+      %h5 階段（段数や踊り場の有無）について記入してください
+      = home_notification.text_field :stairs_detail, placeholder: '説明文を追加する'
+      %h5 騒音の可能性あり
       = home_notification.check_box :noisy
-      %h5 noisy-detail
-      = home_notification.text_field :noisy_detail
-      %h5 pet-stayed
+      %h5 騒音や発生しやすい時間帯について記入してください
+      = home_notification.text_field :noisy_detail, placeholder: '説明文を追加する'
+      %h5 ペットがいます
       = home_notification.check_box :pet_stayed
-      %h5 pet-detail
-      = home_notification.text_field :pet_detail
-      %h5 no-parking
+      %h5 ペットの詳細を記入してください
+      = home_notification.text_field :pet_detail, placeholder: '説明文を追加する'
+      %h5 敷地内に駐車場なし
       = home_notification.check_box :no_parking
-      %h5 parking-guide
-      = home_notification.text_field :parking_guide
-      %h5 share-space
+      %h5 リスティング近隣の駐車場事情を記入してください
+      = home_notification.text_field :parking_guide, placeholder: '説明文を追加する'
+      %h5 共用スペースあり
       = home_notification.check_box :shared_space
-      %h5 share-space-detail
-      = home_notification.text_field :shared_space_detail
-      %h5 limimted-amenity
+      %h5 共用スペースについて記入してください
+      = home_notification.text_field :shared_space_detail, placeholder: '説明文を追加する'
+      %h5 一部アメニティは最低限のものです (例: ネットが遅い)
       = home_notification.check_box :limited_amenity
-      %h5 limited-amenity-detail
-      = home_notification.text_field :limited_amenity_detail
-      %h5 surveillance-cam
+      %h5 アメニティ・設備やサービスの問題点（Wi-Fiが遅い、使えるお湯の量が限られているなど）について詳細を記入する
+      = home_notification.text_field :limited_amenity_detail, placeholder: '説明文を追加する'
+      %h5 防犯カメラ/集音マイク設置中
       = home_notification.check_box :surveillance_camera
-      %h5 cam-detail
-      = home_notification.text_field :camera_detail
-      %h5 firearm
+      %h5 動画、音声、写真の記録/転送用機器がある方はここに書いておきましょう。各機器の設置場所、宿泊中にONかOFFかも明記します。
+      = home_notification.text_field :camera_detail, placeholder: '説明文を追加する'
+      %h5 物件内に銃刀類あり
       = home_notification.check_box :firearm
-      %h5 firearm-detail
-      = home_notification.text_field :firearm_detail
-      %h5 dangerous-animal
+      %h5 銃砲刀剣類(銃、エアガン、スタンガンなど)がある方はここに書いておきましょう。保管場所、保管方法も明記します
+      = home_notification.text_field :firearm_detail, placeholder: '説明文を追加する'
+      %h5 物件内に危険な生き物がいます
       = home_notification.check_box :dangerous_animal
-      %h5 animal-detail
-      = home_notification.text_field :animal_detail
+      %h5 ゲストや他の動物の健康や安全に害をもたらすおそれのあるペット、野生動物がいる方はここに書いておきましょう
+      = home_notification.text_field :animal_detail, placeholder: '説明文を追加する'
 
-    %h3  キャンセルポリシー
+    %h3.content__title キャンセルポリシー
     = f.fields_for :cancel_policy do |c|
       %h5 厳しさ
       = c.select :strict_level, CancelPolicy.strict_levels.keys
       %h5 内容
       = c.text_field :text
 
-    %h3 listing_photos
+    %h3.content__title listing_photos
     = f.fields_for :listing_photos do |photo|
-      %h5 img
+      %h5 画像をアップロードしてください
       - 3.times do |i|
         = photo.hidden_field :user_id, value: 1
         = photo.file_field :image
 
-  = f.submit
+    %h4.content__title 物件に名前をつける
+    = f.text_field :name, placeholder: 'リスティングのタイトル'
+    %h4.content__title 取り扱う通貨
+    = f.collection_select :currency_id, @currency, :id, :name
+  = f.submit(class: 'create_btn bold')

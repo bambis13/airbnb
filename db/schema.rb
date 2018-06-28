@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620072232) do
+ActiveRecord::Schema.define(version: 20180628051853) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -227,8 +227,10 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "room_type_id"
     t.bigint "user_id"
     t.bigint "currency_id"
+    t.bigint "home_category_main_id"
     t.index ["country_id"], name: "index_homes_on_country_id"
     t.index ["currency_id"], name: "index_homes_on_currency_id"
+    t.index ["home_category_main_id"], name: "index_homes_on_home_category_main_id"
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
@@ -350,6 +352,7 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   add_foreign_key "home_rules", "homes"
   add_foreign_key "homes", "countries"
   add_foreign_key "homes", "currencies"
+  add_foreign_key "homes", "home_category_mains"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
   add_foreign_key "homes", "users"

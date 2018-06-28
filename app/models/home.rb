@@ -18,7 +18,7 @@ class Home < ApplicationRecord
   belongs_to                :country
   belongs_to                :room_type
   belongs_to                :currency
-  belongs_to                :home_category_sub
+  belongs_to                :home_category_main
 
   accepts_nested_attributes_for :additional_home_rules, allow_destroy: true, reject_if: :reject_additional_home_rules
   accepts_nested_attributes_for :amenity, allow_destroy: true

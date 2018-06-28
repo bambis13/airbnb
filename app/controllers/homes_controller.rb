@@ -64,6 +64,7 @@ class HomesController < ApplicationController
     @home.build_cancel_policy
 
     @countries = Country.all
+    @main_categories = HomeCategoryMain.all
     @sub_categories = HomeCategorySub.all
     @room_types = RoomType.all
     @currency = Currency.all
