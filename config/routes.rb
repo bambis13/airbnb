@@ -1,9 +1,10 @@
 Rails.application.routes.draw               do
   devise_for          :users
+  root 'homes#index'
   resources           :messages
   resources           :home_reviews
   resources           :devise_users
-  resources           :home_reservations, only: [:new, :create, :edit, :update]
+  resources           :home_reservations, only: [:create]
   resources           :homes, only: [:show, :new, :create] do
     collection                            do
       get             :homes
@@ -11,11 +12,8 @@ Rails.application.routes.draw               do
       get             :business
     end
   end
-  root 'homes#index'
-  get 'family', to: 'homes#family'
-  get 'business', to: 'homes#business'
-  get 'homes', to: 'homes#homes'
-  get 'search', to: 'homes#search'
+  get '/calc',        to: 'home_reservations#calc_total_fee'
+  get '/search',      to: 'homes#search'
   get '/:prefecture', to: 'homes#area_specific'
 end
 

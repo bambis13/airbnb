@@ -1,4 +1,5 @@
 class Home < ApplicationRecord
+
   enum status: { visitor: 0, host: 1 }
   has_many                  :additional_home_rules
   has_many                  :listing_photos
@@ -38,6 +39,10 @@ class Home < ApplicationRecord
 
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
+  end
+
+  def home_rules_children(params)
+    HomeRule.where("accept_children> ?", paramas)
   end
 
   default_scope { limit(5) }
