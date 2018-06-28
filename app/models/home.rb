@@ -37,7 +37,7 @@ class Home < ApplicationRecord
   def recommend(name)
     begin
       modified_name     = name.gsub(" ", "%20")
-      url               = URI.parse("http://127.0.0.1:5000/#{modified_name}")
+      url               = URI.parse("https://obscure-river-88190.herokuapp.com/#{modified_name}")
       learning_result   = open(url).read
     rescue URI::InvalidURIError
       "おすすめが出てきません。。。"

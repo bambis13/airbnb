@@ -7,6 +7,10 @@
   width: 80%;
 }
 
+.category_color {
+  color:#9b3143 !important;
+}
+
 @mixin font-text {
   font-size: 16px;
   font-weight: 400;
@@ -495,6 +499,7 @@
 
   .similar-home {
     height: 210px;
+    width: 350px;
     border-radius: 5px;
   }
 
@@ -541,7 +546,7 @@
     margin-left: -50px;
   }
    .slick-next:before {
-    margin-left: 50px;
+    margin-left: -50px;
   }
   .slick-prev,
   .slick-next {
