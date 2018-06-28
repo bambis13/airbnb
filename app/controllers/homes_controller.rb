@@ -50,6 +50,7 @@ class HomesController < ApplicationController
     @result           = @home.recommend(@home.name)
     @homes            = Home.where(id: extract_recommend_ids(@result)[1..5])
     @similarities     = extract_degree_of_similarity(@result)[1..5]
+    @home_reservation = HomeReservation.new
   end
 
   def new

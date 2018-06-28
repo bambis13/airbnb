@@ -1,3 +1,99 @@
-// Place all the styles related to the home_reservations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.side-box{
+  float: right;
+  .reservation{
+    width: 326px;
+    border: solid 1px gray;
+    padding: 0 24px;
+    .top-box{
+      border-bottom: solid 1px gray;
+    }
+    .select-box{
+
+    }
+    .request-btn{
+
+    }
+  }
+  .report{
+    text-align: center;
+  }
+}
+
+.scroll-stop{
+  position: fixed;
+  top: 90px;
+  right: 80px;
+}
+
+.reservation_new{
+  background-color: $white;
+  width: 367px;
+  border: solid 1px $borderGray;
+  padding: 24px;
+  float: right;
+  &__heading{
+    h1{
+      display: inline;
+      font-size: 22px;
+    }
+    p{
+      display: inline;
+    }
+    .review{
+      span{
+        font-size: 12px;
+      }
+    }
+  }
+  &__result{
+    padding-top: 20px;
+    line-height: 30px;
+    span{
+      color:$fontGray;
+    }
+    &__default,&__cleaning,&__service{
+      border-bottom: solid 0.5px $borderGray;
+      padding: 5px 0;
+    }
+  }
+  &__submit{
+    text-align: center;
+  .submit_btn{
+    height: 50px;
+    width: 326px;
+    font-size: 16px;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    background: $iconPink;/*ボタン色*/
+    color: $white;
+    border-radius: 5px;
+  }
+  p{
+    color: $fontGray;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+  &__message{
+    border-top-width: 200px;
+    border-top: solid 1px $borderGray;
+    padding-top: 30px;
+    color: $fontGray;
+    h1{
+      font-size: 16px;
+      line-height: 17px;
+    }
+    p{
+      font-size: 14px;
+      display: inline-block;
+      width: 295px;
+    }
+    img{
+      display: inline-block;
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
+

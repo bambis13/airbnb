@@ -1,6 +1,8 @@
 /*
+ *= require jquery-ui/datepicker
  *= require font-awesome
 */
+
 @import './reset';
 @import './variable';
 @import './header';
@@ -10,8 +12,9 @@
 @import "font-awesome";
 @import './slick-theme';
 @import './slick';
+@import './home_reservations';
+@import './tmp';
 @import './area_header';
-
 /*-- Settings ---------------------------------- */
 
 .clearfix:after {
@@ -47,7 +50,8 @@
   width: calc(100vw - 160px);
   min-width: 500px;
   overflow-y:scroll;
-  padding: 80px 80px 40px; //padding-topを40->80に変更
+  margin-top: 80px;
+  padding: 0px 80px 40px; //padding-topを80->0に変更
 }
 
 .centering-wrap{
@@ -57,7 +61,9 @@
 .align-left{
   text-align: left !important;
 }
-
+.center{
+  text-align: center;
+}
 .bold-subtitle {
   color: $fontBold;
   font-weight: 600;
@@ -87,6 +93,13 @@
   color: $fontTxt;
 }
 
+button{
+  cursor: pointer !important;
+  &:focus{
+    outline: 0 !important;
+  }
+}
+
 .subtitle, .name {
   font-size: 16px;
   font-weight: 600 !important;
@@ -109,12 +122,6 @@
   word-wrap: break-word;
 }
 
-.clearfix:after{
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .padding-top-2px {
   padding-top: 1.3px;
 }
@@ -123,12 +130,24 @@
   margin-top: 15px;
 }
 
+.review-star{
+  font-size: 12px;
+  color: $viridian;
+}
+
+.hidden{
+  visibility: hidden;
+}
 .hide {
-  display: none !important;
+  display: none;
 }
 
 .gray {
   color: $fontTxt;
+}
+
+input[type="text"]:focus {
+  outline: 0;
 }
 
 a{
@@ -147,6 +166,7 @@ h4,
 h5,
 h6,
 p,
+span,
 .h1,
 .h2,
 .h3,
@@ -155,11 +175,9 @@ p,
 .h6,
 .p,
 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-.h6 {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif,'FontAwesome';
   color: $fontBlack;
-}
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
 }
 h1,
 .h1 {
@@ -186,19 +204,4 @@ h6,
   font-size: 10px;
 }
 p {
-  margin-bottom: 10px;
 }
-
-
-
-
-h3 {
-  padding: 0 0 7px;
-  // text-align: left;
-}
-
-
-
-
-
-

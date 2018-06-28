@@ -197,15 +197,15 @@
                 = @rules.kids_reason
               %p
                 = @rules.babies_reason
-          .home-overview__detail__item
-            %h4.subtitle キャンセル
-            %p
-              = "かなり適当" if @cancel.strict_level == "easy"
-              = "普通"      if @cancel.strict_level == "normal"
-              = "厳格"      if @cancel.strict_level == "strict"
-              = "かなり厳格" if @cancel.strict_level == "very_strict"
-            %p
-              = @cancel.text
+          / .home-overview__detail__item
+          /   %h4.subtitle キャンセル
+          /   %p
+          /     = "かなり適当" if @cancel.strict_level == "easy"
+          /     = "普通"      if @cancel.strict_level == "normal"
+          /     = "厳格"      if @cancel.strict_level == "strict"
+          /     = "かなり厳格" if @cancel.strict_level == "very_strict"
+          /   %p
+          /     = @cancel.text
           .home-overview__detail__item
             %h4.subtitle 予約可能状況
             %p 最低
@@ -356,24 +356,3 @@
             .similar-category__carsel.clearfix.listing-slick-2
               - @homes.zip(@similarities).each do |home, similarity|
                 = render partial: 'similar-category_item', locals: { home: home, similarity: similarity}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
