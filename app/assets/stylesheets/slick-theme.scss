@@ -23,9 +23,10 @@ $slick-opacity-not-active: 0.25 !default;
     width: 30px;
     line-height: 0px;
     font-size: 0px;
-    cursor: pointer;
-    background: rgba(255,255,255,$slick-opacity-default);
-    border-radius: 100%;
+    z-index: $slick-arrows;
+    cursor: pointer; 
+    opacity: $slick-opacity-default;
+    background: $white;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     border: solid 1px #DFDFDF;
     vertical-align: center;
@@ -39,8 +40,7 @@ $slick-opacity-not-active: 0.25 !default;
     outline: none;
     &:hover, &:focus {
         outline: none;
-        background: transparent;
-        color: transparent;
+        background: $slick-opacity-on-hover;
         &:before {
             opacity: $slick-opacity-on-hover;
         }
@@ -59,13 +59,13 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    z-index: 1;
     left: 0;
     [dir="rtl"] & {
         left: auto;
         right: -25px;
     }
     &:before {
+        font-size: 30px;
         content: $slick-prev-character;
         [dir="rtl"] & {
             content: $slick-next-character;
@@ -75,12 +75,12 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-next {
     right: 0;
-    z-index: 1;
     [dir="rtl"] & {
         left: -25px;
         right: auto;
     }
     &:before {
+        font-size: 30px;
         content: $slick-next-character;
         [dir="rtl"] & {
             content: $slick-prev-character;
@@ -88,28 +88,24 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-// ._1ibtygfe{
-//     // .slick_container {
-//     //     width:360px; /* 任意の値 */
-//     //     margin:0 auto; /* 任意の値 */
-//     //     position:relative;
-//     // }
-
-//      .slick-prev, .slick-next {
-//         width:60px; /* 画像幅 */
-//         height:34px /* 画像高さ */
-//     }
-//     .slick-prev:before, .slick-next:before {
-//         content:"";
-//     }
-//     button.slick-prev, button.slick-next {
-//         z-index:2;
-//     }
-//     .slick-prev{left:20px; /* 任意の値 */}
-//     .slick-next{right:20px; /* 任意の値 */}
-
-//     .slick-arrow{z-index:10;/* 値は適当に */}
-// }
+.tag-slick{
+    .slick-prev,.slick-next {
+        height: 40px;
+        width: 40px;
+        background: $white; 
+        opacity: 1;
+        border-radius: 100%;
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+        border: solid 1px #DFDFDF;
+        vertical-align: center;
+        top: 50%;
+        visibility: visible !important;
+        &:before {
+        line-height: 15px;
+        color: $viridian;
+        }
+    }
+}
 
 /* Dots */
 
@@ -125,6 +121,7 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0;
     margin: 0;
     width: 100%;
+    z-index: $slick-dots;
     li {
         position: relative;
         display: inline-block;

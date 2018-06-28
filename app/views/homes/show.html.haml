@@ -199,15 +199,15 @@
                 = @rules.kids_reason
               %p
                 = @rules.babies_reason
-          .home-overview__detail__item
-            %h4.subtitle キャンセル
-            %p
-              = "かなり適当" if @cancel.strict_level == "easy"
-              = "普通"      if @cancel.strict_level == "normal"
-              = "厳格"      if @cancel.strict_level == "strict"
-              = "かなり厳格" if @cancel.strict_level == "very_strict"
-            %p
-              = @cancel.text
+          / .home-overview__detail__item
+          /   %h4.subtitle キャンセル
+          /   %p
+          /     = "かなり適当" if @cancel.strict_level == "easy"
+          /     = "普通"      if @cancel.strict_level == "normal"
+          /     = "厳格"      if @cancel.strict_level == "strict"
+          /     = "かなり厳格" if @cancel.strict_level == "very_strict"
+          /   %p
+          /     = @cancel.text
           .home-overview__detail__item
             %h4.subtitle 予約可能状況
             %p 最低
@@ -348,7 +348,7 @@
                         infowindow.open(map, marker);
                     });
                 }
-              %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDZ8IUMjQ1_F-an8wbcBirQ2WOpdaKP7-w&callback=initMap"}
+              %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC-dfkU5d_QrTHfUdG1Sv9kjKBXeZzQ2fk&callback=initMap"}
               #map.left.position-static
             %p 地図は正確な所在地を示しています。
 
@@ -388,23 +388,5 @@
                   %p.listing-price ¥8,761 /泊・キャンセル無料
                   %span.listing-star ★★★★★
                   %span.listing-reviewsum.bold 122
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .container-right
+      = render 'home_reservations/new', home_reservation: @home_reservation, home: @home
