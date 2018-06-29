@@ -29,9 +29,9 @@
     = f.text_field :building, placeholder: '建物名を入力してください'
     = button_tag"緯度、経度を取得", type: 'button', class: 'address_btn'
     %h4 経度
-    = f.text_field :location_x, id: "lat"
+    = f.text_field :location_x, id: "lat", readonly: true
     %h4 緯度
-    = f.text_field :location_y, id: "lon"
+    = f.text_field :location_y, id: "lon", readonly: true
 
     %h3.content__title カテゴリーを選んでください
     = f.collection_select :home_category_main_id, @main_categories, :id, :name, prompt: '一つ選択してください'
@@ -163,9 +163,9 @@
       %h5 予約締め切りは到着何日前にしますか？
       = availability_setting.text_field :reservation_deadline
       %h3 チェックインできる時間帯は？
-      %h5 from
+      %h5 From
       = availability_setting.time_select :checkin_time_deadline_from
-      %h5 to
+      %h5 To
       = availability_setting.time_select :checkin_time_deadline_to
       %h5 予約は何か月先まで受け付けますか?
       = availability_setting.text_field :acceptable_month_ahead
@@ -244,15 +244,15 @@
       %h5 内容
       = c.text_field :text
 
-    %h3.content__title listing_photos
+    %h3.content__title 写真を掲載する
     = f.fields_for :listing_photos do |photo|
       %h5 画像をアップロードしてください
       - 3.times do |i|
         = photo.hidden_field :user_id, value: 1
         = photo.file_field :image
 
-    %h4.content__title 物件に名前をつける
+    %h3.content__title 物件に名前をつける
     = f.text_field :name, placeholder: 'リスティングのタイトル'
-    %h4.content__title 取り扱う通貨
+    %h3.content__title 取り扱う通貨
     = f.collection_select :currency_id, @currency, :id, :name
   = f.submit(class: 'create_btn bold')

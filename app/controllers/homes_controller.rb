@@ -80,10 +80,10 @@ class HomesController < ApplicationController
 
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
-        format.json { render :show, status: :created, location: @home }
+        # format.json { render :show, status: :created, location: @home }
       else
         format.html { render :new }
-        format.json { render json: @home.errors, status: :unprocessable_entity }
+        # format.json { render json: @home.errors, status: :unprocessable_entity }
       end
     end
   end
