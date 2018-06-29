@@ -63,12 +63,18 @@
             .action-box
               %button.close-button.bold 閉じる
     .reservation_new__body--hidden
-      %input{name: "max_guests_num", type: "hidden", value: "#{home.capacity}"}/
-      = f.hidden_field :number_of_adults, required: true,name: "number-of-adult-sa", value: 1
-      = f.hidden_field :number_of_children,name: "number-of-children-sa", value: 0
-      = f.hidden_field :number_of_babies, name: "number-of-babies-sa", value: 0
-      = f.hidden_field :service_fee, value: 0,required: true, name: "total-price-sa"
-      = f.hidden_field :total_fee, value: 0,required: true, name: "total-price-sa"
+      %p.hidden#max_date #{home.availability_setting.acceptable_month_ahead}
+      %p.hidden#min_date #{home.availability_setting.reservation_deadline}
+      %p.hidden#max_guests_num #{home.capacity}
+      = f.hidden_field :number_of_adults, required: true,class: "number-of-adult-sa", value: 1
+      = f.hidden_field :number_of_children, class: "number-of-children-sa", value: 0
+      = f.hidden_field :number_of_babies, class: "number-of-babies-sa", value: 0
+      = f.hidden_field :service_fee, value: home.price.service_fee
+      = f.hidden_field :cleaning_fee, value: home.price.cleaning_fee
+      = f.hidden_field :per_day_fee, value: 0,required: true,class: "per_day_fee"
+      = f.hidden_field :total_fee, value: 0,required: true,class: "total_fee"
+      = f.hidden_field :user_id, value: 1
+      = f.hidden_field :home_id, value: home.id
     .reservation_new__result.removed
       .reservation_new__result__default.clearfix
         %span.left.stay_day

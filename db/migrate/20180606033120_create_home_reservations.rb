@@ -1,8 +1,8 @@
 class CreateHomeReservations < ActiveRecord::Migration[5.1]
   def change
     create_table :home_reservations do |t|
-      t.date   :checkin_date, null: false
-      t.date   :checkout_date, null: false
+      t.string   :checkin_date, null: false
+      t.string   :checkout_date, null: false
       t.integer  :number_of_adults, null: false, default: 1
       t.integer  :number_of_children, null: false, default: 0
       t.integer  :number_of_babies, null: false, default: 0

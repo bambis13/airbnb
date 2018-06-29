@@ -6,7 +6,7 @@ class Home < ApplicationRecord
   has_one                   :bed_type
   has_one                   :available_spaces
   has_one                   :overview
-  has_one                   :available_setting
+  has_one                   :availability_setting
   has_one                   :price
   has_one                   :home_rule
   has_one                   :additional_home_rule
@@ -23,7 +23,7 @@ class Home < ApplicationRecord
   # geocoded_by               :town
   # after_validation          :geocode
 
-  accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
+  accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_spaces, :overview, :availability_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
 
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
@@ -40,5 +40,4 @@ class Home < ApplicationRecord
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
-
 end

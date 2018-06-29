@@ -16,3 +16,24 @@ function buildGuestsNum(i, num){
     return ", 乳幼児"+num+"人";
   }
 }
+
+function buildDateString(date){
+  var dtYear = date.getFullYear().toString();
+  var dtMonth = date.getMonth() + 1;
+  var dtDay = date.getDate();
+  if (dtMonth < 10){
+    dtMonth = "0"+dtMonth.toString();
+  }else{
+    dtMonth = dtMonth.toString();
+  }
+  if (dtDay < 10){
+    dtDay = "0"+dtDay.toString();
+  }else{
+    dtDay = dtDay.toString();
+  }
+  return dtYear +"/"+ dtMonth +"/"+ dtDay;
+}
+
+function getId(){
+  return parseInt(location.pathname.split('/')[2]);
+}
