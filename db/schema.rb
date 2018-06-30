@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625074304) do
+ActiveRecord::Schema.define(version: 20180630033702) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -301,24 +301,23 @@ ActiveRecord::Schema.define(version: 20180625074304) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.date "birth_day", null: false
-    t.integer "sex", null: false
-    t.string "phone_number", null: false
-    t.string "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "town", null: false
-    t.string "street", null: false
-    t.string "building", null: false
-    t.text "self_introduction", null: false
-    t.bigint "country_id", null: false
-    t.bigint "currency_id", null: false
-    t.bigint "language_id", null: false
+    t.integer "sex"
+    t.string "phone_number"
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "town"
+    t.string "street"
+    t.string "building"
+    t.text "self_introduction"
+    t.bigint "country_id"
+    t.bigint "currency_id"
+    t.bigint "language_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", null: false
+    t.integer "status"
     t.integer "superhost", default: 0
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "password", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"

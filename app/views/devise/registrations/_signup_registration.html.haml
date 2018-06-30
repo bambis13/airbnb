@@ -8,16 +8,18 @@
     で登録
   .section_message または
   .signup_registration_contents__form_content
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'signup_form'}) do |f|
       = devise_error_messages!
       .field_input_area
-        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
+        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form', id: 'signup_email'
       .field_input_area
-        = f.text_field :first_name, placeholder: "名", autocomplete: true, class: 'login_form'
+        = f.phone_field :phone_number, placeholder: "電話番号", autofocus: true, autocomplete: "phone_number", class: 'login_form', id: 'signup_phone_number'
       .field_input_area
-        = f.text_field :last_name, placeholder: "性", autocomplete: true, class: 'login_form'
+        = f.text_field :first_name, placeholder: "名", autocomplete: true, class: 'login_form', id: 'signup_first_name'
       .field_input_area
-        = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form click_password'
+        = f.text_field :last_name, placeholder: "性", autocomplete: true, class: 'login_form', id: 'signup_last_name'
+      .field_input_area
+        = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'login_form click_password', id: 'signup_password'
       .field_label
         = f.label :birth_day, "生年月日"
         .field_label__text ご登録は18歳以上の方に限ります。誕生日は非公開です
@@ -28,10 +30,16 @@
           start_year:     1930,                 |
           end_year:       (Time.now.year - 18)) |
       .field_content お得なキャンペーン、スペシャルオファー、旅やポリシーの最新情報をメールでお届けします
+      .hidden_field_area
+        = f.hidden_field :language_id, id: 'signup_language', class: 'login_form', value: 1
+      .hidden_field_area
+        = f.hidden_field :currency_id, id: 'signup_currency', class: 'login_form', value: 1
+      .hidden_field_area
+        = f.hidden_field :country_id, id: 'signup_country', class: 'login_form', value: 1
       .field_submit_area
-        = f.submit "登録", class: 'registration_btn', id: 'submit'
+        = f.submit "登録", class: 'registration_btn', id: 'signup_submit'
       .field_checkbox_area
-        = f.check_box :remember_me
+        = f.check_box :remember_me, id: 'signup_checkbox'
         .field_checkbox_area__label
           = f.label "Airbnbから広告メッセージの受け取りを希望しない。広告メッセージはアカウントの設定や文中リンクでいつでも配信解除できる。"
   .signup_registration_contents__border_line
@@ -41,5 +49,3 @@
     .text_area Airbnbアカウントはお持ちですか？
     %a.redirect_btn#return_login{href: root_path} ログイン
 = render "devise/shared/links"
-
-

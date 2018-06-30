@@ -1,24 +1,28 @@
-.signup_phone_number_contents
-  .signup_phone_number_contents__top_content
-  .signup_phone_number_contents__title_content
-    %span 電話番号を確認してください
-  .signup_phone_number_contents__body_content
-    %span こちらは旅行中ホストやゲストからの連絡先となる情報です。
-  .signup_phone_number_contents__icon
-    .signup_phone_number_contents__icon__image
-  .signup_phone_number_contents__language_field
-    .signup_phone_number_contents__language_field__label_area
-      %span 国
-    .signup_phone_number_contents__language_field__select_area
-      %span 日本 (+81)
-  .signup_phone_number_contents__phone_number_field
-    .signup_phone_number_contents__phone_number_field__label_area
-      %span 電話番号
-    .signup_phone_number_contents__phone_number_field__input_area
-      %span.international_country_code
-      / = input :phone_number, class: 'phone_number', id: 'input'
-    .signup_phone_number_contents__phone_number_field__certification_area
-      %a.redirect_btn{href: root_path}
-        %h3 電話番号の認証
-  .signup_phone_number_contents__bottom_content#switch_mail_certification
-    %a.redirect_btn{href: root_path} あとで
+/ 省略のためにコメントアウト
+/ devise/registration/_singup_registrationのform_forにて
+/ phone_numberを入力する仕様に変更
+
+/ .signup_phone_number_contents
+/   .signup_phone_number_contents__top_content
+/   .signup_phone_number_contents__title_content
+/     %span 電話番号を確認してください
+/   .signup_phone_number_contents__body_content
+/     %span こちらは旅行中ホストやゲストからの連絡先となる情報です。
+/   .signup_phone_number_contents__icon
+/     .signup_phone_number_contents__icon__image
+/   .signup_phone_number_contents__language_field
+/     .signup_phone_number_contents__language_field__label_area
+/       %span 国
+/     .signup_phone_number_contents__language_field__select_area
+/       %span 日本 (+81)
+/   .signup_phone_number_contents__phone_number_field
+/     .signup_phone_number_contents__phone_number_field__label_area
+/       %span 電話番号
+/     .signup_phone_number_contents__phone_number_field__input_area
+/       %span.international_country_code
+/       / = input :phone_number, class: 'phone_number', id: 'input'
+/     .signup_phone_number_contents__phone_number_field__certification_area
+/       %a.redirect_btn{href: root_path}
+/         %h3 電話番号の認証
+/   .signup_phone_number_contents__bottom_content#switch_mail_certification
+/     %a.redirect_btn{href: root_path} あとで

@@ -6,10 +6,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      format.html{root_path}
-      format.json
-    # @user = user.create
+    @user = User.new
+    @user = params[:first_name, :last_name, :birth_day, :phone_number, :encrypted_password, :email, :country_id, :language_id, :currency_id]
   end
 
   def edit
@@ -29,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:sign_up, keys: [:first_name, :last_name, :sex, :birth_day, :phone_number, :postal_code, :self_introduction, :prefecture, :town, :street, :building, :status, :country_id, :language_id, :currency_id])
+    params.require(:user).permit(:sign_up, keys: [:first_name, :last_name, :sex, :birth_day, :phone_number, :postal_code, :self_introduction, :prefecture, :town, :street, :building, :status, :country_id, :language_id, :currency_id], :encrypted_password, :email)
   end
 end

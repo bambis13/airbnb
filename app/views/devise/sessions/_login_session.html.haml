@@ -6,16 +6,16 @@
     %h1 ログイン
   .correction_position_top
   .login_session_contents__form_content
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: new_user_session_path(resource_name), html: {id: 'login_form'}) do |f|
       .field_input_area
-        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form'
+        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'login_form', id: 'login_email'
       .field_input_area
-        = f.password_field :password, placeholder: "パスワード", autocomplete: "off", class: 'login_form'
+        = f.password_field :password, placeholder: "パスワード", autocomplete: "off", class: 'login_form', id: 'login_password'
       .field_checkbox_area
-        = f.check_box :remember_me
+        = f.check_box :remember_me, id: 'login_checkbox'
         = f.label "ログイン情報を保存"
       .field_submit_area
-        = f.submit "ログイン", class: 'login_btn', id: 'submit'
+        = f.submit "ログイン", class: 'login_btn', id: 'login_submit'
       %a.redirect_btn{href: root_path} パスワードをお忘れですか？
     .section_message または
   .correction_position_center

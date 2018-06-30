@@ -685,222 +685,222 @@
 }
 
 //*---profile_section------------------------------------------------/
-
-.signup_profile_contents{
-  height: 450px;
-  width: 310px;
-  margin: 0 auto;
-  font-family: Helvetica Neue;
-  color: $fontLightGray;
-  background-color: $white;
-  z-index: 2;
-  display: none;
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  padding: 70px 60px 35px 60px;
-  &__top_content{
-  }
-  &__title_content{
-    margin-bottom: 6px;
-    text-align: center;
-    span{
-      width: 100%;
-      font-size: 24px;
-      line-height: 1.1;
-    }
-  }
-  &__body_content{
-    margin-bottom: 24px;
-    text-align: center;
-    span{
-      width: 100%;
-      font-size: 16px;
-      line-height: 1.1;
-    }
-  }
-  &__icon{
-    width: 130px;
-    margin: 0 auto 24px auto;
-    &__image{
-      height: 134px;
-      width: 134px;
-      background-image: url("no_img.png");
-      background-size: contain;
-    }
-  }
-  &__facebook_bar{
-    height: 42px;
-    width: 310px;
-    margin: 0 auto;
-    background-color: $facebook_blue;
-    margin-bottom: 12px;
-    &__btn{
-      height: 100%;
-      width: 100%;
-      .redirect_btn{
-        height: 100%;
-        width: 100%;
-        margin: 0 auto;
-        h3{
-          height: 20px;
-          width: 260px;
-          line-height: 1.43;
-          font-size: 16px;
-          text-align: center;
-          color: $white;
-        }
-      }
-    }
-  }
-  &__upload_bar{
-    height: 42px;
-    width: 310px;
-    margin: 0 auto;
-    border: 1px solid #848484;
-    margin-bottom: 25px;
-    &__btn{
-      height: 100%;
-      width: 100%;
-      .redirect_btn{
-        h3{
-          height: 20px;
-          width: 260px;
-          line-height: 1.43;
-          font-size: 16px;
-          text-align: center;
-        }
-      }
-    }
-  }
-  &__bottom_content{
-    text-align: center;
-    color: #AAA;
-  }
-}
+// 省略のためにコメントアウト
+// .signup_profile_contents{
+//   height: 450px;
+//   width: 310px;
+//   margin: 0 auto;
+//   font-family: Helvetica Neue;
+//   color: $fontLightGray;
+//   background-color: $white;
+//   z-index: 2;
+//   display: none;
+//   position: absolute;
+//   top: 35%;
+//   left: 35%;
+//   padding: 70px 60px 35px 60px;
+//   &__top_content{
+//   }
+//   &__title_content{
+//     margin-bottom: 6px;
+//     text-align: center;
+//     span{
+//       width: 100%;
+//       font-size: 24px;
+//       line-height: 1.1;
+//     }
+//   }
+//   &__body_content{
+//     margin-bottom: 24px;
+//     text-align: center;
+//     span{
+//       width: 100%;
+//       font-size: 16px;
+//       line-height: 1.1;
+//     }
+//   }
+//   &__icon{
+//     width: 130px;
+//     margin: 0 auto 24px auto;
+//     &__image{
+//       height: 134px;
+//       width: 134px;
+//       background-image: url("no_img.png");
+//       background-size: contain;
+//     }
+//   }
+//   &__facebook_bar{
+//     height: 42px;
+//     width: 310px;
+//     margin: 0 auto;
+//     background-color: $facebook_blue;
+//     margin-bottom: 12px;
+//     &__btn{
+//       height: 100%;
+//       width: 100%;
+//       .redirect_btn{
+//         height: 100%;
+//         width: 100%;
+//         margin: 0 auto;
+//         h3{
+//           height: 20px;
+//           width: 260px;
+//           line-height: 1.43;
+//           font-size: 16px;
+//           text-align: center;
+//           color: $white;
+//         }
+//       }
+//     }
+//   }
+//   &__upload_bar{
+//     height: 42px;
+//     width: 310px;
+//     margin: 0 auto;
+//     border: 1px solid #848484;
+//     margin-bottom: 25px;
+//     &__btn{
+//       height: 100%;
+//       width: 100%;
+//       .redirect_btn{
+//         h3{
+//           height: 20px;
+//           width: 260px;
+//           line-height: 1.43;
+//           font-size: 16px;
+//           text-align: center;
+//         }
+//       }
+//     }
+//   }
+//   &__bottom_content{
+//     text-align: center;
+//     color: #AAA;
+//   }
+// }
 
 //*---signup_phone_number section--------------------------------------/
-
-.signup_phone_number_contents{
-  height: 480px;
-  width: 310px;
-  margin: 0 auto;
-  font-family: Helvetica Neue;
-  color: $fontLightGray;
-  background-color: $white;
-  z-index: 2;
-  display: none;
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  padding: 70px 60px 35px 60px;
-  &__top_content{
-  }
-  &__title_content{
-    margin-bottom: 6px;
-    text-align: center;
-    span{
-      font-size: 24px;
-      line-height: 1.43;
-    }
-  }
-  &__body_content{
-    margin-bottom: 24px;
-    text-align: center;
-    span{
-      font-size: 16px;
-      line-height: 1.43;
-    }
-  }
-  &__icon{
-    margin: 24px 0 24px 0 auto;
-    &__image{
-      margin: 0 auto;
-      height: 100px;
-      width: 100px;
-      background-image: url("phone_image.png");
-      background-size: contain;
-    }
-  }
-  &__language_field{
-    &__label_area{
-      padding: 9px 0 8px 0;
-      text-align: center;
-      span{
-        font-size: 14px;
-        line-height: 1.43;
-      }
-    }
-    &__select_area{
-      height: 30px;
-      width: 250px;
-      margin: 0 auto;
-      padding-top: 10px;
-      text-align: center;
-      span{
-        font-size: 16px;
-        line-height: 1.43;
-      }
-    }
-  }
-  &__phone_number_field{
-    &__label_area{
-      padding: 9px 0 8px 0;
-      text-align: center;
-      span{
-        font-size: 14px;
-        text-align: center;
-        line-height: 1.43;
-      }
-    }
-    &__input_area{
-      height: 36px;
-      width: 250px;
-      margin: 0 0 24px 0 auto;
-      padding: 0 12px 0 12px;
-      .international_country_code{
-        width: 43.5px;
-        background-color: rgba(45, 45, 45, 0.7);
-        border: 1px solid $fontLightGray;
-        float: left;
-      }
-      .phone_number{
-        width: calc(250px - 43.5px);
-        border: 1px solid $fontLightGray;
-        float: right;
-      }
-    }
-    &__certification_area{
-      margin: 0 auto;
-      height: 42px;
-      width: 250px;
-      text-align: center;
-      background-color: $airbnb_pink;
-      .redirect_btn{
-        width: 100%;
-        height: 100%;
-        h3{
-          height: 25px;
-          width: 200px;
-          color: $white;
-          padding: 9px 23px;
-          font-size: 15px;
-        }
-      }
-    }
-  }
-  &__bottom_content{
-    height: 50px;
-    padding-top: 20px;
-    text-align: center;
-    .redirect_btn{
-      font-size: 14px;
-    }
-  }
-}
+// 省略、仕様変更のためコメントアウト
+// .signup_phone_number_contents{
+//   height: 480px;
+//   width: 310px;
+//   margin: 0 auto;
+//   font-family: Helvetica Neue;
+//   color: $fontLightGray;
+//   background-color: $white;
+//   z-index: 2;
+//   display: none;
+//   position: absolute;
+//   top: 35%;
+//   left: 35%;
+//   padding: 70px 60px 35px 60px;
+//   &__top_content{
+//   }
+//   &__title_content{
+//     margin-bottom: 6px;
+//     text-align: center;
+//     span{
+//       font-size: 24px;
+//       line-height: 1.43;
+//     }
+//   }
+//   &__body_content{
+//     margin-bottom: 24px;
+//     text-align: center;
+//     span{
+//       font-size: 16px;
+//       line-height: 1.43;
+//     }
+//   }
+//   &__icon{
+//     margin: 24px 0 24px 0 auto;
+//     &__image{
+//       margin: 0 auto;
+//       height: 100px;
+//       width: 100px;
+//       background-image: url("phone_image.png");
+//       background-size: contain;
+//     }
+//   }
+//   &__language_field{
+//     &__label_area{
+//       padding: 9px 0 8px 0;
+//       text-align: center;
+//       span{
+//         font-size: 14px;
+//         line-height: 1.43;
+//       }
+//     }
+//     &__select_area{
+//       height: 30px;
+//       width: 250px;
+//       margin: 0 auto;
+//       padding-top: 10px;
+//       text-align: center;
+//       span{
+//         font-size: 16px;
+//         line-height: 1.43;
+//       }
+//     }
+//   }
+//   &__phone_number_field{
+//     &__label_area{
+//       padding: 9px 0 8px 0;
+//       text-align: center;
+//       span{
+//         font-size: 14px;
+//         text-align: center;
+//         line-height: 1.43;
+//       }
+//     }
+//     &__input_area{
+//       height: 36px;
+//       width: 250px;
+//       margin: 0 0 24px 0 auto;
+//       padding: 0 12px 0 12px;
+//       .international_country_code{
+//         width: 43.5px;
+//         background-color: rgba(45, 45, 45, 0.7);
+//         border: 1px solid $fontLightGray;
+//         float: left;
+//       }
+//       .phone_number{
+//         width: calc(250px - 43.5px);
+//         border: 1px solid $fontLightGray;
+//         float: right;
+//       }
+//     }
+//     &__certification_area{
+//       margin: 0 auto;
+//       height: 42px;
+//       width: 250px;
+//       text-align: center;
+//       background-color: $airbnb_pink;
+//       .redirect_btn{
+//         width: 100%;
+//         height: 100%;
+//         h3{
+//           height: 25px;
+//           width: 200px;
+//           color: $white;
+//           padding: 9px 23px;
+//           font-size: 15px;
+//         }
+//       }
+//     }
+//   }
+//   &__bottom_content{
+//     height: 50px;
+//     padding-top: 20px;
+//     text-align: center;
+//     .redirect_btn{
+//       font-size: 14px;
+//     }
+//   }
+// }
 
 //*---signup_mail_certification--------------------------------------/
-
+// 省略のためにコメントアウト
 .signup_mail_certification_contents{
   height: 450px;
   width: 310px;

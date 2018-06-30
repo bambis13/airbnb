@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :sex, :birth_day, :phone_number, :postal_code, :self_introduction, :prefecture, :town, :street, :building, :status, :country_id, :language_id, :currency_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :birth_day, :birth_year, :birth_month, :phone_number, :language_id, :currency_id, :country_id])
   end
 end

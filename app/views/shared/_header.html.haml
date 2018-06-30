@@ -1,5 +1,5 @@
 = render 'devise/registrations/new'
-
+= render 'devise/sessions/new'
 /*---header---------------------------------------------*/
 .header.clearfix
   .navibar
@@ -103,9 +103,9 @@
                     %span ヘルプセンターへ
                 .help__row__block__link
                   = link_to 'フィードバックを送る', '#', class: 'help__row__block__link__text'
-        %li.navibar__list__content
+        %li.navibar__list__content#hidden_menu
           = image_tag("no_img.png", alt: "no_img_icon", id: "navibar__list__user__img")
-          %ul.navigation.hide#user
+          %ul.navigation.hide#user_field
             %li.hide_content
               = link_to 'プロフィールを編集する'
             %li.hide_content
@@ -119,7 +119,7 @@
             %li.hide_content
               = link_to 'Airbnbビジネスプログラム'
             %li.hide_content
-              = link_to 'ログアウト'
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else
       %ul.navibar__list
         %li.navibar__list__content
