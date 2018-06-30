@@ -99,7 +99,7 @@ $(function(){
     event.preventDefault();
   })
 
-  switchCovenantSection.on('click', function(){
+  switchCovenantSection.on('submit', function(){
     loginMailField.hide();
     covenantField.fadeIn();
     event.preventDefault();
