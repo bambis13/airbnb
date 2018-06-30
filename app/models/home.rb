@@ -17,7 +17,6 @@ class Home < ApplicationRecord
   belongs_to                :room_type
   belongs_to                :user
   belongs_to                :country
-  belongs_to                :room_type
   belongs_to                :currency
   belongs_to                :home_category_main
 

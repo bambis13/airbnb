@@ -76,16 +76,16 @@ class HomesController < ApplicationController
 
   def create
     @home = Home.new(home_params)
-    respond_to do |format|
-
+    @countries = Country.all
+    @main_categories = HomeCategoryMain.all
+    @sub_categories = HomeCategorySub.all
+    @room_types = RoomType.all
+    @currency = Currency.all
       if @home.save
-        format.html { redirect_to @home, notice: 'Home was successfully created.' }
-        # format.json { render :show, status: :created, location: @home }
+        redirect_to @home, notice: 'Home was successfully created.'
       else
-        format.html { render :new }
-        # format.json { render json: @home.errors, status: :unprocessable_entity }
+        render :action => 'new'
       end
-    end
   end
 
   def update
@@ -121,6 +121,7 @@ private
       :user_id,
       :room_type_id,
       :home_category_sub_id,
+      :home_category_main_id,
       :capacity,
       :number_of_bedroom,
       :number_of_bathroom,

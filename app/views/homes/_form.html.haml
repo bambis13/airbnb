@@ -12,7 +12,7 @@
       %h1 さあ、current_user.nameさん！お部屋の掲載準備を始めましょう
     = f.hidden_field :user_id, value: 1
     %h3.content__title お部屋のタイプは？
-    = f.collection_select :room_type_id, @room_types, :id, :name, selected: 1
+    = f.collection_select :room_type_id, @room_types, :id, :name, prompt: '選択してください'
     %h3 住所を入力してください
     %h4 国
     = f.collection_select :country_id, @countries, :id, :name
@@ -27,11 +27,9 @@
     = f.text_field :street, id: "street1", placeholder: '番地を入力してください'
     %h4 建物名
     = f.text_field :building, placeholder: '建物名を入力してください'
-    = button_tag"緯度、経度を取得", type: 'button', class: 'address_btn'
-    %h4 経度
-    = f.text_field :location_x, id: "lat", readonly: true
-    %h4 緯度
-    = f.text_field :location_y, id: "lon", readonly: true
+    / 経緯度を取得
+    = f.hidden_field :location_x, id: "lat"
+    = f.hidden_field :location_y, id: "lon"
 
     %h3.content__title カテゴリーを選んでください
     = f.collection_select :home_category_main_id, @main_categories, :id, :name, prompt: '一つ選択してください'
@@ -185,7 +183,7 @@
       = p.text_field :muximum_price
       %h5 最低料金
       = p.text_field :minimum_price
-      %h5 first-arrival-discount
+      %h5 初めてのゲストは20%割引
       = p.check_box :first_arrival_discount
       %h5 週の割引率
       = p.text_field :weekly_discount_rate
@@ -198,7 +196,7 @@
       %h5 一人当たりの追加料金
       = p.text_field :additional_fee_per_person
 
-    %h3.content__title home _notification
+    %h3.content__title お家についてゲストが事前に知っておくべきこと
     = f.fields_for :home_notification do |home_notification|
       %h5 階段を登らないとたどり着けません
       = home_notification.check_box :only_stairs
@@ -252,7 +250,7 @@
         = photo.file_field :image
 
     %h3.content__title 物件に名前をつける
-    = f.text_field :name, placeholder: 'リスティングのタイトル'
+    = f.text_field :name, placeholder: 'リスティングのタイトル',id: 'target_event'
     %h3.content__title 取り扱う通貨
     = f.collection_select :currency_id, @currency, :id, :name
   = f.submit(class: 'create_btn bold')

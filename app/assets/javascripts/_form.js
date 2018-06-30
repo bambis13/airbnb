@@ -39,14 +39,14 @@ $(function(){
     });
   }
   var zipBtn = $('.zip_btn');
-  var addressBtn = $('.address_btn')
+  var targetEvent = $('.create_btn')
   var zip = $('#zip');
 
   zipBtn.on('click', function(){
     getLatLng(zip.val());
-  })
-  addressBtn.on('click',function(){
+  });
+  targetEvent.on('click',function(){
     var address = $('#prefecture').val() + $('#town').val() + $('#street1').val();
     getLatLng(address);
-  })
-})
+  });
+});
