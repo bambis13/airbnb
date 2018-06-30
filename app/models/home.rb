@@ -32,6 +32,24 @@ class Home < ApplicationRecord
   accepts_nested_attributes_for :listing_photos, allow_destroy: true
   accepts_nested_attributes_for :cancel_policy, allow_destroy: true
 
+  validates :capacity,              presence: true
+  validates :number_of_bedroom,     presence: true
+  validates :number_of_bathroom,    presence: true
+  validates :number_of_beds,        presence: true
+  validates :postalcode,            presence: true
+  validates :prefecture,            presence: true
+  validates :town,                  presence: true
+  validates :street,                presence: true
+  validates :building,              presence: true
+  validates :location_x,            presence: true
+  validates :location_y,            presence: true
+  validates :name,                  presence: true
+  validates :home_category_sub_id,  presence: true
+  validates :home_category_main_id, presence: true
+  validates :room_type_id,          presence: true
+  validates :user_id,               presence: true
+  validates :country_id,            presence: true
+  validates :currency_id,           presence: true
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
   end
