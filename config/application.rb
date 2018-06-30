@@ -1,6 +1,8 @@
 require_relative 'boot'
 
+
 require 'rails/all'
+require 'devise'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,4 +23,11 @@ module Airbnb
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+
+# def accept_kids?
+#   HomeRule.where("accept_kids = ?" params[:children])
+# end
+# def accept_babies?
+#   HomeRule.where("accept_babiess = ?" params[:babies])
+# end
 end

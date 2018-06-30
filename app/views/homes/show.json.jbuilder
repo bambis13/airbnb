@@ -1,1 +1,5 @@
-json.partial! "homes/home", home: @home
+json.building   @home.building
+json.street     @home.street
+json.town       @home.town
+json.prefecture @home.prefecture
+

@@ -42,6 +42,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -62,12 +67,21 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
+gem 'mechanize'
+gem 'carrierwave'
+gem 'fog', '1.38.0'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'kaminari'
-gem 'mechanize'
-gem 'devise'
 gem 'turbolinks'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'ransack'
+gem 'devise'
+gem 'faker'
+gem "gmaps4rails"
+gem "geocoder"
+gem "coffee-rails"
+gem "pycall"
+gem "pandas"
+gem "numpy"

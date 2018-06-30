@@ -34,16 +34,13 @@ ___
 ### Home
 #### association
 ```
-has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules
+has_many :favorites, :home_reservations, :home_reviews, :additional_home_rules, :listing_photo_homes
 ```
 ```
 belongs_to :home_category_sub, :room_type, :country, :currency
 ```
 ```
 has_one :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification
-```
-```
-has_and_belongs_to_many :listing_photos
 ```
 #### Homes_table
 |Column|Type|Options|
@@ -112,15 +109,13 @@ ___
 ### Listing_photo
 #### association
 ```
-belongs_to :user
-```
-```
-has_and_belongs_to_many :homes
+belongs_to :user, :home
 ```
 #### Listing_photos_table
 |Column|Type|Options|
 -|-|-
 user_id|references|null: false, foreign_key: true
+home_id|references|null: false, foreign_key: true
 image|text|null: false|
 ___
 
@@ -402,18 +397,6 @@ has_many :users, :homes
 |Column|Type|Options|
 -|-|-
 name|string| |
-___
-
-### Listing_photo_home
-#### association
-```
-none
-```
-#### Listing_photo_homes_table
-|Column|Type|Options|
--|-|-
-home_id|references|null: false, foreign_key: true
-listing_photo_id|references|null: false, foreign_key: true
 ___
 
 ### Home_category_main_sub

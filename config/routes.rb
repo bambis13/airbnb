@@ -1,17 +1,18 @@
-Rails.application.routes.draw do
-
-  devise_for :users
+Rails.application.routes.draw               do
+  devise_for          :users
+  resources           :messages
+  resources           :home_reviews
+  resources           :home_reservations, only: [:new, :create, :edit, :update]
+  resources           :homes, only: [:show] do
+    collection                            do
+      get             :homes
+      get             :family
+      get             :business
+    end
+  end
   root 'homes#index'
-  resources :home_reservations
-  resources :home_reviews
-  resources :homes
-  resources :devise_users
-  resources :home
-  get 'family', to: 'homes#family'
-  get 'business', to: 'homes#business'
-  get 'homes', to: 'homes#homes'
-  get 'search', to: 'homes#search'
-  resources :home_reservations, only: [:new, :create, :edit, :update]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  get '/search',      to: 'homes#search'
+  get '/:prefecture', to: 'homes#area_specific'
 end
+
+
