@@ -32,7 +32,7 @@ class HomeReservationsController < ApplicationController
     shortest_checkout_date     = view_context.calc_default_checkout(@home.availability_setting.minimum_accomodation_range, params[:checkin])
     base_longest_checkout_date = view_context.calc_default_checkout(@home.availability_setting.muximum_accomodation_range, params[:checkin])
     earliest_booked_date       = @home_reservations.only_dates.with_checkin_date_between(shortest_checkout_date, base_longest_checkout_date).sort[0]
-    longest_checkout_date      = earliest_booked_date.present? ? view_context.convert_date_str(earliest_booked_date[0].checkin_date) : base_longest_checkout_date
+    longest_checkout_date      = earliest_booked_date.present? ? view_context.convert_date_str(earliest_booked_date.checkin_date) : base_longest_checkout_date
     respond_to do |format|
       format.json{ render json: {shortest: shortest_checkout_date, longest: longest_checkout_date }}
     end
