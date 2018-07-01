@@ -14,14 +14,13 @@ $(document).ready(function(){
   }
 
   getReservedData().then(function(data) {
-    console.log(data);
     var disableDates = data.disables
     $checkinBtn.datepicker({
       numberOfMonths: 1,
       dateFormat: dateFormat,
       showAnim: animFormat,
-      minDate: data.min,
-      maxDate: data.max,
+      minDate: data.first,
+      maxDate: data.last,
       beforeShowDay: function(day){
         var dtFullDate = buildDateString(day);
         if(disableDates.indexOf(dtFullDate) >= 0){

@@ -17,8 +17,6 @@ class HomeReservation < ApplicationRecord
   #           presence: true
 
   scope :only_dates,->{ select("checkin_date,checkout_date")}
-  scope :after_checkout_day,->(date){ where "checkout_date > ?",date }
-  scope :before_checkin,->(shortest_checkout_date, longest_checkout_date){where "? <= checkin_date and checkin_date < ?", shortest_checkout_date, longest_checkout_date}
-  scope :first_checkin,->{order(checkin_date: :asc).limit(1)}
-
+  scope :with_checkout_later,->(date){ where "checkout_date > ?",date }
+  scope :with_checkin_date_between,->(shortest_checkout_date, longest_checkout_date){where "? <= checkin_date and checkin_date < ?", shortest_checkout_date, longest_checkout_date}
 end

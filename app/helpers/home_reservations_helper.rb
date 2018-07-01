@@ -4,11 +4,11 @@ module HomeReservationsHelper
     number_to_currency(amount, unit: "¥ ",precision: 0 )
   end
 
-  def make_min_checkin(day)
+  def generate_minDate_str(day)
     return "+#{day}d"
   end
 
-  def make_max_checkin(month)
+  def generate_maxDate_str(month)
     return "+#{month}m"
   end
 
@@ -37,7 +37,7 @@ module HomeReservationsHelper
   #   return price
   # end
 
-  def make_disable_dates(reservations,min_stay)
+  def generate_disable_dates(reservations,min_stay)
     disable_dates = []
     reservations.each do |reservation|
       checkin = reservation.checkin_date

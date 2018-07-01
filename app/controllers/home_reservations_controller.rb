@@ -18,12 +18,12 @@ class HomeReservationsController < ApplicationController
   end
 
   def show
-    reservation_dates = @home_reservations.only_dates.after_checkout_day(Date.today)
-    disable_dates     = view_context.make_disable_dates(reservation_dates, @home.availability_setting.minimum_accomodation_range)
-    min_date          = view_context.make_min_checkin(@home.availability_setting.reservation_deadline)
-    max_date          = view_context.make_max_checkin(@home.availability_setting.acceptable_month_ahead)
+    reservation_dates     = @home_reservations.only_dates.with_checkout_later(Date.today)
+    disable_dates         = view_context.generate_disable_dates(reservation_dates, @home.availability_setting.minimum_accomodation_range)
+    first_checkin_date    = view_context.generate_minDate_str(@home.availability_setting.reservation_deadline)
+    last_checkin_date     = view_context.generate_maxDate_str(@home.availability_setting.acceptable_month_ahead)
     respond_to do |format|
-      format.json{render json:{min: min_date, max: max_date, disables: disable_dates}}
+      format.json{render json:{first: first_checkin_date, last: last_checkin_date, disables: disable_dates}}
     end
   end
 
@@ -31,7 +31,7 @@ class HomeReservationsController < ApplicationController
   def calc_checkout
     shortest_checkout_date     = view_context.calc_default_checkout(@home.availability_setting.minimum_accomodation_range, params[:checkin])
     base_longest_checkout_date = view_context.calc_default_checkout(@home.availability_setting.muximum_accomodation_range, params[:checkin])
-    earliest_booked_date       = @home_reservations.only_dates.before_checkin(shortest_checkout_date, base_longest_checkout_date).first_checkin
+    earliest_booked_date       = @home_reservations.only_dates.with_checkin_date_between(shortest_checkout_date, base_longest_checkout_date).sort[0]
     longest_checkout_date      = earliest_booked_date.present? ? view_context.convert_date_str(earliest_booked_date[0].checkin_date) : base_longest_checkout_date
     respond_to do |format|
       format.json{ render json: {shortest: shortest_checkout_date, longest: longest_checkout_date }}
