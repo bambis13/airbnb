@@ -15,10 +15,10 @@ class HomeReservation < ApplicationRecord
   #           :user_id,
   #           :home_id,
   #           presence: true
-  # user_id|references|null: false, foreign_key: true
-  # home_id|references|null: false, foreign_key: true
+
   scope :only_dates,->{ select("checkin_date,checkout_date")}
-  scope :after,->(date){ where "checkout_date > ?",date }
-  # scope :first_checkin,->{order(checkin_date: :asc).limit(1)}
+  scope :after_checkout_day,->(date){ where "checkout_date > ?",date }
+  scope :before_checkin,->(min_checkout_date, max_checkout_date){where "? <= checkin_date and checkin_date < ?", min_checkout_date, max_checkout_date}
+  scope :first_checkin,->{order(checkin_date: :asc).limit(1)}
 
 end

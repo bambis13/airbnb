@@ -13,7 +13,7 @@ Rails.application.routes.draw               do
   end
   root 'homes#index'
   get '/calc',            to: 'home_reservations#calc_total_fee'
-  get '/get_checkout/:id',to: 'home_reservations#get_checkout'
+  get '/calc_checkout/:id',to: 'home_reservations#calc_checkout'
   get '/search',          to: 'homes#search'
   get '/:prefecture',     to: 'homes#area_specific'
 end

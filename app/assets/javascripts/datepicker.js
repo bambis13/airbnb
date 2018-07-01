@@ -1,8 +1,6 @@
 $(document).ready(function(){
-  var dateFormat   = 'yy-mm-dd',
+  var dateFormat   = 'yy/mm/dd',
       animFormat   = 'fadeIn',
-      minDate      = '+' + $('#min_date').text() + 'd',
-      maxDate      = '+' + $('#max_date').text() + 'm',
       homeId       = getId(),
       $checkinBtn  = $('.reservation-checkin'),
       $checkoutBtn = $('.reservation-checkout');
@@ -16,6 +14,7 @@ $(document).ready(function(){
   }
 
   getReservedData().then(function(data) {
+    console.log(data);
     var disableDates = data.disables
     $checkinBtn.datepicker({
       numberOfMonths: 1,
@@ -38,11 +37,12 @@ $(document).ready(function(){
     var inputCheckin = $checkinBtn.val();
     $.ajax({
       type: 'GET',
-      url: '/get_checkout/'+homeId,
+      url: '/calc_checkout/'+homeId,
       data: { checkin: inputCheckin},
       dataType: 'json'
     })
     .done(function(checkout) {
+      console.log(checkout);
       $checkoutBtn.datepicker("destroy");
       $checkoutBtn.datepicker({
         dateFormat: dateFormat,

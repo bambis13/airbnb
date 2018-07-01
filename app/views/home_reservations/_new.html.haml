@@ -63,8 +63,6 @@
             .action-box
               %button.close-button.bold 閉じる
     .reservation_new__body--hidden
-      %p.hidden#max_date #{home.availability_setting.acceptable_month_ahead}
-      %p.hidden#min_date #{home.availability_setting.reservation_deadline}
       %p.hidden#max_guests_num #{home.capacity}
       = f.hidden_field :number_of_adults, required: true,class: "number-of-adult-sa", value: 1
       = f.hidden_field :number_of_children, class: "number-of-children-sa", value: 0

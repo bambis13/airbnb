@@ -174,8 +174,8 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   end
 
   create_table "home_reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "checkin_date", null: false
-    t.datetime "checkout_date", null: false
+    t.date "checkin_date", null: false
+    t.date "checkout_date", null: false
     t.integer "number_of_adults", default: 1, null: false
     t.integer "number_of_children", default: 0, null: false
     t.integer "number_of_babies", default: 0, null: false
