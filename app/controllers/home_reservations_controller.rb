@@ -27,13 +27,14 @@ class HomeReservationsController < ApplicationController
     end
   end
 
+  # TODO:home_reservastionをreservationにしたい
   def calc_checkout
-    min_checkout         = view_context.calc_default_checkout(@home.availability_setting.minimum_accomodation_range, params[:checkin])
-    default_max_checkout = view_context.calc_default_checkout(@home.availability_setting.muximum_accomodation_range, params[:checkin])
-    earliest_reservation = @home_reservations.only_dates.before_checkin(min_checkout, default_max_checkout).first_checkin
-    max_checkout         = earliest_reservation.present? ? view_context.convert_date_str(earliest_reservation[0].checkin_date) : default_max_checkout
+    shortest_checkout_date     = view_context.calc_default_checkout(@home.availability_setting.minimum_accomodation_range, params[:checkin])
+    base_longest_checkout_date = view_context.calc_default_checkout(@home.availability_setting.muximum_accomodation_range, params[:checkin])
+    earliest_booked_date       = @home_reservations.only_dates.before_checkin(shortest_checkout_date, base_longest_checkout_date).first_checkin
+    longest_checkout_date      = earliest_booked_date.present? ? view_context.convert_date_str(earliest_booked_date[0].checkin_date) : base_longest_checkout_date
     respond_to do |format|
-      format.json{ render json: {min: min_checkout, max: max_checkout }}
+      format.json{ render json: {shortest: shortest_checkout_date, longest: longest_checkout_date }}
     end
   end
 

@@ -42,13 +42,12 @@ $(document).ready(function(){
       dataType: 'json'
     })
     .done(function(checkout) {
-      console.log(checkout);
       $checkoutBtn.datepicker("destroy");
       $checkoutBtn.datepicker({
         dateFormat: dateFormat,
         showAnim: animFormat,
-        minDate: checkout.min,
-        maxDate: checkout.max
+        minDate: checkout.shortest,
+        maxDate: checkout.longest
       });
     })
     .fail(function() {
