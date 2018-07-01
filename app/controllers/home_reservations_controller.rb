@@ -1,5 +1,5 @@
 class HomeReservationsController < ApplicationController
-  before_action :set_home_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_home_reservation, only: [:show, :edit, :update, :destroy,:get_checkout]
   before_action :set_home, only: [:calc_total_fee, :get_checkout, :show]
 
   def index
@@ -18,32 +18,17 @@ class HomeReservationsController < ApplicationController
   end
 
   def show
-    @disable_dates = view_context.get_disable_dates(@home, @home_reservations)
+    reservation_dates = @home_reservations.only_dates.after(DateTime.now)
+    @disable_dates = view_context.make_disable_dates(reservation_dates, @home.availability_setting.minimum_accomodation_range)
+    min_date = view_context.make_min_checkin(@home.availability_setting.reservation_deadline)
+    max_date = view_context.make_max_checkin(@home.availability_setting.acceptable_month_ahead)
     respond_to do |format|
-      format.json
+      format.json{render json:{min: min_date, max: max_date, disables: @disable_dates}}
     end
   end
-  # def update
-  #   respond_to do |format|
-  #     if @home_reservation.update(home_reservation_params)
-  #       format.html { redirect_to @home_reservation, notice: 'Home reservation was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @home_reservation }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @home_reservation.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
-  # def destroy
-  #   @home_reservation.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to home_reservations_url, notice: 'Home reservation was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
   def get_checkout
-    checkout = view_context.get_checkout(@home, params[:checkin], params[:reserved])
+    checkout = view_context.get_checkout(@home, params[:checkin], @home_reservations)
     respond_to do |format|
       format.json{ render json: {min: checkout[:min], max: checkout[:max] }}
     end

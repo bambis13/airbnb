@@ -20,44 +20,57 @@ module HomeReservationsHelper
     return price
   end
 
-  def get_disable_dates(home, reservations)
+  def make_min_checkin(day)
+    return "+#{day}d"
+  end
+
+  def make_max_checkin(month)
+    return "+#{month}m"
+  end
+
+  def make_disable_dates(reservations,min_stay)
     disable_dates = []
-    min_date = home.availability_setting.minimum_accomodation_range
     reservations.each do |reservation|
-      checkin = Date.strptime(reservation.checkin_date, '%Y/%m/%d')
-      checkout = Date.strptime(reservation.checkout_date, '%Y/%m/%d')
-      days = (checkout - checkin).to_i
-      if days > 1
-        (days - 1).times do |i|
-          i += 1
-          next_day = checkin + i
-          disable_dates << next_day.strftime("%Y/%m/%d")
-        end
-      end
-      disable_dates << checkin.strftime("%Y/%m/%d")
-      min_date.times do |i|
+    indate = reservation.checkin_date.to_date
+    outdate = reservation.checkout_date.to_date 
+    days = ( outdate - indate ).to_i
+    if days > 1
+      (days - 1).times do |i|
         i += 1
-        disable_checkin = checkin - i
-        disable_dates << disable_checkin.strftime("%Y/%m/%d")
+        next_day = indate + i
+        disable_dates << next_day.strftime("%Y/%m/%d")
       end
     end
-    return disable_dates
-  end
-# [TODO]メソッド切り分け
-  def get_checkout(home, input_checkin, reservations)
-    checkout_dates = {}
-    min_date = home.availability_setting.minimum_accomodation_range
-    dt_checkin = Date.strptime(input_checkin, '%Y/%m/%d')
-    min_checkout = (dt_checkin + min_date)
-    checkout_dates[:min] = min_checkout.strftime("%Y/%m/%d")
-    max_date = home.availability_setting.muximum_accomodation_range
-    max_checkout = (dt_checkin + max_date)
-    reservations.each do |reservation|
-      dt_reservation = Date.strptime(reservation, '%Y/%m/%d')
-      max_checkout = dt_reservation if dt_reservation < max_checkout && dt_reservation > min_checkout
+    disable_dates << indate.strftime("%Y/%m/%d")
+    (min_stay - 1).times do |i|
+      i += 1
+      disable_checkin = indate - i
+      disable_dates << disable_checkin.strftime("%Y/%m/%d")
     end
-    checkout_dates[:max] = max_checkout.strftime("%Y/%m/%d")
-    return checkout_dates
   end
+  return disable_dates.uniq.sort
+  end
+
+# [TODO]メソッド切り分け
+  # def get_checkout(home, input_checkin, reservations)
+  #   min_date = home.availability_setting.minimum_accomodation_range
+  #   checkout_dates = {}
+  #   dt_checkin = Date.strptime(input_checkin, '%Y-%m-%d')
+  #   min_checkout = (dt_checkin + min_date)
+  #   checkout_dates[:min] = min_checkout.strftime("%Y-%m-%d")
+  #   max_date = home.availability_setting.muximum_accomodation_range
+  #   max_checkout = (dt_checkin + max_date)
+
+  #   dt_reservations = []
+
+  #   reservations.each do |reservation|
+  #     dt_reservation = Date.strptime(reservation.checkin_date, '%Y-%m-%d')
+  #     dt_reservations << dt_reservation if dt_reservation > min_checkout
+  #   end
+  #   earliest_checkin = dt_reservations.sort[0]
+  #   max_checkout = earliest_checkin if earliest_checkin < max_checkout && earliest_checkin >= min_checkout
+  #   checkout_dates[:max] = max_checkout.strftime("%Y-%m-%d")
+  #   return checkout_dates
+  # end
 
 end

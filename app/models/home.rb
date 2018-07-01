@@ -13,6 +13,7 @@ class Home < ApplicationRecord
   has_one                   :home_notification
   has_one                   :cancel_policy
   has_many                  :listing_photos
+  has_many                  :home_reservations
   belongs_to                :home_category_sub
   belongs_to                :room_type
   belongs_to                :user

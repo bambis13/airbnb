@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  var dateFormat  = 'yy/mm/dd',
-      animFormat  = 'fadeIn',
-      minDate     = '+' + $('#min_date').text() + 'd',
-      maxDate     = '+' + $('#max_date').text() + 'm',
-      homeId      = getId(),
+  var dateFormat   = 'yy-mm-dd',
+      animFormat   = 'fadeIn',
+      minDate      = '+' + $('#min_date').text() + 'd',
+      maxDate      = '+' + $('#max_date').text() + 'm',
+      homeId       = getId(),
       $checkinBtn  = $('.reservation-checkin'),
       $checkoutBtn = $('.reservation-checkout');
 
@@ -15,18 +15,19 @@ $(document).ready(function(){
     });
   }
 
-  getReservedData().then(function(reservedData) {
+  getReservedData().then(function(data) {
+    var disableDates = data.disables
     $checkinBtn.datepicker({
       numberOfMonths: 1,
       dateFormat: dateFormat,
       showAnim: animFormat,
-      minDate: minDate,
-      maxDate: maxDate,
+      minDate: data.min,
+      maxDate: data.max,
       beforeShowDay: function(day){
         var dtFullDate = buildDateString(day);
-        if(reservedData.indexOf(dtFullDate) >= 0){
+        if(disableDates.indexOf(dtFullDate) >= 0){
             return [false];
-        } else if(reservedData.indexOf(dtFullDate) == -1){
+        } else if(disableDates.indexOf(dtFullDate) == -1){
             return [true];
         }
       }
@@ -34,26 +35,24 @@ $(document).ready(function(){
   });
 
   $checkinBtn.change(function(){
-    getReservedData().then(function(reservedData) {
-      var inputCheckin = $checkinBtn.val();
-      $.ajax({
-        type: 'GET',
-        url: '/get_checkout/'+homeId,
-        data: { checkin: inputCheckin, reserved: reservedData},
-        dataType: 'json'
-      })
-      .done(function(checkout) {
-        $checkoutBtn.datepicker("destroy");
-        $checkoutBtn.datepicker({
-          dateFormat: dateFormat,
-          showAnim: animFormat,
-          minDate: checkout.min,
-          maxDate: checkout.max
-        });
-      })
-      .fail(function() {
-        alert('予約の取得に失敗しました');
-      })
-    });
+    var inputCheckin = $checkinBtn.val();
+    $.ajax({
+      type: 'GET',
+      url: '/get_checkout/'+homeId,
+      data: { checkin: inputCheckin},
+      dataType: 'json'
+    })
+    .done(function(checkout) {
+      $checkoutBtn.datepicker("destroy");
+      $checkoutBtn.datepicker({
+        dateFormat: dateFormat,
+        showAnim: animFormat,
+        minDate: checkout.min,
+        maxDate: checkout.max
+      });
+    })
+    .fail(function() {
+      alert('予約の取得に失敗しました');
+    })
   });
 });
