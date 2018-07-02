@@ -33,7 +33,6 @@ $(window).bind("load", function(){
           //スクロールが500に達したらボタン表示
           $('.contents').scroll(function(){
             var $contentsTop = $('.contents').scrollTop();
-            // console.log($contentsTop);
             if($contentsTop > 552){
               $('.reservation_new').addClass('scroll-stop');
             }else{

@@ -13,7 +13,7 @@
 @import './slick-theme';
 @import './slick';
 @import './home_reservations';
-@import './tmp';
+@import './reservation_new';
 @import './area_header';
 /*-- Settings ---------------------------------- */
 
@@ -147,6 +147,13 @@ button{
 
 .gray {
   color: $fontTxt;
+}
+
+.visible{
+  visibility: visible !important;
+}
+.removed{
+  display: none;
 }
 
 input[type="text"]:focus {
