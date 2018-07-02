@@ -38,12 +38,12 @@ class HomeReservationsController < ApplicationController
     end
   end
 
-  # def calc_total_fee
-  #   price = view_context.calc_prices(@home)
-  #   respond_to do |format|
-  #     format.json{ render json: {total: price[:total], per_day: price[:per_day], variable: price[:variable]}}
-  #   end
-  # end
+  def calc_total_fee
+    price = view_context.calc_prices(@home)
+    respond_to do |format|
+      format.json{ render json: {total: price[:total], per_day: price[:per_day], variable: price[:variable]}}
+    end
+  end
 
   private
     def set_home

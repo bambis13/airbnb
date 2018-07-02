@@ -180,7 +180,13 @@ h3{
       overflow: hidden;
     }
     &__text{
+      border:none;
+      background-color: $white;
       font-size: 16px;
+      text-align: left;
+      &:hover{
+        opacity: 0.7;
+      }
     }
     .listing-category{
       font-size: 14px;
@@ -276,11 +282,15 @@ h3{
   }
 }
 .showall{
+  width: 200px;
   color: $viridian;
   font-size: 16px;
   padding: 20px 0;
   display: block;
   clear: both;
+  &:hover{
+    opacity: 0.5;
+  }
 }
 /*--------- Family&Business ------------------------*/
 .index-head{
