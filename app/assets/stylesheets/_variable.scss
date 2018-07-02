@@ -4,12 +4,31 @@ $fontBlack: #383838;
 $viridian: #107275;
 $fontDarkRed: #6B1F0D;
 $fontBold: rgb(72, 72, 72);
+$fontGray: #4F4F4F;
 $fontTxt: #484848;
 $lightBlack: #383838;
 $iconPink: #FC3F4D;
+$borderGray: rgba(0, 0, 0, 0.1);
+$disabledViridian: #B1D2D3;
+$midiumGray: #9E9E9E;
 /*-- Size ---------------------------------- */
 $s-width: calc((100vw - 300px)/5);
 $s-height: calc((100vw - 300px)/5*0.7);
 $x-width: calc(33vw - 100px);
 $icon-f-s: 2vw;
-
+/*-- z-index ---------------------------------- */
+$slick-dots: 1001;
+$slick-arrows: 1001;
+$photoModalWrapper: 2000;
+$areaHeader: 2000;
+$closeModal: 1000;
+$bedIcon: 10;
+$menuItemComponentGuestPicker: 1999;
+$linstingS_X_Xl: 0;
+$iconFavoritePink: 1002;
+$iconFavoriteWhite: 1003;
+$header: 3000;
+$navibarList: 1;
+$help: 3;
+/*-- border-radius ---------------------------------- */
+$listing-s-image: 10px;
