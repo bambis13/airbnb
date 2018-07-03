@@ -1,14 +1,14 @@
 .listings.clearfix
   %h1.bold 旅の目的別コレクション
   %p 旅に欠かせない設備充実の高評価な宿泊先から探してみよう
-  %a{href: "/family"}
+  = link_to "homes/family" do
     .listing-xl.inline-left
       .listing-xl__image
         = image_tag("family_square.png")
       .listing-xl__text
         %h5.bold 2,000+件の宿泊先
         %h2.left ファミリー大満足の宿泊先を予約。家族水入らずでゆっくり過ごしましょう。
-  %a{href: "/business"}
+  = link_to "homes/business" do
     .listing-xl.inline-left
       .listing-xl__image
         = image_tag("business_square.png")

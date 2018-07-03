@@ -118,7 +118,6 @@
             float: left;
             margin-right:15px;
             p {
-              margin-right:10px;
               height: 32px;
               margin-bottom: 3px;
               line-height: 32px;
@@ -141,8 +140,11 @@
     }
 }
 .notification-box{
+  .top{
+    padding-top: 10px;
+  }
   h4{
-    padding: 10px 8px;
+    padding: 2px 8px;
     color: $fontGray;
   }
 }

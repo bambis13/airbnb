@@ -6,14 +6,15 @@
     - home.listing_photos.each do |photo|
       .listing-s__image.slick-sub
         = image_tag(photo.image)
-  %button.listing-s__text{href: "homes/#{home.id}"}
-    %p.listing-category.bold #{home.home_category_sub.name}
-    %p.listing-title.bold #{home.name}
-    %p.listing-price ¥#{home.price.default_price} /泊・キャンセル無料
-    - if (home.user.superhost == "super")
-      %span.listing-star ★★★★★
-      %span.listing-reviewsum.bold 122
-      %span.superhost.bold ・スーパーホスト
-    - else
-      %span.listing-star ★★★★★
-      %span.listing-reviewsum.bold 122
+  = link_to home_path(home) do
+    .listing-s__text
+      %p.listing-category.bold #{home.home_category_sub.name}
+      %p.listing-title.bold #{home.name}
+      %p.listing-price ¥#{home.price.default_price} /泊・キャンセル無料
+      - if (home.user.superhost == "super")
+        %span.listing-star ★★★★★
+        %span.listing-reviewsum.bold 122
+        %span.superhost.bold ・スーパーホスト
+      - else
+        %span.listing-star ★★★★★
+        %span.listing-reviewsum.bold 122

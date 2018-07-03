@@ -12,11 +12,11 @@
       %h5 日付
       %table.form-type-btn.form-type-btn__visible
         %th
-          = f.text_field :checkin_date, class: 'reservation-checkin calc-listner',placeholder: "チェックイン",autocomplete: "off"
+          = f.text_field :checkin_date, class: 'reservation-checkin calc-listner',placeholder: "チェックイン",autocomplete: "off",readonly: :true
         %th
           %i.fa.fa-arrow-right.fa-lg
         %th
-          = f.text_field :checkout_date, class: 'reservation-checkout calc-listner',placeholder: "チェックアウト",autocomplete: "off"
+          = f.text_field :checkout_date, class: 'reservation-checkout calc-listner',placeholder: "チェックアウト",autocomplete: "off",readonly: :true
       .number_of_guests
         %h5 人数
         .form-type-btn.form-type-btn__visible#guests-num-btn
@@ -28,7 +28,7 @@
           .select-capacity.clearfix
             .select-capacity__adults.select-capacity__item.clearfix
               .human-attributes
-                %p 大人
+                %p.hight40 大人
               .counting-box.clearfix.right
                 .counting-down
                   %button.count-down-adult{disabled: true} -
@@ -59,7 +59,8 @@
                 .counting-up
                   %button.count-up-babies +
             .notification-box
-              %h4 最大#{home.capacity}名まで宿泊可能。乳幼児は人数にカウントされません。
+              %h4.top 最大#{home.capacity}名まで宿泊可能。
+              %h4 乳幼児は人数にカウントされません。
             .action-box
               %button.close-button.bold 閉じる
     .reservation_new__body--hidden

@@ -193,9 +193,13 @@
   width: 56.3%;
   min-width: 696px;
   float:left;
+  padding-top: 30px;
   p, li {
     @include font-text;
   }
+}
+.container-right{
+  padding-top: 30px;
 }
 
 //概要
