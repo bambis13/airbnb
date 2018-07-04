@@ -1,5 +1,4 @@
 $(function(){
-
   $('.listing-slick').hover(
     function(){
       $(this).children('.slick-arrow').css("visibility", "visible");

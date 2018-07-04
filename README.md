@@ -77,12 +77,15 @@ user_id|references|null: false, foreign_key: true
 home_id|references|null: false, foreign_key: true
 checkin_date|datetime|null: false |
 checkout_date|datetime|null: false |
-number_of_guests|integer|null: false |
-created_at|timestamps| |
-accomodation_fee|integer|null: false |
+number_of_adults|integer|null: false |
+number_of_kids|integer|null: false |
+number_of_babies|integer|null: false |
+default_fee|integer|null: false |
+additional_guests_fee|integer|null: false |
 cleaning_fee|integer|null: false |
 service_fee|integer|null: false |
 total_price|integer|null: false |
+created_at|timestamps| |
 ___
 
 ### Home_review

@@ -86,8 +86,8 @@ $(function(){
   // 他を押したら消す
   $(document).on('click', function(e){
      if (!$(event.target).closest('#search-field').length){
-      $('.search').hide();
-    };
+       $('.search').hide();
+     };
   });
 
   var navibarListContent = $('.navibar__list__content')

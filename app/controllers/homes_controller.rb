@@ -3,36 +3,36 @@ class HomesController < ApplicationController
   before_action :get_homes, only: [:index, :homes, :search, :area_specific]
 
   def index
-    @homes = @homes[0..4]
-    @homes_newyork = @homes_newyork[0..4]
-    @homes_barcelona = @homes_barcelona[0..4]
-    @homes_paris = @homes_paris[0..4]
-    @homes_super = @homes_super[0..4]
+    @homes            = @homes[0..4]
+    @homes_newyork    = @homes_newyork[0..4]
+    @homes_barcelona  = @homes_barcelona[0..4]
+    @homes_paris      = @homes_paris[0..4]
+    @homes_super      = @homes_super[0..4]
   end
 
   def area_specific
-    @homes = @homes.by_prefecture(params[:prefecture])
-    @homes_super = @homes.sphost_home
-    @area_name = params[:prefecture]
+    @homes            = @homes.by_prefecture(params[:prefecture])
+    @homes_super      = @homes.sphost_home
+    @area_name        = params[:prefecture]
   end
 
   def family
-    @homes_family = Home.all
+    @homes_family     = Home.all
   end
 
   def business
-    @homes_business = Home.all
+    @homes_business   = Home.all
   end
 
   def homes
-    @homes = @homes[0..9]
+    @homes            = @homes[0..9]
     if params[:capacity]
       @homes = Home.joins(:home_rule).where(home_rules: {accept_kids: params[:children], accept_babies: params[:babies]}).where("capacity > ?", params[:capacity])
     end
   end
 
   def search
-    @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
+    @homes            = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
     respond_to do |format|
       format.html {redirect_to homes_path(@homes)}
       format.json
@@ -40,25 +40,28 @@ class HomesController < ApplicationController
   end
 
   def show
-    @beds      = BedType.where(home_id: params[:id])
-    @rules     = @home.home_rule
-    @amenities = @home.amenity
-    @host      = @home.user
-    @photos    = @home.listing_photos
-    @cancel    = @home.cancel_policy
-    @space     = AvailableSpace.find_by(home_id: params[:id])
+    @beds             = BedType.where(home_id: params[:id])
+    @rules            = @home.home_rule
+    @amenities        = @home.amenity
+    @host             = @home.user
+    @photos           = @home.listing_photos
+    @cancel           = @home.cancel_policy
+    @space            = AvailableSpace.find_by(home_id: params[:id])
+    @result           = @home.recommend(@home.name)
+    @home_reservation = HomeReservation.new
+    @homes            = Home.where(id: extract_recommend_ids(@result)[1..5]) unless extract_recommend_ids(@result).blank?
+    @similarities     = extract_degree_of_similarity(@result)[1..5] unless extract_degree_of_similarity(@result).blank?
   end
 
   def new
-    @home = Home.new
+    @home             = Home.new
   end
 
   def edit
   end
 
   def create
-    @home = Home.new(home_params)
-
+    @home             = Home.new(home_params)
     respond_to do |format|
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
@@ -101,10 +104,25 @@ private
   end
 
   def get_homes
-    @homes = Home.all
-    @homes_newyork = @homes.by_prefecture("ニューヨーク")
-    @homes_barcelona = @homes.by_prefecture("バルセロナ")
-    @homes_paris = @homes.by_prefecture("パリ")
-    @homes_super = @homes.sphost_home
+    @homes            = Home.all
+    @homes_newyork    = @homes.by_prefecture("ニューヨーク")
+    @homes_barcelona  = @homes.by_prefecture("バルセロナ")
+    @homes_paris      = @homes.by_prefecture("パリ")
+    @homes_super      = @homes.sphost_home
+  end
+
+  #homeIDを抽出
+  def extract_recommend_ids(learning_result)
+    if learning_result != "おすすめが出てきません。。。"
+      recommend_ids     = learning_result.split("|")[1].delete("[]")
+      recommend_ids     = recommend_ids.split().map{|e|e.to_i}
+    end
+  end
+
+  #近似度を算出
+  def extract_degree_of_similarity(learning_result)
+    similarities      = learning_result.split("|")[0].delete("[]")
+    similarity_degree = similarities.split().map{|e| e.to_f.round(3)}
   end
 end
+

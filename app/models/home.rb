@@ -1,4 +1,7 @@
 class Home < ApplicationRecord
+  require 'open-uri'
+  require 'json'
+  require 'webrick/httputils'
 
   enum status: { visitor: 0, host: 1 }
   has_many                  :additional_home_rules
@@ -20,8 +23,6 @@ class Home < ApplicationRecord
   belongs_to                :room_type
   belongs_to                :currency
   belongs_to                :home_category_sub
-  # geocoded_by               :town
-  # after_validation          :geocode
 
   accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_spaces, :overview, :available_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
 
@@ -33,8 +34,18 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
-  def home_rules_children(params)
-    HomeRule.where("accept_children> ?", paramas)
+  def open_url(url)
+    open(url).read
+  end
+
+  def recommend(name)
+    begin
+      modified_name     = name.gsub(" ", "%20")
+      url               = URI.parse("https://obscure-river-88190.herokuapp.com/#{modified_name}")
+      learning_result   = open_url(url)
+    rescue
+      "おすすめが出てきません。。。"
+    end
   end
 
   default_scope { limit(5) }

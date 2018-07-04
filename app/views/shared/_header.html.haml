@@ -1,7 +1,7 @@
 .header.clearfix#hide-header
   .navibar
     .navibar__icon
-      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), '#'
+      = link_to image_tag("Airbnb_icon.png", alt: "airbnb_icon"), root_path
     .navibar__search
       = form_tag("/:prefecture", method: :get, autocomplete: 'off') do
         %input.search__query#search-field{name: "keyword", placeholder: "◯○などエリアを入力", type: "text", value: ""}
