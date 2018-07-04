@@ -72,7 +72,7 @@ $(window).load(function (){
     close_select_guests()
   });
 
-  $('.calc-listner').change(function(){
+  $('.calc-listner').on('change',function(){
     calc_prices();
   });
 
