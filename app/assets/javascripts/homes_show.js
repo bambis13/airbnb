@@ -32,13 +32,15 @@ $(window).bind("load", function(){
           topBtn.hide();
           //スクロールが500に達したらボタン表示
           $('.contents').scroll(function(){
+            var $reservationWindowTop = 552
+            var $header = 517
             var $contentsTop = $('.contents').scrollTop();
-            if($contentsTop > 552){
+            if($contentsTop > $reservationWindowTop){
               $('.reservation_new').addClass('scroll-stop');
             }else{
               $('.reservation_new').removeClass('scroll-stop');
             }
-            if ($contentsTop > 517){
+            if ($contentsTop > $header){
                 originalHeader.hide();
                 topBtn.show();
             } else {

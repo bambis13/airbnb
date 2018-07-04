@@ -36,8 +36,8 @@ $(document).ready(function(){
     var inputCheckin = $checkinBtn.val();
     $.ajax({
       type: 'GET',
-      url: '/calc_checkout/'+homeId,
-      data: { checkin: inputCheckin},
+      url: '/home_reservations/new',
+      data: { checkin: inputCheckin, id: homeId },
       dataType: 'json'
     })
     .done(function(checkout) {

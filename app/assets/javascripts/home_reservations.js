@@ -27,8 +27,8 @@ $(window).load(function (){
     if (days > 0) {
       $.ajax({
         type: 'GET',
-        url: '/calc',
-        data: { days: days, guests_sum: guestsSum, id: homeId},
+        url: '/home_reservations/new',
+        data: { days: days, guests_sum: guestsSum, id: homeId },
         dataType: 'json'
       })
       .done(function(data) {

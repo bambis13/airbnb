@@ -1,6 +1,7 @@
 class CreateAvailableSpaces < ActiveRecord::Migration[5.1]
   def change
     create_table :available_spaces do |t|
+      t.text        :text
       t.boolean     :dedicated_living, default: false
       t.boolean     :pool, default: false
       t.boolean     :kitchen, default: false

@@ -13,28 +13,7 @@ module HomeReservationsHelper
   end
 
   def convert_date_string(dates)
-    return dates.map{|date| date.strftime("%Y/%m/%d")}.uniq.sort
-  end
-
-  def convert_date_str(date)
-    return date.strftime("%Y/%m/%d")
-  end
-
-  def calc_prices(home)
-    price = {}
-    stay_days = params[:days].to_i
-    fixed_price = home.price.cleaning_fee + home.price.service_fee
-    add_num = params[:guests_sum].to_i - home.price.additional_fee_from
-    if add_num > 0
-      per_day = home.price.default_price + (add_num * home.price.additional_fee_per_person)
-    else
-      per_day = home.price.default_price
-    end
-    variable_price = (per_day*stay_days)
-    price[:total] = variable_price + fixed_price
-    price[:per_day] = per_day
-    price[:variable] = variable_price
-    return price
+    return dates.map{|date| date.to_s}.uniq.sort
   end
 
   def generate_disable_dates(reservations,min_stay)
@@ -63,7 +42,7 @@ module HomeReservationsHelper
   def calc_default_checkout(default_num, input_checkin)
     dt_checkin = input_checkin.to_date
     default_checkout = dt_checkin + default_num
-    return default_checkout.strftime("%Y/%m/%d")
+    return default_checkout.to_s
   end
 
   def calc_stay_days(checkin, checkout)
