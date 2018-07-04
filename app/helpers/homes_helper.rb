@@ -76,4 +76,9 @@ module HomesHelper
       "かなり厳格"
     end
   end
+
+  def similarity_percentage(similarity)
+    percentage = (1- similarity) * 100
+    percentage.round(2)
+  end
 end

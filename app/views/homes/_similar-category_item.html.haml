@@ -3,7 +3,7 @@
   .listing-s__text
     %p.listing-category.bold.category_color
       #{home.home_category_sub.name}
-      %span（推奨度: #{similarity}）
+      %span（推奨度: #{similarity_percentage(similarity)}%）
     %p.listing-title.bold #{home.name}
     %p.listing-price ¥ #{home.price.default_price} /泊・キャンセル無料
     %span.listing-star ★★★★★
