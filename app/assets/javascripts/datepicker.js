@@ -32,7 +32,7 @@ $(document).ready(function(){
     });
   });
 
-  $checkinBtn.change(function(){
+  $checkinBtn.on('change',function(){
     var inputCheckin = $checkinBtn.val();
     $.ajax({
       type: 'GET',

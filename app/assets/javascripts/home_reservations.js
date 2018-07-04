@@ -59,7 +59,7 @@ $(window).load(function (){
     $('#select-guests-num').css('visibility','hidden');
   }
 
-  $('#guests-num-btn').click(
+  $('#guests-num-btn').on('click',
     function(){
     $rotate.removeClass('fa-angle-down');
     $rotate.addClass('fa-angle-up');
@@ -77,7 +77,7 @@ $(window).load(function (){
   });
 
      //大人
-  $adultUp.click(function(e) {
+  $adultUp.on('click',function(e) {
     e.preventDefault();
     $adultDown.prop("disabled", false);
     var countAdult    = parseInt($adultHidden.val());
@@ -97,7 +97,7 @@ $(window).load(function (){
       $childrenUp.prop("disabled", true);
     }
   });
-  $adultDown.click(function(e) {
+  $adultDown.on('click',function(e) {
     e.preventDefault();
     $adultUp.prop("disabled", false);
     $childrenUp.prop("disabled", false);
@@ -117,7 +117,7 @@ $(window).load(function (){
   });
 
     //子供
-  $childrenUp.click(function(e) {
+  $childrenUp.on('click',function(e) {
     e.preventDefault();
     $childrenDown.prop("disabled", false);
     var $childrenForm = $('.form-text-children');
@@ -142,7 +142,7 @@ $(window).load(function (){
       $adultUp.prop("disabled", true);
     }
   });
-  $childrenDown.click(function(e) {
+  $childrenDown.on('click',function(e) {
     e.preventDefault();
     $adultUp.prop("disabled", false);
     $childrenUp.prop("disabled", false);
@@ -163,7 +163,7 @@ $(window).load(function (){
   });
 
     //乳幼児
-  $babiesUp.click(function(e) {
+  $babiesUp.on('click',function(e) {
     e.preventDefault();
     $babiesDown.prop("disabled", false);
     var $babiesForm = $('.form-text-babies');
@@ -186,7 +186,7 @@ $(window).load(function (){
       $babiesUp.prop("disabled", true);
     }
   });
-  $babiesDown.click(function(e) {
+  $babiesDown.on('click',function(e) {
     e.preventDefault();
     $babiesUp.prop("disabled", false);
     var $babiesForm = $('.form-text-babies');
