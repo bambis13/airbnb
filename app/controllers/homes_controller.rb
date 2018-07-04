@@ -48,9 +48,9 @@ class HomesController < ApplicationController
     @cancel           = @home.cancel_policy
     @space            = AvailableSpace.find_by(home_id: params[:id])
     @result           = @home.recommend(@home.name)
-    @homes            = Home.where(id: extract_recommend_ids(@result)[1..5])
-    @similarities     = extract_degree_of_similarity(@result)[1..5]
     @home_reservation = HomeReservation.new
+    @homes            = Home.where(id: extract_recommend_ids(@result)[1..5]) unless extract_recommend_ids(@result).blank?
+    @similarities     = extract_degree_of_similarity(@result)[1..5] unless extract_degree_of_similarity(@result).blank?
   end
 
   def new
@@ -62,7 +62,6 @@ class HomesController < ApplicationController
 
   def create
     @home             = Home.new(home_params)
-
     respond_to do |format|
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
@@ -114,8 +113,10 @@ private
 
   #homeIDを抽出
   def extract_recommend_ids(learning_result)
-    recommend_ids     = learning_result.split("|")[1].delete("[]")
-    recommend_ids     = recommend_ids.split().map{|e|e.to_i}
+    if learning_result != "おすすめが出てきません。。。"
+      recommend_ids     = learning_result.split("|")[1].delete("[]")
+      recommend_ids     = recommend_ids.split().map{|e|e.to_i}
+    end
   end
 
   #近似度を算出

@@ -65,15 +65,15 @@ module HomesHelper
   end
 
   def level_of_cancel_policy(cancel)
-    if    cancel.strict_level == "easy"
+    case cancel.strict_level
+    when  "easy"
       "かなり適当"
-    elsif cancel.strict_level == "normal"
+    when  "normal"
       "普通"
-    elsif cancel.strict_level == "strict"
+    when  "strict"
       "厳格"
-    else
+    when  "very_strict"
       "かなり厳格"
     end
   end
-
 end

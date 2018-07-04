@@ -15,7 +15,8 @@
 
   //トップ画像
   .heading-img
-    = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
+    - if @photos[0]
+      = image_tag(@photos[0].image, class: "header-img", id: "show-modal")
 
   //モーダル
   .photo-modal-wrapper
@@ -109,7 +110,7 @@
             %h4.subtitle.clearfix スペース
             .readmore-item-space
               %p
-                = @space.text
+                = @space.text if @space
 
           //アメニティ
           .home-overview__detail__item.clearfix
@@ -187,9 +188,9 @@
           .home-overview__detail__item
             %h4.subtitle キャンセル
             %p
-              = level_of_cancel_policy(@cancel)
+              = level_of_cancel_policy(@cancel) if @cancel
             %p
-              = @cancel.text
+              = @cancel.text if @cancel
           .home-overview__detail__item
             %h4.subtitle 予約可能状況
             %p 最低
@@ -338,5 +339,6 @@
           .similar-category
             %h3.title 類似のリスティング
             .similar-category__carsel.clearfix.listing-slick-2
-              - @homes.zip(@similarities).each do |home, similarity|
-                = render partial: 'similar-category_item', locals: { home: home, similarity: similarity}
+              - if @homes != nil
+                - @homes.zip(@similarities).each do |home, similarity|
+                  = render partial: 'similar-category_item', locals: { home: home, similarity: similarity}

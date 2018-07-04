@@ -34,12 +34,16 @@ class Home < ApplicationRecord
     attributes['content'].blank?
   end
 
+  def open_url(url)
+    open(url).read
+  end
+
   def recommend(name)
     begin
       modified_name     = name.gsub(" ", "%20")
       url               = URI.parse("https://obscure-river-88190.herokuapp.com/#{modified_name}")
-      learning_result   = open(url).read
-    rescue URI::InvalidURIError
+      learning_result   = open_url(url)
+    rescue
       "おすすめが出てきません。。。"
     end
   end
@@ -47,5 +51,6 @@ class Home < ApplicationRecord
   default_scope { limit(5) }
   scope :sphost_home, -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
+  scope :space, -> {}
 
 end
