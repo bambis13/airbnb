@@ -13,7 +13,7 @@
 @import './slick-theme';
 @import './slick';
 @import './home_reservations';
-@import './tmp';
+@import './reservation_new';
 @import './area_header';
 /*-- Settings ---------------------------------- */
 
@@ -130,6 +130,10 @@ button{
   margin-top: 15px;
 }
 
+.hight40{
+  line-height: 40px;
+}
+
 .review-star{
   font-size: 12px;
   color: $viridian;
@@ -137,6 +141,9 @@ button{
 
 .hidden{
   visibility: hidden;
+  height:0;
+  width:0;
+  font-size: 0;
 }
 .hide {
   display: none;
@@ -144,6 +151,13 @@ button{
 
 .gray {
   color: $fontTxt;
+}
+
+.visible{
+  visibility: visible !important;
+}
+.removed{
+  display: none;
 }
 
 input[type="text"]:focus {

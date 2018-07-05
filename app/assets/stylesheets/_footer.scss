@@ -4,8 +4,9 @@
   bottom: 0;
   background-color: $white;
   border-top: 1px black solid;
+  z-index: $footer;
   .footer{
-    height: 259px;
+    height: 200px;
     width: 1032px;
     margin: 0 auto;
     padding: 48px 24px;
@@ -66,6 +67,7 @@
   border-radius: 3px;
   border: 1px #dedede solid;
   padding: 5px;
+  z-index: $footer-btn;
   &__icon{
     height: 20px;
     width: 20px;

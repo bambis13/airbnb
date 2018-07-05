@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :remember_created_at
 
       ## Trackable
-      t.integer  :sign_in_count, default: 0, null: false
+      t.integer  :sign_in_count,       default: 0, null: false
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
@@ -33,19 +33,19 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
       ## add_column
-      t.string     :name, null: false, index: true
-      t.date       :birth_day, null: false
-      t.integer    :sex, null: false
-      t.string     :phone_number, null: false, unique: true
-      t.string     :postal_code, null: false
-      t.string     :prefecture, null: false
-      t.string     :town, null: false
-      t.string     :street, null: false
-      t.string     :building, null: false
+      t.string     :name,              null: false, index: true
+      t.date       :birth_day,         null: false
+      t.integer    :sex,               null: false
+      t.string     :phone_number,      null: false, unique: true
+      t.string     :postal_code,       null: false
+      t.string     :prefecture,        null: false
+      t.string     :town,              null: false
+      t.string     :street,            null: false
+      t.string     :building,          null: false
       t.text       :self_introduction, null: false
-      t.references :country, null: false, foreign_key: true
-      t.references :currency, null: false, foreign_key: true
-      t.references :language, null: false, foreign_key: true
+      t.references :country,           null: false, foreign_key: true
+      t.references :currency,          null: false, foreign_key: true
+      t.references :language,          null: false, foreign_key: true
       t.timestamps
 
     end

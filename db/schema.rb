@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620072232) do
+ActiveRecord::Schema.define(version: 20180614065927) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   end
 
   create_table "available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "text"
     t.boolean "dedicated_living", default: false
     t.boolean "pool", default: false
     t.boolean "kitchen", default: false
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "text"
     t.index ["home_id"], name: "index_available_spaces_on_home_id"
   end
 
@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20180620072232) do
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "favorite_list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "favorite_list_id", null: false
     t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
   end
 
@@ -187,6 +187,7 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["checkin_date", "checkout_date"], name: "index_home_reservations_on_checkin_date_and_checkout_date", unique: true
     t.index ["home_id"], name: "index_home_reservations_on_home_id"
     t.index ["user_id"], name: "index_home_reservations_on_user_id"
   end
@@ -221,7 +222,7 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
     t.integer "number_of_bathroom", null: false
-    t.integer "number_of_beds", null: false
+    t.boolean "number_of_beds", null: false
     t.string "postalcode", null: false
     t.string "prefecture", null: false
     t.string "town", null: false
@@ -287,16 +288,16 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.integer "default_price", null: false
     t.integer "muximum_price"
     t.integer "minimum_price"
+    t.integer "cleaning_fee", null: false
+    t.integer "service_fee", null: false
+    t.integer "additional_fee_per_person", null: false
+    t.integer "additional_fee_from", null: false
     t.boolean "first_arrival_discount", default: false
     t.float "weekly_discount_rate", limit: 24, null: false
     t.float "monthly_discount_rate", limit: 24, null: false
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "service_fee", null: false
-    t.integer "additional_fee_per_person", null: false
-    t.integer "additional_fee_from", null: false
-    t.integer "cleaning_fee"
     t.index ["home_id"], name: "index_prices_on_home_id"
   end
 
@@ -338,13 +339,10 @@ ActiveRecord::Schema.define(version: 20180620072232) do
     t.datetime "updated_at", null: false
     t.integer "status", null: false
     t.integer "superhost", default: 0
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["language_id"], name: "index_users_on_language_id"
     t.index ["name"], name: "index_users_on_name"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "additional_home_rules", "homes"
