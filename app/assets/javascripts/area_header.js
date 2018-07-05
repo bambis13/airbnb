@@ -34,7 +34,6 @@ $(function(){
     var countAdult    = $('.number-of-adult').attr('value');
     var countChildren = $('.number-of-children').attr('value');
     var countBabies   = $('.number-of-babies').attr('value');
-
       //大人
       $(".count-up-adult").click(function(e) {
         e.preventDefault();

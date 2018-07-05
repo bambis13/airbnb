@@ -3,7 +3,7 @@ Rails.application.routes.draw               do
   resources           :messages
   resources           :home_reviews
   resources           :devise_users
-  resources           :home_reservations, only: [:new, :create, :edit, :update]
+  resources           :home_reservations, only: [:create, :show, :new]
   resources           :homes, only: [:show] do
     collection                            do
       get             :homes
@@ -12,8 +12,6 @@ Rails.application.routes.draw               do
     end
   end
   root 'homes#index'
-  get '/search',      to: 'homes#search'
-  get '/:prefecture', to: 'homes#area_specific'
+  get '/search',          to: 'homes#search'
+  get '/:prefecture',     to: 'homes#area_specific'
 end
-
-

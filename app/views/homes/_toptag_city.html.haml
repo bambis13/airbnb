@@ -1,52 +1,46 @@
-._1ibtygfe.clearfix
+.top-tag__city.clearfix
   ._1mtjcg0
     %h1.bold Airbnbで世界中を旅しよう
     /[MORE]人気宿の多い都市を表示にしたい
-  ._1ob6ca33.tag-slick
+  .tag-slick
     .slick-wrapper
-      = link_to search_path, class:"square_btn" do
+      = link_to "/パリ", class:"square_btn" do
         .btn-image.inline
           = image_tag("paris.png")
         .btn-text.inline
           %h2.bold.left パリ
     .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/ニューヨーク", class:"square_btn" do
         .btn-image.inline
           = image_tag("newyork.png")
         .btn-text.inline
           %h2.bold.left ニューヨーク
     .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/シドニー", class:"square_btn" do
         .btn-image.inline
           = image_tag("sydney.png")
         .btn-text.inline
           %h2.bold.left シドニー
     .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/ケープタウン", class:"square_btn" do
         .btn-image.inline
           = image_tag("kapetown.png")
         .btn-text.inline
           %h2.bold.left ケープタウン
     .slick-wrapper
-      %a.square_btn{href: '#'}
-        .btn-image.inline
-          = image_tag("buenosaires.png")
-        .btn-text.inline
-          %h2.bold.left ブエノスアイレス
-    .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/ソウル", class:"square_btn" do
         .btn-image.inline
           = image_tag("seoul.png")
         .btn-text.inline
           %h2.bold.left ソウル
     .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/バルセロナ", class:"square_btn" do
         .btn-image.inline
           = image_tag("barcelona.png")
         .btn-text.inline
           %h2.bold.left バルセロナ
     .slick-wrapper
-      %a.square_btn{href: '#'}
+      = link_to "/ロサンゼルス", class:"square_btn" do
         .btn-image.inline
           = image_tag("losangels.png")
         .btn-text.inline

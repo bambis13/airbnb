@@ -22,52 +22,38 @@ $(function () {
   });
 });
 
-//ヘッダーチェンジ
+//ヘッダーチェンジ&予約窓固定
 $(window).bind("load", function(){
     if(document.URL.match("homes/" + "[0-9０-９]")) {
 
-$(function() {
-    var topBtn = $('#header_show');
-    var originalHeader = $('#hide-header');
-    topBtn.hide();
-    //スクロールが500に達したらボタン表示
-    $('.contents').scroll(function () {
-        if ($('.contents').scrollTop() > 500) {
-            originalHeader.hide();
-            topBtn.show();
-        } else {
-            topBtn.hide();
-            originalHeader.show();
-        }
-    });
-    //任意の位置までジャンプ
-    $("#header_show a").click(function(){
-      var id = $(this).attr("href");
-      var position = $(id).get( 0 ).offsetTop - 70
-      $('.contents').animate({scrollTop: position}, 500)
-    });
-});
+      $(function() {
+          var topBtn = $('#header_show');
+          var originalHeader = $('#hide-header');
+          topBtn.hide();
+          //スクロールが500に達したらボタン表示
+          $('.contents').scroll(function(){
+            var $reservationWindowTop = 552
+            var $header = 517
+            var $contentsTop = $('.contents').scrollTop();
+            if($contentsTop > $reservationWindowTop){
+              $('.reservation_new').addClass('scroll-stop');
+            }else{
+              $('.reservation_new').removeClass('scroll-stop');
+            }
+            if ($contentsTop > $header){
+                originalHeader.hide();
+                topBtn.show();
+            } else {
+                topBtn.hide();
+                originalHeader.show();
+            }
+          });
+          //任意の位置までジャンプ
+          $("#header_show a").click(function(){
+            var id = $(this).attr("href");
+            var position = $(id).get( 0 ).offsetTop - 70
+            $('.contents').animate({scrollTop: position}, 500)
+          });
+      });
     };
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

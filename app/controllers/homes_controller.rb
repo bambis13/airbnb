@@ -27,14 +27,14 @@ class HomesController < ApplicationController
   def homes
     @homes = @homes[0..9]
     if params[:capacity]
-      @homes = Home.joins(:home_rule).where(home_rules: {accept_kids: params[:children], accept_babies: params[:babies]}).where("capacity > ?", params[:capacity])
+      @homes = Home.joins(:home_rule).where(home_rules: { accept_kids: params[:children], accept_babies: params[:babies] }).where("capacity > ?", params[:capacity])
     end
   end
 
   def search
     @homes = Home.where("prefecture LIKE(?)", "%#{params[:keyword]}%").group(:prefecture)
     respond_to do |format|
-      format.html {redirect_to homes_path(@homes)}
+      format.html { redirect_to homes_path(@homes) }
       format.json
     end
   end
@@ -46,6 +46,7 @@ class HomesController < ApplicationController
     @host      = @home.user
     @photos    = @home.listing_photos
     @cancel    = @home.cancel_policy
+    @home_reservation = HomeReservation.new
     @space     = AvailableSpace.find_by(home_id: params[:id])
   end
 
@@ -90,8 +91,7 @@ class HomesController < ApplicationController
     end
   end
 
-private
-
+  private
   def set_home
     @home = Home.find(params[:id])
   end
