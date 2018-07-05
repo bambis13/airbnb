@@ -178,8 +178,6 @@ ActiveRecord::Schema.define(version: 20180630033702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "accomodation_fee", null: false
-    t.integer "clieaning_fee", null: false
-    t.integer "sevice_fee", null: false
     t.integer "total_price", null: false
   end
 
