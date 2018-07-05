@@ -17,6 +17,14 @@ function buildGuestsNum(i, num){
   }
 }
 
+function buildNewGuestsNum(i, num){
+  if(i == 1){
+    return "<p class=\"form-text-children\">, 子ども1人</p>";
+  }else if(i == 2){
+    return"<p class=\"form-text-babies\">, 乳幼児1人</p>"
+  }
+}
+
 function buildDateString(date){
   var dtYear = date.getFullYear().toString();
   var dtMonth = date.getMonth() + 1;
