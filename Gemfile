@@ -47,6 +47,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "launchy"
+  gem "database_cleaner"
 end
 
 group :development do
@@ -75,7 +80,6 @@ gem 'erb2haml'
 gem 'turbolinks'
 gem 'font-awesome-rails'
 gem 'devise'
-gem 'faker'
 gem "gmaps4rails"
 gem "geocoder"
 gem "coffee-rails"
