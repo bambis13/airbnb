@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["checkin_date", "checkout_date"], name: "index_home_reservations_on_checkin_date_and_checkout_date", unique: true
+    t.index ["checkin_date", "checkout_date", "home_id"], name: "validate_double_booking", unique: true
     t.index ["home_id"], name: "index_home_reservations_on_home_id"
     t.index ["user_id"], name: "index_home_reservations_on_user_id"
   end

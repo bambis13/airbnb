@@ -14,6 +14,6 @@ class CreateHomeReservations < ActiveRecord::Migration[5.1]
       t.references :home,             null: false
       t.timestamps
     end
-    add_index  :home_reservations, [:checkin_date, :checkout_date], unique: true
+    add_index  :home_reservations, [:checkin_date, :checkout_date, :home_id], unique: true,name: 'validate_double_booking'
   end
 end
