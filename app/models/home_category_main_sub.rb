@@ -1,4 +1,4 @@
 class HomeCategoryMainSub < ApplicationRecord
-  belongs_to :category_main
-  belongs_to :category_sub
+  belongs_to :home_category_main
+  belongs_to :home_category_sub
 end
