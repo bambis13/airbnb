@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614065927) do
+ActiveRecord::Schema.define(version: 20180614061858) do
 
   create_table "additional_home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -90,9 +90,9 @@ ActiveRecord::Schema.define(version: 20180614065927) do
   create_table "cancel_policies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "strict_level", null: false
     t.text "text"
+    t.bigint "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "home_id"
     t.index ["home_id"], name: "index_cancel_policies_on_home_id"
   end
 
@@ -110,17 +110,21 @@ ActiveRecord::Schema.define(version: 20180614065927) do
 
   create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_favorite_lists_on_user_id"
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "favorite_list_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
+    t.index ["home_id"], name: "index_favorites_on_home_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "home_category_main_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -143,8 +147,6 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "home_id", null: false
-    t.index ["home_id"], name: "index_home_category_subs_on_home_id"
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -222,7 +224,7 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
     t.integer "number_of_bathroom", null: false
-    t.boolean "number_of_beds", null: false
+    t.integer "bathroom_for_guest", null: false
     t.string "postalcode", null: false
     t.string "prefecture", null: false
     t.string "town", null: false
@@ -231,13 +233,15 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.float "location_x", limit: 24, null: false
     t.float "location_y", limit: 24, null: false
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "home_category_sub_id"
     t.bigint "country_id"
     t.bigint "room_type_id"
+    t.bigint "currency_id"
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_homes_on_country_id"
+    t.index ["currency_id"], name: "index_homes_on_currency_id"
     t.index ["home_category_sub_id"], name: "index_homes_on_home_category_sub_id"
     t.index ["name"], name: "index_homes_on_name"
     t.index ["room_type_id"], name: "index_homes_on_room_type_id"
@@ -253,19 +257,20 @@ ActiveRecord::Schema.define(version: 20180614065927) do
 
   create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "image", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "home_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_listing_photos_on_home_id"
     t.index ["user_id"], name: "index_listing_photos_on_user_id"
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "text"
+    t.text "text", null: false
+    t.integer "receiver", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -335,14 +340,17 @@ ActiveRecord::Schema.define(version: 20180614065927) do
     t.bigint "country_id", null: false
     t.bigint "currency_id", null: false
     t.bigint "language_id", null: false
+    t.integer "status", default: 0, null: false
+    t.integer "superhost", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", null: false
-    t.integer "superhost", default: 0
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["language_id"], name: "index_users_on_language_id"
     t.index ["name"], name: "index_users_on_name"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "additional_home_rules", "homes"
@@ -353,9 +361,12 @@ ActiveRecord::Schema.define(version: 20180614065927) do
   add_foreign_key "cancel_policies", "homes"
   add_foreign_key "favorite_lists", "users"
   add_foreign_key "favorites", "favorite_lists"
+  add_foreign_key "favorites", "homes"
+  add_foreign_key "favorites", "users"
   add_foreign_key "home_notifications", "homes"
   add_foreign_key "home_rules", "homes"
   add_foreign_key "homes", "countries"
+  add_foreign_key "homes", "currencies"
   add_foreign_key "homes", "home_category_subs"
   add_foreign_key "homes", "room_types"
   add_foreign_key "homes", "users"

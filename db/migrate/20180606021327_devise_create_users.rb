@@ -46,6 +46,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.references :country,           null: false, foreign_key: true
       t.references :currency,          null: false, foreign_key: true
       t.references :language,          null: false, foreign_key: true
+      t.integer    :status,            null: false, default: 0
+      t.integer    :superhost,         default: 0
       t.timestamps
 
     end

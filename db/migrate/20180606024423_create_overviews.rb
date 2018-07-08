@@ -1,8 +1,8 @@
 class CreateOverviews < ActiveRecord::Migration[5.1]
   def change
     create_table :overviews do |t|
-      t.references      :home, null: false, foreign_key: true
-      t.text            :overview, null: false
+      t.references      :home,                   null: false, foreign_key: true
+      t.text            :overview,               null: false
       t.text            :about_listing
       t.text            :areas_available
       t.text            :communication_frequency

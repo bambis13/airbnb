@@ -8,7 +8,6 @@ class CreateHomeReviews < ActiveRecord::Migration[5.1]
       t.integer :cleanliness_rate,      null: false
       t.integer :checkin_rate,          null: false
       t.integer :cost_performance_rate, null: false
-
       t.timestamps
     end
   end
