@@ -1,4 +1,5 @@
 require 'faker'
+Faker::Config.locale = :ja
 
   photo_urls = ["https://a0.muscache.com/im/pictures/b276ff50-8b02-4a93-bf4c-41b417c5ed0f.jpg?aki_policy=large",
                 "https://a0.muscache.com/im/pictures/6542ecee-d182-4021-8bba-fcfc174bde8a.jpg?aki_policy=large",
@@ -38,8 +39,28 @@ require 'faker'
                 "https://a0.muscache.com/im/pictures/ac3dcabb-ce9e-41a8-9bff-c8b153083694.jpg?aki_policy=large",
                 "https://a0.muscache.com/im/pictures/13334919/a070e2b3_original.jpg?aki_policy=large",
                 "https://a0.muscache.com/im/pictures/63925564/c99277b7_original.jpg?aki_policy=large",
-                "https://a0.muscache.com/im/pictures/3c2396bb-2a36-42ad-9b23-bcfcc47e4bc2.jpg?aki_policy=large"]
-
+                "https://a0.muscache.com/im/pictures/3c2396bb-2a36-42ad-9b23-bcfcc47e4bc2.jpg?aki_policy=large",
+                "https://a0.muscache.com/4ea/air/v2/pictures/7d60fff1-0407-4736-b682-110827fdc392.jpg?t=r:w1200-h720-sfit,e:fjpg-c90",
+                "https://a0.muscache.com/im/pictures/9395166/6f8df0c2_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/47945755/28ebdbbf_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/71184694/8c0de640_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/15706893/7456f6ea_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/960184/dee17901_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/19672386/3f6c4359_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/0ad4f5a2-1e6d-4251-a9e2-382dd056e54f.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/20715845/98350d5c_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/61b3b5cc-3f49-423a-85aa-0be8340e4b7e.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/35237593-a88c-4f45-8062-aa41da113017.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/5053393/554ba421_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/688d7ab2-6905-4552-a4f0-adaafcdf77e8.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/10471427/b4053f46_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/07719ce3-0d86-442b-a3ae-217dd55bd647.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/23758828/4c8ec3e4_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/23326026-f2d6-44ab-8aa0-af7611799f7a.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/28547197/0f90d59d_original.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/8511782c-0906-45b9-b39a-87848424ac0d.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/db8f6f94-19e6-47f2-8226-7718edcf344f.jpg?aki_policy=large",
+                "https://a0.muscache.com/im/pictures/18435746/1027d7f2_original.jpg?aki_policy=large"]
 
   def make_boolean
     return Faker::Boolean.boolean(0.5)
@@ -66,20 +87,24 @@ require 'faker'
   country_c           = Country.count
   currency_c          = Currency.count
   home_category_sub_c = HomeCategorySub.count
-  photo_urls_c        = photo_urls.length
+  photo_max_index     = photo_urls.length - 1
   user_c              = User.count
   home_c              = Home.count
   home_id             = home_c + 1
 
-  # 50.times do |n|
+  50.times do |n|
       rand_1to5 = rand(1..5)
+      user_id   = rand(1..user_c)
 
-     p Home.create(
+     p home_id if Home.create(
         capacity:             rand(5..20),
         number_of_bedroom:    rand(1..10),
         number_of_bathroom:   rand_1to5,
         number_of_beds:       rand(1..10),
         postalcode:           Faker::Address.postcode,
+        # prefecture:           "ニューヨーク",
+        # prefecture:           "パリ",
+        # prefecture:           "バルセロナ",
         prefecture:           Faker::Address.state,
         town:                 Faker::Pokemon.location,
         street:               Faker::Address.street_name,
@@ -91,10 +116,13 @@ require 'faker'
         country_id:           rand(1..country_c),
         currency_id:          rand(1..currency_c),
         room_type_id:         rand(1..2),
-        user_id:              rand(1..user_c)
+        user_id:              user_id
       )
+       @host_user = User.find(user_id)
+       p @host_user.update(status: "host") if @host_user.status == "visitor"
+       p @host_user.update(superhost: "super") if @host_user.superhost == "normal" && @host_user.homes.count >= 5
 
-     p Amenity.create(
+     p home_id if Amenity.create(
         necessities:              make_boolean,
         wifi:                     make_boolean,
         shampoo:                  make_boolean,
@@ -118,7 +146,7 @@ require 'faker'
       )
 
 
-     p AvailabilitySetting.create(
+     p home_id if AvailabilitySetting.create(
         reservation_deadline:        rand(1..10),
         checkin_time_deadline_from:  nil,
         checkin_time_deadline_to:    nil,
@@ -128,7 +156,7 @@ require 'faker'
         home_id:                     home_id
       )
 
-     p AvailableSpace.create(
+     p home_id if AvailableSpace.create(
         dedicated_living:      make_boolean,
         pool:                  make_boolean,
         kitchen:               make_boolean,
@@ -142,7 +170,7 @@ require 'faker'
         text:                  make_text
       )
 
-     p BedType.create(
+     p home_id if BedType.create(
         single_bed: rand(1..10),
         double_bed: rand(0..3),
         queen_bed:  rand(0..3),
@@ -160,7 +188,7 @@ require 'faker'
       firearm             = make_boolean
       dangerous_animal    = make_boolean
 
-     p HomeNotification.create(
+     p home_id if HomeNotification.create(
         only_stairs:             only_stairs,
         stairs_detail:           detail(only_stairs),
         noisy:                   noisy,
@@ -182,7 +210,7 @@ require 'faker'
         home_id:                 home_id
       )
 
-     p HomeRule.create(
+     p home_id if HomeRule.create(
         accept_kids:         make_boolean,
         kids_reason:         reason,
         accept_babies:       make_boolean,
@@ -193,21 +221,20 @@ require 'faker'
         home_id:             home_id
       )
 
-     p ListingPhoto.create(
-         image:   photo_urls[rand(0..photo_urls_c)],
+     p home_id if ListingPhoto.create(
+         image:   photo_urls[rand(0..photo_max_index)],
          status:  0,
          home_id: home_id
       )
+    2.times do
+      p home_id if ListingPhoto.create(
+        image:   photo_urls[rand(0..photo_max_index)],
+        status:  1,
+        home_id: home_id
+      )
+    end
 
-      2.times do
-        ListingPhoto.create(
-          image:   photo_urls[rand(0..photo_urls_c)],
-          status:  1,
-          home_id: home_id
-        )
-      end
-
-     p Overview.create(
+     p home_id if Overview.create(
         home_id:                  home_id,
         overview:                 make_text_btf,
         about_listing:            make_text_btf,
@@ -218,12 +245,10 @@ require 'faker'
         transportation:           make_text_btf
       )
 
-     p Price.create(
+     p home_id if Price.create(
         pricing_method:            1,
         default_price:             rand(1000..10000),
         cleaning_fee:              rand(1000..5000),
-        max_price:                 20000,
-        min_price:                 1000,
         first_arrival_discount:    make_boolean,
         weekly_discount_rate:      rand(0..0.5),
         monthly_discount_rate:     rand(0..0.7),
@@ -233,4 +258,4 @@ require 'faker'
         additional_fee_per_person: rand(100..3000)
       )
       home_id += 1
-  # end
+  end

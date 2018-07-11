@@ -18,8 +18,8 @@ class HomeReservation < ApplicationRecord
             :home_id,
             presence: true
 
-  validate :dates_cannot_be_in_the_past,on: :create
-  validate :make_sure_not_double_booking,on: :create
+  validate :dates_cannot_be_in_the_past,     on: :create
+  validate :make_sure_not_double_booking,    on: :create
   validate :guests_sum_cannot_over_capacity, on: :create
 
   def dates_cannot_be_in_the_past
@@ -35,7 +35,7 @@ class HomeReservation < ApplicationRecord
   def make_sure_not_double_booking
     booked_dates = generate_disable_dates(home.home_reservations, home.availability_setting.min_accomodation_range)
     booked_dates.each do |date|
-      errors.add(:checkin_date, ": すでに予約が入っています") if date == checkin_date.to_s
+      errors.add(:checkin_date,  ": すでに予約が入っています") if date == checkin_date.to_s
       errors.add(:checkout_date, ": すでに予約が入っています") if date == checkout_date.to_s
     end
   end

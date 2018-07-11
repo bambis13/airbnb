@@ -11,7 +11,7 @@ class CreateAvailableSpaces < ActiveRecord::Migration[5.1]
       t.boolean     :elevator,             default: false
       t.boolean     :jacuzzi,              default: false
       t.boolean     :gym,                  default: false
-      t.references  :home,                 null: false, foreign_key: true, unique: true
+      t.references  :home,                 null: false,  foreign_key: true,  unique: true
       t.timestamps
     end
   end

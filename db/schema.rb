@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   end
 
   create_table "availability_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "reservation_deadline"
+    t.integer "reservation_deadline", null: false
     t.time "checkin_time_deadline_from"
     t.time "checkin_time_deadline_to"
-    t.integer "acceptable_month_ahead"
-    t.integer "max_accomodation_range"
-    t.integer "min_accomodation_range"
+    t.integer "acceptable_month_ahead", null: false
+    t.integer "max_accomodation_range", null: false
+    t.integer "min_accomodation_range", null: false
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,10 +77,10 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   end
 
   create_table "bed_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "single_bed"
-    t.integer "double_bed"
-    t.integer "queen_bed"
-    t.integer "sofa_bed"
+    t.integer "single_bed", default: 0, null: false
+    t.integer "double_bed", default: 0, null: false
+    t.integer "queen_bed", default: 0, null: false
+    t.integer "sofa_bed", default: 0, null: false
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.bigint "home_category_sub_id"
     t.bigint "home_category_main_id"
     t.index ["home_category_main_id"], name: "index_home_category_main_subs_on_home_category_main_id"
+    t.index ["home_category_sub_id", "home_category_main_id"], name: "category_index", unique: true
     t.index ["home_category_sub_id"], name: "index_home_category_main_subs_on_home_category_sub_id"
   end
 
@@ -192,8 +193,14 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.integer "cleanliness_rate", null: false
     t.integer "checkin_rate", null: false
     t.integer "cost_performance_rate", null: false
+    t.bigint "home_reservations_id"
+    t.bigint "user_id"
+    t.bigint "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_home_reviews_on_home_id"
+    t.index ["home_reservations_id"], name: "index_home_reviews_on_home_reservations_id"
+    t.index ["user_id"], name: "index_home_reviews_on_user_id"
   end
 
   create_table "home_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -223,11 +230,11 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.float "location_x", limit: 24, null: false
     t.float "location_y", limit: 24, null: false
     t.string "name", null: false
-    t.bigint "home_category_sub_id"
-    t.bigint "country_id"
-    t.bigint "room_type_id"
-    t.bigint "currency_id"
-    t.bigint "user_id"
+    t.bigint "home_category_sub_id", null: false
+    t.bigint "country_id", null: false
+    t.bigint "room_type_id", null: false
+    t.bigint "currency_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_homes_on_country_id"
@@ -240,7 +247,7 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   end
 
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
   create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -278,8 +285,6 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   create_table "prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "pricing_method", null: false
     t.integer "default_price", null: false
-    t.integer "max_price"
-    t.integer "min_price"
     t.integer "cleaning_fee", null: false
     t.integer "service_fee", null: false
     t.integer "additional_fee_per_person", null: false

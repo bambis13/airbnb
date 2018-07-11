@@ -1,4 +1,4 @@
 class Currency < ApplicationRecord
-  has_many :users
-  has_many :homes
+  has_many :users,  dependent: :nullify
+  has_many :homes,  dependent: :nullify
 end

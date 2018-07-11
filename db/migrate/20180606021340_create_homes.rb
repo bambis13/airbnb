@@ -13,11 +13,11 @@ class CreateHomes < ActiveRecord::Migration[5.1]
       t.float         :location_x,          null: false
       t.float         :location_y,          null: false
       t.string        :name,                null: false, index: true
-      t.references    :home_category_sub,   foreign_key: true
-      t.references    :country,             foreign_key: true
-      t.references    :room_type,           foreign_key: true
-      t.references    :currency,            foreign_key: true
-      t.references    :user,                foreign_key: true
+      t.references    :home_category_sub,   null: false, foreign_key: true
+      t.references    :country,             null: false, foreign_key: true
+      t.references    :room_type,           null: false, foreign_key: true
+      t.references    :currency,            null: false, foreign_key: true
+      t.references    :user,                null: false, foreign_key: true
       t.timestamps
     end
   end
