@@ -19,7 +19,7 @@ class CreateHomeNotifications < ActiveRecord::Migration[5.1]
       t.text        :firearm_detail
       t.boolean     :dangerous_animal,      default: false
       t.text        :animal_detail
-      t.references  :home,                  null: false, foreign_key: true
+      t.references  :home,                  null: false, foreign_key: true, unique: true
       t.timestamps
     end
   end

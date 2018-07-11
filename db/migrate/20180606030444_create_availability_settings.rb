@@ -5,9 +5,9 @@ class CreateAvailabilitySettings < ActiveRecord::Migration[5.1]
       t.time          :checkin_time_deadline_from
       t.time          :checkin_time_deadline_to
       t.integer       :acceptable_month_ahead
-      t.integer       :muximum_accomodation_range
-      t.integer       :minimum_accomodation_range
-      t.references    :home                       ,null: false ,foreign_key: true
+      t.integer       :max_accomodation_range
+      t.integer       :min_accomodation_range
+      t.references    :home                       ,null: false ,foreign_key: true, unique: true
       t.timestamps
     end
   end

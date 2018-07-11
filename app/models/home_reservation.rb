@@ -33,7 +33,7 @@ class HomeReservation < ApplicationRecord
   end
 
   def make_sure_not_double_booking
-    booked_dates = generate_disable_dates(home.home_reservations, home.availability_setting.minimum_accomodation_range)
+    booked_dates = generate_disable_dates(home.home_reservations, home.availability_setting.min_accomodation_range)
     booked_dates.each do |date|
       errors.add(:checkin_date, ": すでに予約が入っています") if date == checkin_date.to_s
       errors.add(:checkout_date, ": すでに予約が入っています") if date == checkout_date.to_s

@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.time "checkin_time_deadline_from"
     t.time "checkin_time_deadline_to"
     t.integer "acceptable_month_ahead"
-    t.integer "muximum_accomodation_range"
-    t.integer "minimum_accomodation_range"
+    t.integer "max_accomodation_range"
+    t.integer "min_accomodation_range"
     t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,14 +98,10 @@ ActiveRecord::Schema.define(version: 20180614061858) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "currencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -130,23 +126,17 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   create_table "home_category_main_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "home_category_sub_id"
     t.bigint "home_category_main_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["home_category_main_id"], name: "index_home_category_main_subs_on_home_category_main_id"
     t.index ["home_category_sub_id"], name: "index_home_category_main_subs_on_home_category_sub_id"
   end
 
   create_table "home_category_mains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_home_category_mains_on_name"
   end
 
   create_table "home_category_subs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_home_category_subs_on_name"
   end
 
@@ -224,7 +214,7 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.integer "capacity", null: false
     t.integer "number_of_bedroom", null: false
     t.integer "number_of_bathroom", null: false
-    t.integer "bathroom_for_guest", null: false
+    t.integer "number_of_beds", null: false
     t.string "postalcode", null: false
     t.string "prefecture", null: false
     t.string "town", null: false
@@ -251,18 +241,15 @@ ActiveRecord::Schema.define(version: 20180614061858) do
 
   create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "listing_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "image", null: false
-    t.bigint "user_id", null: false
-    t.bigint "home_id"
+    t.integer "status", null: false
+    t.bigint "home_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_listing_photos_on_home_id"
-    t.index ["user_id"], name: "index_listing_photos_on_user_id"
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -291,8 +278,8 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   create_table "prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "pricing_method", null: false
     t.integer "default_price", null: false
-    t.integer "muximum_price"
-    t.integer "minimum_price"
+    t.integer "max_price"
+    t.integer "min_price"
     t.integer "cleaning_fee", null: false
     t.integer "service_fee", null: false
     t.integer "additional_fee_per_person", null: false
@@ -308,8 +295,6 @@ ActiveRecord::Schema.define(version: 20180614061858) do
 
   create_table "room_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -317,16 +302,6 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.string "name", null: false
     t.date "birth_day", null: false
     t.integer "sex", null: false
@@ -344,7 +319,6 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.integer "superhost", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["currency_id"], name: "index_users_on_currency_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -371,7 +345,6 @@ ActiveRecord::Schema.define(version: 20180614061858) do
   add_foreign_key "homes", "room_types"
   add_foreign_key "homes", "users"
   add_foreign_key "listing_photos", "homes"
-  add_foreign_key "listing_photos", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "overviews", "homes"
   add_foreign_key "prices", "homes"

@@ -20,7 +20,7 @@ class CreateAmenities < ActiveRecord::Migration[5.1]
       t.boolean    :fire_extinguisher,        default: false
       t.boolean    :disaster_card,            default: false
       t.boolean    :keyed_door,               default: false
-      t.references :home,                     null: false, foreign_key: true
+      t.references :home,                     null: false, foreign_key: true, unique: true
       t.timestamps
     end
   end

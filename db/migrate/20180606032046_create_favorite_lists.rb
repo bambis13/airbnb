@@ -7,6 +7,3 @@ class CreateFavoriteLists < ActiveRecord::Migration[5.1]
     end
   end
 end
-
-# 進捗次第で追加するもの
-# user_id|references|null: false, foreign_key: true

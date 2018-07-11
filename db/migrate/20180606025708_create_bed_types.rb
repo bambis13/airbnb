@@ -5,7 +5,7 @@ class CreateBedTypes < ActiveRecord::Migration[5.1]
       t.integer     :double_bed
       t.integer     :queen_bed
       t.integer     :sofa_bed
-      t.references  :home,      null: false, foreign_key: true
+      t.references  :home,      null: false, foreign_key: true, unique: true
       t.timestamps
     end
   end

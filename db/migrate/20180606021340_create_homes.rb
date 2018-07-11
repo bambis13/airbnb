@@ -4,7 +4,7 @@ class CreateHomes < ActiveRecord::Migration[5.1]
       t.integer       :capacity,            null: false
       t.integer       :number_of_bedroom ,  null: false
       t.integer       :number_of_bathroom,  null: false
-      t.integer       :bathroom_for_guest,  null: false
+      t.integer       :number_of_beds,      null: false
       t.string        :postalcode,          null: false
       t.string        :prefecture,          null: false
       t.string        :town,                null: false, index: true
