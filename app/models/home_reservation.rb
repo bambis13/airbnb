@@ -5,6 +5,10 @@ class HomeReservation < ApplicationRecord
   belongs_to :user
   belongs_to :home
 
+  scope :only_dates,->{ select("checkin_date,checkout_date")}
+  scope :with_checkout_later,->(date){ where "checkout_date > ?",date }
+  scope :with_checkin_date_between,->(shortest_checkout_date, longest_checkout_date){where "? <= checkin_date and checkin_date < ?", shortest_checkout_date, longest_checkout_date}
+
   validates :checkin_date,
             :checkout_date,
             :number_of_adults,
@@ -41,12 +45,21 @@ class HomeReservation < ApplicationRecord
   end
 
   def guests_sum_cannot_over_capacity
-    capacity = home.capacity
+    capacity   = home.capacity
     guests_sum = number_of_adults + number_of_children
     errors.add(:number_of_adults, ": 一度に宿泊可能な人数は最大#{capacity}人です") if guests_sum > capacity
   end
 
-  scope :only_dates,->{ select("checkin_date,checkout_date")}
-  scope :with_checkout_later,->(date){ where "checkout_date > ?",date }
-  scope :with_checkin_date_between,->(shortest_checkout_date, longest_checkout_date){where "? <= checkin_date and checkin_date < ?", shortest_checkout_date, longest_checkout_date}
+  def total_fee_must_be_calculated_correctly
+    stay_days      = calc_stay_days(checkin_date, checkout_date)
+    guests_sum     = number_of_adults + number_of_children
+    params         = {days: stay_days, guests_sum: guests_sum}
+    expected_price = home.calc_prices(params)
+    errors.add(:total_fee, ": 金額に誤りがあります") unless total_fee == expected_price[:total]
+  end
+
+  def calc_guests_sum(adults_num,children_num)
+    return adults_num + children_num
+  end
+
 end
