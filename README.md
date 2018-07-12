@@ -35,7 +35,7 @@ superhost|enum|default: 0
 created_at|timestamps|null: false |
 updated_at|timestamps|null: false |
 country_id|references|null: false, foreign_key: true, index: true
-currency_id|references|null: false,foreign_key: true, index: true
+currency_id|references|null: false, foreign_key: true, index: true
 language_id|references|null: false, foreign_key: true, index: true
 
 
@@ -318,7 +318,7 @@ has_and_belongs_to_many :home_category_subs
 #### Home_category_mains_table
 |Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false |
 ___
 
 ### Home_category_sub
@@ -332,7 +332,7 @@ has_and_belongs_to_many :home_category_mains
 #### Home_category_subs_table
 |Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false |
 ___
 
 ### Home_category_main_sub
@@ -369,7 +369,7 @@ has_many :users
 #### Languages_table
 |Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false |
 ___
 
 
@@ -381,7 +381,7 @@ has_many :users, :homes
 #### Currencies_table
 |Column|Type|Options|
 -|-|-
-name|string| |
+name|string|null: false |
 ___
 
 ### Room_type
