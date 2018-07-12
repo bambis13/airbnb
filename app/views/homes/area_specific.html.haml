@@ -1,25 +1,24 @@
-._1ibtygfe.clearfix
-  ._1mtjcg0
-    %h1.bold
-      = "#{@area_name}で探す"
-  ._1ob6ca33
-    %a.square_btn.margin10px{href: '/homes'}
-      .btn-image.inline
-        = image_tag("search_homes.png")
-      .btn-text.inline
-        %h2.bold.left 宿泊先
-    %a.square_btn.margin10px{href: '#'}
-      .btn-image.inline
-        = image_tag("search_experiences.png")
-      .btn-text.inline
-        %h2.bold.left 体験
+.top-tag.clearfix
+  %h1.bold
+    = "#{@area_name}で探す"
+  %a.square_btn.margin10px{href: '/homes'}
+    .btn-image.inline
+      = image_tag("search_homes.png")
+    .btn-text.inline
+      %h2.bold.left 宿泊先
+  %a.square_btn.margin10px{href: '#'}
+    .btn-image.inline
+      = image_tag("search_experiences.png")
+    .btn-text.inline
+      %h2.bold.left 体験
 .listings
+  / [TODO]総合評価と総宿泊者数が多い順
   %h1.bold 泊まる
   = render partial: 'listing-s', collection: @homes, as: :home
-  %a.showall.bold{:href => "/"} すべて見る(2000+) >
+  %a.showall.bold{href: "homes/homes"} すべて見る(2000+) >
+= render 'share-check'
 .listings
   %h1.bold スーパーホストのリスティングに滞在しよう
   %p 品質と快適性は認証済み。新しいホームセレクションです
   = render partial: 'listing-s', collection: @homes_super, as: :home
-  %a.showall.bold{:href => "/"} すべて見る(2000+) >
-= render 'share-check'
+  %a.showall.bold{href: "/"} すべて見る(2000+) >

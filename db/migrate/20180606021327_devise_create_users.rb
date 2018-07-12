@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## add_column
       t.string     :name,              null: false, index: true
+      t.text       :avatar,            null: false
       t.date       :birth_day,         null: false
       t.integer    :sex,               null: false
       t.string     :phone_number,      null: false, unique: true

@@ -92,7 +92,7 @@ Faker::Config.locale = :ja
   home_c              = Home.count
   home_id             = home_c + 1
 
-  50.times do |n|
+  30.times do |n|
       rand_1to5 = rand(1..5)
       user_id   = rand(1..user_c)
 
@@ -102,10 +102,15 @@ Faker::Config.locale = :ja
         number_of_bathroom:   rand_1to5,
         number_of_beds:       rand(1..10),
         postalcode:           Faker::Address.postcode,
-        # prefecture:           "ニューヨーク",
+        prefecture:           "ニューヨーク",
         # prefecture:           "パリ",
         # prefecture:           "バルセロナ",
-        prefecture:           Faker::Address.state,
+        # prefecture:           "シドニー",
+        # prefecture:           "ケープタウン",
+        # prefecture:           "ソウル",
+        # prefecture:           "ロサンゼルス",
+        # prefecture:           "東京都",
+        # prefecture:           Faker::Address.state,
         town:                 Faker::Pokemon.location,
         street:               Faker::Address.street_name,
         building:             Faker::OnePiece.character + "building",

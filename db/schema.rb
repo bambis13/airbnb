@@ -308,6 +308,7 @@ ActiveRecord::Schema.define(version: 20180614061858) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string "name", null: false
+    t.text "avatar", null: false
     t.date "birth_day", null: false
     t.integer "sex", null: false
     t.string "phone_number", null: false
