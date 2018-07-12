@@ -8,7 +8,7 @@ class CreateHomeRules < ActiveRecord::Migration[5.1]
       t.boolean     :accept_pet,         default: false
       t.boolean     :accept_smoking,     default: false
       t.boolean     :accept_event_party, default: false
-      t.references :home,                null: false, foreign_key: true
+      t.references  :home,                null: false, foreign_key: true, unique: true
       t.timestamps
     end
   end
