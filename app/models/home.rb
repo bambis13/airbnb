@@ -22,11 +22,22 @@ class Home < ApplicationRecord
   belongs_to                :currency
   belongs_to                :home_category_sub
 
-  accepts_nested_attributes_for :additional_home_rules, :amenity, :bed_type, :available_space, :overview, :availability_setting, :price, :home_rule, :additional_home_rule, :home_notification, allow_destroy: true, reject_if: :reject_additional_home_rules
+  accepts_nested_attributes_for :additional_home_rules,
+                                :amenity,
+                                :bed_type,
+                                :available_space,
+                                :overview,
+                                :availability_setting,
+                                :price,
+                                :home_rule,
+                                :additional_home_rule,
+                                :home_notification,
+                                allow_destroy: true,
+                                reject_if: :reject_additional_home_rules
 
-  scope :sphost_home, -> { where user_id: User.superhost.ids }
+  scope :sphost_home,   -> { where user_id: User.superhost.ids }
   scope :by_prefecture, ->(string) { where(prefecture: string) }
-  scope :random, ->{ order("RAND()") }
+  scope :random,        ->{ order("RAND()") }
 
   def reject_additional_home_rules(attributes)
     attributes['content'].blank?
