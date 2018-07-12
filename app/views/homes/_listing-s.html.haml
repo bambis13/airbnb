@@ -8,7 +8,7 @@
         = image_tag(photo.image)
   = link_to home_path(home) do
     .listing-s__text
-      %p.listing-category.bold #{home.home_category_sub.name}
+      %p.listing-category.bold #{home.prefecture}・#{home.home_category_sub.name}
       %p.listing-title.bold #{home.name}
       %p.listing-price ¥#{home.price.default_price} /泊・キャンセル無料
       - if (home.user.superhost == "super")

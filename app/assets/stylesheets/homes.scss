@@ -215,22 +215,22 @@ h3{
     .slick-prev,.slick-next{
       top: 48%;
       height: 96.5%;
-      width: 40px;
+      width: 30px;
       margin-bottom: 10px;
       border: none;
-      opacity: 0.4;
+      opacity: 0.6;
     }
     .slick-prev{
       border-radius: $listing-s-image 0 0 $listing-s-image;
-      background: -moz-linear-gradient(left, $lightBlack,70%, transparent);
-      background: -webkit-linear-gradient(left, $lightBlack,70%, transparent);
-      background: linear-gradient(to right, $lightBlack,70%, transparent);
+      background: -moz-linear-gradient(left, $lightBlack,15%, transparent);
+      background: -webkit-linear-gradient(left, $lightBlack,15%, transparent);
+      background: linear-gradient(to right, $lightBlack,15%, transparent);
     }
     .slick-next{
       border-radius: 0 $listing-s-image $listing-s-image 0;
-      background: -moz-linear-gradient(right, $fontBlack,70%, transparent);
-      background: -webkit-linear-gradient(right, $fontBlack,70%, transparent);
-      background: linear-gradient(to left, $fontBlack,70%, transparent);
+      background: -moz-linear-gradient(right, $fontBlack,15%, transparent);
+      background: -webkit-linear-gradient(right, $fontBlack,15%, transparent);
+      background: linear-gradient(to left, $fontBlack,15%, transparent);
     }
   }
   .listing-x{

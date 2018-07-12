@@ -3,29 +3,29 @@ class HomesController < ApplicationController
   before_action :get_homes, only: [:index, :homes, :search, :area_specific]
 
   def index
-    @homes = @homes[0..4]
-    @homes_newyork = @homes_newyork[0..4]
+    @homes_limited   = @homes[0..4]
+    @homes_newyork   = @homes_newyork[0..4]
     @homes_barcelona = @homes_barcelona[0..4]
-    @homes_paris = @homes_paris[0..4]
-    @homes_super = @homes_super[0..4]
+    @homes_paris     = @homes_paris[0..4]
+    @homes_super     = @homes_super[0..4]
   end
 
   def area_specific
-    @homes = @homes.by_prefecture(params[:prefecture])
-    @homes_super = @homes.sphost_home
-    @area_name = params[:prefecture]
+    @homes       = @homes.by_prefecture(params[:prefecture]).limit(10)
+    @homes_super = @homes.sphost_home.limit(10)
+    @area_name   = params[:prefecture]
   end
 
   def family
-    @homes_family = Home.all
+    @homes_family = Home.random
   end
 
   def business
-    @homes_business = Home.all
+    @homes_business = Home.random
   end
 
   def homes
-    @homes = @homes[0..9]
+    @homes_limited = @homes[0..9]
     if params[:capacity]
       @homes = Home.joins(:home_rule).where(home_rules: { accept_kids: params[:children], accept_babies: params[:babies] }).where("capacity > ?", params[:capacity])
     end
@@ -40,14 +40,14 @@ class HomesController < ApplicationController
   end
 
   def show
-    @beds      = BedType.where(home_id: params[:id])
-    @rules     = @home.home_rule
-    @amenities = @home.amenity
-    @host      = @home.user
-    @photos    = @home.listing_photos
-    @cancel    = @home.cancel_policy
+    @beds             = BedType.where(home_id: params[:id])
+    @rules            = @home.home_rule
+    @amenities        = @home.amenity
+    @host             = @home.user
+    @photos           = @home.listing_photos
+    @cancel           = @home.cancel_policy
     @home_reservation = HomeReservation.new
-    @space     = AvailableSpace.find_by(home_id: params[:id])
+    @space            = AvailableSpace.find_by(home_id: params[:id])
   end
 
   def new
@@ -101,10 +101,10 @@ class HomesController < ApplicationController
   end
 
   def get_homes
-    @homes = Home.all
-    @homes_newyork = @homes.by_prefecture("ニューヨーク")
+    @homes           = Home.all
+    @homes_newyork   = @homes.by_prefecture("ニューヨーク")
     @homes_barcelona = @homes.by_prefecture("バルセロナ")
-    @homes_paris = @homes.by_prefecture("パリ")
-    @homes_super = @homes.sphost_home
+    @homes_paris     = @homes.by_prefecture("パリ")
+    @homes_super     = @homes.sphost_home
   end
 end

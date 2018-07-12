@@ -8,8 +8,8 @@ class HomeReservationsController < ApplicationController
 
   def new
     if params[:checkin].present?
-      shortest_checkout_date     = view_context.calc_default_checkout(@home.availability_setting.minimum_accomodation_range, params[:checkin])
-      base_longest_checkout_date = view_context.calc_default_checkout(@home.availability_setting.muximum_accomodation_range, params[:checkin])
+      shortest_checkout_date     = view_context.calc_default_checkout(@home.availability_setting.min_accomodation_range, params[:checkin])
+      base_longest_checkout_date = view_context.calc_default_checkout(@home.availability_setting.max_accomodation_range, params[:checkin])
       earliest_booked_date       = @home_reservations.only_dates.with_checkin_date_between(shortest_checkout_date, base_longest_checkout_date).sort[0]
       longest_checkout_date      = earliest_booked_date.present? ? earliest_booked_date.checkin_date.to_s : base_longest_checkout_date
       respond_to do |format|
@@ -36,7 +36,7 @@ class HomeReservationsController < ApplicationController
 
   def show
     reservation_dates     = @home_reservations.only_dates.with_checkout_later(Date.today)
-    disable_dates         = view_context.generate_disable_dates(reservation_dates, @home.availability_setting.minimum_accomodation_range)
+    disable_dates         = view_context.generate_disable_dates(reservation_dates, @home.availability_setting.min_accomodation_range)
     first_checkin_date    = view_context.generate_minDate_str(@home.availability_setting.reservation_deadline)
     last_checkin_date     = view_context.generate_maxDate_str(@home.availability_setting.acceptable_month_ahead)
     respond_to do |format|
