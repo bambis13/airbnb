@@ -1,3 +1,3 @@
 class Overview < ApplicationRecord
-  belongs_to :home
+  belongs_to :home,  dependent: :destroy
 end

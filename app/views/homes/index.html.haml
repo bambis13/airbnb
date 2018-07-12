@@ -2,9 +2,9 @@
 = render 'airbnbplus'
 .listings
   %h1.bold 世界中のリスティング
-  = render partial: 'listing-s', collection: @homes, as: :home
+  = render partial: 'listing-s', collection: @homes_limited, as: :home
 
-  %a.showall.bold{href: "#"} すべて見る(2000+) >
+  %a.showall.bold{href: "homes/homes"} すべて見る(2000+) >
 = render 'listing-xl'
 = render 'listing-m'
 .listings
@@ -16,12 +16,12 @@
 .listings
   %h1.bold ニューヨークのお家
   = render partial: 'listing-s', collection: @homes_newyork, as: :home
-  %a.showall.bold{href: "#"} すべて見る(2000+) >
+  %a.showall.bold{href: "/ニューヨーク"} すべて見る(2000+) >
 .listings
   %h1.bold バルセロナのお家
   = render partial: 'listing-s', collection: @homes_barcelona, as: :home
-  %a.showall.bold{href: "#"} すべて見る(2000+) >
+  %a.showall.bold{href: "/バルセロナ"} すべて見る(2000+) >
 .listings
   %h1.bold パリのお家
   = render partial: 'listing-s', collection: @homes_paris, as: :home
-  %a.showall.bold{href: "#"} すべて見る(2000+) >
+  %a.showall.bold{href: "/パリ"} すべて見る(2000+) >
