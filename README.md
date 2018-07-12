@@ -5,7 +5,7 @@ Database_Design
 > mysql2 - _0.3.18_
 ___
 
-*-------------------- User関連 --------------------*
+### _______________________ User関連 _______________________
 
 ### User
 #### association
@@ -38,7 +38,7 @@ currency_id|references|null: false,foreign_key: true, index: true
 language_id|references|null: false, foreign_key: true, index: true
 ___
 
-*-------------------- Home関連 --------------------*
+### _______________________ Home関連 _______________________
 
 ### Home
 #### association
@@ -276,7 +276,7 @@ transportation|text|  |
 home_id|references|null: false, foreign_key: true, unique: true
 ___
 
-*-------------------- 機能 --------------------*
+### _______________________ 機能 _______________________
 
 ### Home_reservation
 #### association
@@ -306,7 +306,7 @@ home_id|references|null: false, foreign_key: true
 [ checkin_date, checkout_date, home_id ], unique: true
 ___
 
-*-------------------- Settings --------------------*
+### _______________________ Settings _______________________
 
 ### Home_category_main
 #### association
